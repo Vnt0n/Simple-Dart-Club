@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IntroView: View {
+struct HomeView: View {
     var body: some View {
             Image("dartClub-cover")
                 .ignoresSafeArea()
@@ -15,5 +15,5 @@ struct IntroView: View {
 }
 
 #Preview {
-    IntroView()
+    HomeView()
 }
