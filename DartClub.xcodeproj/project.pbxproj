@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95082BB1B93B008691F4 /* DartClubApp.swift */; };
-		711B950B2BB1B93B008691F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* ContentView.swift */; };
+		711B950B2BB1B93B008691F4 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* IntroView.swift */; };
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
 		711B95102BB1B93C008691F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */; };
 		711B951A2BB1B93C008691F4 /* DartClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95192BB1B93C008691F4 /* DartClubTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		711B95052BB1B93B008691F4 /* DartClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		711B95082BB1B93B008691F4 /* DartClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubApp.swift; sourceTree = "<group>"; };
-		711B950A2BB1B93B008691F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		711B950A2BB1B93B008691F4 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		711B950C2BB1B93C008691F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		711B95152BB1B93C008691F4 /* DartClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				711B95082BB1B93B008691F4 /* DartClubApp.swift */,
-				711B950A2BB1B93B008691F4 /* ContentView.swift */,
+				711B950A2BB1B93B008691F4 /* IntroView.swift */,
 				711B950C2BB1B93C008691F4 /* Assets.xcassets */,
 				711B950E2BB1B93C008691F4 /* Preview Content */,
 			);
@@ -257,7 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				711B950B2BB1B93B008691F4 /* ContentView.swift in Sources */,
+				711B950B2BB1B93B008691F4 /* IntroView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,8 +427,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,8 +455,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,15 +7,13 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct IntroView: View {
     var body: some View {
-        VStack {
             Image("dartClub-cover")
                 .ignoresSafeArea()
-        }
     }
 }
 
 #Preview {
-    ContentView()
+    IntroView()
 }
