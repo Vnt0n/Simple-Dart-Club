@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95082BB1B93B008691F4 /* DartClubApp.swift */; };
+		711B950B2BB1B93B008691F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* ContentView.swift */; };
+		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
+		711B95102BB1B93C008691F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */; };
+		711B951A2BB1B93C008691F4 /* DartClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95192BB1B93C008691F4 /* DartClubTests.swift */; };
+		711B95242BB1B93C008691F4 /* DartClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95232BB1B93C008691F4 /* DartClubUITests.swift */; };
+		711B95262BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		711B95162BB1B93C008691F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711B94FD2BB1B93B008691F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 711B95042BB1B93B008691F4;
+			remoteInfo = DartClub;
+		};
+		711B95202BB1B93C008691F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 711B94FD2BB1B93B008691F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 711B95042BB1B93B008691F4;
+			remoteInfo = DartClub;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		711B95052BB1B93B008691F4 /* DartClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		711B95082BB1B93B008691F4 /* DartClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubApp.swift; sourceTree = "<group>"; };
+		711B950A2BB1B93B008691F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		711B950C2BB1B93C008691F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		711B95152BB1B93C008691F4 /* DartClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		711B95192BB1B93C008691F4 /* DartClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubTests.swift; sourceTree = "<group>"; };
+		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		711B95232BB1B93C008691F4 /* DartClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubUITests.swift; sourceTree = "<group>"; };
+		711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		711B95022BB1B93B008691F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B95122BB1B93C008691F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B951C2BB1B93C008691F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		711B94FC2BB1B93B008691F4 = {
+			isa = PBXGroup;
+			children = (
+				711B95072BB1B93B008691F4 /* DartClub */,
+				711B95182BB1B93C008691F4 /* DartClubTests */,
+				711B95222BB1B93C008691F4 /* DartClubUITests */,
+				711B95062BB1B93B008691F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		711B95062BB1B93B008691F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				711B95052BB1B93B008691F4 /* DartClub.app */,
+				711B95152BB1B93C008691F4 /* DartClubTests.xctest */,
+				711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		711B95072BB1B93B008691F4 /* DartClub */ = {
+			isa = PBXGroup;
+			children = (
+				711B95082BB1B93B008691F4 /* DartClubApp.swift */,
+				711B950A2BB1B93B008691F4 /* ContentView.swift */,
+				711B950C2BB1B93C008691F4 /* Assets.xcassets */,
+				711B950E2BB1B93C008691F4 /* Preview Content */,
+			);
+			path = DartClub;
+			sourceTree = "<group>";
+		};
+		711B950E2BB1B93C008691F4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		711B95182BB1B93C008691F4 /* DartClubTests */ = {
+			isa = PBXGroup;
+			children = (
+				711B95192BB1B93C008691F4 /* DartClubTests.swift */,
+			);
+			path = DartClubTests;
+			sourceTree = "<group>";
+		};
+		711B95222BB1B93C008691F4 /* DartClubUITests */ = {
+			isa = PBXGroup;
+			children = (
+				711B95232BB1B93C008691F4 /* DartClubUITests.swift */,
+				711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */,
+			);
+			path = DartClubUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		711B95042BB1B93B008691F4 /* DartClub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711B95292BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClub" */;
+			buildPhases = (
+				711B95012BB1B93B008691F4 /* Sources */,
+				711B95022BB1B93B008691F4 /* Frameworks */,
+				711B95032BB1B93B008691F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DartClub;
+			productName = DartClub;
+			productReference = 711B95052BB1B93B008691F4 /* DartClub.app */;
+			productType = "com.apple.product-type.application";
+		};
+		711B95142BB1B93C008691F4 /* DartClubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711B952C2BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClubTests" */;
+			buildPhases = (
+				711B95112BB1B93C008691F4 /* Sources */,
+				711B95122BB1B93C008691F4 /* Frameworks */,
+				711B95132BB1B93C008691F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				711B95172BB1B93C008691F4 /* PBXTargetDependency */,
+			);
+			name = DartClubTests;
+			productName = DartClubTests;
+			productReference = 711B95152BB1B93C008691F4 /* DartClubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		711B951E2BB1B93C008691F4 /* DartClubUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 711B952F2BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClubUITests" */;
+			buildPhases = (
+				711B951B2BB1B93C008691F4 /* Sources */,
+				711B951C2BB1B93C008691F4 /* Frameworks */,
+				711B951D2BB1B93C008691F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				711B95212BB1B93C008691F4 /* PBXTargetDependency */,
+			);
+			name = DartClubUITests;
+			productName = DartClubUITests;
+			productReference = 711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		711B94FD2BB1B93B008691F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					711B95042BB1B93B008691F4 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					711B95142BB1B93C008691F4 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 711B95042BB1B93B008691F4;
+					};
+					711B951E2BB1B93C008691F4 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 711B95042BB1B93B008691F4;
+					};
+				};
+			};
+			buildConfigurationList = 711B95002BB1B93B008691F4 /* Build configuration list for PBXProject "DartClub" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 711B94FC2BB1B93B008691F4;
+			productRefGroup = 711B95062BB1B93B008691F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				711B95042BB1B93B008691F4 /* DartClub */,
+				711B95142BB1B93C008691F4 /* DartClubTests */,
+				711B951E2BB1B93C008691F4 /* DartClubUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		711B95032BB1B93B008691F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711B95102BB1B93C008691F4 /* Preview Assets.xcassets in Resources */,
+				711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B95132BB1B93C008691F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B951D2BB1B93C008691F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		711B95012BB1B93B008691F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711B950B2BB1B93B008691F4 /* ContentView.swift in Sources */,
+				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B95112BB1B93C008691F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711B951A2BB1B93C008691F4 /* DartClubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		711B951B2BB1B93C008691F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				711B95262BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift in Sources */,
+				711B95242BB1B93C008691F4 /* DartClubUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		711B95172BB1B93C008691F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 711B95042BB1B93B008691F4 /* DartClub */;
+			targetProxy = 711B95162BB1B93C008691F4 /* PBXContainerItemProxy */;
+		};
+		711B95212BB1B93C008691F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 711B95042BB1B93B008691F4 /* DartClub */;
+			targetProxy = 711B95202BB1B93C008691F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		711B95272BB1B93C008691F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		711B95282BB1B93C008691F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		711B952A2BB1B93C008691F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DartClub/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		711B952B2BB1B93C008691F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DartClub/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClub;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		711B952D2BB1B93C008691F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartClub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DartClub";
+			};
+			name = Debug;
+		};
+		711B952E2BB1B93C008691F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClubTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DartClub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DartClub";
+			};
+			name = Release;
+		};
+		711B95302BB1B93C008691F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DartClub;
+			};
+			name = Debug;
+		};
+		711B95312BB1B93C008691F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LesTreize.DartClubUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DartClub;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		711B95002BB1B93B008691F4 /* Build configuration list for PBXProject "DartClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B95272BB1B93C008691F4 /* Debug */,
+				711B95282BB1B93C008691F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711B95292BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B952A2BB1B93C008691F4 /* Debug */,
+				711B952B2BB1B93C008691F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711B952C2BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B952D2BB1B93C008691F4 /* Debug */,
+				711B952E2BB1B93C008691F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		711B952F2BB1B93C008691F4 /* Build configuration list for PBXNativeTarget "DartClubUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				711B95302BB1B93C008691F4 /* Debug */,
+				711B95312BB1B93C008691F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 711B94FD2BB1B93B008691F4 /* Project object */;
+}
