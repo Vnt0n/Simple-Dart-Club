@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+      
     var body: some View {
-            Image("dartClub-cover")
-                .ignoresSafeArea()
+
+        Image("dartClub-cover")
+            .ignoresSafeArea()
+        
     }
 }
 
