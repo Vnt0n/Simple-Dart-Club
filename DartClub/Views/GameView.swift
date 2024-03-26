@@ -9,27 +9,35 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        ZStack {
-            Color.blue.frame(maxWidth: .infinity)
-            VStack {
-                
-                Spacer()
-                
-                Text("Player 1")
-                Text("501")
-                    .font(.system(size: 140, weight: .bold, design: .default))
-                
-                Spacer()
-                
-                Text("Player 2")
-                Text("501")
-                    .font(.system(size: 140, weight: .bold, design: .default))
-                
-                Spacer()
+        VStack(spacing: 0) {
+            // Moitié supérieure de l'écran (Joueur 1)
+            ZStack {
+                Color.gray
+                    .frame(maxWidth: .infinity)
+                    .edgesIgnoringSafeArea(.top)
+                VStack {
+                    Text("Player 1")
+                    Text("501")
+                        .font(.system(size: 140, weight: .bold, design: .default))
+                }
+                .foregroundColor(.black)
             }
-            .navigationBarBackButtonHidden(true)
+            
+            // Moitié inférieure de l'écran (Joueur 2)
+            ZStack {
+                Color.gray
+                    .frame(maxWidth: .infinity)
+                    .edgesIgnoringSafeArea(.bottom)
+                VStack {
+                    Text("Player 2")
+                    Text("501")
+                        .font(.system(size: 140, weight: .bold, design: .default))
+                }
+                .foregroundColor(.black)
+            }
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.horizontal)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
