@@ -54,14 +54,18 @@ struct FirstScreen: View {
                 Spacer()
                 
                 if !isNameTwoSubmitted {
+
                     Text("Player 2")
-                    
-                    TextField("", text: $player2).TextFieldStyling()
+                    TextField("", text: $player2)
+                        .TextFieldStyling()
+                        .focused($isFocusedPlayer2)
                         .onSubmit {
                             player2 = $player2.wrappedValue
                             isNameTwoSubmitted = true
                         }
-                        .focused($isFocusedPlayer2)
+
+                    Spacer()
+
                 } else {
                     Text(player2)
                 }
@@ -73,7 +77,8 @@ struct FirstScreen: View {
                     if showPlayer3 {
                         Text("Player 3")
 
-                        TextField("", text: $player3).TextFieldStyling()
+                        TextField("", text: $player3)
+                            .TextFieldStyling()
                             .focused($isFocusedPlayer3)
                             .onAppear {
                                 isFocusedPlayer3 = true
@@ -81,19 +86,19 @@ struct FirstScreen: View {
                             .onSubmit {
                                 player3 = $player3.wrappedValue
                                 isNameThreeSubmitted = true
-                              }
+                            }
 
                         Spacer()
 
                     } else {
-                        
                         Button("+ Add a player") {
                             withAnimation(.easeInOut(duration: 0.5)) {
                                 showPlayer3 = true
+                                isNameTwoSubmitted = true // Soumettre le nom du joueur 2 ici
                             }
                         }
                     }
-                        Spacer()
+                    Spacer()
                     
                 } else {
                     Text(player3)
