@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FirstScreen: View {
     
+    @State private var value: String = ""
+    
     var body: some View {
         ZStack {
             Image("Background")
@@ -22,7 +24,7 @@ struct FirstScreen: View {
                 
                 TextField(
                     "",
-                    text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    text: $value)
                 .padding(.horizontal, 50)
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 350)
@@ -36,7 +38,7 @@ struct FirstScreen: View {
                 
                 TextField(
                     "",
-                    text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    text: $value)
                 .padding(.horizontal, 50)
                 .textFieldStyle(.roundedBorder)
                 .frame(width: 350)
@@ -53,8 +55,8 @@ struct FirstScreen: View {
             }   .foregroundColor(.white)
                 .font(.system(size: 24, weight: .bold, design: .default))
                 .shadow(radius: 10)
-
-        }
+                .navigationBarBackButtonHidden(true)
+         }
     }
     
 }

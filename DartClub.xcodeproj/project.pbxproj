@@ -15,6 +15,7 @@
 		711B95242BB1B93C008691F4 /* DartClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95232BB1B93C008691F4 /* DartClubUITests.swift */; };
 		711B95262BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */; };
 		714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstScreen.swift */; };
+		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		711B95232BB1B93C008691F4 /* DartClubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubUITests.swift; sourceTree = "<group>"; };
 		711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		714C51512BB219E80036F6CF /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				711B950A2BB1B93B008691F4 /* HomeView.swift */,
 				714C51512BB219E80036F6CF /* FirstScreen.swift */,
+				71EC38EC2BB31286005822AC /* LaunchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */,
+				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
 				714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */,
 			);
