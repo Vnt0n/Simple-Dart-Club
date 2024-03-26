@@ -110,7 +110,13 @@ struct FirstScreen: View {
                 Spacer()
                 
                 Button("Let's go !") {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    if !player1.isEmpty && !player2.isEmpty {
+                        isNameOneSubmitted = true
+                        isNameTwoSubmitted = true
+                        if showPlayer3 && !player3.isEmpty {
+                            isNameThreeSubmitted = true
+                        }
+                    }
                 }
                 .font(.headline)
                 .foregroundColor(.white)
