@@ -23,6 +23,13 @@ struct FirstScreen: View {
             VStack {
                 
                 Spacer()
+                
+                Image("Logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 280)
+                
+                Spacer()
 
                 Text("Player 1")
                 
