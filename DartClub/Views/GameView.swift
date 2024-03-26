@@ -10,7 +10,8 @@ import SwiftUI
 struct GameView: View {
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text("Player 1")
+            Text("Placeholder")
         }
         .navigationBarBackButtonHidden(true)
     }

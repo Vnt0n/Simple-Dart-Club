@@ -11,12 +11,12 @@
 		711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95082BB1B93B008691F4 /* DartClubApp.swift */; };
 		711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* HomeView.swift */; };
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
-		711B95102BB1B93C008691F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */; };
 		711B951A2BB1B93C008691F4 /* DartClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95192BB1B93C008691F4 /* DartClubTests.swift */; };
 		711B95242BB1B93C008691F4 /* DartClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95232BB1B93C008691F4 /* DartClubUITests.swift */; };
 		711B95262BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */; };
 		714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstScreen.swift */; };
 		71C4685F2BB36E7200587175 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4685E2BB36E7200587175 /* GameView.swift */; };
+		71C468632BB377EC00587175 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C468622BB377EC00587175 /* PlayerData.swift */; };
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,6 @@
 		711B95082BB1B93B008691F4 /* DartClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubApp.swift; sourceTree = "<group>"; };
 		711B950A2BB1B93B008691F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		711B950C2BB1B93C008691F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		711B95152BB1B93C008691F4 /* DartClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		711B95192BB1B93C008691F4 /* DartClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubTests.swift; sourceTree = "<group>"; };
 		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +50,7 @@
 		711B95252BB1B93C008691F4 /* DartClubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartClubUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		714C51512BB219E80036F6CF /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		71C468622BB377EC00587175 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,18 +104,11 @@
 			children = (
 				711B95342BB1EF3C008691F4 /* Views */,
 				711B95082BB1B93B008691F4 /* DartClubApp.swift */,
+				71067E1E2BB32A8E00A727F2 /* Styling.swift */,
 				711B950C2BB1B93C008691F4 /* Assets.xcassets */,
-				711B950E2BB1B93C008691F4 /* Preview Content */,
+				71C468622BB377EC00587175 /* PlayerData.swift */,
 			);
 			path = DartClub;
-			sourceTree = "<group>";
-		};
-		711B950E2BB1B93C008691F4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				711B950F2BB1B93C008691F4 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		711B95182BB1B93C008691F4 /* DartClubTests */ = {
@@ -141,7 +134,6 @@
 				711B950A2BB1B93B008691F4 /* HomeView.swift */,
 				714C51512BB219E80036F6CF /* FirstScreen.swift */,
 				71EC38EC2BB31286005822AC /* LaunchView.swift */,
-				71067E1E2BB32A8E00A727F2 /* Styling.swift */,
 				71C4685E2BB36E7200587175 /* GameView.swift */,
 			);
 			path = Views;
@@ -251,7 +243,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				711B95102BB1B93C008691F4 /* Preview Assets.xcassets in Resources */,
 				711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71067E1F2BB32A8E00A727F2 /* Styling.swift in Sources */,
+				71C468632BB377EC00587175 /* PlayerData.swift in Sources */,
 				711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */,
 				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
