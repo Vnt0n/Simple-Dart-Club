@@ -10,12 +10,17 @@ import SwiftUI
 struct FirstScreen: View {
     
     var body: some View {
-        NavigationView {
-            NavigationLink("Back") {
-                HomeView()
+        ZStack {
+            Image("Background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea(.all)
+            VStack {
+                
             }
         }
     }
+    
 }
 
 #Preview {

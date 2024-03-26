@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
+
     var body: some View {
-        ZStack {
-       
+
             Image("dartClub-cover")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea(.all)
-            
-        }
+
     }
-      
+
 }
 
 #Preview {
