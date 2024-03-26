@@ -8,26 +8,22 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State private var isActive: Bool = false
-    
-    var body: some View {
-        HomeView()
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    isActive = true
-                }
-            }
-            .background(
-                NavigationLink(
-                    destination: FirstScreen(),
-                    isActive: $isActive
-                ) {
-                    EmptyView()
-                }
-            )
-    }
-}
+  @State private var isActive: Bool = false
 
+  var body: some View {
+    NavigationStack { // Wrap LaunchView in NavigationView
+      HomeView()
+        .onAppear {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            isActive = true
+          }
+        }
+        .navigationDestination(isPresented: $isActive) { // Use navigationDestination
+          FirstScreen()
+        }
+    }
+  }
+}
 
 
 #Preview {
