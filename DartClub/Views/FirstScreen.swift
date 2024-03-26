@@ -14,7 +14,12 @@ struct FirstScreen: View {
     @State private var player3: String = ""
 
     @State private var showPlayer3 = false
-    @FocusState private var isFocusedPlayer3: Bool 
+    @FocusState private var isFocusedPlayer2: Bool
+    @FocusState private var isFocusedPlayer3: Bool
+
+    @State private var isNameOneSubmitted = false
+    @State private var isNameTwoSubmitted = false
+    @State private var isNameThreeSubmitted = false
 
 
     var body: some View {
@@ -33,55 +38,65 @@ struct FirstScreen: View {
 
                 Spacer()
 
-                Text("Player 1")
-
-                TextField("", text: $player1).TextFieldStyling()
-                    .onSubmit {
-                        print("OK PLAYER 1")
-                        player1 = $player1.wrappedValue
-                        print("Le joueur 1 est \(player1)")
-                      }
-
-                Spacer()
-
-                Text("Player 2")
-
-                TextField("", text: $player2).TextFieldStyling()
-                    .onSubmit {
-                        print("OK PLAYER 2")
-                        player2 = $player2.wrappedValue
-                        print("Le joueur 1 est TOUJOURS \(player1)")
-                        print("Le joueur 2 est \(player2)")
-                      }
-
-                Spacer()
-
-                if showPlayer3 {
-                    Text("Player 3")
-
-                    TextField("", text: $player3).TextFieldStyling()
-                        .focused($isFocusedPlayer3)
-                        .onAppear {
-                            isFocusedPlayer3 = true
-                        }
+                if !isNameOneSubmitted {
+                    Text("Player 1")
+                    
+                    TextField("", text: $player1).TextFieldStyling()
                         .onSubmit {
-                            print("OK PLAYER 3")
-                            player3 = $player3.wrappedValue
-                            print("Le joueur 1 est ENCORE ET TOUJOURS \(player1)")
-                            print("Le joueur 2 est TOUJOURS \(player2)")
-                            print("Le joueur 3 est \(player3)")
-                          }
-
-                    Spacer()
-
+                            player1 = $player1.wrappedValue
+                            isNameOneSubmitted = true
+                            isFocusedPlayer2 = true
+                        }
                 } else {
+                    Text(player1)
+                }
 
-                    Button("+ Add a player") {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            showPlayer3 = true
+                Spacer()
+                
+                if !isNameTwoSubmitted {
+                    Text("Player 2")
+                    
+                    TextField("", text: $player2).TextFieldStyling()
+                        .onSubmit {
+                            player2 = $player2.wrappedValue
+                            isNameTwoSubmitted = true
+                        }
+                        .focused($isFocusedPlayer2)
+                } else {
+                    Text(player2)
+                }
+
+                Spacer()
+
+                if !isNameThreeSubmitted {
+
+                    if showPlayer3 {
+                        Text("Player 3")
+
+                        TextField("", text: $player3).TextFieldStyling()
+                            .focused($isFocusedPlayer3)
+                            .onAppear {
+                                isFocusedPlayer3 = true
+                            }
+                            .onSubmit {
+                                player3 = $player3.wrappedValue
+                                isNameThreeSubmitted = true
+                              }
+
+                        Spacer()
+
+                    } else {
+                        
+                        Button("+ Add a player") {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                showPlayer3 = true
+                            }
                         }
                     }
-                    Spacer()
+                        Spacer()
+                    
+                } else {
+                    Text(player3)
                 }
 
                 Spacer()
