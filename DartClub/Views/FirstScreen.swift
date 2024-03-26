@@ -92,9 +92,10 @@ struct FirstScreen: View {
 
                     } else {
                         Button("+ Add a player") {
-                            if !player2.isEmpty {
+                            if !player2.isEmpty && !player1.isEmpty {
                                  withAnimation(.easeInOut(duration: 0.5)) {
                                     showPlayer3 = true
+                                    isNameOneSubmitted = true
                                     isNameTwoSubmitted = true
                                 }
                             }
@@ -107,11 +108,27 @@ struct FirstScreen: View {
                 }
 
                 Spacer()
+                
+                Button("Let's go !") {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                }
+                .font(.headline)
+                .foregroundColor(.white)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(10)
 
-            }   .foregroundColor(.white)
-                .font(.system(size: 24, weight: .bold, design: .default))
-                .shadow(radius: 10)
-                .navigationBarBackButtonHidden(true)
+                Spacer()
+                Spacer()
+
+            }
+            .foregroundColor(.white)
+            .font(.system(size: 24, weight: .bold, design: .default))
+            .shadow(radius: 10)
+            .navigationBarBackButtonHidden(true)
+            .frame(width: 200)
+            
          }
     }
 }
