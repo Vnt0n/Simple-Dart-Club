@@ -14,6 +14,8 @@ struct FirstScreen: View {
     @State private var player3: String = ""
     
     @State private var showPlayer3 = false
+    @FocusState private var isFocusedPlayer3: Bool 
+
 
     var body: some View {
         ZStack {
@@ -46,7 +48,12 @@ struct FirstScreen: View {
                 if showPlayer3 {
                     Text("Player 3")
 
-                    TextField("", text: $player3).TextFieldStyling()
+                    TextField("", text: $player3).TextFieldStyling() .focused($isFocusedPlayer3)
+                        .onAppear {
+                            isFocusedPlayer3 = true
+                        }
+
+                    Spacer()
                     
                 } else {
                     
