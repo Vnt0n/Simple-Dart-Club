@@ -11,17 +11,18 @@ struct LaunchView: View {
   @State private var isActive: Bool = false
 
   var body: some View {
-    NavigationStack { // Wrap LaunchView in NavigationView
+    NavigationStack {
       HomeView()
         .onAppear {
           DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             isActive = true
           }
         }
-        .navigationDestination(isPresented: $isActive) { // Use navigationDestination
+        .navigationDestination(isPresented: $isActive) {
           FirstScreen()
         }
     }
+    .preferredColorScheme(.light)
   }
 }
 
