@@ -13,8 +13,8 @@ struct FirstScreen: View {
     @State private var player2: String = ""
     @State private var player3: String = ""
     
-    @State private var isNewPlayerAdded = false
-    
+    @State private var showPlayer3 = false
+
     var body: some View {
         ZStack {
             Image("Background")
@@ -35,19 +35,20 @@ struct FirstScreen: View {
                 TextField("", text: $player2).TextFieldStyling()
 
                 Spacer()
-                
-                if isNewPlayerAdded {
 
-                      Text("Player 3")
+                if showPlayer3 {
+                    Text("Player 3")
 
-                      TextField("", text: $player3).TextFieldStyling()
+                    TextField("", text: $player3).TextFieldStyling()
                     
                 } else {
                     
                     Button("+ Add a player") {
-                        addNewPlayer()
-                        
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            showPlayer3 = true
+                        }
                     }
+                    Spacer()
                 }
                
                 Spacer()
@@ -58,12 +59,8 @@ struct FirstScreen: View {
                 .navigationBarBackButtonHidden(true)
          }
     }
-    
-    func addNewPlayer() {
-      isNewPlayerAdded = true
-    }
-
 }
+
 
 #Preview {
     FirstScreen()
