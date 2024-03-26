@@ -92,9 +92,11 @@ struct FirstScreen: View {
 
                     } else {
                         Button("+ Add a player") {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                showPlayer3 = true
-                                isNameTwoSubmitted = true // Soumettre le nom du joueur 2 ici
+                            if !player2.isEmpty {
+                                 withAnimation(.easeInOut(duration: 0.5)) {
+                                    showPlayer3 = true
+                                    isNameTwoSubmitted = true
+                                }
                             }
                         }
                     }
