@@ -9,11 +9,27 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        VStack {
-            Text("Player 1")
-            Text("Placeholder")
+        ZStack {
+            Color.blue.frame(maxWidth: .infinity)
+            VStack {
+                
+                Spacer()
+                
+                Text("Player 1")
+                Text("501")
+                    .font(.system(size: 140, weight: .bold, design: .default))
+                
+                Spacer()
+                
+                Text("Player 2")
+                Text("501")
+                    .font(.system(size: 140, weight: .bold, design: .default))
+                
+                Spacer()
+            }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
+        .ignoresSafeArea()
     }
 }
 

@@ -126,7 +126,6 @@ struct FirstScreen: View {
                          }
                      }
                     .font(.headline)
-                    .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
