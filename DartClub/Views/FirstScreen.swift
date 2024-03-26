@@ -22,29 +22,13 @@ struct FirstScreen: View {
 
                 Text("Player 1")
                 
-                TextField(
-                    "",
-                    text: $value)
-                .padding(.horizontal, 50)
-                .textFieldStyle(.roundedBorder)
-                .frame(width: 350)
-                .multilineTextAlignment(.center)
-                .disableAutocorrection(true)
-                .foregroundColor(.black)
+                TextField("", text: $value).TextFieldStyling()
                                 
                 Spacer()
                 
                 Text("Player 2")
                 
-                TextField(
-                    "",
-                    text: $value)
-                .padding(.horizontal, 50)
-                .textFieldStyle(.roundedBorder)
-                .frame(width: 350)
-                .multilineTextAlignment(.center)
-                .disableAutocorrection(true)
-                .foregroundColor(.black)
+                TextField("", text: $value).TextFieldStyling()
 
                 Spacer()
 
