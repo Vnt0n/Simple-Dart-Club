@@ -9,7 +9,11 @@ import SwiftUI
 
 struct FirstScreen: View {
     
-    @State private var value: String = ""
+    @State private var player1: String = ""
+    @State private var player2: String = ""
+    @State private var player3: String = ""
+    
+    @State private var isNewPlayerAdded = false
     
     var body: some View {
         ZStack {
@@ -22,17 +26,29 @@ struct FirstScreen: View {
 
                 Text("Player 1")
                 
-                TextField("", text: $value).TextFieldStyling()
+                TextField("", text: $player1).TextFieldStyling()
                                 
                 Spacer()
                 
                 Text("Player 2")
                 
-                TextField("", text: $value).TextFieldStyling()
+                TextField("", text: $player2).TextFieldStyling()
 
                 Spacer()
+                
+                if isNewPlayerAdded {
 
-                Text("+ Add a player")
+                      Text("Player 3")
+
+                      TextField("", text: $player3).TextFieldStyling()
+                    
+                } else {
+                    
+                    Button("+ Add a player") {
+                        addNewPlayer()
+                        
+                    }
+                }
                
                 Spacer()
 
@@ -43,6 +59,10 @@ struct FirstScreen: View {
          }
     }
     
+    func addNewPlayer() {
+      isNewPlayerAdded = true
+    }
+
 }
 
 #Preview {
