@@ -10,7 +10,7 @@ import SwiftUI
 struct GameView: View {
     var body: some View {
         VStack(spacing: 0) {
-            // Moitié supérieure de l'écran (Joueur 1)
+            // Premier tier de l'écran (Joueur 1)
             ZStack {
                 Color.gray
                     .frame(maxWidth: .infinity)
@@ -23,13 +23,24 @@ struct GameView: View {
                 .foregroundColor(.black)
             }
             
-            // Moitié inférieure de l'écran (Joueur 2)
+            // Deuxième tier de l'écran (Joueur 2)
+            ZStack {
+                Color.gray
+                    .frame(maxWidth: .infinity)
+                VStack {
+                    Text("Player 2")
+                    Text("501")
+                        .font(.system(size: 140, weight: .bold, design: .default))
+                }
+                .foregroundColor(.black)
+            }
+            // Troisième tier de l'écran (Joueur 3)
             ZStack {
                 Color.gray
                     .frame(maxWidth: .infinity)
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
-                    Text("Player 2")
+                    Text("Player 3")
                     Text("501")
                         .font(.system(size: 140, weight: .bold, design: .default))
                 }

@@ -122,7 +122,7 @@ struct FirstScreen: View {
                              if showPlayer3 && !player3.isEmpty {
                                  isNameThreeSubmitted = true
                              }
-                             navigateToGameView = true // Activate navigation
+                             navigateToGameView = true
                          }
                      }
                     .font(.headline)
