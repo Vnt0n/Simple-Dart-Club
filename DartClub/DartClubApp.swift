@@ -12,9 +12,8 @@ import SwiftData
 struct DartClubApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationView {
                 LaunchView()
-            }
         }
+        .modelContainer(for: Player.self)
     }
 }

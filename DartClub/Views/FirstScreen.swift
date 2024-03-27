@@ -6,14 +6,23 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct FirstScreen: View {
+    @Query(sort: \Player.name) private var players: [Player]
+
+    @Environment(\.modelContext) private var context
+
+    @State private var name1 = ""
+    @State private var score1 = 501
     
-    @State private var player1: String = ""
-    @State private var player2: String = ""
-    @State private var player3: String = ""
+    @State private var name2 = ""
+    @State private var score2 = 501
     
-    @State private var showPlayer3 = false
+    @State private var name3 = ""
+    @State private var score3 = 501
+    
+    @State private var isPlayerAdded = false
     @FocusState private var isFocusedPlayer2: Bool
     @FocusState private var isFocusedPlayer3: Bool
     
@@ -31,6 +40,12 @@ struct FirstScreen: View {
                     .ignoresSafeArea(.all)
                 VStack {
                     
+                    List {
+                        ForEach(players) { player in
+                            Text(player.name)
+                        }
+                    }.foregroundColor(.blue)
+                    
                     Spacer()
                     
                     Image("Logo")
@@ -43,50 +58,51 @@ struct FirstScreen: View {
                     if !isNameOneSubmitted {
                         Text("Player 1")
                         
-                        TextField("", text: $player1).TextFieldStyling()
+                        TextField("", text: $name1).TextFieldStyling()
                             .onSubmit {
-                                player1 = $player1.wrappedValue
-                                isNameOneSubmitted = true
                                 isFocusedPlayer2 = true
+                                let newPlayer = Player(name: name1, score: score1)
+                                context.insert(newPlayer)
+                                isNameOneSubmitted = true
                             }
                     } else {
-                        Text(player1)
+                        Text(name1)
                     }
                     
                     Spacer()
                     
                     if !isNameTwoSubmitted {
-                        
                         Text("Player 2")
-                        TextField("", text: $player2)
+                        
+                        TextField("", text: $name2)
                             .TextFieldStyling()
                             .focused($isFocusedPlayer2)
                             .onSubmit {
-                                player2 = $player2.wrappedValue
+                                let newPlayer = Player(name: name2, score: score2)
+                                context.insert(newPlayer)
                                 isNameTwoSubmitted = true
                             }
-                        
-                        Spacer()
-                        
                     } else {
-                        Text(player2)
+                        Text(name2)
                     }
                     
                     Spacer()
                     
                     if !isNameThreeSubmitted {
                         
-                        if showPlayer3 {
+                        if isPlayerAdded {
+                            
                             Text("Player 3")
                             
-                            TextField("", text: $player3)
+                            TextField("", text: $name3)
                                 .TextFieldStyling()
                                 .focused($isFocusedPlayer3)
                                 .onAppear {
                                     isFocusedPlayer3 = true
                                 }
                                 .onSubmit {
-                                    player3 = $player3.wrappedValue
+                                    let newPlayer = Player(name: name3, score: score3)
+                                    context.insert(newPlayer)
                                     isNameThreeSubmitted = true
                                 }
                             
@@ -94,46 +110,50 @@ struct FirstScreen: View {
                             
                         } else {
                             Button("+ Add a player") {
-                                if !player2.isEmpty && !player1.isEmpty {
+                                if !name1.isEmpty && !name2.isEmpty {
                                     withAnimation(.easeInOut(duration: 0.5)) {
-                                        showPlayer3 = true
-                                        isNameOneSubmitted = true
-                                        isNameTwoSubmitted = true
+                                        isPlayerAdded = true
                                     }
                                 }
                             }
                         }
+                        
                         Spacer()
                         
                     } else {
-                        Text(player3)
+                        Text(name3)
                     }
                     
                     Spacer()
                     
-                     NavigationLink(destination: GameView(), isActive: $navigateToGameView) {
-                         EmptyView()
-                     }
-                     
-                     Button("Let's go !") {
-                         if !player1.isEmpty && !player2.isEmpty {
-                             isNameOneSubmitted = true
-                             isNameTwoSubmitted = true
-                             if showPlayer3 && !player3.isEmpty {
-                                 isNameThreeSubmitted = true
-                             }
-                             navigateToGameView = true
-                         }
-                     }
+                    Button("Let's go !") {
+                        if !name1.isEmpty && !name2.isEmpty {
+                              navigateToGameView = true
+                        }
+                        if !isNameOneSubmitted {
+                            let newPlayer = Player(name: name1, score: score3)
+                            context.insert(newPlayer)
+                        }
+                        if !isNameTwoSubmitted {
+                            let newPlayer = Player(name: name2, score: score3)
+                            context.insert(newPlayer)
+                        }
+                        if isPlayerAdded && !isNameThreeSubmitted {
+                            let newPlayer = Player(name: name3, score: score3)
+                            context.insert(newPlayer)
+                        }
+                    }
                     .font(.headline)
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    
+
                     Spacer()
-                    Spacer()
                     
+                    NavigationLink(destination: GameView(), isActive: $navigateToGameView) {
+                        EmptyView()
+                    }
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 24, weight: .bold, design: .default))
