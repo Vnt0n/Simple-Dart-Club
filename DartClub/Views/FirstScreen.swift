@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct FirstScreen: View {
-    @Query(sort: \Player.name) private var players: [Player]
 
     @Environment(\.modelContext) private var context
 
@@ -39,12 +38,6 @@ struct FirstScreen: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 VStack {
-                    
-                    List {
-                        ForEach(players) { player in
-                            Text(player.name)
-                        }
-                    }.foregroundColor(.blue)
                     
                     Spacer()
                     
