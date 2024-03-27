@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
 
-@Model
 struct TextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
