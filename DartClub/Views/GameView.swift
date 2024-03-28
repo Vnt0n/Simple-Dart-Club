@@ -13,6 +13,11 @@ struct GameView: View {
     var namePlayer2: String
     var namePlayer3: String
     
+    var scorePlayer1: Int = 501
+    var scorePlayer2: Int = 501
+    var scorePlayer3: Int = 501
+
+    
     var body: some View {
         VStack(spacing: 0) {
 
@@ -22,7 +27,7 @@ struct GameView: View {
                     .edgesIgnoringSafeArea(.top)
                 VStack {
                     Text(namePlayer1)
-                    Text("501")
+                    Text("\(scorePlayer1)")
                         .font(.system(size: 140, weight: .bold, design: .default))
                 }
                 .foregroundColor(.black)
@@ -34,7 +39,7 @@ struct GameView: View {
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
                     Text(namePlayer2)
-                    Text("501")
+                    Text("\(scorePlayer2)")
                         .font(.system(size: 140, weight: .bold, design: .default))
                 }
                 .foregroundColor(.black)
@@ -47,7 +52,7 @@ struct GameView: View {
                         .edgesIgnoringSafeArea(.bottom)
                     VStack {
                         Text(namePlayer3)
-                        Text("501")
+                        Text("\(scorePlayer3)")
                             .font(.system(size: 140, weight: .bold, design: .default))
                     }
                     .foregroundColor(.black)

@@ -10,13 +10,8 @@ import SwiftUI
 struct FirstScreen: View {
 
     @State private var namePlayer1 = ""
-    @State private var scorePlayer1 = 501
-    
     @State private var namePlayer2 = ""
-    @State private var scorePlayer2 = 501
-    
     @State private var namePlayer3 = ""
-    @State private var scorePlayer3 = 501
     
     @State private var isPlayerAdded = false
     @FocusState private var isFocusedPlayer2: Bool
