@@ -14,7 +14,7 @@ struct GameView: View {
     var namePlayer3: String
     
     @State private var selectedPlayer: String = ""
-    @State private var currentPlayerIndex: Int = 0 // Ajout de la variable pour suivre le joueur actuel
+    @State private var currentPlayerIndex: Int = 0
     
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
@@ -29,7 +29,7 @@ struct GameView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
-                Color(currentPlayerIndex == 0 ? .yellow : .gray) // Si c'est le tour du joueur 1, la couleur est jaune
+                Color(currentPlayerIndex == 0 ? .yellow : .gray)
                     .frame(maxWidth: .infinity)
                     .edgesIgnoringSafeArea(.top)
                 VStack {
@@ -46,7 +46,7 @@ struct GameView: View {
             }
             
             ZStack {
-                Color(currentPlayerIndex == 1 ? .yellow : .gray) // Si c'est le tour du joueur 2, la couleur est jaune
+                Color(currentPlayerIndex == 1 ? .yellow : .gray)
                     .frame(maxWidth: .infinity)
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
@@ -64,7 +64,7 @@ struct GameView: View {
 
             if !namePlayer3.isEmpty {
                 ZStack {
-                    Color(currentPlayerIndex == 2 ? .yellow : .gray) // Si c'est le tour du joueur 3, la couleur est jaune
+                    Color(currentPlayerIndex == 2 ? .yellow : .gray)
                         .frame(maxWidth: .infinity)
                         .edgesIgnoringSafeArea(.bottom)
                     VStack {
@@ -96,7 +96,6 @@ struct GameView: View {
                             default:
                                 break
                         }
-                        // Change the current player index to the next player
                         currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                     }
                     .presentationDetents([.large])
@@ -107,7 +106,6 @@ struct GameView: View {
             }
         }
         .onAppear {
-            // Mettre le premier joueur sélectionné sur l'écran initial
             selectedPlayer = playerNames.first ?? ""
         }
     }
