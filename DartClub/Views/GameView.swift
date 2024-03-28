@@ -22,6 +22,8 @@ struct GameView: View {
     
     @State private var enterScore = false
     
+    @State private var disableOtherPlayerButtons: Bool = false
+    
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -42,6 +44,7 @@ struct GameView: View {
                             .font(.system(size: 140, weight: .bold, design: .default))
                             .foregroundColor(.black)
                     }
+                    .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0)
                 }
             }
             
@@ -59,6 +62,7 @@ struct GameView: View {
                             .font(.system(size: 140, weight: .bold, design: .default))
                             .foregroundColor(.black)
                     }
+                    .disabled(disableOtherPlayerButtons || currentPlayerIndex != 1)
                 }
             }
 
@@ -77,6 +81,7 @@ struct GameView: View {
                                 .font(.system(size: 140, weight: .bold, design: .default))
                                 .foregroundColor(.black)
                         }
+                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2)
                     }
                 }
             }
@@ -84,32 +89,35 @@ struct GameView: View {
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $enterScore) {
-                    EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
-                        switch selectedPlayer {
-                            case namePlayer1:
-                                scorePlayer1 -= Int(enteredScore) ?? 0
-                            case namePlayer2:
-                                scorePlayer2 -= Int(enteredScore) ?? 0
-                            case namePlayer3:
-                                scorePlayer3 -= Int(enteredScore) ?? 0
-                            default:
-                                break
-                        }
-                        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
-                    }
-                    .presentationDetents([.large])
+            EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
+                switch selectedPlayer {
+                    case namePlayer1:
+                        scorePlayer1 -= Int(enteredScore) ?? 0
+                    case namePlayer2:
+                        scorePlayer2 -= Int(enteredScore) ?? 0
+                    case namePlayer3:
+                        scorePlayer3 -= Int(enteredScore) ?? 0
+                    default:
+                        break
+                }
+                currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                disableOtherPlayerButtons = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    disableOtherPlayerButtons = false
+                }
+            }
+            .presentationDetents([.large])
         }
         .onChange(of: selectedPlayer) {
-            if let index = playerNames.firstIndex(of: selectedPlayer) {
-                currentPlayerIndex = index
-            }
+                    if let index = playerNames.firstIndex(of: selectedPlayer) {
+                        currentPlayerIndex = index
+                    }
         }
         .onAppear {
             selectedPlayer = playerNames.first ?? ""
         }
     }
 }
-
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
