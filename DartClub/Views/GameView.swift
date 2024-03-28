@@ -95,9 +95,9 @@ struct GameView: View {
                         }
                     }
                     .presentationDetents([.large])
-                }
-            }
         }
+    }
+}
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
