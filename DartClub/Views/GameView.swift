@@ -27,10 +27,14 @@ struct GameView: View {
                     .edgesIgnoringSafeArea(.top)
                 VStack {
                     Text(namePlayer1)
-                    Text("\(scorePlayer1)")
-                        .font(.system(size: 140, weight: .bold, design: .default))
+                    Button(action: {
+                        enterScoreForPlayer(player: 1)
+                    }) {
+                        Text("\(scorePlayer1)")
+                            .font(.system(size: 140, weight: .bold, design: .default))
+                            .foregroundColor(.black)
+                    }
                 }
-                .foregroundColor(.black)
             }
             
             ZStack {
@@ -39,10 +43,14 @@ struct GameView: View {
                     .edgesIgnoringSafeArea(.bottom)
                 VStack {
                     Text(namePlayer2)
-                    Text("\(scorePlayer2)")
-                        .font(.system(size: 140, weight: .bold, design: .default))
+                    Button(action: {
+                        enterScoreForPlayer(player: 2)
+                    }) {
+                        Text("\(scorePlayer1)")
+                            .font(.system(size: 140, weight: .bold, design: .default))
+                            .foregroundColor(.black)
+                    }
                 }
-                .foregroundColor(.black)
             }
 
             if !namePlayer3.isEmpty {
@@ -52,16 +60,31 @@ struct GameView: View {
                         .edgesIgnoringSafeArea(.bottom)
                     VStack {
                         Text(namePlayer3)
-                        Text("\(scorePlayer3)")
-                            .font(.system(size: 140, weight: .bold, design: .default))
+                        Button(action: {
+                            enterScoreForPlayer(player: 3)
+                        }) {
+                            Text("\(scorePlayer1)")
+                                .font(.system(size: 140, weight: .bold, design: .default))
+                                .foregroundColor(.black)
+                        }
                     }
-                    .foregroundColor(.black)
                 }
             }
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
     }
+    
+    func enterScoreForPlayer(player: Int) {
+        
+        print("NEW SCORE")
+        // Logique pour permettre au joueur de saisir son score
+        // Par exemple, vous pouvez présenter un clavier numérique
+        // et mettre à jour le score du joueur en conséquence.
+        // Ici, je laisse la logique de mise à jour du score à votre implémentation.
+        
+    }
+    
 }
 
 struct GameView_Previews: PreviewProvider {
