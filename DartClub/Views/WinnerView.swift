@@ -21,8 +21,9 @@ struct WinnerView: View {
         }
         .confettiCannon(counter: $counter, num: 100, radius: 500.0)
         .onAppear {
-            // Simuler un clic sur le bouton
-            self.counter += 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                self.counter += 1
+            }
         }
     }
 }
