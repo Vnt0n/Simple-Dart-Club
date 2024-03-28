@@ -121,14 +121,12 @@ struct FirstScreen: View {
                     .frame(maxWidth: .infinity)
                     .background(Color.blue)
                     .cornerRadius(10)
+                    .navigationDestination(isPresented: $isGameStarted) {
+                        GameView(name1: name1, name2: name2)
+                              }
 
                     Spacer()
                     
-                    NavigationLink(
-                        destination: GameView(name1: name1, name2: name2),
-                        isActive: $isGameStarted) {
-                        EmptyView()
-                    }
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 24, weight: .bold, design: .default))
