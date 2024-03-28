@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EnterScoreView: View {
     
+    var playerName: String
+    
     var namePlayer1: String
     var namePlayer2: String
     var namePlayer3: String
@@ -20,7 +22,7 @@ struct EnterScoreView: View {
     
     var body: some View {
         NavigationStack {
-            Text(namePlayer1)
+            Text(playerName)
             Text("Enter your score")
             TextField("", value: $score, format: .number)
                 .textFieldStyle(.roundedBorder)
@@ -45,6 +47,6 @@ struct EnterScoreView: View {
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterScoreView(namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3")
+        EnterScoreView(playerName: "Player", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3")
     }
 }

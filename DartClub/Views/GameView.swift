@@ -13,6 +13,8 @@ struct GameView: View {
     var namePlayer2: String
     var namePlayer3: String
     
+    @State private var selectedPlayer: String = ""
+    
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
@@ -32,6 +34,7 @@ struct GameView: View {
                     Button(action: {
                         self.enterScoreForPlayer(player: 1)
                         enterScore = true
+                        selectedPlayer = namePlayer1
                     }) {
                         Text("\(scorePlayer1)")
                             .font(.system(size: 140, weight: .bold, design: .default))
@@ -49,6 +52,7 @@ struct GameView: View {
                     Button(action: {
                         self.enterScoreForPlayer(player: 2)
                         enterScore = true
+                        selectedPlayer = namePlayer2
                     }) {
                         Text("\(scorePlayer2)")
                             .font(.system(size: 140, weight: .bold, design: .default))
@@ -67,6 +71,7 @@ struct GameView: View {
                         Button(action: {
                             self.enterScoreForPlayer(player: 3)
                             enterScore = true
+                            selectedPlayer = namePlayer3
                         }) {
                             Text("\(scorePlayer3)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -79,7 +84,7 @@ struct GameView: View {
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $enterScore) {
-            EnterScoreView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+            EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                 .presentationDetents([.medium])
         }
     }
@@ -105,6 +110,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3")
+        GameView(namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3")
     }
 }
