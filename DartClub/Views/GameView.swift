@@ -32,6 +32,7 @@ struct GameView: View {
             ZStack {
                 Color.gray
                     .frame(maxWidth: .infinity)
+                    .edgesIgnoringSafeArea(.bottom)
                 VStack {
                     Text(name2)
                     Text("501")
