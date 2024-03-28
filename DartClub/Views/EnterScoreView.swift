@@ -29,7 +29,7 @@ struct EnterScoreView: View {
         }
  
         Button("OK          ") {
-            print("OK")
+            dismiss()
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)

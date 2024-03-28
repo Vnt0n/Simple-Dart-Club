@@ -16,6 +16,8 @@ struct GameView: View {
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
+    
+    @State private var enterScore = false
 
     
     var body: some View {
@@ -29,6 +31,7 @@ struct GameView: View {
                     Text(namePlayer1)
                     Button(action: {
                         self.enterScoreForPlayer(player: 1)
+                        enterScore = true
                     }) {
                         Text("\(scorePlayer1)")
                             .font(.system(size: 140, weight: .bold, design: .default))
@@ -45,8 +48,9 @@ struct GameView: View {
                     Text(namePlayer2)
                     Button(action: {
                         self.enterScoreForPlayer(player: 2)
+                        enterScore = true
                     }) {
-                        Text("\(scorePlayer1)")
+                        Text("\(scorePlayer2)")
                             .font(.system(size: 140, weight: .bold, design: .default))
                             .foregroundColor(.black)
                     }
@@ -62,8 +66,9 @@ struct GameView: View {
                         Text(namePlayer3)
                         Button(action: {
                             self.enterScoreForPlayer(player: 3)
+                            enterScore = true
                         }) {
-                            Text("\(scorePlayer1)")
+                            Text("\(scorePlayer3)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                                 .foregroundColor(.black)
                         }
@@ -73,6 +78,10 @@ struct GameView: View {
         }
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $enterScore) {
+            EnterScoreView()
+                .presentationDetents([.medium])
+        }
     }
     
     func enterScoreForPlayer(player: Int) {
