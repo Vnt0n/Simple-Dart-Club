@@ -85,7 +85,6 @@ struct GameView: View {
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $enterScore) {
                     EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
-                        // Update the score of the selected player
                         switch selectedPlayer {
                             case namePlayer1:
                                 scorePlayer1 -= Int(enteredScore) ?? 0
