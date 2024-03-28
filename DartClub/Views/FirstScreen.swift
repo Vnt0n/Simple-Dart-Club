@@ -9,14 +9,14 @@ import SwiftUI
 
 struct FirstScreen: View {
 
-    @State private var name1 = ""
-    @State private var score1 = 501
+    @State private var namePlayer1 = ""
+    @State private var scorePlayer1 = 501
     
-    @State private var name2 = ""
-    @State private var score2 = 501
+    @State private var namePlayer2 = ""
+    @State private var scorePlayer2 = 501
     
-    @State private var name3 = ""
-    @State private var score3 = 501
+    @State private var namePlayer3 = ""
+    @State private var scorePlayer3 = 501
     
     @State private var isPlayerAdded = false
     @FocusState private var isFocusedPlayer2: Bool
@@ -49,13 +49,13 @@ struct FirstScreen: View {
                     if !isNameOneSubmitted {
                         Text("Player 1")
                         
-                        TextField("", text: $name1).TextFieldStyling()
+                        TextField("", text: $namePlayer1).TextFieldStyling()
                             .onSubmit {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
                             }
                     } else {
-                        Text(name1)
+                        Text(namePlayer1)
                     }
                     
                     Spacer()
@@ -63,14 +63,14 @@ struct FirstScreen: View {
                     if !isNameTwoSubmitted {
                         Text("Player 2")
                         
-                        TextField("", text: $name2)
+                        TextField("", text: $namePlayer2)
                             .TextFieldStyling()
                             .focused($isFocusedPlayer2)
                             .onSubmit {
                                 isNameTwoSubmitted = true
                             }
                     } else {
-                        Text(name2)
+                        Text(namePlayer2)
                     }
                     
                     Spacer()
@@ -81,7 +81,7 @@ struct FirstScreen: View {
                             
                             Text("Player 3")
                             
-                            TextField("", text: $name3)
+                            TextField("", text: $namePlayer3)
                                 .TextFieldStyling()
                                 .focused($isFocusedPlayer3)
                                 .onAppear {
@@ -95,7 +95,7 @@ struct FirstScreen: View {
                             
                         } else {
                             Button("+ Add a player") {
-                                if !name1.isEmpty && !name2.isEmpty {
+                                if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                                     withAnimation(.easeInOut(duration: 0.5)) {
                                         isPlayerAdded = true
                                     }
@@ -106,13 +106,13 @@ struct FirstScreen: View {
                         Spacer()
                         
                     } else {
-                        Text(name3)
+                        Text(namePlayer3)
                     }
                     
                     Spacer()
                     
                     Button("Let's go !") {
-                        if !name1.isEmpty && !name2.isEmpty {
+                        if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                               isGameStarted = true
                         }
                     }
@@ -122,7 +122,7 @@ struct FirstScreen: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     .navigationDestination(isPresented: $isGameStarted) {
-                        GameView(name1: name1, name2: name2, name3: name3)
+                        GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                               }
 
                     Spacer()
