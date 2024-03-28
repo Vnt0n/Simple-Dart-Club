@@ -15,6 +15,8 @@
 		714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstScreen.swift */; };
 		71C4685F2BB36E7200587175 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4685E2BB36E7200587175 /* GameView.swift */; };
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
+		71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1BC832BB62E3B007F8282 /* WinnerView.swift */; };
+		71F1BC872BB62EBE007F8282 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,7 @@
 		714C51512BB219E80036F6CF /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		71F1BC832BB62E3B007F8282 /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F1BC872BB62EBE007F8282 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +82,7 @@
 			children = (
 				711B95072BB1B93B008691F4 /* DartClub */,
 				711B95062BB1B93B008691F4 /* Products */,
+				71F1BC852BB62EBE007F8282 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,8 +115,16 @@
 				71EC38EC2BB31286005822AC /* LaunchView.swift */,
 				71C4685E2BB36E7200587175 /* GameView.swift */,
 				71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */,
+				71F1BC832BB62E3B007F8282 /* WinnerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		71F1BC852BB62EBE007F8282 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +143,9 @@
 			dependencies = (
 			);
 			name = DartClub;
+			packageProductDependencies = (
+				71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */,
+			);
 			productName = DartClub;
 			productReference = 711B95052BB1B93B008691F4 /* DartClub.app */;
 			productType = "com.apple.product-type.application";
@@ -202,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 711B94FC2BB1B93B008691F4;
+			packageReferences = (
+				71F1BC822BB62DCD007F8282 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = 711B95062BB1B93B008691F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,6 +264,7 @@
 			files = (
 				71067E1F2BB32A8E00A727F2 /* Styling.swift in Sources */,
 				711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */,
+				71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */,
 				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
 				714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */,
@@ -582,6 +602,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		71F1BC822BB62DCD007F8282 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71F1BC822BB62DCD007F8282 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 711B94FD2BB1B93B008691F4 /* Project object */;
 }
