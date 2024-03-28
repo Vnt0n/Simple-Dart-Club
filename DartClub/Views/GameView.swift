@@ -90,10 +90,7 @@ struct GameView: View {
     }
     
     func enterScoreForPlayer(player: Int) {
-        
-        print("NEW SCORE")
-        
-        let enteredNumber: Int = 5
+        let enteredNumber = 0
         
         switch player {
             case 1:
