@@ -18,7 +18,8 @@ struct EnterScoreView: View {
     @Environment(\.dismiss) var dismiss
     @State private var score: Int?
     @FocusState private var isFocused: Bool
-
+    
+    var onScoreEntered: (String) -> Void
     
     var body: some View {
         NavigationStack {
@@ -36,6 +37,7 @@ struct EnterScoreView: View {
         }
  
         Button("OK          ") {
+            onScoreEntered(score != nil ? "\(score!)" : "")
             dismiss()
         }
         .buttonStyle(.borderedProminent)
@@ -47,6 +49,6 @@ struct EnterScoreView: View {
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterScoreView(playerName: "Player", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3")
+        EnterScoreView(playerName: "Player", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3") { _ in }
     }
 }

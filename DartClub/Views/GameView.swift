@@ -32,7 +32,6 @@ struct GameView: View {
                 VStack {
                     Text(namePlayer1)
                     Button(action: {
-                        self.enterScoreForPlayer(player: 1)
                         enterScore = true
                         selectedPlayer = namePlayer1
                     }) {
@@ -50,7 +49,6 @@ struct GameView: View {
                 VStack {
                     Text(namePlayer2)
                     Button(action: {
-                        self.enterScoreForPlayer(player: 2)
                         enterScore = true
                         selectedPlayer = namePlayer2
                     }) {
@@ -69,7 +67,6 @@ struct GameView: View {
                     VStack {
                         Text(namePlayer3)
                         Button(action: {
-                            self.enterScoreForPlayer(player: 3)
                             enterScore = true
                             selectedPlayer = namePlayer3
                         }) {
@@ -84,26 +81,23 @@ struct GameView: View {
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $enterScore) {
-            EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-                .presentationDetents([.medium])
+                    EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
+                        // Update the score of the selected player
+                        switch selectedPlayer {
+                            case namePlayer1:
+                                scorePlayer1 -= Int(enteredScore) ?? 0
+                            case namePlayer2:
+                                scorePlayer2 -= Int(enteredScore) ?? 0
+                            case namePlayer3:
+                                scorePlayer3 -= Int(enteredScore) ?? 0
+                            default:
+                                break
+                        }
+                    }
+                    .presentationDetents([.medium])
+                }
+            }
         }
-    }
-    
-    func enterScoreForPlayer(player: Int) {
-        let enteredNumber = 0
-        
-        switch player {
-            case 1:
-                scorePlayer1 -= enteredNumber
-            case 2:
-                scorePlayer2 -= enteredNumber
-            case 3:
-                scorePlayer3 -= enteredNumber
-            default:
-                break
-        }
-    }
-}
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
