@@ -13,9 +13,9 @@ struct GameView: View {
     var namePlayer2: String
     var namePlayer3: String
     
-    var scorePlayer1: Int = 501
-    var scorePlayer2: Int = 501
-    var scorePlayer3: Int = 501
+    @State private var scorePlayer1: Int = 501
+    @State private var scorePlayer2: Int = 501
+    @State private var scorePlayer3: Int = 501
 
     
     var body: some View {
@@ -28,7 +28,7 @@ struct GameView: View {
                 VStack {
                     Text(namePlayer1)
                     Button(action: {
-                        enterScoreForPlayer(player: 1)
+                        self.enterScoreForPlayer(player: 1)
                     }) {
                         Text("\(scorePlayer1)")
                             .font(.system(size: 140, weight: .bold, design: .default))
@@ -44,7 +44,7 @@ struct GameView: View {
                 VStack {
                     Text(namePlayer2)
                     Button(action: {
-                        enterScoreForPlayer(player: 2)
+                        self.enterScoreForPlayer(player: 2)
                     }) {
                         Text("\(scorePlayer1)")
                             .font(.system(size: 140, weight: .bold, design: .default))
@@ -61,7 +61,7 @@ struct GameView: View {
                     VStack {
                         Text(namePlayer3)
                         Button(action: {
-                            enterScoreForPlayer(player: 3)
+                            self.enterScoreForPlayer(player: 3)
                         }) {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -78,13 +78,20 @@ struct GameView: View {
     func enterScoreForPlayer(player: Int) {
         
         print("NEW SCORE")
-        // Logique pour permettre au joueur de saisir son score
-        // Par exemple, vous pouvez présenter un clavier numérique
-        // et mettre à jour le score du joueur en conséquence.
-        // Ici, je laisse la logique de mise à jour du score à votre implémentation.
         
+        let enteredNumber: Int = 5
+        
+        switch player {
+            case 1:
+                scorePlayer1 -= enteredNumber
+            case 2:
+                scorePlayer2 -= enteredNumber
+            case 3:
+                scorePlayer3 -= enteredNumber
+            default:
+                break
+        }
     }
-    
 }
 
 struct GameView_Previews: PreviewProvider {
