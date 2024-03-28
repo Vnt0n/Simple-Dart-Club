@@ -122,7 +122,7 @@ struct FirstScreen: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     .navigationDestination(isPresented: $isGameStarted) {
-                        GameView(name1: name1, name2: name2)
+                        GameView(name1: name1, name2: name2, name3: name3)
                               }
 
                     Spacer()

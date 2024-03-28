@@ -11,6 +11,7 @@ struct GameView: View {
     
     var name1: String
     var name2: String
+    var name3: String
     
     var body: some View {
         VStack(spacing: 0) {
@@ -39,16 +40,18 @@ struct GameView: View {
                 .foregroundColor(.black)
             }
             // Troisième tier de l'écran (Joueur 3)
-            ZStack {
-                Color.gray
-                    .frame(maxWidth: .infinity)
-                    .edgesIgnoringSafeArea(.bottom)
-                VStack {
-                    Text("Player 3")
-                    Text("501")
-                        .font(.system(size: 140, weight: .bold, design: .default))
+            if !name3.isEmpty {
+                ZStack {
+                    Color.gray
+                        .frame(maxWidth: .infinity)
+                        .edgesIgnoringSafeArea(.bottom)
+                    VStack {
+                        Text("Player 3")
+                        Text("501")
+                            .font(.system(size: 140, weight: .bold, design: .default))
+                    }
+                    .foregroundColor(.black)
                 }
-                .foregroundColor(.black)
             }
         }
         .edgesIgnoringSafeArea(.horizontal)
@@ -58,6 +61,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(name1: "Player 1", name2: "Player 2")
+        GameView(name1: "Player 1", name2: "Player 2", name3: "player3")
     }
 }
