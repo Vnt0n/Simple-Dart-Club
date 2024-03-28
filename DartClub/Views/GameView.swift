@@ -94,7 +94,7 @@ struct GameView: View {
                                 break
                         }
                     }
-                    .presentationDetents([.medium])
+                    .presentationDetents([.large])
                 }
             }
         }
