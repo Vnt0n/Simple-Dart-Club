@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-import SwiftData
 
 @main
-struct DartClubApp: App {
+struct Dart_ClubApp: App {
     var body: some Scene {
         WindowGroup {
-                LaunchView()
+            LaunchView()
         }
-        .modelContainer(for: Player.self)
     }
 }

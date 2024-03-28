@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct GameView: View {
+    
+    var name1: String
+    var name2: String
+    
     var body: some View {
         VStack(spacing: 0) {
             // Premier tier de l'écran (Joueur 1)
@@ -17,7 +20,7 @@ struct GameView: View {
                     .frame(maxWidth: .infinity)
                     .edgesIgnoringSafeArea(.top)
                 VStack {
-                    Text("Player 1")
+                    Text(name1)
                     Text("501")
                         .font(.system(size: 140, weight: .bold, design: .default))
                 }
@@ -29,7 +32,7 @@ struct GameView: View {
                 Color.gray
                     .frame(maxWidth: .infinity)
                 VStack {
-                    Text("Player 2")
+                    Text(name2)
                     Text("501")
                         .font(.system(size: 140, weight: .bold, design: .default))
                 }
@@ -53,6 +56,8 @@ struct GameView: View {
     }
 }
 
-#Preview {
-    GameView()
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView(name1: "Player 1", name2: "Player 2")
+    }
 }

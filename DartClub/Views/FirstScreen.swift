@@ -6,11 +6,8 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct FirstScreen: View {
-
-    @Environment(\.modelContext) private var context
 
     @State private var name1 = ""
     @State private var score1 = 501
@@ -29,7 +26,8 @@ struct FirstScreen: View {
     @State private var isNameTwoSubmitted = false
     @State private var isNameThreeSubmitted = false
     
-    @State private var navigateToGameView = false
+    @State private var isGameStarted = false
+
     
     var body: some View {
         NavigationStack {
@@ -54,8 +52,6 @@ struct FirstScreen: View {
                         TextField("", text: $name1).TextFieldStyling()
                             .onSubmit {
                                 isFocusedPlayer2 = true
-                                let newPlayer = Player(name: name1, score: score1)
-                                context.insert(newPlayer)
                                 isNameOneSubmitted = true
                             }
                     } else {
@@ -71,8 +67,6 @@ struct FirstScreen: View {
                             .TextFieldStyling()
                             .focused($isFocusedPlayer2)
                             .onSubmit {
-                                let newPlayer = Player(name: name2, score: score2)
-                                context.insert(newPlayer)
                                 isNameTwoSubmitted = true
                             }
                     } else {
@@ -94,8 +88,6 @@ struct FirstScreen: View {
                                     isFocusedPlayer3 = true
                                 }
                                 .onSubmit {
-                                    let newPlayer = Player(name: name3, score: score3)
-                                    context.insert(newPlayer)
                                     isNameThreeSubmitted = true
                                 }
                             
@@ -121,19 +113,7 @@ struct FirstScreen: View {
                     
                     Button("Let's go !") {
                         if !name1.isEmpty && !name2.isEmpty {
-                              navigateToGameView = true
-                        }
-                        if !isNameOneSubmitted {
-                            let newPlayer = Player(name: name1, score: score3)
-                            context.insert(newPlayer)
-                        }
-                        if !isNameTwoSubmitted {
-                            let newPlayer = Player(name: name2, score: score3)
-                            context.insert(newPlayer)
-                        }
-                        if isPlayerAdded && !isNameThreeSubmitted {
-                            let newPlayer = Player(name: name3, score: score3)
-                            context.insert(newPlayer)
+                              isGameStarted = true
                         }
                     }
                     .font(.headline)
@@ -144,7 +124,9 @@ struct FirstScreen: View {
 
                     Spacer()
                     
-                    NavigationLink(destination: GameView(), isActive: $navigateToGameView) {
+                    NavigationLink(
+                        destination: GameView(name1: name1, name2: name2),
+                        isActive: $isGameStarted) {
                         EmptyView()
                     }
                 }
@@ -160,6 +142,8 @@ struct FirstScreen: View {
     }
 }
 
-#Preview {
-    FirstScreen()
+struct FirstScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        FirstScreen()
+    }
 }
