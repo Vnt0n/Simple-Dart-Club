@@ -9,6 +9,10 @@ import SwiftUI
 
 struct EnterScoreView: View {
     
+    var namePlayer1: String
+    var namePlayer2: String
+    var namePlayer3: String
+    
     @Environment(\.dismiss) var dismiss
     @State private var score: Int?
     @FocusState private var isFocused: Bool
@@ -16,6 +20,7 @@ struct EnterScoreView: View {
     
     var body: some View {
         NavigationStack {
+            Text(namePlayer1)
             Text("Enter your score")
             TextField("", value: $score, format: .number)
                 .textFieldStyle(.roundedBorder)
@@ -38,6 +43,8 @@ struct EnterScoreView: View {
     }
 }
 
-#Preview {
-    EnterScoreView()
+struct EnterScoreView_Previews: PreviewProvider {
+    static var previews: some View {
+        EnterScoreView(namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3")
+    }
 }

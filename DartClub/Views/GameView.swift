@@ -79,7 +79,7 @@ struct GameView: View {
         .edgesIgnoringSafeArea(.horizontal)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $enterScore) {
-            EnterScoreView()
+            EnterScoreView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                 .presentationDetents([.medium])
         }
     }
