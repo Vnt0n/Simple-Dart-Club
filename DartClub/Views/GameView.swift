@@ -47,7 +47,7 @@ struct GameView: View {
                         .frame(maxWidth: .infinity)
                         .edgesIgnoringSafeArea(.bottom)
                     VStack {
-                        Text("Player 3")
+                        Text(name3)
                         Text("501")
                             .font(.system(size: 140, weight: .bold, design: .default))
                     }
