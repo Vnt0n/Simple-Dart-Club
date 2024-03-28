@@ -11,7 +11,7 @@ import SwiftUI
 struct Dart_ClubApp: App {
     var body: some Scene {
         WindowGroup {
-            LaunchView()
+            EnterScoreView()
         }
     }
 }
