@@ -117,11 +117,10 @@ struct FirstScreen: View {
                               isGameStarted = true
                         }
                     }
-                    .font(.headline)
+                    .disabled(namePlayer1.isEmpty && namePlayer2.isEmpty)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .cornerRadius(10)
                     .navigationDestination(isPresented: $isGameStarted) {
                         GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                     }
