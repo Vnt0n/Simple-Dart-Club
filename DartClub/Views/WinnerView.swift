@@ -16,6 +16,7 @@ struct WinnerView: View {
     var body: some View {
         VStack {
             Text(namePlayer)
+                .padding([.bottom], 10)
             Button(action: {
                 counter += 1
             }) {
