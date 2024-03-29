@@ -92,22 +92,40 @@ struct GameView: View {
             .edgesIgnoringSafeArea(.horizontal)
             .sheet(isPresented: $enterScore) {
                 EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
-                    
                     var newScore = 0
                     
                     switch selectedPlayer {
                     case namePlayer1:
-                        scorePlayer1 -= Int(enteredScore) ?? 0
-                        newScore = scorePlayer1
+                        let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
+                        if tempScore < 0 {
+                            // Afficher la modal avec le message d'erreur
+                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                        } else {
+                            scorePlayer1 = tempScore
+                            newScore = tempScore
+                        }
                     case namePlayer2:
-                        scorePlayer2 -= Int(enteredScore) ?? 0
-                        newScore = scorePlayer2
+                        let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
+                        if tempScore < 0 {
+                            // Afficher la modal avec le message d'erreur
+                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                        } else {
+                            scorePlayer2 = tempScore
+                            newScore = tempScore
+                        }
                     case namePlayer3:
-                        scorePlayer3 -= Int(enteredScore) ?? 0
-                        newScore = scorePlayer3
+                        let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
+                        if tempScore < 0 {
+                            // Afficher la modal avec le message d'erreur
+                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                        } else {
+                            scorePlayer3 = tempScore
+                            newScore = tempScore
+                        }
                     default:
                         break
                     }
+                    
                     if newScore <= 0 {
                         enterScore = false
                         isGameOver = true
@@ -115,15 +133,19 @@ struct GameView: View {
                             currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
                         }
                     } else {
-                        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
-                        disableOtherPlayerButtons = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            disableOtherPlayerButtons = false
+                        // Ne pas mettre à jour le score si le score calculé est négatif
+                        if newScore >= 0 {
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            disableOtherPlayerButtons = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                disableOtherPlayerButtons = false
+                            }
                         }
                     }
                 }
                 .presentationDetents([.large])
             }
+
         }
         .navigationBarBackButtonHidden(true)
         .overlay(
