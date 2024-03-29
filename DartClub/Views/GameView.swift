@@ -113,7 +113,6 @@ struct GameView: View {
                         isGameOver = true
                         DispatchQueue.main.async {
                             currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
-                            let winnerName = selectedPlayer
                         }
                     } else {
                         currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
