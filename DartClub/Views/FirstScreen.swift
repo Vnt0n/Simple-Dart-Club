@@ -21,6 +21,8 @@ struct FirstScreen: View {
     @State private var isNameTwoSubmitted = false
     @State private var isNameThreeSubmitted = false
     
+    @FocusState private var isFocused: Bool
+    
     @State private var isGameStarted = false
 
     
@@ -48,6 +50,10 @@ struct FirstScreen: View {
                             .onSubmit {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
+                            }
+                            .focused($isFocused)
+                            .onAppear {
+                                self.isFocused = true
                             }
                     } else {
                         Text(namePlayer1)

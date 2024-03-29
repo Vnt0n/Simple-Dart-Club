@@ -24,7 +24,7 @@ struct GameView: View {
     @State private var isGameOver = false
     
     @State private var disableOtherPlayerButtons: Bool = false
-    
+        
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -109,7 +109,7 @@ struct GameView: View {
                         break
                     }
                     if newScore <= 0 {
-                        enterScore = false // Dismiss EnterScoreView
+                        enterScore = false
                         isGameOver = true
                         DispatchQueue.main.async {
                             currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
