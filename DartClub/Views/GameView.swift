@@ -98,7 +98,7 @@ struct GameView: View {
                     case namePlayer1:
                         let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            print("NEGATIVE SCORE PLAYER 1")
+                            return
                         } else {
                             scorePlayer1 = tempScore
                             newScore = tempScore
@@ -106,7 +106,7 @@ struct GameView: View {
                     case namePlayer2:
                         let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            print("NEGATIVE SCORE PLAYER 2")
+                            return
                         } else {
                             scorePlayer2 = tempScore
                             newScore = tempScore
@@ -114,7 +114,7 @@ struct GameView: View {
                     case namePlayer3:
                         let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            print("NEGATIVE SCORE PLAYER 3")
+                            return
                         } else {
                             scorePlayer3 = tempScore
                             newScore = tempScore
