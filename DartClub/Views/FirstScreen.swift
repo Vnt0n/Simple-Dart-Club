@@ -118,7 +118,7 @@ struct FirstScreen: View {
                     .cornerRadius(10)
                     .navigationDestination(isPresented: $isGameStarted) {
                         GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-                              }
+                    }
 
                     Spacer()
                     

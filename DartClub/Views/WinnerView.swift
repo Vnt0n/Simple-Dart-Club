@@ -11,11 +11,11 @@ import ConfettiSwiftUI
 struct WinnerView: View {
     
     @State private var counter = 0
-    var namePlayer1: String
+    var namePlayer: String
     
     var body: some View {
         VStack {
-            Text(namePlayer1)
+            Text(namePlayer)
             Button(action: {
                 counter += 1
             }) {
@@ -33,5 +33,5 @@ struct WinnerView: View {
 }
 
 #Preview {
-    WinnerView(namePlayer1: "namePlayer1")
+    WinnerView(namePlayer: "namePlayer")
 }

@@ -10,13 +10,13 @@ import SwiftUI
 struct TestView: View {
     
     @State private var isButtonClicked = false
-    @State private var namePlayer1 = ""
+    @State private var namePlayer = ""
 
     
     var body: some View {
                 
         NavigationStack {
-            TextField("Enter Player Name", text: $namePlayer1)
+            TextField("Enter Player Name", text: $namePlayer)
                             .textFieldStyle(.roundedBorder)
                             .padding()
             Button("OK          ") {
@@ -26,7 +26,7 @@ struct TestView: View {
             .controlSize(.large)
             .padding()
             .navigationDestination(isPresented: $isButtonClicked) {
-                WinnerView(namePlayer1: namePlayer1)
+                WinnerView(namePlayer: namePlayer)
             }
         }
     }
