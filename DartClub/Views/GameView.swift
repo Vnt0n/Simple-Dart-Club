@@ -98,8 +98,7 @@ struct GameView: View {
                     case namePlayer1:
                         let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            // Afficher la modal avec le message d'erreur
-                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                            print("NEGATIVE SCORE PLAYER 1")
                         } else {
                             scorePlayer1 = tempScore
                             newScore = tempScore
@@ -107,8 +106,7 @@ struct GameView: View {
                     case namePlayer2:
                         let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            // Afficher la modal avec le message d'erreur
-                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                            print("NEGATIVE SCORE PLAYER 2")
                         } else {
                             scorePlayer2 = tempScore
                             newScore = tempScore
@@ -116,8 +114,7 @@ struct GameView: View {
                     case namePlayer3:
                         let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
-                            // Afficher la modal avec le message d'erreur
-                            // Vous pouvez utiliser une variable @State pour contrôler l'affichage de la modal
+                            print("NEGATIVE SCORE PLAYER 3")
                         } else {
                             scorePlayer3 = tempScore
                             newScore = tempScore
