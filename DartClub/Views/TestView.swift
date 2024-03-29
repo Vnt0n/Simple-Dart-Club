@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct TestView: View {
+    
+    @State private var isButtonClicked = false
+    
     var body: some View {
-        
-        Button("OK          ") {
-            
+                
+        NavigationStack {
+            Button("OK          ") {
+                isButtonClicked = true
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .padding()
+            .navigationDestination(isPresented: $isButtonClicked) {
+                WinnerView(namePlayer1: "")
+            }
         }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.large)
-        .padding()
-        
     }
 }
 
