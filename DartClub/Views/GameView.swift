@@ -125,14 +125,14 @@ struct GameView: View {
                 }
                 .presentationDetents([.large])
             }
-
-        }.navigationBarBackButtonHidden(true)
-
+        }
+        .navigationBarBackButtonHidden(true)
         .overlay(
-            NavigationLink(destination: WinnerView(namePlayer: selectedPlayer), isActive: $isGameOver) {
-                EmptyView()
-            }
+            EmptyView()
         )
+        .navigationDestination(isPresented: $isGameOver) {
+            WinnerView(namePlayer: selectedPlayer)
+        }
         .onChange(of: selectedPlayer) {
             if let index = playerNames.firstIndex(of: selectedPlayer) {
                 currentPlayerIndex = index
