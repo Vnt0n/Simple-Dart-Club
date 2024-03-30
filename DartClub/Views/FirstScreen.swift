@@ -49,7 +49,7 @@ struct FirstScreen: View {
                     
                     if !isNameOneSubmitted {
                         
-                        TextField("", text: $namePlayer1).TextFieldStyling()
+                        TextField("Player 1", text: $namePlayer1).TextFieldStyling()
                             .onSubmit {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
@@ -65,7 +65,7 @@ struct FirstScreen: View {
                     
                     if !isNameTwoSubmitted {
                         
-                        TextField("", text: $namePlayer2)
+                        TextField("Player 2", text: $namePlayer2)
                             .TextFieldStyling()
                             .focused($isFocusedPlayer2)
                             .onSubmit {
@@ -81,7 +81,7 @@ struct FirstScreen: View {
                         
                         if isPlayerAdded {
                                                         
-                            TextField("", text: $namePlayer3)
+                            TextField("Player 3", text: $namePlayer3)
                                 .TextFieldStyling()
                                 .focused($isFocusedPlayer3)
                                 .onAppear {
