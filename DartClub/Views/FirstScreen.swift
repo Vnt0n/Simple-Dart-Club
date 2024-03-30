@@ -29,8 +29,7 @@ struct FirstScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Image("Background")
-                    .resizable()
+                Color(.gray)
                     .ignoresSafeArea(.all)
                 VStack {
                     
