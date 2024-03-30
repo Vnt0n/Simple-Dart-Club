@@ -10,14 +10,26 @@ import SwiftUI
 struct HomeView: View {
 
     var body: some View {
-
-            Image("dartClub-cover")
-                .resizable()
-                .scaledToFill()
+        ZStack {
+            Color(.black)
                 .ignoresSafeArea(.all)
-
+            VStack {
+                
+                Text("Dart   ")
+                    .font(Font.custom("FightThis", size: 150))
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .rotationEffect(Angle(degrees: 347))
+                    .frame(maxWidth: .infinity)
+                Text("Club   ")
+                    .font(Font.custom("FightThis", size: 150))
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .rotationEffect(Angle(degrees: 347))
+                    .frame(maxWidth: .infinity)
+            }
+        }
     }
-
 }
 
 #Preview {

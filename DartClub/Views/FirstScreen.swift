@@ -31,10 +31,15 @@ struct FirstScreen: View {
                 Color(.black)
                     .ignoresSafeArea(.all)
                 VStack {
-                    Spacer()
                     
-                    Text("Dart Club")
-                        .font(Font.custom("FightThis", size: 80))
+                    Text("Dart   ")
+                        .font(Font.custom("FightThis", size: 90))
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .rotationEffect(Angle(degrees: 347))
+                        .frame(maxWidth: .infinity)
+                    Text("Club   ")
+                        .font(Font.custom("FightThis", size: 90))
                         .foregroundColor(.red)
                         .multilineTextAlignment(.center)
                         .rotationEffect(Angle(degrees: 347))
@@ -43,14 +48,12 @@ struct FirstScreen: View {
                     Spacer()
                     
                     if !isNameOneSubmitted {
-                        Text("Player 1")
                         
                         TextField("", text: $namePlayer1).TextFieldStyling()
                             .onSubmit {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
                             }
-                            .focused($isFocused)
                             .onAppear {
                                 self.isFocused = true
                             }
@@ -61,7 +64,6 @@ struct FirstScreen: View {
                     Spacer()
                     
                     if !isNameTwoSubmitted {
-                        Text("Player 2")
                         
                         TextField("", text: $namePlayer2)
                             .TextFieldStyling()
@@ -78,9 +80,7 @@ struct FirstScreen: View {
                     if !isNameThreeSubmitted {
                         
                         if isPlayerAdded {
-                            
-                            Text("Player 3")
-                            
+                                                        
                             TextField("", text: $namePlayer3)
                                 .TextFieldStyling()
                                 .focused($isFocusedPlayer3)
