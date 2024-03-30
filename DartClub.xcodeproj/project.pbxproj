@@ -13,6 +13,7 @@
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
 		71476FCA2BB5C86A00F5D31D /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */; };
 		714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstScreen.swift */; };
+		71561E2B2BB82AAA006A89DE /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71561E2A2BB82A68006A89DE /* FightThis.ttf */; };
 		71C4685F2BB36E7200587175 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4685E2BB36E7200587175 /* GameView.swift */; };
 		71C48B6D2BB6AD3300EEDB05 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C48B6C2BB6AD3300EEDB05 /* TestView.swift */; };
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
@@ -47,6 +48,8 @@
 		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
 		714C51512BB219E80036F6CF /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		71561E2A2BB82A68006A89DE /* FightThis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FightThis.ttf; sourceTree = "<group>"; };
+		71561E2C2BB834A9006A89DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		71C48B6C2BB6AD3300EEDB05 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 		711B95072BB1B93B008691F4 /* DartClub */ = {
 			isa = PBXGroup;
 			children = (
+				71561E2C2BB834A9006A89DE /* Info.plist */,
+				71561E292BB82A62006A89DE /* Fonts */,
 				711B95342BB1EF3C008691F4 /* Views */,
 				711B95082BB1B93B008691F4 /* DartClubApp.swift */,
 				71067E1E2BB32A8E00A727F2 /* Styling.swift */,
@@ -121,6 +126,14 @@
 				71C48B6C2BB6AD3300EEDB05 /* TestView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		71561E292BB82A62006A89DE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				71561E2A2BB82A68006A89DE /* FightThis.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		71F1BC852BB62EBE007F8282 /* Frameworks */ = {
@@ -241,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */,
+				71561E2B2BB82AAA006A89DE /* FightThis.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +447,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DartClub/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FHUR5528AA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DartClub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -467,10 +482,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DartClub/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = FHUR5528AA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DartClub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

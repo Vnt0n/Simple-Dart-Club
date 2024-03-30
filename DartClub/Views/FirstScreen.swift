@@ -24,21 +24,21 @@ struct FirstScreen: View {
     @FocusState private var isFocused: Bool
     
     @State private var isGameStarted = false
-
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(.gray)
+                Color(.black)
                     .ignoresSafeArea(.all)
                 VStack {
-                    
                     Spacer()
                     
-                    Image("Logo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 280)
+                    Text("Dart Club")
+                        .font(Font.custom("FightThis", size: 80))
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .rotationEffect(Angle(degrees: 347))
+                        .frame(maxWidth: .infinity)
                     
                     Spacer()
                     
