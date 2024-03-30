@@ -24,7 +24,7 @@ struct GameView: View {
     @State private var isGameOver = false
     
     @State private var disableOtherPlayerButtons: Bool = false
-        
+            
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -142,7 +142,6 @@ struct GameView: View {
                 }
                 .presentationDetents([.large])
             }
-
         }
         .navigationBarBackButtonHidden(true)
         .overlay(

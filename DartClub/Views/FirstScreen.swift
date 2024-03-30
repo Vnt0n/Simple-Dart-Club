@@ -116,7 +116,7 @@ struct FirstScreen: View {
                               isGameStarted = true
                         }
                     }
-                    .disabled(namePlayer1.isEmpty && namePlayer2.isEmpty)
+                    .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .padding()
