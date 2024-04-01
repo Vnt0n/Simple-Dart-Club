@@ -24,7 +24,7 @@ struct GameView: View {
     @State private var isGameOver = false
     
     @State private var disableOtherPlayerButtons: Bool = false
-            
+                
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -35,8 +35,6 @@ struct GameView: View {
             VStack(spacing: 0) {
                 ZStack {
                     Color(currentPlayerIndex == 0 ? .yellow : .gray)
-                        .frame(maxWidth: .infinity)
-                        .edgesIgnoringSafeArea(.top)
                     VStack {
                         Text(namePlayer1)
                         Button(action: {
@@ -50,11 +48,10 @@ struct GameView: View {
                         .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0)
                     }
                 }
+                .edgesIgnoringSafeArea(.top)
                 
                 ZStack {
                     Color(currentPlayerIndex == 1 ? .yellow : .gray)
-                        .frame(maxWidth: .infinity)
-                        .edgesIgnoringSafeArea(.bottom)
                     VStack {
                         Text(namePlayer2)
                         Button(action: {
@@ -72,8 +69,6 @@ struct GameView: View {
                 if !namePlayer3.isEmpty {
                     ZStack {
                         Color(currentPlayerIndex == 2 ? .yellow : .gray)
-                            .frame(maxWidth: .infinity)
-                            .edgesIgnoringSafeArea(.bottom)
                         VStack {
                             Text(namePlayer3)
                             Button(action: {
@@ -87,9 +82,9 @@ struct GameView: View {
                             .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2)
                         }
                     }
+                    .edgesIgnoringSafeArea(.bottom)
                 }
             }
-            .edgesIgnoringSafeArea(.horizontal)
             .sheet(isPresented: $enterScore) {
                 EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
                     var newScore = 0
@@ -123,14 +118,13 @@ struct GameView: View {
                         break
                     }
                     
-                    if newScore <= 0 {
+                    if newScore == 0 {
                         enterScore = false
                         isGameOver = true
                         DispatchQueue.main.async {
                             currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
                         }
                     } else {
-                        // Ne pas mettre à jour le score si le score calculé est négatif
                         if newScore >= 0 {
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             disableOtherPlayerButtons = true
