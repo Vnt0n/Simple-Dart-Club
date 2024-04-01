@@ -47,7 +47,7 @@ struct GameView: View {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
-                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0)
+                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0 || scorePlayer1 == 0)
                     }
                     .foregroundColor(scorePlayer1 == 0 ? .white : .black)
                 }
@@ -66,7 +66,7 @@ struct GameView: View {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
-                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 1)
+                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 1 || scorePlayer2 == 0)
                     }
                     .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                 }
@@ -87,7 +87,7 @@ struct GameView: View {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
-                            .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2)
+                            .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2  || scorePlayer3 == 0)
                         }
                         .foregroundColor(scorePlayer3 == 0 ? .white : .black)
                     }
