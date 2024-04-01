@@ -151,13 +151,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(scorePlayer1: $scorePlayer1,
-                           scorePlayer2: $scorePlayer2,
-                           scorePlayer3: $scorePlayer3,
-                           namePlayer: selectedPlayer,
-                           namePlayer1: namePlayer1,
-                           namePlayer2: namePlayer2,
-                           namePlayer3: namePlayer3)
+            WinnerView(currentPlayerIndex: $currentPlayerIndex, playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, namePlayer: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
         .onChange(of: selectedPlayer) {
             if let index = playerNames.firstIndex(of: selectedPlayer) {
@@ -165,7 +159,7 @@ struct GameView: View {
             }
         }
         .onAppear {
-            selectedPlayer = playerNames.first ?? ""
+            selectedPlayer = playerNames[currentPlayerIndex]
         }
     }
 }

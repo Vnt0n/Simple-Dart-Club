@@ -13,6 +13,10 @@ struct WinnerView: View {
     @State private var counter = 0
     @State private var isGameStarted = false
     
+    @Binding var currentPlayerIndex: Int
+    
+    var playerNames: [String]
+    
     @Binding var scorePlayer1: Int
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
@@ -61,12 +65,27 @@ struct WinnerView: View {
         scorePlayer1 = 501
         scorePlayer2 = 501
         scorePlayer3 = 501
+        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
     }
 }
 
 
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
-        WinnerView(scorePlayer1: .constant(501), scorePlayer2: .constant(501), scorePlayer3: .constant(501), namePlayer: "Player 1", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3")
+        let currentPlayerIndex = Binding.constant(0)
+        let playerNames = ["Player1", "Player2", "Player3"]
+        let scorePlayer1 = Binding.constant(501)
+        let scorePlayer2 = Binding.constant(501)
+        let scorePlayer3 = Binding.constant(501)
+        
+        return WinnerView(currentPlayerIndex: currentPlayerIndex,
+                          playerNames: playerNames,
+                          scorePlayer1: scorePlayer1,
+                          scorePlayer2: scorePlayer2,
+                          scorePlayer3: scorePlayer3,
+                          namePlayer: "Player1",
+                          namePlayer1: "Player1",
+                          namePlayer2: "Player2",
+                          namePlayer3: "Player3")
     }
 }
