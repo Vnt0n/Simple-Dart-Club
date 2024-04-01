@@ -17,16 +17,19 @@ struct HomeView: View {
                 
                 Text("Dart   ")
                     .font(Font.custom("FightThis", size: 150))
+                    .shadow(color: Color.red, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
                 Text("Club   ")
                     .font(Font.custom("FightThis", size: 150))
+                    .shadow(color: Color.red, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
+                
             }
         }
     }
