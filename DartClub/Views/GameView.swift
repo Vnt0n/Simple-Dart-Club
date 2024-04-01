@@ -35,6 +35,9 @@ struct GameView: View {
             VStack(spacing: 0) {
                 ZStack {
                     Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                    if scorePlayer1 == 0 {
+                        Color(.black)
+                    }
                     VStack {
                         Text(namePlayer1)
                         Button(action: {
@@ -43,15 +46,17 @@ struct GameView: View {
                         }) {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
-                                .foregroundColor(.black)
                         }
                         .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0)
                     }
+                    .foregroundColor(scorePlayer1 == 0 ? .white : .black)
                 }
                 .edgesIgnoringSafeArea(.top)
                 
                 ZStack {
                     Color(currentPlayerIndex == 1 ? .yellow : .gray)
+                    if scorePlayer2 == 0 {
+                        Color(.black)                  }
                     VStack {
                         Text(namePlayer2)
                         Button(action: {
@@ -60,15 +65,19 @@ struct GameView: View {
                         }) {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
-                                .foregroundColor(.black)
                         }
                         .disabled(disableOtherPlayerButtons || currentPlayerIndex != 1)
                     }
+                    .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                 }
-                
+                .edgesIgnoringSafeArea(.bottom)
+
                 if !namePlayer3.isEmpty {
                     ZStack {
                         Color(currentPlayerIndex == 2 ? .yellow : .gray)
+                        if scorePlayer3 == 0 {
+                            Color(.black)
+                        }
                         VStack {
                             Text(namePlayer3)
                             Button(action: {
@@ -77,10 +86,10 @@ struct GameView: View {
                             }) {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
-                                    .foregroundColor(.black)
                             }
                             .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2)
                         }
+                        .foregroundColor(scorePlayer3 == 0 ? .white : .black)
                     }
                     .edgesIgnoringSafeArea(.bottom)
                 }
