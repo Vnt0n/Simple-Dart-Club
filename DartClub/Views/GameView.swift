@@ -151,7 +151,13 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(namePlayer: selectedPlayer)
+            WinnerView(scorePlayer1: $scorePlayer1,
+                           scorePlayer2: $scorePlayer2,
+                           scorePlayer3: $scorePlayer3,
+                           namePlayer: selectedPlayer,
+                           namePlayer1: namePlayer1,
+                           namePlayer2: namePlayer2,
+                           namePlayer3: namePlayer3)
         }
         .onChange(of: selectedPlayer) {
             if let index = playerNames.firstIndex(of: selectedPlayer) {

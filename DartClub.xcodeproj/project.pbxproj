@@ -12,10 +12,9 @@
 		711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* HomeView.swift */; };
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
 		71476FCA2BB5C86A00F5D31D /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */; };
-		714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstScreen.swift */; };
+		714C51522BB219E80036F6CF /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstView.swift */; };
 		71561E2B2BB82AAA006A89DE /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71561E2A2BB82A68006A89DE /* FightThis.ttf */; };
 		71C4685F2BB36E7200587175 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4685E2BB36E7200587175 /* GameView.swift */; };
-		71C48B6D2BB6AD3300EEDB05 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C48B6C2BB6AD3300EEDB05 /* TestView.swift */; };
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
 		71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1BC832BB62E3B007F8282 /* WinnerView.swift */; };
 		71F1BC872BB62EBE007F8282 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */; };
@@ -47,11 +46,10 @@
 		711B95152BB1B93C008691F4 /* DartClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
-		714C51512BB219E80036F6CF /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		714C51512BB219E80036F6CF /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		71561E2A2BB82A68006A89DE /* FightThis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FightThis.ttf; sourceTree = "<group>"; };
 		71561E2C2BB834A9006A89DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		71C48B6C2BB6AD3300EEDB05 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		71F1BC832BB62E3B007F8282 /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,12 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				711B950A2BB1B93B008691F4 /* HomeView.swift */,
-				714C51512BB219E80036F6CF /* FirstScreen.swift */,
+				714C51512BB219E80036F6CF /* FirstView.swift */,
 				71EC38EC2BB31286005822AC /* LaunchView.swift */,
 				71C4685E2BB36E7200587175 /* GameView.swift */,
 				71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */,
 				71F1BC832BB62E3B007F8282 /* WinnerView.swift */,
-				71C48B6C2BB6AD3300EEDB05 /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,8 +281,7 @@
 				71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */,
 				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
-				714C51522BB219E80036F6CF /* FirstScreen.swift in Sources */,
-				71C48B6D2BB6AD3300EEDB05 /* TestView.swift in Sources */,
+				714C51522BB219E80036F6CF /* FirstView.swift in Sources */,
 				71476FCA2BB5C86A00F5D31D /* EnterScoreView.swift in Sources */,
 				71C4685F2BB36E7200587175 /* GameView.swift in Sources */,
 			);

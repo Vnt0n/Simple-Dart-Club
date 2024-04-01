@@ -19,7 +19,7 @@ struct LaunchView: View {
           }
         }
         .navigationDestination(isPresented: $isActive) {
-          FirstScreen()
+          FirstView()
         }
     }
     .preferredColorScheme(.light)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FirstScreen: View {
+struct FirstView: View {
 
     @State private var namePlayer1 = ""
     @State private var namePlayer2 = ""
@@ -146,6 +146,6 @@ struct FirstScreen: View {
 
 struct FirstScreen_Previews: PreviewProvider {
     static var previews: some View {
-        FirstScreen()
+        FirstView()
     }
 }
