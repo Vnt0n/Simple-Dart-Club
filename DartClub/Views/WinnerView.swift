@@ -45,7 +45,7 @@ struct WinnerView: View {
             }
             
             Button("New game") {
-                resetScores()
+                newGame()
                 isGameStarted = true
             }
             .buttonStyle(.borderedProminent)
@@ -57,7 +57,7 @@ struct WinnerView: View {
         }
     }
     
-    private func resetScores() {
+    private func newGame() {
         scorePlayer1 = 501
         scorePlayer2 = 501
         scorePlayer3 = 501
