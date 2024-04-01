@@ -33,21 +33,23 @@ struct FirstScreen: View {
                 VStack {
                     
                     Text("Dart   ")
-                        .font(Font.custom("FightThis", size: 90))
-                        .shadow(color: Color.red, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                        .font(Font.custom("FightThis", size: 84))
+                        .shadow(color: Color.red, radius: 15)
                         .foregroundColor(.red)
                         .multilineTextAlignment(.center)
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
-                    Text("Club   ")
-                        .font(Font.custom("FightThis", size: 90))
-                        .shadow(color: Color.red, radius: 10)
+                        .padding([.trailing], 40)
 
+                    Text("Club   ")
+                        .font(Font.custom("FightThis", size: 84))
+                        .shadow(color: Color.red, radius: 15)
                         .foregroundColor(.red)
                         .multilineTextAlignment(.center)
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
-                    
+                        .padding([.trailing], 40)
+
                     Spacer()
                     
                     if !isNameOneSubmitted {
