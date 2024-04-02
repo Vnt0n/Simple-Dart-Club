@@ -43,6 +43,21 @@ struct WinnerView: View {
                                 self.counter = 1
                             }
                         }
+                HStack {
+                    Text("\(namePlayer1)")
+                        .bold()
+                    Text("\(scorePlayer1) -")
+                    Text("\(namePlayer2)")
+                        .bold()
+                    Text("\(scorePlayer2)")
+                    if !namePlayer3.isEmpty {
+                        Text("-")
+                        Text("\(namePlayer3)")
+                            .bold()
+                        Text("\(scorePlayer3)")
+                    }
+                }
+                .padding()
             }
             
             Button("New game") {
