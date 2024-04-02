@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
 
 struct GameView: View {
     
@@ -17,9 +16,7 @@ struct GameView: View {
     @State private var selectedPlayer: String = ""
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 0
-    
-    @State private var counter = 0
-    
+       
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
@@ -33,34 +30,14 @@ struct GameView: View {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
     
+    private var isAnyPlayerScoreZero: Bool {
+        scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
+    }
+    
     var body: some View {
         
         NavigationStack {
             VStack(spacing: 0) {
-                
-                if scorePlayer1 == 0 {
-                    
-                    ZStack {
-                        Color(.black)
-
-                            VStack {
-                                Text("🥳 \(namePlayer1), you won! 🎉")
-                                Text("\(scorePlayer1)")
-                                    .font(.system(size: 140, weight: .bold, design: .default))
-                                    .confettiCannon(counter: $counter, num: 150, radius: 400.0)
-                                    .onAppear {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            self.counter += 1
-                                        }
-                                    }
-                            }
-                            .foregroundColor(.white)
-                        }
-                        .edgesIgnoringSafeArea(.top)
-
-                    }
-
-                 else {
 
                      ZStack {
                          Color(currentPlayerIndex == 0 ? .yellow : .gray)
@@ -84,32 +61,6 @@ struct GameView: View {
                          .foregroundColor(scorePlayer1 == 0 ? .white : .black)
                      }
                      .edgesIgnoringSafeArea(.top)
-                }
-
-
-                if scorePlayer2 == 0 {
-                    
-                    ZStack {
-                        Color(.black)
-
-                            VStack {
-                                Text("🥳 \(namePlayer2), you won! 🎉")
-                                Text("\(scorePlayer2)")
-                                    .font(.system(size: 140, weight: .bold, design: .default))
-                                    .confettiCannon(counter: $counter, num: 150, radius: 400.0)
-                                    .onAppear {
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            self.counter += 1
-                                        }
-                                    }
-                            }
-                            .foregroundColor(.white)
-                        }
-                        .edgesIgnoringSafeArea(.bottom)
-                    
-                    }
-
-                else {
 
                     ZStack {
                         Color(currentPlayerIndex == 1 ? .yellow : .gray)
@@ -129,34 +80,8 @@ struct GameView: View {
                         .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                     }
                     .edgesIgnoringSafeArea(.bottom)
-                    
-                }
 
                 if !namePlayer3.isEmpty {
-                    
-                    if scorePlayer3 == 0 {
-                        
-                        ZStack {
-                            Color(.black)
-
-                                VStack {
-                                    Text("🥳 \(namePlayer3), you won! 🎉")
-                                    Text("\(scorePlayer3)")
-                                        .font(.system(size: 140, weight: .bold, design: .default))
-                                        .confettiCannon(counter: $counter, num: 150, radius: 400.0)
-                                        .onAppear {
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                                self.counter += 1
-                                            }
-                                        }
-                                }
-                                .foregroundColor(.white)
-                            }
-                            .edgesIgnoringSafeArea(.top)
-
-                        }
-
-                    else {
                         
                         ZStack {
                             Color(currentPlayerIndex == 2 ? .yellow : .gray)
@@ -177,8 +102,6 @@ struct GameView: View {
                             .foregroundColor(scorePlayer3 == 0 ? .white : .black)
                         }
                         .edgesIgnoringSafeArea(.bottom)
-                        
-                    }
                     
                 }
             }
@@ -223,6 +146,21 @@ struct GameView: View {
                     }
                 }
                 .presentationDetents([.large])
+            }
+            
+            if isAnyPlayerScoreZero {
+                Button(action: {
+                    // Action à effectuer lorsque le bouton est pressé
+                    // Par exemple, afficher l'écran du gagnant
+                    isGameOver = true
+                }) {
+                    Text("Game Over")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                .padding()
             }
         }
         .navigationBarBackButtonHidden(true)

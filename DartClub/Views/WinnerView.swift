@@ -56,6 +56,7 @@ struct WinnerView: View {
                 GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     private func newGame() {
