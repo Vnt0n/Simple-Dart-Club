@@ -22,9 +22,7 @@ struct GameView: View {
     
     @State private var enterScore = false
     @State private var isGameOver = false
-    
-    @State private var disableOtherPlayerButtons: Bool = false
-                
+                  
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -47,7 +45,7 @@ struct GameView: View {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
-                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 0 || scorePlayer1 == 0)
+                        .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
                     }
                     .foregroundColor(scorePlayer1 == 0 ? .white : .black)
                 }
@@ -66,7 +64,7 @@ struct GameView: View {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
-                        .disabled(disableOtherPlayerButtons || currentPlayerIndex != 1 || scorePlayer2 == 0)
+                        .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
                     }
                     .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                 }
@@ -87,7 +85,7 @@ struct GameView: View {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
-                            .disabled(disableOtherPlayerButtons || currentPlayerIndex != 2  || scorePlayer3 == 0)
+                            .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
                         }
                         .foregroundColor(scorePlayer3 == 0 ? .white : .black)
                     }
@@ -130,16 +128,10 @@ struct GameView: View {
                     if newScore == 0 {
                         enterScore = false
                         isGameOver = true
-                        DispatchQueue.main.async {
-                            currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
-                        }
+                        currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
                     } else {
                         if newScore >= 0 {
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
-                            disableOtherPlayerButtons = true
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                disableOtherPlayerButtons = false
-                            }
                         }
                     }
                 }
