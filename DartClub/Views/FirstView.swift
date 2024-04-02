@@ -59,9 +59,6 @@ struct FirstView: View {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
                             }
-                            .onAppear {
-                                self.isFocused = true
-                            }
                     } else {
                         Text(namePlayer1)
                     }
