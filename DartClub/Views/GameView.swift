@@ -147,21 +147,6 @@ struct GameView: View {
                 }
                 .presentationDetents([.large])
             }
-            
-            if isAnyPlayerScoreZero {
-                Button(action: {
-                    // Action à effectuer lorsque le bouton est pressé
-                    // Par exemple, afficher l'écran du gagnant
-                    isGameOver = true
-                }) {
-                    Text("Game Over")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .padding()
-            }
         }
         .navigationBarBackButtonHidden(true)
         .overlay(
