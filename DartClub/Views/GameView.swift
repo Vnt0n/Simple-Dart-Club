@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct GameView: View {
     
@@ -16,6 +17,8 @@ struct GameView: View {
     @State private var selectedPlayer: String = ""
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 0
+    
+    @State private var counter = 0
     
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
@@ -35,65 +38,154 @@ struct GameView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 
-                ZStack {
-                    Color(currentPlayerIndex == 0 ? .yellow : .gray)
-                    if scorePlayer1 == 0 {
-                        Color(.black)
-                    }
-                    VStack {
-                        Text(namePlayer1)
-                        Button(action: {
-                            enterScore = true
-                            selectedPlayer = namePlayer1
-                        }) {
-                            Text("\(scorePlayer1)")
-                                .font(.system(size: 140, weight: .bold, design: .default))
-                        }
-                        .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
-                    }
-                    .foregroundColor(scorePlayer1 == 0 ? .white : .black)
-                }
-                .edgesIgnoringSafeArea(.top)
-                
-                ZStack {
-                    Color(currentPlayerIndex == 1 ? .yellow : .gray)
-                    if scorePlayer2 == 0 {
-                        Color(.black)                  }
-                    VStack {
-                        Text(namePlayer2)
-                        Button(action: {
-                            enterScore = true
-                            selectedPlayer = namePlayer2
-                        }) {
-                            Text("\(scorePlayer2)")
-                                .font(.system(size: 140, weight: .bold, design: .default))
-                        }
-                        .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
-                    }
-                    .foregroundColor(scorePlayer2 == 0 ? .white : .black)
-                }
-                .edgesIgnoringSafeArea(.bottom)
-
-                if !namePlayer3.isEmpty {
+                if scorePlayer1 == 0 {
+                    
                     ZStack {
-                        Color(currentPlayerIndex == 2 ? .yellow : .gray)
-                        if scorePlayer3 == 0 {
-                            Color(.black)
-                        }
-                        VStack {
-                            Text(namePlayer3)
-                            Button(action: {
-                                enterScore = true
-                                selectedPlayer = namePlayer3
-                            }) {
-                                Text("\(scorePlayer3)")
+                        Color(.black)
+
+                            VStack {
+                                Text(namePlayer1)
+                                Text("\(scorePlayer1)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
+                            .foregroundColor(.white)
+                        
+                        ConfettiCannon(counter: $counter, num: 50)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                    self.counter += 1
+                                }
+                            }
+
                         }
-                        .foregroundColor(scorePlayer3 == 0 ? .white : .black)
+                        .edgesIgnoringSafeArea(.top)
+
+                    }
+
+                 else {
+
+                     ZStack {
+                         Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                         if scorePlayer1 == 0 {
+                             Color(.black)
+                         }
+                         VStack {
+                             Text(namePlayer1)
+                             Button(action: {
+                                 enterScore = true
+                                 selectedPlayer = namePlayer1
+                                 
+                                 print("Index Player 1 = \(currentPlayerIndex)")
+                                 
+                             }) {
+                                 Text("\(scorePlayer1)")
+                                     .font(.system(size: 140, weight: .bold, design: .default))
+                             }
+                             .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
+                         }
+                         .foregroundColor(scorePlayer1 == 0 ? .white : .black)
+                     }
+                     .edgesIgnoringSafeArea(.top)
+                }
+
+
+                if scorePlayer2 == 0 {
+                    
+                    ZStack {
+                        Color(.black)
+
+                            VStack {
+                                Text(namePlayer2)
+                                Text("\(scorePlayer2)")
+                                    .font(.system(size: 140, weight: .bold, design: .default))
+                            }
+                            .foregroundColor(.white)
+                        
+                        ConfettiCannon(counter: $counter, num: 50)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                    self.counter += 1
+                                }
+                            }
+
+                        }
+                        .edgesIgnoringSafeArea(.top)
+                    
+                    }
+
+                else {
+
+                    ZStack {
+                        Color(currentPlayerIndex == 1 ? .yellow : .gray)
+                        if scorePlayer2 == 0 {
+                            Color(.black)                  }
+                        VStack {
+                            Text(namePlayer2)
+                            Button(action: {
+                                enterScore = true
+                                selectedPlayer = namePlayer2
+                            }) {
+                                Text("\(scorePlayer2)")
+                                    .font(.system(size: 140, weight: .bold, design: .default))
+                            }
+                            .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
+                        }
+                        .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                     }
                     .edgesIgnoringSafeArea(.bottom)
+                    
+                }
+
+                if !namePlayer3.isEmpty {
+                    
+                    if scorePlayer3 == 0 {
+                        
+                        ZStack {
+                            Color(.black)
+
+                                VStack {
+                                    Text(namePlayer3)
+                                    Text("\(scorePlayer3)")
+                                        .font(.system(size: 140, weight: .bold, design: .default))
+                                }
+                                .foregroundColor(.white)
+                            
+                            ConfettiCannon(counter: $counter, num: 50)
+                                .onAppear {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                        self.counter += 1
+                                    }
+                                }
+
+                            }
+                            .edgesIgnoringSafeArea(.top)
+
+                        }
+
+                    else {
+                        
+                        ZStack {
+                            Color(currentPlayerIndex == 2 ? .yellow : .gray)
+                            if scorePlayer3 == 0 {
+                                Color(.black)
+                            }
+                            VStack {
+                                Text(namePlayer3)
+                                Button(action: {
+                                    enterScore = true
+                                    selectedPlayer = namePlayer3
+                                }) {
+                                    Text("\(scorePlayer3)")
+                                        .font(.system(size: 140, weight: .bold, design: .default))
+                                }
+                                .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
+                            }
+                            .foregroundColor(scorePlayer3 == 0 ? .white : .black)
+                        }
+                        .edgesIgnoringSafeArea(.bottom)
+                        
+                    }
+                    
                 }
             }
             .sheet(isPresented: $enterScore) {
@@ -151,6 +243,7 @@ struct GameView: View {
             let numberOfPlayers = playerNames.count
             currentPlayerIndex = (gameCount - 1) % numberOfPlayers
         }
+        
     }
 }
 
