@@ -65,7 +65,7 @@ struct WinnerView: View {
         scorePlayer1 = 501
         scorePlayer2 = 501
         scorePlayer3 = 501
-        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+//        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
     }
 }
 

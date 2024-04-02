@@ -41,6 +41,9 @@ struct GameView: View {
                         Button(action: {
                             enterScore = true
                             selectedPlayer = namePlayer1
+                            
+                            print("Index Player 1 = \(currentPlayerIndex)")
+                            
                         }) {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -60,6 +63,9 @@ struct GameView: View {
                         Button(action: {
                             enterScore = true
                             selectedPlayer = namePlayer2
+                            
+                            print("Index Player 2 = \(currentPlayerIndex)")
+
                         }) {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -81,6 +87,9 @@ struct GameView: View {
                             Button(action: {
                                 enterScore = true
                                 selectedPlayer = namePlayer3
+                                
+                                print("Index Player 3 = \(currentPlayerIndex)")
+
                             }) {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
@@ -128,7 +137,6 @@ struct GameView: View {
                     if newScore == 0 {
                         enterScore = false
                         isGameOver = true
-                        currentPlayerIndex = playerNames.firstIndex(of: selectedPlayer) ?? 0
                     } else {
                         if newScore >= 0 {
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
