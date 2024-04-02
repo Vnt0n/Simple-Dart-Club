@@ -22,7 +22,9 @@ struct GameView: View {
     
     @State private var enterScore = false
     @State private var isGameOver = false
-                  
+    
+    @State private var isConfettiAnimationActive = false
+                    
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
     }
@@ -31,6 +33,7 @@ struct GameView: View {
         
         NavigationStack {
             VStack(spacing: 0) {
+                
                 ZStack {
                     Color(currentPlayerIndex == 0 ? .yellow : .gray)
                     if scorePlayer1 == 0 {
