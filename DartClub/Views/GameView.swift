@@ -15,6 +15,7 @@ struct GameView: View {
     
     @State private var selectedPlayer: String = ""
     @State private var currentPlayerIndex: Int = 0
+    @State private var gameCount: Int = 0
     
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
@@ -44,10 +45,6 @@ struct GameView: View {
                         Button(action: {
                             enterScore = true
                             selectedPlayer = namePlayer1
-                            
-                            print(selectedPlayer)
-                            print("Current Player index = \(currentPlayerIndex)")
-                            
                         }) {
                             Text("\(scorePlayer1)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -67,10 +64,6 @@ struct GameView: View {
                         Button(action: {
                             enterScore = true
                             selectedPlayer = namePlayer2
-                            
-                            print(selectedPlayer)
-                            print("Current Player index = \(currentPlayerIndex)")
-
                         }) {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -92,10 +85,6 @@ struct GameView: View {
                             Button(action: {
                                 enterScore = true
                                 selectedPlayer = namePlayer3
-                                
-                                print(selectedPlayer)
-                                print("Current Player index = \(currentPlayerIndex)")
-
                             }) {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
@@ -155,7 +144,12 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, winnerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+        }
+        .onAppear() {
+            gameCount += 1
+            let numberOfPlayers = playerNames.count
+            currentPlayerIndex = (gameCount - 1) % numberOfPlayers
         }
     }
 }

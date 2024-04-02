@@ -18,12 +18,14 @@ struct WinnerView: View {
     @Binding var scorePlayer1: Int
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
+    @Binding var currentPlayerIndex: Int
+
 
     var winnerName: String
     var namePlayer1: String
     var namePlayer2: String
     var namePlayer3: String
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -64,23 +66,21 @@ struct WinnerView: View {
         scorePlayer2 = 501
         scorePlayer3 = 501
     }
-}
 
+}
 
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
-        let playerNames = ["Player1", "Player2", "Player3"]
-        let scorePlayer1 = Binding.constant(501)
-        let scorePlayer2 = Binding.constant(501)
-        let scorePlayer3 = Binding.constant(501)
-        
-        return WinnerView(playerNames: playerNames,
-                          scorePlayer1: scorePlayer1,
-                          scorePlayer2: scorePlayer2,
-                          scorePlayer3: scorePlayer3,
-                          winnerName: "Winner",
-                          namePlayer1: "Player1",
-                          namePlayer2: "Player2",
-                          namePlayer3: "Player3")
+        WinnerView(
+            playerNames: ["Alice", "Bob", "Charlie"],
+            scorePlayer1: .constant(0),
+            scorePlayer2: .constant(0),
+            scorePlayer3: .constant(0),
+            currentPlayerIndex: .constant(1),
+            winnerName: "Bob",
+            namePlayer1: "Alice",
+            namePlayer2: "Bob",
+            namePlayer3: "Charlie"
+        )
     }
 }
