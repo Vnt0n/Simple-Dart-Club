@@ -44,19 +44,17 @@ struct GameView: View {
                         Color(.black)
 
                             VStack {
-                                Text(namePlayer1)
+                                Text("🥳 \(namePlayer1), you won! 🎉")
                                 Text("\(scorePlayer1)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
+                                    .confettiCannon(counter: $counter, num: 150, radius: 400.0)
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            self.counter += 1
+                                        }
+                                    }
                             }
                             .foregroundColor(.white)
-                        
-                        ConfettiCannon(counter: $counter, num: 50)
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                    self.counter += 1
-                                }
-                            }
-
                         }
                         .edgesIgnoringSafeArea(.top)
 
@@ -95,21 +93,19 @@ struct GameView: View {
                         Color(.black)
 
                             VStack {
-                                Text(namePlayer2)
+                                Text("🥳 \(namePlayer2), you won! 🎉")
                                 Text("\(scorePlayer2)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
+                                    .confettiCannon(counter: $counter, num: 150, radius: 400.0)
+                                    .onAppear {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            self.counter += 1
+                                        }
+                                    }
                             }
                             .foregroundColor(.white)
-                        
-                        ConfettiCannon(counter: $counter, num: 50)
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                    self.counter += 1
-                                }
-                            }
-
                         }
-                        .edgesIgnoringSafeArea(.top)
+                        .edgesIgnoringSafeArea(.bottom)
                     
                     }
 
@@ -144,19 +140,17 @@ struct GameView: View {
                             Color(.black)
 
                                 VStack {
-                                    Text(namePlayer3)
+                                    Text("🥳 \(namePlayer3), you won! 🎉")
                                     Text("\(scorePlayer3)")
                                         .font(.system(size: 140, weight: .bold, design: .default))
+                                        .confettiCannon(counter: $counter, num: 150, radius: 400.0)
+                                        .onAppear {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                self.counter += 1
+                                            }
+                                        }
                                 }
                                 .foregroundColor(.white)
-                            
-                            ConfettiCannon(counter: $counter, num: 50)
-                                .onAppear {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                        self.counter += 1
-                                    }
-                                }
-
                             }
                             .edgesIgnoringSafeArea(.top)
 

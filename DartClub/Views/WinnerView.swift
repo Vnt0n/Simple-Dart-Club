@@ -34,18 +34,15 @@ struct WinnerView: View {
                     .font(.system(size: 140, weight: .bold, design: .default))
                 Text(winnerName)
                     .padding([.bottom], 10)
-                Button(action: {
-                    counter += 1
-                }) {
                     Text("You won!")
                         .font(.system(size: 50, weight: .bold, design: .default))
-                }
-                .confettiCannon(counter: $counter, num: 150, radius: 500.0)
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                        self.counter += 1
-                    }
-                }
+                        .foregroundColor(.blue)
+                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                self.counter = 1
+                            }
+                        }
             }
             
             Button("New game") {
