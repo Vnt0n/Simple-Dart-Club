@@ -45,7 +45,8 @@ struct GameView: View {
                             enterScore = true
                             selectedPlayer = namePlayer1
                             
-                            print("Index Player 1 = \(currentPlayerIndex)")
+                            print(selectedPlayer)
+                            print("Current Player index = \(currentPlayerIndex)")
                             
                         }) {
                             Text("\(scorePlayer1)")
@@ -67,7 +68,8 @@ struct GameView: View {
                             enterScore = true
                             selectedPlayer = namePlayer2
                             
-                            print("Index Player 2 = \(currentPlayerIndex)")
+                            print(selectedPlayer)
+                            print("Current Player index = \(currentPlayerIndex)")
 
                         }) {
                             Text("\(scorePlayer2)")
@@ -91,7 +93,8 @@ struct GameView: View {
                                 enterScore = true
                                 selectedPlayer = namePlayer3
                                 
-                                print("Index Player 3 = \(currentPlayerIndex)")
+                                print(selectedPlayer)
+                                print("Current Player index = \(currentPlayerIndex)")
 
                             }) {
                                 Text("\(scorePlayer3)")
@@ -141,9 +144,7 @@ struct GameView: View {
                         enterScore = false
                         isGameOver = true
                     } else {
-                        if newScore >= 0 {
-                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
-                        }
+                        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                     }
                 }
                 .presentationDetents([.large])
@@ -154,15 +155,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(currentPlayerIndex: $currentPlayerIndex, playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, namePlayer: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-        }
-        .onChange(of: selectedPlayer) {
-            if let index = playerNames.firstIndex(of: selectedPlayer) {
-                currentPlayerIndex = index
-            }
-        }
-        .onAppear {
-            selectedPlayer = playerNames[currentPlayerIndex]
+            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, winnerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
     }
 }
