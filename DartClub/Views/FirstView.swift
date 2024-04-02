@@ -54,7 +54,8 @@ struct FirstView: View {
                     
                     if !isNameOneSubmitted {
                         
-                        TextField("Player 1", text: $namePlayer1).TextFieldStyling()
+                        TextField("Player 1", text: $namePlayer1)
+                            .TextFieldStyling()
                             .onSubmit {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
@@ -98,6 +99,8 @@ struct FirstView: View {
                         } else {
                             Button("+ Add a player") {
                                 if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
+                                    isNameOneSubmitted = true
+                                    isNameTwoSubmitted = true
                                     withAnimation(.easeInOut(duration: 0.5)) {
                                         isPlayerAdded = true
                                     }
