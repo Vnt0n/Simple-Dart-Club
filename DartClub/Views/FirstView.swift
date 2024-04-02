@@ -101,9 +101,7 @@ struct FirstView: View {
                                 if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                                     isNameOneSubmitted = true
                                     isNameTwoSubmitted = true
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        isPlayerAdded = true
-                                    }
+                                    isPlayerAdded = true
                                 }
                             }
                         }
