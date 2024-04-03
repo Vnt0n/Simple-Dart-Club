@@ -27,6 +27,8 @@ struct GameView: View {
     
     @State private var informationRequested = false
     
+    @State private var shouldUpdateGame = true
+    
     private var currentPlayerThrows: Int {
         switch currentPlayerName {
         case namePlayer1:
@@ -71,10 +73,13 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        NavigationLink(destination: InformationsView(), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(scoreHistory: scoreHistory), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
+                        }
+                        .onAppear() {
+                            shouldUpdateGame = false
                         }
                         Spacer()
                         Text("\(currentPlayerName)")
@@ -205,10 +210,12 @@ struct GameView: View {
             WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
         .onAppear() {
-            gameCount += 1
-            let numberOfPlayers = playerNames.count
-            currentPlayerIndex = (gameCount - 1) % numberOfPlayers
-            currentPlayerName = playerNames[currentPlayerIndex]
+            if shouldUpdateGame {
+                gameCount += 1
+                let numberOfPlayers = playerNames.count
+                currentPlayerIndex = (gameCount - 1) % numberOfPlayers
+                currentPlayerName = playerNames[currentPlayerIndex]
+            }
         }
         
     }
