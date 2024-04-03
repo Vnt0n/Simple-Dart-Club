@@ -62,18 +62,18 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        Text("Name: \(currentPlayerName)")
-                        Text("Turn: \(currentPlayerThrows)")
-                        Spacer()
                         Image(systemName: "info.circle")
                             .accessibilityLabel("Menu")
                             .font(.system(size: 25))
                         Spacer()
+                        Text("\(currentPlayerName)")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("Game \(gameCount) - Turn \(currentPlayerThrows)")
+                        Spacer()
                         Image(systemName: "arrow.uturn.backward.circle")
                             .accessibilityLabel("Undo")
                             .font(.system(size: 25))
-                        Spacer()
-                        Text("\(gameCount)")
                         Spacer()
                     }
                 }
@@ -84,6 +84,7 @@ struct GameView: View {
                      Color(currentPlayerIndex == 0 ? .yellow : .gray)
                      VStack {
                          Text(namePlayer1)
+                             .fontWeight(.bold)
                          Button(action: {
                              enterScore = true
                          }) {
@@ -99,6 +100,7 @@ struct GameView: View {
                     Color(currentPlayerIndex == 1 ? .yellow : .gray)
                     VStack {
                         Text(namePlayer2)
+                            .fontWeight(.bold)
                         Button(action: {
                             enterScore = true
                         }) {
@@ -115,6 +117,7 @@ struct GameView: View {
                         Color(currentPlayerIndex == 2 ? .yellow : .gray)
                         VStack {
                             Text(namePlayer3)
+                                .fontWeight(.bold)
                             Button(action: {
                                 enterScore = true
                             }) {
