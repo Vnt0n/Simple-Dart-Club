@@ -44,4 +44,3 @@ struct InformationsView_Previews: PreviewProvider {
         return InformationsView(scoreHistory: sampleScoreHistory)
     }
 }
-
