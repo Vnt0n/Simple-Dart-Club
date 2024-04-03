@@ -25,6 +25,8 @@ struct GameView: View {
     @State private var throwsPlayer2: Int = 1
     @State private var throwsPlayer3: Int = 1
     
+    @State private var informationRequested = false
+    
     private var currentPlayerThrows: Int {
         switch currentPlayerName {
         case namePlayer1:
@@ -50,7 +52,14 @@ struct GameView: View {
     private var isAnyPlayerScoreZero: Bool {
         scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
     }
+    
+    @State private var scoreHistory = ScoreHistory()
 
+    struct ScoreHistory {
+           var player1: [Int] = []
+           var player2: [Int] = []
+           var player3: [Int] = []
+       }
     
     var body: some View {
         
@@ -62,19 +71,25 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        Image(systemName: "info.circle")
-                            .accessibilityLabel("Menu")
-                            .font(.system(size: 25))
+                        NavigationLink(destination: InformationsView(), isActive: $informationRequested) {
+                            Image(systemName: "info.circle")
+                                .accessibilityLabel("Menu")
+                                .font(.system(size: 25))
+                        }
                         Spacer()
                         Text("\(currentPlayerName)")
                             .fontWeight(.bold)
                         Spacer()
                         Text("Game \(gameCount) - Turn \(currentPlayerThrows)")
                         Spacer()
-                        Image(systemName: "arrow.uturn.backward.circle")
-                            .accessibilityLabel("Undo")
-                            .font(.system(size: 25))
-                        Spacer()
+                        Button(action: {
+                            undoLastScore()
+                        }) {
+                            Image(systemName: "arrow.uturn.backward.circle")
+                                .accessibilityLabel("Undo")
+                                .font(.system(size: 25))
+                        }
+                            Spacer()
                     }
                 }
                 .background(Color.blue)
@@ -142,6 +157,7 @@ struct GameView: View {
                         if tempScore < 0 {
                             return
                         } else {
+                            scoreHistory.player1.append(scorePlayer1 - tempScore)
                             scorePlayer1 = tempScore
                             newScore = tempScore
                         }
@@ -151,6 +167,7 @@ struct GameView: View {
                         if tempScore < 0 {
                             return
                         } else {
+                            scoreHistory.player2.append(scorePlayer2 - tempScore)
                             scorePlayer2 = tempScore
                             newScore = tempScore
                         }
@@ -160,6 +177,7 @@ struct GameView: View {
                         if tempScore < 0 {
                             return
                         } else {
+                            scoreHistory.player3.append(scorePlayer3 - tempScore)
                             scorePlayer3 = tempScore
                             newScore = tempScore
                         }
@@ -194,6 +212,34 @@ struct GameView: View {
         }
         
     }
+    
+    private func undoLastScore() {
+        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
+        switch playerNames[previousPlayerIndex] {
+        case namePlayer1:
+            if let lastScore = scoreHistory.player1.last {
+                currentPlayerIndex = previousPlayerIndex
+                scoreHistory.player1.removeLast()
+                scorePlayer1 += lastScore
+            }
+        case namePlayer2:
+            if let lastScore = scoreHistory.player2.last {
+                currentPlayerIndex = previousPlayerIndex
+                scoreHistory.player2.removeLast()
+                scorePlayer2 += lastScore
+            }
+        case namePlayer3:
+            if let lastScore = scoreHistory.player3.last {
+                currentPlayerIndex = previousPlayerIndex
+                scoreHistory.player3.removeLast()
+                scorePlayer3 += lastScore
+            }
+        default:
+            break
+        }
+        currentPlayerName = playerNames[currentPlayerIndex]
+    }
+
 }
 
 struct GameView_Previews: PreviewProvider {
