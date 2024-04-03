@@ -13,13 +13,30 @@ struct GameView: View {
     var namePlayer2: String
     var namePlayer3: String
     
-    @State private var selectedPlayer: String = ""
+    @State private var currentPlayerName: String = ""
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 0
        
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
+    
+    @State private var throwsPlayer1: Int = 1
+    @State private var throwsPlayer2: Int = 1
+    @State private var throwsPlayer3: Int = 1
+    
+    private var currentPlayerThrows: Int {
+        switch currentPlayerName {
+        case namePlayer1:
+            return throwsPlayer1
+        case namePlayer2:
+            return throwsPlayer2
+        case namePlayer3:
+            return throwsPlayer3
+        default:
+            return 0
+        }
+    }
     
     @State private var enterScore = false
     @State private var isGameOver = false
@@ -33,6 +50,7 @@ struct GameView: View {
     private var isAnyPlayerScoreZero: Bool {
         scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
     }
+
     
     var body: some View {
         
@@ -44,7 +62,8 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        Text("\(selectedPlayer) 1st threw")
+                        Text("Name: \(currentPlayerName)")
+                        Text("Turn: \(currentPlayerThrows)")
                         Spacer()
                         Image(systemName: "info.circle")
                             .accessibilityLabel("Menu")
@@ -54,7 +73,8 @@ struct GameView: View {
                             .accessibilityLabel("Undo")
                             .font(.system(size: 25))
                         Spacer()
-
+                        Text("\(gameCount)")
+                        Spacer()
                     }
                 }
                 .background(Color.blue)
@@ -66,7 +86,6 @@ struct GameView: View {
                          Text(namePlayer1)
                          Button(action: {
                              enterScore = true
-                             selectedPlayer = namePlayer1
                          }) {
                              Text("\(scorePlayer1)")
                                  .font(.system(size: 140, weight: .bold, design: .default))
@@ -82,7 +101,6 @@ struct GameView: View {
                         Text(namePlayer2)
                         Button(action: {
                             enterScore = true
-                            selectedPlayer = namePlayer2
                         }) {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -99,7 +117,6 @@ struct GameView: View {
                             Text(namePlayer3)
                             Button(action: {
                                 enterScore = true
-                                selectedPlayer = namePlayer3
                             }) {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
@@ -113,10 +130,10 @@ struct GameView: View {
             }
             .foregroundColor(.black)
             .sheet(isPresented: $enterScore) {
-                EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
+                EnterScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
                     var newScore = 0
                     
-                    switch selectedPlayer {
+                    switch currentPlayerName {
                     case namePlayer1:
                         let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
@@ -125,6 +142,7 @@ struct GameView: View {
                             scorePlayer1 = tempScore
                             newScore = tempScore
                         }
+                        throwsPlayer1 += 1
                     case namePlayer2:
                         let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
@@ -133,6 +151,7 @@ struct GameView: View {
                             scorePlayer2 = tempScore
                             newScore = tempScore
                         }
+                        throwsPlayer2 += 1
                     case namePlayer3:
                         let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
@@ -141,6 +160,7 @@ struct GameView: View {
                             scorePlayer3 = tempScore
                             newScore = tempScore
                         }
+                        throwsPlayer3 += 1
                     default:
                         break
                     }
@@ -150,6 +170,7 @@ struct GameView: View {
                         isGameOver = true
                     } else {
                         currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                        currentPlayerName = playerNames[currentPlayerIndex]
                     }
                 }
                 .presentationDetents([.large])
@@ -160,12 +181,13 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
         .onAppear() {
             gameCount += 1
             let numberOfPlayers = playerNames.count
             currentPlayerIndex = (gameCount - 1) % numberOfPlayers
+            currentPlayerName = playerNames[currentPlayerIndex]
         }
         
     }
@@ -173,6 +195,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3")
+        GameView(namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ")
     }
 }
