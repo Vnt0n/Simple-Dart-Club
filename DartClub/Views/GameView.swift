@@ -37,74 +37,81 @@ struct GameView: View {
     var body: some View {
         
         NavigationStack {
+            
             VStack(spacing: 0) {
+                
+                ZStack {
+                    Color(.blue)
+                    HStack {
+                        Spacer()
+                        Text("\(selectedPlayer) 1st threw")
+                        Spacer()
+                        Image(systemName: "info.circle")
+                            .accessibilityLabel("Menu")
+                            .font(.system(size: 25))
+                        Spacer()
+                        Image(systemName: "arrow.uturn.backward.circle")
+                            .accessibilityLabel("Undo")
+                            .font(.system(size: 25))
+                        Spacer()
 
-                     ZStack {
-                         Color(currentPlayerIndex == 0 ? .yellow : .gray)
-                         if scorePlayer1 == 0 {
-                             Color(.black)
-                         }
-                         VStack {
-                             Text(namePlayer1)
-                             Button(action: {
-                                 enterScore = true
-                                 selectedPlayer = namePlayer1
-                                 
-                                 print("Index Player 1 = \(currentPlayerIndex)")
-                                 
-                             }) {
-                                 Text("\(scorePlayer1)")
-                                     .font(.system(size: 140, weight: .bold, design: .default))
-                             }
-                             .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
-                         }
-                         .foregroundColor(scorePlayer1 == 0 ? .white : .black)
-                     }
-                     .edgesIgnoringSafeArea(.top)
-
-                    ZStack {
-                        Color(currentPlayerIndex == 1 ? .yellow : .gray)
-                        if scorePlayer2 == 0 {
-                            Color(.black)                  }
-                        VStack {
-                            Text(namePlayer2)
-                            Button(action: {
-                                enterScore = true
-                                selectedPlayer = namePlayer2
-                            }) {
-                                Text("\(scorePlayer2)")
-                                    .font(.system(size: 140, weight: .bold, design: .default))
-                            }
-                            .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
-                        }
-                        .foregroundColor(scorePlayer2 == 0 ? .white : .black)
                     }
-                    .edgesIgnoringSafeArea(.bottom)
+                }
+                .background(Color.blue)
+                .frame(height: 60)
+                
+                 ZStack {
+                     Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                     VStack {
+                         Text(namePlayer1)
+                         Button(action: {
+                             enterScore = true
+                             selectedPlayer = namePlayer1
+                         }) {
+                             Text("\(scorePlayer1)")
+                                 .font(.system(size: 140, weight: .bold, design: .default))
+                         }
+                         .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
+                     }
+                 }
+                 .edgesIgnoringSafeArea(.all)
+
+                ZStack {
+                    Color(currentPlayerIndex == 1 ? .yellow : .gray)
+                    VStack {
+                        Text(namePlayer2)
+                        Button(action: {
+                            enterScore = true
+                            selectedPlayer = namePlayer2
+                        }) {
+                            Text("\(scorePlayer2)")
+                                .font(.system(size: 140, weight: .bold, design: .default))
+                        }
+                        .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
 
                 if !namePlayer3.isEmpty {
-                        
-                        ZStack {
-                            Color(currentPlayerIndex == 2 ? .yellow : .gray)
-                            if scorePlayer3 == 0 {
-                                Color(.black)
+                    ZStack {
+                        Color(currentPlayerIndex == 2 ? .yellow : .gray)
+                        VStack {
+                            Text(namePlayer3)
+                            Button(action: {
+                                enterScore = true
+                                selectedPlayer = namePlayer3
+                            }) {
+                                Text("\(scorePlayer3)")
+                                    .font(.system(size: 140, weight: .bold, design: .default))
                             }
-                            VStack {
-                                Text(namePlayer3)
-                                Button(action: {
-                                    enterScore = true
-                                    selectedPlayer = namePlayer3
-                                }) {
-                                    Text("\(scorePlayer3)")
-                                        .font(.system(size: 140, weight: .bold, design: .default))
-                                }
-                                .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
-                            }
-                            .foregroundColor(scorePlayer3 == 0 ? .white : .black)
+                            .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
                         }
-                        .edgesIgnoringSafeArea(.bottom)
-                    
+                    }
+                    .edgesIgnoringSafeArea(.all)
                 }
+                
             }
+            .foregroundColor(.black)
             .sheet(isPresented: $enterScore) {
                 EnterScoreView(playerName: selectedPlayer, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
                     var newScore = 0
