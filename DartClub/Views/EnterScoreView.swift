@@ -32,7 +32,9 @@ struct EnterScoreView: View {
     var body: some View {
         NavigationStack {
             Text(playerName)
+                .font(.system(size: 30, weight: .bold, design: .default))
             Text("Enter your score")
+                .font(.system(size: 20, weight: .bold, design: .default))
             TextField("", value: $score, format: .number)
                 .textFieldStyle(.roundedBorder)
                 .padding()
