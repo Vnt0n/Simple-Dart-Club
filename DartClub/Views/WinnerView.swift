@@ -78,6 +78,8 @@ struct WinnerView: View {
         scorePlayer1 = 501
         scorePlayer2 = 501
         scorePlayer3 = 501
+        print("--------------------------------------------")
+        print("NEW GAME")
     }
 
 }
