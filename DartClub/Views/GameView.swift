@@ -224,8 +224,7 @@ struct GameView: View {
         .onAppear() {
             print("onAppear EnterScoreView")
             print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
-            let numberOfPlayers = playerNames.count
-            currentPlayerIndex = (gameCount - 1) % numberOfPlayers
+            currentPlayerIndex = (gameCount - 1) % playerNames.count
             currentPlayerName = playerNames[currentPlayerIndex]
         }
         
