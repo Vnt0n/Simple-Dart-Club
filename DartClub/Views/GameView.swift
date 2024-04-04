@@ -208,9 +208,6 @@ struct GameView: View {
                     }
                     if isGameOver {
                         gameCount += 1
-                        print("--------------------------------------------")
-                        print("isGameOver")
-                        print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
                     }
                 }
                 .presentationDetents([.large])
@@ -221,14 +218,11 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, resetThrowsClosure: { self.resetThrowsPlayers() })
+            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
             currentPlayerIndex = (gameCount - 1) % playerNames.count
             currentPlayerName = playerNames[currentPlayerIndex]
-            print("--------------------------------------------")
-            print("onAppear EnterScoreView")
-            print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
         }
         
     }
@@ -266,17 +260,17 @@ struct GameView: View {
     private func saveScoreHistory() {
         scoreHistories.append(scoreHistory)
         scoreHistory = ScoreHistory()
-        print("--------------------------------------------")
-        print("func saveScoreHistory")
-        print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
     }
     
-    var resetThrowsClosure: (() -> Void)? // Déclaration de la fermeture
+    var newGameResetClosure: (() -> Void)? // Déclaration de la fermeture
 
-        private func resetThrowsPlayers() {
+        private func newGameReset() {
             throwsPlayer1 = 1
             throwsPlayer2 = 1
             throwsPlayer3 = 1
+            player1Scores = []
+            player2Scores = []
+            player3Scores = []
         }
 
 }
