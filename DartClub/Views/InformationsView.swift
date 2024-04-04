@@ -27,63 +27,82 @@ struct InformationsView: View {
             
             ScrollView {
             
-                VStack(spacing: 10) {
+                VStack {
                     HStack {
-                        Text("Turn")
-                            .frame(minWidth: 50, alignment: .leading)
+                        Text("")
                             .fontWeight(.bold)
+                            .frame(maxWidth: .infinity)
 
-                        Spacer()
 
                         Text("Player 1")
                             .fontWeight(.bold)
-                            .frame(maxWidth: .infinity, alignment: .center)
-
-                        Spacer()
+                            .font(.system(size: 13))
+                            .frame(maxWidth: .infinity)
 
                         Text("Player 2")
                             .fontWeight(.bold)
-                            .frame(maxWidth: .infinity, alignment: .center)
+                            .font(.system(size: 13))
+                            .frame(maxWidth: .infinity)
 
                         if !player3Scores.isEmpty {
-                            Spacer()
 
                             Text("Player 3")
                                 .fontWeight(.bold)
-                                .frame(maxWidth: .infinity, alignment: .center)
+                                .font(.system(size: 13))
+                                .frame(maxWidth: .infinity)
                         }
                     }
                     .padding(.horizontal)
 
                     ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
+                        
+                        Divider()
+
                         HStack {
+                            
                             Spacer()
 
-                            Text("\(index + 1)")
-                                .frame(minWidth: 50, alignment: .leading)
+                            Text("Turn \(index + 1)")
+                                .fontWeight(.bold)
+                                .font(.system(size: 13))
+                                .frame(maxWidth: .infinity)
+
+                            Divider()
 
                             Spacer()
 
                             Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "")")
-                                .frame(maxWidth: .infinity, alignment: .center)
+                                .frame(maxWidth: .infinity)
+                                .font(.system(size: 14))
+
+                            Divider()
 
                             Spacer()
 
                             Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "")")
-                                .frame(maxWidth: .infinity, alignment: .center)
+                                .frame(maxWidth: .infinity)
+                                .font(.system(size: 14))
 
                             if !player3Scores.isEmpty {
+                                
+                                Divider()
+
                                 Spacer()
 
                                 Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
-                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 14))
                             }
                         }
                         .padding(.horizontal)
                     }
                 }
                 .padding()
-
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.black)
+                    .padding(.horizontal)
             
                 VStack {
                     ForEach(scoreHistories, id: \.self) { history in
@@ -100,14 +119,75 @@ struct InformationsView: View {
                     }
                 }
                 
-                VStack {
-                    Text("Actual Score")
-                        .font(.headline)
-                    Text("Player 1: \(scorePlayer1)")
-                    Text("Player 2: \(scorePlayer2)")
-                    Text("Player 3: \(scorePlayer3)")
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.black)
+                    .padding(.horizontal)
+                    .padding(.bottom, 10)
+                
+                Text("ACTUAL SCORES")
+                    .font(.headline)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    
+                    Divider()
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Text("Player 1")
+                            .font(.system(size: 14))
+                        
+                        Spacer()
+                        
+                        Text("\(scorePlayer1)")
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                    }
+                    Divider()
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Text("Player 2")
+                            .font(.system(size: 14))
+                        
+                        Spacer()
+                        
+                        Text("\(scorePlayer2)")
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                    }
+                    
+                    Divider()
+                    
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Text("Player 3")
+                            .font(.system(size: 14))
+                        
+                        Spacer()
+                        
+                        Text("\(scorePlayer3)")
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    Divider()
                 }
                 .padding()
+
 
             }
         }
