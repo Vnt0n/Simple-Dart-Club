@@ -205,7 +205,7 @@ struct GameView: View {
                         throwsPlayer1 = 1
                         throwsPlayer2 = 1
                         throwsPlayer3 = 1
-                            gameCount += 1
+                        gameCount += 1
                     }
                 }
                 .presentationDetents([.large])
