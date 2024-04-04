@@ -221,7 +221,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+            WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, resetThrowsClosure: { self.resetThrowsPlayers() })
         }
         .onAppear() {
             currentPlayerIndex = (gameCount - 1) % playerNames.count
@@ -270,6 +270,14 @@ struct GameView: View {
         print("func saveScoreHistory")
         print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
     }
+    
+    var resetThrowsClosure: (() -> Void)? // Déclaration de la fermeture
+
+        private func resetThrowsPlayers() {
+            throwsPlayer1 = 1
+            throwsPlayer2 = 1
+            throwsPlayer3 = 1
+        }
 
 }
 
