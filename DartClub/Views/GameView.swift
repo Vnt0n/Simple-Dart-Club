@@ -238,7 +238,6 @@ struct GameView: View {
                 scorePlayer1 += lastScore
                 throwsPlayer1 -= 1
 
-                // Supprimer le dernier score de player1Scores
                 if !player1Scores.isEmpty {
                     player1Scores.removeLast()
                 }
@@ -250,7 +249,6 @@ struct GameView: View {
                 scorePlayer2 += lastScore
                 throwsPlayer2 -= 1
 
-                // Supprimer le dernier score de player2Scores
                 if !player2Scores.isEmpty {
                     player2Scores.removeLast()
                 }
@@ -262,7 +260,6 @@ struct GameView: View {
                 scorePlayer3 += lastScore
                 throwsPlayer3 -= 1
 
-                // Supprimer le dernier score de player3Scores
                 if !player3Scores.isEmpty {
                     player3Scores.removeLast()
                 }
@@ -281,7 +278,7 @@ struct GameView: View {
         scoreHistory = ScoreHistory()
     }
     
-    var newGameResetClosure: (() -> Void)? // Déclaration de la fermeture
+    var newGameResetClosure: (() -> Void)?
 
         private func newGameReset() {
             print("--------------------------------------------")
