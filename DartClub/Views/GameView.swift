@@ -224,7 +224,6 @@ struct GameView: View {
                 let numberOfPlayers = playerNames.count
                 currentPlayerIndex = (gameCount - 1) % numberOfPlayers
                 currentPlayerName = playerNames[currentPlayerIndex]
-                print("onAppear")
         }
         
     }

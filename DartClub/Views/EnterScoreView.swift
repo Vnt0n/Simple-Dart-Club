@@ -69,7 +69,6 @@ struct EnterScoreView: View {
                             break
                     }
                 }
-            print("\(player1Scores)")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
