@@ -89,6 +89,8 @@ struct GameView: View {
                         Text("Game \(gameCount) - Turn \(currentPlayerThrows)")
                         Spacer()
                         Button(action: {
+                            print("--------------------------------------------")
+                            print("BUTTON undoLastScore")
                             undoLastScore()
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
@@ -213,6 +215,8 @@ struct GameView: View {
             WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
+            print("--------------------------------------------")
+            print("onAppear WinnerView")
             currentPlayerIndex = (gameCount - 1) % playerNames.count
             currentPlayerName = playerNames[currentPlayerIndex]
         }
@@ -220,6 +224,8 @@ struct GameView: View {
     }
     
     private func undoLastScore() {
+        print("--------------------------------------------")
+        print("func undoLastScore")
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         switch playerNames[previousPlayerIndex] {
         case namePlayer1:
@@ -250,6 +256,8 @@ struct GameView: View {
     }
     
     private func saveScoreHistory() {
+        print("--------------------------------------------")
+        print("func saveScoreHistory")
         scoreHistories.append(scoreHistory)
         scoreHistory = ScoreHistory()
     }
@@ -257,6 +265,8 @@ struct GameView: View {
     var newGameResetClosure: (() -> Void)? // Déclaration de la fermeture
 
         private func newGameReset() {
+            print("--------------------------------------------")
+            print("func newGameReset")
             throwsPlayer1 = 1
             throwsPlayer2 = 1
             throwsPlayer3 = 1
