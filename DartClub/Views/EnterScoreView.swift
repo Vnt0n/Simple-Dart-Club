@@ -41,6 +41,8 @@ struct EnterScoreView: View {
                 .focused($isFocused)
                 .onAppear {
                     self.isFocused = true
+                    print("--------------------------------------------")
+                    print("EnterScoreView")
                 }
         }
  
@@ -70,8 +72,7 @@ struct EnterScoreView: View {
                     }
                 }
             print("--------------------------------------------")
-            print("EnterScoreView")
-            print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
+            print("OK BUTTON EnterScoreView")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)

@@ -61,9 +61,7 @@ struct GameView: View {
     }
     
     @State private var informationRequested = false
-    
-    @State private var shouldUpdateGame = true
-    
+       
     @State private var enterScore = false
     @State private var isGameOver = false
     
@@ -83,12 +81,6 @@ struct GameView: View {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
-                        }
-                        .onAppear() {
-                            shouldUpdateGame = false
-                            print("--------------------------------------------")
-                            print("onAppear GameView")
-                            print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
                         }
                         Spacer()
                         Text("\(currentPlayerName)")

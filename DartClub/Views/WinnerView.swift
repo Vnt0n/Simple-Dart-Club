@@ -28,7 +28,6 @@ struct WinnerView: View {
     
     var newGameResetClosure: (() -> Void)? // Déclaration de la fermeture
 
-
     var body: some View {
         NavigationStack {
             VStack {
@@ -83,8 +82,8 @@ struct WinnerView: View {
         scorePlayer2 = 501
         scorePlayer3 = 501
         print("--------------------------------------------")
-        print("NEW GAME")
-        newGameResetClosure?() // Appel à la fermeture pour réinitialiser les throwsPlayer
+        print("NEW GAME BUTTON")
+        newGameResetClosure?()
 
     }
 
