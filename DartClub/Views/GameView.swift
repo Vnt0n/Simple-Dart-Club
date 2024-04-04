@@ -222,14 +222,6 @@ struct GameView: View {
                 currentPlayerName = playerNames[currentPlayerIndex]
             }
         }
-        .onChange(of: informationRequested) { _ in
-            if !informationRequested {
-                print("--------------------------------------------")
-                print("onAppear GameView")
-                currentPlayerIndex = (gameCount - 1) % playerNames.count
-                currentPlayerName = playerNames[currentPlayerIndex]
-            }
-        }
 
         
     }
@@ -245,6 +237,11 @@ struct GameView: View {
                 scoreHistory.player1.removeLast()
                 scorePlayer1 += lastScore
                 throwsPlayer1 -= 1
+
+                // Supprimer le dernier score de player1Scores
+                if !player1Scores.isEmpty {
+                    player1Scores.removeLast()
+                }
             }
         case namePlayer2:
             if let lastScore = scoreHistory.player2.last {
@@ -252,6 +249,11 @@ struct GameView: View {
                 scoreHistory.player2.removeLast()
                 scorePlayer2 += lastScore
                 throwsPlayer2 -= 1
+
+                // Supprimer le dernier score de player2Scores
+                if !player2Scores.isEmpty {
+                    player2Scores.removeLast()
+                }
             }
         case namePlayer3:
             if let lastScore = scoreHistory.player3.last {
@@ -259,12 +261,18 @@ struct GameView: View {
                 scoreHistory.player3.removeLast()
                 scorePlayer3 += lastScore
                 throwsPlayer3 -= 1
+
+                // Supprimer le dernier score de player3Scores
+                if !player3Scores.isEmpty {
+                    player3Scores.removeLast()
+                }
             }
         default:
             break
         }
         currentPlayerName = playerNames[currentPlayerIndex]
     }
+
     
     private func saveScoreHistory() {
         print("--------------------------------------------")
