@@ -15,6 +15,10 @@ struct EnterScoreView: View {
     var namePlayer2: String
     var namePlayer3: String
     
+    @Binding var throwsPlayer1: Int
+    @Binding var throwsPlayer2: Int
+    @Binding var throwsPlayer3: Int
+    
     @Environment(\.dismiss) var dismiss
     @State private var score: Int?
     @FocusState private var isFocused: Bool
@@ -39,6 +43,16 @@ struct EnterScoreView: View {
         Button("OK          ") {
             onScoreEntered(score != nil ? "\(score!)" : "")
             dismiss()
+            switch playerName {
+                case namePlayer1:
+                    throwsPlayer1 += 1
+                case namePlayer2:
+                    throwsPlayer2 += 1
+                case namePlayer3:
+                    throwsPlayer3 += 1
+                default:
+                    break
+                }
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
@@ -49,6 +63,22 @@ struct EnterScoreView: View {
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterScoreView(playerName: "Player", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "player3") { _ in }
+        let playerName = "Player 1"
+        let namePlayer1 = "Player 1"
+        let namePlayer2 = "Player 2"
+        let namePlayer3 = "Player 3"
+        @State var throwsPlayer1 = 1
+        @State var throwsPlayer2 = 1
+        @State var throwsPlayer3 = 1
+        @State var score: Int?
+        
+        EnterScoreView(playerName: playerName,
+                       namePlayer1: namePlayer1,
+                       namePlayer2: namePlayer2,
+                       namePlayer3: namePlayer3,
+                       throwsPlayer1: $throwsPlayer1,
+                       throwsPlayer2: $throwsPlayer2,
+                       throwsPlayer3: $throwsPlayer3) { enteredScore in
+        }
     }
 }

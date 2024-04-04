@@ -155,7 +155,7 @@ struct GameView: View {
             }
             .foregroundColor(.black)
             .sheet(isPresented: $enterScore) {
-                EnterScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3) { enteredScore in
+                EnterScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3) { enteredScore in
                     var newScore = 0
                     
                     switch currentPlayerName {
@@ -168,7 +168,6 @@ struct GameView: View {
                             scorePlayer1 = tempScore
                             newScore = tempScore
                         }
-                        throwsPlayer1 += 1
                     case namePlayer2:
                         let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
@@ -178,7 +177,6 @@ struct GameView: View {
                             scorePlayer2 = tempScore
                             newScore = tempScore
                         }
-                        throwsPlayer2 += 1
                     case namePlayer3:
                         let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
                         if tempScore < 0 {
@@ -188,7 +186,6 @@ struct GameView: View {
                             scorePlayer3 = tempScore
                             newScore = tempScore
                         }
-                        throwsPlayer3 += 1
                     default:
                         break
                     }
@@ -237,18 +234,21 @@ struct GameView: View {
                 currentPlayerIndex = previousPlayerIndex
                 scoreHistory.player1.removeLast()
                 scorePlayer1 += lastScore
+                throwsPlayer1 -= 1
             }
         case namePlayer2:
             if let lastScore = scoreHistory.player2.last {
                 currentPlayerIndex = previousPlayerIndex
                 scoreHistory.player2.removeLast()
                 scorePlayer2 += lastScore
+                throwsPlayer2 -= 1
             }
         case namePlayer3:
             if let lastScore = scoreHistory.player3.last {
                 currentPlayerIndex = previousPlayerIndex
                 scoreHistory.player3.removeLast()
                 scorePlayer3 += lastScore
+                throwsPlayer3 -= 1
             }
         default:
             break
