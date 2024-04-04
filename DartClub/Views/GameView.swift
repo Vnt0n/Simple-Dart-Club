@@ -215,11 +215,22 @@ struct GameView: View {
             WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
-            print("--------------------------------------------")
-            print("onAppear WinnerView")
-            currentPlayerIndex = (gameCount - 1) % playerNames.count
-            currentPlayerName = playerNames[currentPlayerIndex]
+            if !informationRequested {
+                print("--------------------------------------------")
+                print("onAppear GameView")
+                currentPlayerIndex = (gameCount - 1) % playerNames.count
+                currentPlayerName = playerNames[currentPlayerIndex]
+            }
         }
+        .onChange(of: informationRequested) { _ in
+            if !informationRequested {
+                print("--------------------------------------------")
+                print("onAppear GameView")
+                currentPlayerIndex = (gameCount - 1) % playerNames.count
+                currentPlayerName = playerNames[currentPlayerIndex]
+            }
+        }
+
         
     }
     
