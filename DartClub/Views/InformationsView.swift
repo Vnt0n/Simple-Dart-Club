@@ -27,16 +27,63 @@ struct InformationsView: View {
             
             ScrollView {
             
-                VStack {
-                    Text("Actual Score")
-                        .font(.headline)
-                    Text("Player 1: \(player1Scores)")
-                    Text("Player 2: \(player2Scores)")
-                    Text("Player 3: \(player3Scores)")
-                    Text("SCORE CHOISI - \(player1Scores[2])")
+                VStack(spacing: 10) {
+                    HStack {
+                        Text("Turn")
+                            .frame(minWidth: 50, alignment: .leading)
+                            .fontWeight(.bold)
 
+                        Spacer()
+
+                        Text("Player 1")
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        Spacer()
+
+                        Text("Player 2")
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                        if !player3Scores.isEmpty {
+                            Spacer()
+
+                            Text("Player 3")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        }
+                    }
+                    .padding(.horizontal)
+
+                    ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
+                        HStack {
+                            Spacer()
+
+                            Text("\(index + 1)")
+                                .frame(minWidth: 50, alignment: .leading)
+
+                            Spacer()
+
+                            Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "")")
+                                .frame(maxWidth: .infinity, alignment: .center)
+
+                            Spacer()
+
+                            Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "")")
+                                .frame(maxWidth: .infinity, alignment: .center)
+
+                            if !player3Scores.isEmpty {
+                                Spacer()
+
+                                Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
                 }
                 .padding()
+
             
                 VStack {
                     ForEach(scoreHistories, id: \.self) { history in
