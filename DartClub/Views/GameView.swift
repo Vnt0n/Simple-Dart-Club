@@ -29,11 +29,11 @@ struct GameView: View {
     @State private var scoreHistory = ScoreHistory()
     @State private var scoreHistories: [ScoreHistory] = []
 
-    struct ScoreHistory {
-           var player1: [Int] = []
-           var player2: [Int] = []
-           var player3: [Int] = []
-       }
+    struct ScoreHistory: Hashable {
+        var player1: [Int] = []
+        var player2: [Int] = []
+        var player3: [Int] = []
+    }
     
     private var isAnyPlayerScoreZero: Bool {
         scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
@@ -75,7 +75,7 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        NavigationLink(destination: InformationsView(scoreHistory: scoreHistory), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(scoreHistories: $scoreHistories, scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
@@ -258,6 +258,7 @@ struct GameView: View {
     
     private func saveScoreHistory() {
         scoreHistories.append(scoreHistory)
+        scoreHistory = ScoreHistory()
     }
 
 }
