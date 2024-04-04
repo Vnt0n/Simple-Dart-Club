@@ -18,6 +18,10 @@ struct InformationsView: View {
     var scorePlayer2: Int
     var scorePlayer3: Int
     
+    var namePlayer1: String
+    var namePlayer2: String
+    var namePlayer3: String
+    
     var body: some View {
         VStack {
             
@@ -43,7 +47,7 @@ struct InformationsView: View {
                                             .fontWeight(.bold)
                                             .frame(maxWidth: .infinity)
                                         
-                                        Text("Player 1")
+                                        Text("\(namePlayer1)")
                                             .fontWeight(.bold)
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
@@ -51,7 +55,7 @@ struct InformationsView: View {
 
                                         Spacer()
 
-                                        Text("Player 2")
+                                        Text("\(namePlayer2)")
                                             .fontWeight(.bold)
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
@@ -61,7 +65,7 @@ struct InformationsView: View {
                                             
                                             Spacer()
 
-                                            Text("Player 3")
+                                            Text("\(namePlayer3)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
@@ -141,7 +145,7 @@ struct InformationsView: View {
                                             .fontWeight(.bold)
                                             .frame(maxWidth: .infinity)
                                         
-                                        Text("Player 1")
+                                        Text("\(namePlayer1)")
                                             .fontWeight(.bold)
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
@@ -149,7 +153,7 @@ struct InformationsView: View {
 
                                         Spacer()
                                         
-                                        Text("Player 2")
+                                        Text("\(namePlayer2)")
                                             .fontWeight(.bold)
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
@@ -158,7 +162,7 @@ struct InformationsView: View {
                                         Spacer()
                                         
                                         if !history.player3.isEmpty {
-                                            Text("Player 3")
+                                            Text("\(namePlayer3)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
@@ -240,7 +244,7 @@ struct InformationsView: View {
                                     
                                     Spacer()
                                     
-                                    Text("Player 1")
+                                    Text("\(namePlayer1)")
                                         .font(.system(size: 17))
                                     
                                     Spacer()
@@ -259,7 +263,7 @@ struct InformationsView: View {
                                     
                                     Spacer()
                                     
-                                    Text("Player 2")
+                                    Text("\(namePlayer2)")
                                         .font(.system(size: 17))
                                     
                                     Spacer()
@@ -279,7 +283,7 @@ struct InformationsView: View {
                                         
                                         Spacer()
                                         
-                                        Text("Player 3")
+                                        Text("\(namePlayer3)")
                                             .font(.system(size: 17))
                                         
                                         Spacer()
@@ -320,8 +324,11 @@ struct InformationsView_Previews: PreviewProvider {
                                 player1Scores: .constant([10, 55, 35]),
                                 player2Scores: .constant([25, 41, 17]),
                                 player3Scores: .constant([54, 22, 14]),
-                                scorePlayer1: 390,
-                                scorePlayer2: 180,
-                                scorePlayer3: 250)
+                                scorePlayer1: 369,
+                                scorePlayer2: 250,
+                                scorePlayer3: 150,
+                                namePlayer1: "Alice",
+                                namePlayer2: "Bob",
+                                namePlayer3: "Charlie")
     }
 }

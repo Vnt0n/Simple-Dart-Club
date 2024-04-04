@@ -77,7 +77,7 @@ struct GameView: View {
                     Color(.blue)
                     HStack {
                         Spacer()
-                        NavigationLink(destination: InformationsView(scoreHistories: $scoreHistories, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(scoreHistories: $scoreHistories, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
