@@ -45,9 +45,6 @@ struct EnterScoreView: View {
         }
  
         Button("OK          ") {
-            print("--------------------------------------------")
-            print("EnterScoreView")
-            print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
             onScoreEntered(score != nil ? "\(score!)" : "")
             dismiss()
             switch playerName {
@@ -72,6 +69,9 @@ struct EnterScoreView: View {
                             break
                     }
                 }
+            print("--------------------------------------------")
+            print("EnterScoreView")
+            print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
