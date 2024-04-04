@@ -10,6 +10,9 @@ import SwiftUI
 struct InformationsView: View {
     
     @Binding var scoreHistories: [GameView.ScoreHistory]
+    @Binding var player1Scores: [Int]
+    @Binding var player2Scores: [Int]
+    @Binding var player3Scores: [Int]
     
     var scorePlayer1: Int
     var scorePlayer2: Int
@@ -41,6 +44,12 @@ struct InformationsView: View {
                                 Text("Player 3: \(scorePlayer3)")
                             }
                             .padding()
+                VStack {
+                                    Text("Player 1: \(player1Scores)")
+                                    Text("Player 2: \(player2Scores)")
+                                    Text("Player 3: \(player3Scores)")
+                                }
+                                .padding()
             }
         }
     }

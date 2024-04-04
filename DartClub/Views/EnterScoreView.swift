@@ -19,6 +19,10 @@ struct EnterScoreView: View {
     @Binding var throwsPlayer2: Int
     @Binding var throwsPlayer3: Int
     
+    @Binding var player1Scores: [Int]
+    @Binding var player2Scores: [Int]
+    @Binding var player3Scores: [Int]
+    
     @Environment(\.dismiss) var dismiss
     @State private var score: Int?
     @FocusState private var isFocused: Bool
@@ -53,6 +57,19 @@ struct EnterScoreView: View {
                 default:
                     break
                 }
+            if let enteredScore = score {
+                    switch playerName {
+                        case namePlayer1:
+                            player1Scores.append(enteredScore)
+                        case namePlayer2:
+                            player2Scores.append(enteredScore)
+                        case namePlayer3:
+                            player3Scores.append(enteredScore)
+                        default:
+                            break
+                    }
+                }
+            print("\(player1Scores)")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
@@ -63,22 +80,7 @@ struct EnterScoreView: View {
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        let playerName = "Player 1"
-        let namePlayer1 = "Player 1"
-        let namePlayer2 = "Player 2"
-        let namePlayer3 = "Player 3"
-        @State var throwsPlayer1 = 1
-        @State var throwsPlayer2 = 1
-        @State var throwsPlayer3 = 1
-        @State var score: Int?
-        
-        EnterScoreView(playerName: playerName,
-                       namePlayer1: namePlayer1,
-                       namePlayer2: namePlayer2,
-                       namePlayer3: namePlayer3,
-                       throwsPlayer1: $throwsPlayer1,
-                       throwsPlayer2: $throwsPlayer2,
-                       throwsPlayer3: $throwsPlayer3) { enteredScore in
-        }
+        EnterScoreView(playerName: "Player 1", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([])) { _ in }
     }
 }
+
