@@ -14,6 +14,11 @@ struct GameView: View {
     var namePlayer3: String
     
     @State private var currentPlayerName: String = ""
+    
+    private var playerNames: [String] {
+        [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
+    }
+    
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 0
        
@@ -21,13 +26,22 @@ struct GameView: View {
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
     
+    @State private var scoreHistory = ScoreHistory()
+    @State private var scoreHistories: [ScoreHistory] = []
+
+    struct ScoreHistory {
+           var player1: [Int] = []
+           var player2: [Int] = []
+           var player3: [Int] = []
+       }
+    
+    private var isAnyPlayerScoreZero: Bool {
+        scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
+    }
+    
     @State private var throwsPlayer1: Int = 1
     @State private var throwsPlayer2: Int = 1
     @State private var throwsPlayer3: Int = 1
-    
-    @State private var informationRequested = false
-    
-    @State private var shouldUpdateGame = true
     
     private var currentPlayerThrows: Int {
         switch currentPlayerName {
@@ -42,27 +56,15 @@ struct GameView: View {
         }
     }
     
+    @State private var informationRequested = false
+    
+    @State private var shouldUpdateGame = true
+    
     @State private var enterScore = false
     @State private var isGameOver = false
     
     @State private var isConfettiAnimationActive = false
-                    
-    private var playerNames: [String] {
-        [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
-    }
-    
-    private var isAnyPlayerScoreZero: Bool {
-        scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
-    }
-    
-    @State private var scoreHistory = ScoreHistory()
-
-    struct ScoreHistory {
-           var player1: [Int] = []
-           var player2: [Int] = []
-           var player3: [Int] = []
-       }
-    
+        
     var body: some View {
         
         NavigationStack {
@@ -111,7 +113,7 @@ struct GameView: View {
                              Text("\(scorePlayer1)")
                                  .font(.system(size: 140, weight: .bold, design: .default))
                          }
-                         .disabled(currentPlayerIndex != 0 || scorePlayer1 == 0)
+                         .disabled(currentPlayerIndex != 0)
                      }
                  }
                  .edgesIgnoringSafeArea(.all)
@@ -127,7 +129,7 @@ struct GameView: View {
                             Text("\(scorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
-                        .disabled(currentPlayerIndex != 1 || scorePlayer2 == 0)
+                        .disabled(currentPlayerIndex != 1)
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
@@ -144,7 +146,7 @@ struct GameView: View {
                                 Text("\(scorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 2  || scorePlayer3 == 0)
+                            .disabled(currentPlayerIndex != 2)
                         }
                     }
                     .edgesIgnoringSafeArea(.all)
@@ -194,9 +196,16 @@ struct GameView: View {
                     if newScore == 0 {
                         enterScore = false
                         isGameOver = true
+                        saveScoreHistory()
                     } else {
                         currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                         currentPlayerName = playerNames[currentPlayerIndex]
+                    }
+                    if isGameOver {
+                        throwsPlayer1 = 1
+                        throwsPlayer2 = 1
+                        throwsPlayer3 = 1
+                            gameCount += 1
                     }
                 }
                 .presentationDetents([.large])
@@ -245,6 +254,10 @@ struct GameView: View {
             break
         }
         currentPlayerName = playerNames[currentPlayerIndex]
+    }
+    
+    private func saveScoreHistory() {
+        scoreHistories.append(scoreHistory)
     }
 
 }

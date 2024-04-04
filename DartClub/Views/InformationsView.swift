@@ -34,9 +34,6 @@ struct InformationsView: View {
     }
 }
 
-
-import SwiftUI
-
 struct InformationsView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleScoreHistory = GameView.ScoreHistory(player1: [450, 400, 350], player2: [480, 430, 380], player3: [470, 420, 370])
