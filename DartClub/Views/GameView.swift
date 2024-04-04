@@ -20,7 +20,7 @@ struct GameView: View {
     }
     
     @State private var currentPlayerIndex: Int = 0
-    @State private var gameCount: Int = 0
+    @State private var gameCount: Int = 1
        
     @State private var scorePlayer1: Int = 501
     @State private var scorePlayer2: Int = 501
@@ -221,12 +221,10 @@ struct GameView: View {
             WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
         .onAppear() {
-            if shouldUpdateGame {
-                gameCount += 1
                 let numberOfPlayers = playerNames.count
                 currentPlayerIndex = (gameCount - 1) % numberOfPlayers
                 currentPlayerName = playerNames[currentPlayerIndex]
-            }
+                print("onAppear")
         }
         
     }
