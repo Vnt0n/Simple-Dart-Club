@@ -206,9 +206,8 @@ struct GameView: View {
                         currentPlayerName = playerNames[currentPlayerIndex]
                     }
                     if isGameOver {
-                        throwsPlayer1 = 1
-                        throwsPlayer2 = 1
-                        throwsPlayer3 = 1
+                        print("isGameOver")
+                        print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
                         gameCount += 1
                     }
                 }
@@ -228,6 +227,9 @@ struct GameView: View {
             let numberOfPlayers = playerNames.count
             currentPlayerIndex = (gameCount - 1) % numberOfPlayers
             currentPlayerName = playerNames[currentPlayerIndex]
+            throwsPlayer1 = 1
+            throwsPlayer2 = 1
+            throwsPlayer3 = 1
         }
         
     }
