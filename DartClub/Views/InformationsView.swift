@@ -33,6 +33,8 @@ struct InformationsView: View {
                     Text("Player 1: \(player1Scores)")
                     Text("Player 2: \(player2Scores)")
                     Text("Player 3: \(player3Scores)")
+                    Text("SCORE CHOISI - \(player1Scores[2])")
+
                 }
                 .padding()
             
@@ -45,6 +47,7 @@ struct InformationsView: View {
                             Text("Player 1: \(history.player1)")
                             Text("Player 2: \(history.player2)")
                             Text("Player 3: \(history.player3)")
+                            Text("SCORE CHOISI - \(history.player1[2])")
                         }
                         .padding()
                     }
