@@ -86,6 +86,7 @@ struct GameView: View {
                         }
                         .onAppear() {
                             shouldUpdateGame = false
+                            print("--------------------------------------------")
                             print("onAppear GameView")
                             print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
                         }
@@ -206,6 +207,7 @@ struct GameView: View {
                         currentPlayerName = playerNames[currentPlayerIndex]
                     }
                     if isGameOver {
+                        print("--------------------------------------------")
                         print("isGameOver")
                         print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
                         gameCount += 1
@@ -222,6 +224,7 @@ struct GameView: View {
             WinnerView(playerNames: playerNames, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
         }
         .onAppear() {
+            print("--------------------------------------------")
             print("onAppear EnterScoreView")
             print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
             currentPlayerIndex = (gameCount - 1) % playerNames.count
@@ -261,6 +264,7 @@ struct GameView: View {
     }
     
     private func saveScoreHistory() {
+        print("--------------------------------------------")
         print("func saveScoreHistory")
         print("Turn player One = \(throwsPlayer1) Turn player Two = \(throwsPlayer2) Turn player Three = \(throwsPlayer3)")
         scoreHistories.append(scoreHistory)
