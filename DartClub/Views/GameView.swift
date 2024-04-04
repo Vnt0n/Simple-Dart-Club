@@ -227,9 +227,6 @@ struct GameView: View {
             let numberOfPlayers = playerNames.count
             currentPlayerIndex = (gameCount - 1) % numberOfPlayers
             currentPlayerName = playerNames[currentPlayerIndex]
-            throwsPlayer1 = 1
-            throwsPlayer2 = 1
-            throwsPlayer3 = 1
         }
         
     }
