@@ -32,14 +32,16 @@ struct EnterScoreView: View {
     var body: some View {
         NavigationStack {
             Text(playerName)
-                .font(.system(size: 30, weight: .bold, design: .default))
+                .font(.system(size: 45, weight: .bold, design: .default))
             Text("Enter your score")
-                .font(.system(size: 20, weight: .bold, design: .default))
+                .font(.system(size: 30, weight: .bold, design: .default))
             TextField("", value: $score, format: .number)
                 .textFieldStyle(.roundedBorder)
+                .font(.system(size: 50, weight: .bold, design: .default))
+                .multilineTextAlignment(.center)
                 .padding()
                 .keyboardType(.decimalPad)
-                .frame(width: 100)
+                .frame(width: 200)
                 .focused($isFocused)
                 .onAppear {
                     self.isFocused = true
@@ -79,13 +81,12 @@ struct EnterScoreView: View {
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
         .padding()
-        .disabled(score == nil)
+        .disabled(score == nil || score! > 180)
     }
 }
 
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterScoreView(playerName: "Player 1", namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([])) { _ in }
+        EnterScoreView(playerName: "Antoine", namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([])) { _ in }
     }
 }
-
