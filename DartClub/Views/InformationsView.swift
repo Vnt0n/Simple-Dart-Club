@@ -140,10 +140,84 @@ struct InformationsView: View {
                                         Divider()
                                         
                                     }
+                                    Text("Average Scores")
+                                        .frame(maxWidth: .infinity)
+                                        .font(.system(size: 14))
+                                        .fontWeight(.bold)
+
+                                    Divider()
+                                    
+                                    HStack {
+                                        
+                                        Spacer()
+
+                                        Text("\(namePlayer1)")
+                                            .font(.system(size: 14))
+                                            .frame(maxWidth: .infinity)
+                                        
+                                        Spacer()
+                                        Divider()
+                                        
+                                        Text("\(calculateAverageScore(scores: player1Scores))")
+                                            .frame(maxWidth: .infinity)
+                                            .font(.system(size: 14))
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    Divider()
+
+                                    HStack {
+                                        
+                                        Spacer()
+
+                                        Text("\(namePlayer2)")
+                                        .font(.system(size: 14))
+                                        .frame(maxWidth: .infinity)
+
+                                        Spacer()
+                                        Divider()
+
+                                        Text("\(calculateAverageScore(scores: player2Scores))")
+                                            .frame(maxWidth: .infinity)
+                                            .font(.system(size: 14))
+                                        
+                                        Spacer()
+
+                                    }
+
+                                    Divider()
+                                    
+                                    if !player3Scores.isEmpty {
+
+                                        HStack {
+                                                     
+                                            Spacer()
+
+                                            Text("\(namePlayer3)")
+                                                .font(.system(size: 14))
+                                                .frame(maxWidth: .infinity)
+
+                                            Spacer()
+                                            Divider()
+
+                                            Text("\(calculateAverageScore(scores: player3Scores))")
+                                                .frame(maxWidth: .infinity)
+                                                .font(.system(size: 14))
+                                            
+                                            Spacer()
+                                            
+                                        }
+                                        Divider()
+                                    }
                                 }
                             }
                         }.padding()
                     }
+                    
+                    Text("History")
+                        .font(.title)
+                        .padding()
                     
                     // Deuxième tableau
                     ZStack {
@@ -243,8 +317,79 @@ struct InformationsView: View {
                                             .padding(.horizontal)
                                             
                                             Divider()
-                                            
                                         }
+                                                                                
+                                        Text("Average Scores")
+                                            .frame(maxWidth: .infinity)
+                                            .font(.system(size: 14))
+                                            .fontWeight(.bold)
+
+                                        Divider()
+                                        
+                                        HStack {
+                                            
+                                            Spacer()
+
+                                            Text("\(namePlayer1)")
+                                                .font(.system(size: 14))
+                                                .frame(maxWidth: .infinity)
+                                            
+                                            Spacer()
+                                            Divider()
+                                            
+                                            Text("\(calculateAverageScore(scores: history.player1))")
+                                                .frame(maxWidth: .infinity)
+                                                .font(.system(size: 14))
+                                            
+                                            Spacer()
+                                        }
+                                        
+                                        Divider()
+
+                                        HStack {
+                                            
+                                            Spacer()
+
+                                            Text("\(namePlayer2)")
+                                            .font(.system(size: 14))
+                                            .frame(maxWidth: .infinity)
+
+                                            Spacer()
+                                            Divider()
+
+                                            Text("\(calculateAverageScore(scores: history.player2))")
+                                                .frame(maxWidth: .infinity)
+                                                .font(.system(size: 14))
+                                            
+                                            Spacer()
+
+                                        }
+
+                                        Divider()
+                                        
+                                        if !history.player3.isEmpty {
+
+                                            HStack {
+                                                         
+                                                Spacer()
+
+                                                Text("\(namePlayer3)")
+                                                    .font(.system(size: 14))
+                                                    .frame(maxWidth: .infinity)
+
+                                                Spacer()
+                                                Divider()
+
+                                                Text("\(calculateAverageScore(scores: history.player3))")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.system(size: 14))
+                                                
+                                                Spacer()
+                                                
+                                            }
+                                            Divider()
+                                        }
+                                        
                                     }
                                     .padding()
                                     
@@ -344,6 +489,7 @@ struct InformationsView: View {
                             
                         }
                     }
+                    
                     // Quatrième tableau
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -443,9 +589,6 @@ struct InformationsView: View {
                         .sheet(isPresented: $showCreditView) {
                                    CreditView()
                         }
-                    Text("Average Score: \(calculateAverageScore(scores: player1Scores))")
-                    Text("Average Score: \(calculateAverageScore(scores: player2Scores))")
-                    Text("Average Score: \(calculateAverageScore(scores: player3Scores))")
                 }
             }
         }
