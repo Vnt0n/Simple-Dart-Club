@@ -269,13 +269,16 @@ struct InformationsView: View {
                                     
                                     Text("\(namePlayer1)")
                                         .font(.system(size: 17))
+                                        .frame(maxWidth: .infinity)
                                     
                                     Spacer()
-                                    
+                                    Divider()
+
                                     Text("\(scorePlayer1)")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
                                     
                                 }
@@ -288,19 +291,23 @@ struct InformationsView: View {
                                     
                                     Text("\(namePlayer2)")
                                         .font(.system(size: 17))
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
-                                    
+                                    Divider()
+
                                     Text("\(scorePlayer2)")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
+                                    
                                 }
                                 
                                 Divider()
                                 
-                                if !player3Scores.isEmpty {
+                                if !namePlayer3.isEmpty {
                                     
                                     HStack {
                                         
@@ -308,13 +315,16 @@ struct InformationsView: View {
                                         
                                         Text("\(namePlayer3)")
                                             .font(.system(size: 17))
-                                        
+                                            .frame(maxWidth: .infinity)
+
                                         Spacer()
-                                        
+                                        Divider()
+
                                         Text("\(scorePlayer3)")
                                             .font(.system(size: 17))
                                             .fontWeight(.bold)
-                                        
+                                            .frame(maxWidth: .infinity)
+
                                         Spacer()
                                         
                                     }
@@ -349,13 +359,16 @@ struct InformationsView: View {
                                     
                                     Text("\(namePlayer1)")
                                         .font(.system(size: 17))
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
-                                    
+                                    Divider()
+
                                     Text("\(player1Wins)")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
                                     
                                 }
@@ -368,19 +381,22 @@ struct InformationsView: View {
                                     
                                     Text("\(namePlayer2)")
                                         .font(.system(size: 17))
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
-                                    
+                                    Divider()
+
                                     Text("\(player2Wins)")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
-                                    
+                                        .frame(maxWidth: .infinity)
+
                                     Spacer()
                                 }
                                 
                                 Divider()
                                 
-                                if !player3Scores.isEmpty {
+                                if !namePlayer3.isEmpty {
                                     
                                     HStack {
                                         
@@ -388,19 +404,23 @@ struct InformationsView: View {
                                         
                                         Text("\(namePlayer3)")
                                             .font(.system(size: 17))
-                                        
+                                            .frame(maxWidth: .infinity)
+
                                         Spacer()
-                                        
+                                        Divider()
+
                                         Text("\(player3Wins)")
                                             .font(.system(size: 17))
                                             .fontWeight(.bold)
-                                        
+                                            .frame(maxWidth: .infinity)
+
                                         Spacer()
                                         
                                     }
                                     
                                     Divider()
                                 }
+                                
                             }
                             .padding()
                             
