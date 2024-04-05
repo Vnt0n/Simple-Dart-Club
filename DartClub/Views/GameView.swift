@@ -33,7 +33,7 @@ struct GameView: View {
         var player1: [Int] = []
         var player2: [Int] = []
         var player3: [Int] = []
-        var winner: String = "" // Ajoutez cette ligne pour stocker le gagnant de la partie
+        var winner: String = ""
     }
 
     
@@ -91,9 +91,14 @@ struct GameView: View {
                         Text("Game \(gameCount) - Turn \(currentPlayerThrows)")
                         Spacer()
                         Button(action: {
+                            
                             print("--------------------------------------------")
-                            print("BUTTON undoLastScore")
+                            print("BUTTON undoLastScore. Done?")
+                            
                             undoLastScore()
+                            
+                            print("DONE")
+                            
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
                                 .accessibilityLabel("Undo")
@@ -218,10 +223,15 @@ struct GameView: View {
         }
         .onAppear() {
             if !informationRequested {
+                
                 print("--------------------------------------------")
-                print("onAppear GameView")
+                print("onAppear GameView if !informationRequested. Done?")
+                
                 currentPlayerIndex = (gameCount - 1) % playerNames.count
                 currentPlayerName = playerNames[currentPlayerIndex]
+                
+                print("DONE")
+
             }
         }
 
@@ -229,8 +239,10 @@ struct GameView: View {
     }
     
     private func undoLastScore() {
+        
         print("--------------------------------------------")
-        print("func undoLastScore")
+        print("func undoLastScore. Done?")
+        
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         switch playerNames[previousPlayerIndex] {
         case namePlayer1:
@@ -265,6 +277,9 @@ struct GameView: View {
                 if !player3Scores.isEmpty {
                     player3Scores.removeLast()
                 }
+                
+                print("DONE")
+                
             }
         default:
             break
@@ -274,8 +289,9 @@ struct GameView: View {
 
     
     private func saveScoreHistory() {
+        
         print("--------------------------------------------")
-        print("func saveScoreHistory")
+        print("func saveScoreHistory. Done?")
         
         // Déterminer le gagnant
         var winner = ""
@@ -294,21 +310,28 @@ struct GameView: View {
         
         // Réinitialiser l'historique des scores
         scoreHistory = ScoreHistory()
-    }
+        
+        print("DONE")
 
+    }
     
     var newGameResetClosure: (() -> Void)?
 
-        private func newGameReset() {
-            print("--------------------------------------------")
-            print("func newGameReset")
-            throwsPlayer1 = 1
-            throwsPlayer2 = 1
-            throwsPlayer3 = 1
-            player1Scores = []
-            player2Scores = []
-            player3Scores = []
-        }
+    private func newGameReset() {
+        
+        print("--------------------------------------------")
+        print("func newGameReset. Done?")
+        
+        throwsPlayer1 = 1
+        throwsPlayer2 = 1
+        throwsPlayer3 = 1
+        player1Scores = []
+        player2Scores = []
+        player3Scores = []
+        
+        print("DONE")
+
+    }
 
 }
 

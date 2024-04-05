@@ -78,11 +78,16 @@ struct WinnerView: View {
     }
     
     private func newGame() {
+        
+        print("--------------------------------------------")
+        print("func newGame. Done?")
+        
         scorePlayer1 = 501
         scorePlayer2 = 501
         scorePlayer3 = 501
-        print("--------------------------------------------")
-        print("NEW GAME BUTTON")
+
+        print("DONE")
+        
         newGameResetClosure?()
 
     }

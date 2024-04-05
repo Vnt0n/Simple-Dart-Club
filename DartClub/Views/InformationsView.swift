@@ -330,4 +330,3 @@ struct InformationsView_Previews: PreviewProvider {
                                 namePlayer3: "Charlie")
     }
 }
-
