@@ -26,7 +26,7 @@ struct WinnerView: View {
     var namePlayer2: String
     var namePlayer3: String
     
-    var newGameResetClosure: (() -> Void)? // Déclaration de la fermeture
+    var newGameResetClosure: (() -> Void)?
 
     var body: some View {
         NavigationStack {
@@ -65,7 +65,7 @@ struct WinnerView: View {
             Button("New game") {
                 newGame()
                 isGameStarted = true
-                newGameResetClosure?() // Appel à la fermeture pour réinitialiser les throwsPlayer
+                newGameResetClosure?()
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
