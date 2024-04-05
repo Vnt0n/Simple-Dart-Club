@@ -25,14 +25,14 @@ struct InformationsView: View {
     var body: some View {
         VStack {
             
-            Text("Score Histories")
+            Text("ScoreBoard")
                 .font(.title)
                 .padding()
             
             ScrollView {
                 
                 VStack {
-                    
+
                     // Premier tableau
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
@@ -40,6 +40,9 @@ struct InformationsView: View {
                             .padding(.horizontal)
                         
                         VStack {
+                            Text("CURRENT GAME")
+                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            Text("-")
                             if !player1Scores.isEmpty || !player2Scores.isEmpty || !player3Scores.isEmpty {
                                 VStack {
                                     HStack {
@@ -118,9 +121,8 @@ struct InformationsView: View {
                                         
                                     }
                                 }
-                                .padding()
                             }
-                        }
+                        }.padding()
                     }
                     
                     // Deuxième tableau
@@ -136,9 +138,15 @@ struct InformationsView: View {
                                 if !history.winner.isEmpty {
                                     
                                     VStack {
+                                        
                                         Text("GAME \(index + 1)")
                                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                        Text("Winner: \(history.winner)")
+                                        Text("-")
+
+                                        Text("🎉 \(history.winner) won! 🥇")
+                                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                        
+                                        Text("-")
                                             .padding(.bottom, 15)
                                         
                                         Spacer()
