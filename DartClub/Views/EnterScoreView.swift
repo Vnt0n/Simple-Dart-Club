@@ -51,8 +51,10 @@ struct EnterScoreView: View {
         }
  
         Button("OK          ") {
+            
             onScoreEntered(score != nil ? "\(score!)" : "")
             dismiss()
+            
             switch playerName {
                 case namePlayer1:
                     throwsPlayer1 += 1
@@ -63,6 +65,7 @@ struct EnterScoreView: View {
                 default:
                     break
                 }
+            
             if let enteredScore = score {
                     switch playerName {
                         case namePlayer1:
@@ -74,6 +77,7 @@ struct EnterScoreView: View {
                         default:
                             break
                     }
+                
                 }
             print("--------------------------------------------")
             print("OK BUTTON EnterScoreView")

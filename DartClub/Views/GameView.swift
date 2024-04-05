@@ -209,9 +209,11 @@ struct GameView: View {
                         currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                         currentPlayerName = playerNames[currentPlayerIndex]
                     }
+                    
                     if isGameOver {
                         gameCount += 1
                     }
+                    
                 }
                 .presentationDetents([.large])
             }
@@ -246,6 +248,7 @@ struct GameView: View {
         
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         switch playerNames[previousPlayerIndex] {
+            
         case namePlayer1:
             if let lastScore = scoreHistory.player1.last {
                 currentPlayerIndex = previousPlayerIndex
@@ -257,6 +260,7 @@ struct GameView: View {
                     player1Scores.removeLast()
                 }
             }
+            
         case namePlayer2:
             if let lastScore = scoreHistory.player2.last {
                 currentPlayerIndex = previousPlayerIndex
@@ -268,6 +272,7 @@ struct GameView: View {
                     player2Scores.removeLast()
                 }
             }
+            
         case namePlayer3:
             if let lastScore = scoreHistory.player3.last {
                 currentPlayerIndex = previousPlayerIndex

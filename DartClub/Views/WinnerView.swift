@@ -1,5 +1,5 @@
 //
-//  Contentview.swift
+//  WinnerView.swift
 //  DartClub
 //
 //  Created by Antoine on 29/03/2024.
@@ -29,36 +29,46 @@ struct WinnerView: View {
     var newGameResetClosure: (() -> Void)?
 
     var body: some View {
+        
         NavigationStack {
+            
             VStack {
+                
                 Text("0")
                     .padding([.bottom], 10)
                     .font(.system(size: 140, weight: .bold, design: .default))
+                
                 Text(winnerName)
                     .padding([.bottom], 10)
                     .font(.system(size: 30, weight: .bold, design: .default))
-                    Text("You won!")
-                        .font(.system(size: 50, weight: .bold, design: .default))
-                        .foregroundColor(.blue)
-                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                self.counter = 1
-                            }
+                
+                Text("You won!")
+                    .font(.system(size: 50, weight: .bold, design: .default))
+                    .foregroundColor(.blue)
+                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                            self.counter = 1
                         }
+                    }
+                
                 HStack {
+                    
                     Text("\(namePlayer1)")
                         .bold()
                     Text("\(scorePlayer1) -")
+                    
                     Text("\(namePlayer2)")
                         .bold()
                     Text("\(scorePlayer2)")
+                    
                     if !namePlayer3.isEmpty {
                         Text("-")
                         Text("\(namePlayer3)")
                             .bold()
                         Text("\(scorePlayer3)")
                     }
+                    
                 }
                 .padding()
             }

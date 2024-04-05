@@ -481,4 +481,3 @@ struct InformationsView_Previews: PreviewProvider {
         }
     }
 }
-
