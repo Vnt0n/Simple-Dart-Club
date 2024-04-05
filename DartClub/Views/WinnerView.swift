@@ -76,7 +76,7 @@ struct WinnerView: View {
                 GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
             }
             
-            Image(systemName: "info.circle")
+            Image(systemName: "info.bubble")
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
@@ -84,7 +84,7 @@ struct WinnerView: View {
                 }
                 .padding()
                 .sheet(isPresented: $showInformationsView) {
-                           InformationsView(scoreHistories: .constant([]), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([]), scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                           CreditView()
                        }
         }
         .navigationBarBackButtonHidden(true)
