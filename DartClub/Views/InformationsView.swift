@@ -313,20 +313,39 @@ struct InformationsView: View {
 struct InformationsView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let scoreHistories: [GameView.ScoreHistory] = [
-            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18]),
-            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17])
+        let scoreHistories1: [GameView.ScoreHistory] = [
+            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Player 1"),
+            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Player 2")
         ]
         
-        return InformationsView(scoreHistories: .constant(scoreHistories),
-                                player1Scores: .constant([10, 55, 35, 15]),
-                                player2Scores: .constant([25, 41, 17]),
-                                player3Scores: .constant([54, 22, 14]),
-                                scorePlayer1: 369,
-                                scorePlayer2: 250,
-                                scorePlayer3: 150,
-                                namePlayer1: "Alice",
-                                namePlayer2: "Bob",
-                                namePlayer3: "Charlie")
+        let scoreHistories2: [GameView.ScoreHistory] = [
+            GameView.ScoreHistory(player1: [10, 20, 30], player2: [5, 15, 25], player3: [15, 25, 35], winner: "Player 3"),
+            GameView.ScoreHistory(player1: [20, 40, 60], player2: [10, 30, 50], player3: [25, 35, 45], winner: "Player 1")
+        ]
+        
+        return Group {
+            InformationsView(scoreHistories: .constant(scoreHistories1),
+                             player1Scores: .constant([10, 55, 35, 15]),
+                             player2Scores: .constant([25, 41, 17]),
+                             player3Scores: .constant([54, 22, 14]),
+                             scorePlayer1: 369,
+                             scorePlayer2: 250,
+                             scorePlayer3: 150,
+                             namePlayer1: "Alice",
+                             namePlayer2: "Bob",
+                             namePlayer3: "Charlie")
+            
+            InformationsView(scoreHistories: .constant(scoreHistories2),
+                             player1Scores: .constant([10, 20, 30]),
+                             player2Scores: .constant([5, 15, 25]),
+                             player3Scores: .constant([15, 25, 35]),
+                             scorePlayer1: 90,
+                             scorePlayer2: 45,
+                             scorePlayer3: 75,
+                             namePlayer1: "Dave",
+                             namePlayer2: "Eva",
+                             namePlayer3: "Frank")
+        }
     }
 }
+
