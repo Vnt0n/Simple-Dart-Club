@@ -103,7 +103,6 @@ struct FirstView: View {
                             
                             Button(action: {
                                 if !namePlayer1.isEmpty {
-                                        isNameOneSubmitted = true
                                         isPlayerAdded = true
                                     }
                             }) {
@@ -111,11 +110,13 @@ struct FirstView: View {
                                     Label("Add a player", systemImage: "person.fill.badge.plus")
                                         .accessibilityLabel("Add a player")
                                         .font(.system(size: 20))
+                                        .padding(.top, 20)
                                 } else {
                                     Label("Add a player", systemImage: "person.fill.badge.plus")
                                         .accessibilityLabel("Add a player")
                                         .font(.system(size: 20))
                                         .foregroundColor(.gray)
+                                        .padding(.top, 20)
                                 }
                             }
                         }
@@ -136,7 +137,7 @@ struct FirstView: View {
                     .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
-                    .padding()
+                    .padding(.bottom, 15)
                     .navigationDestination(isPresented: $isGameStarted) {
                         GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                     }

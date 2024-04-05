@@ -87,7 +87,10 @@ struct GameView: View {
                         Text("\(currentPlayerName)")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("Game \(gameCount) - Turn \(currentPlayerThrows)")
+                        Text("Game \(gameCount)")
+                        Text("- Turn \(currentPlayerThrows)")
+                            .bold()
+
                         Spacer()
                         Button(action: {
                             
