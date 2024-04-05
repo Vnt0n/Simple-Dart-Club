@@ -12,7 +12,7 @@ struct WinnerView: View {
     
     @State private var counter = 0
     @State private var isGameStarted = false
-    @State private var showInformationsView = false
+    @State private var showCreditView = false
 
     var playerNames: [String]
     
@@ -20,7 +20,6 @@ struct WinnerView: View {
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
     @Binding var currentPlayerIndex: Int
-
 
     var winnerName: String
     var namePlayer1: String
@@ -80,10 +79,10 @@ struct WinnerView: View {
                 .resizable()
                 .frame(width: 24, height: 24)
                 .onTapGesture {
-                    showInformationsView = true
+                    showCreditView = true
                 }
                 .padding()
-                .sheet(isPresented: $showInformationsView) {
+                .sheet(isPresented: $showCreditView) {
                            CreditView()
                        }
         }

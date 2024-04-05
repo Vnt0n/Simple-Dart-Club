@@ -97,15 +97,26 @@ struct FirstView: View {
                             Spacer()
                             
                         } else {
-                            Button("+ Add a player") {
+                            Button(action: {
                                 if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
-                                    isNameOneSubmitted = true
-                                    isNameTwoSubmitted = true
-                                    isPlayerAdded = true
+                                        isNameOneSubmitted = true
+                                        isNameTwoSubmitted = true
+                                        isPlayerAdded = true
+                                    }
+                            }) {
+                                if !namePlayer1.isEmpty {
+                                    Label("Add a player", systemImage: "person.fill.badge.plus")
+                                        .accessibilityLabel("Add a player")
+                                        .font(.system(size: 20))
+                                } else {
+                                    Label("Add a player", systemImage: "person.fill.badge.plus")
+                                        .accessibilityLabel("Add a player")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.gray)
                                 }
                             }
                         }
-                        
+
                         Spacer()
                         
                     } else {
