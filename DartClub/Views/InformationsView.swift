@@ -10,6 +10,7 @@ import SwiftUI
 struct InformationsView: View {
     
     @Binding var scoreHistories: [GameView.ScoreHistory]
+    
     @Binding var player1Scores: [Int]
     @Binding var player2Scores: [Int]
     @Binding var player3Scores: [Int]
@@ -21,6 +22,8 @@ struct InformationsView: View {
     var namePlayer1: String
     var namePlayer2: String
     var namePlayer3: String
+    
+    @State private var winners: [String] = []
     
     var body: some View {
         VStack {
