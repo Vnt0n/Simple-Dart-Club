@@ -60,12 +60,19 @@ struct InformationsView: View {
                             .padding(.horizontal)
                         
                         VStack {
+                            
                             Text("CURRENT GAME")
                                 .fontWeight(.bold)
-                            Text("-")
+                            
+                            Divider()
+                            Spacer()
+                            
                             if !player1Scores.isEmpty || !player2Scores.isEmpty || !player3Scores.isEmpty {
                                 VStack {
+                                    Spacer()
+
                                     HStack {
+                                        
                                         Text("")
                                             .fontWeight(.bold)
                                             .frame(maxWidth: .infinity)
@@ -284,13 +291,15 @@ struct InformationsView: View {
                                             
                                             Text("GAME \(index + 1)")
                                                 .fontWeight(.bold)
-                                            Text("-")
+                                                .font(.system(size: 20))
+
+                                            Spacer()
                                             
                                             Text("🎉 \(history.winner) won! 🥇")
                                                 .fontWeight(.bold)
                                             
-                                            Text("-")
-                                                .padding(.bottom, 15)
+                                            Divider()
+                                            Spacer()
                                             
                                             Spacer()
                                             
@@ -457,10 +466,9 @@ struct InformationsView: View {
                         
                         VStack {
                             
-                            Text("TOTAL WINS")
+                            Text("🎉 TOTAL WINS 🥇")
                                 .font(.headline)
                                 .padding(.top, 15)
-                            Text("-")
                             
                             VStack(alignment: .leading, spacing: 8) {
                                 
@@ -534,7 +542,6 @@ struct InformationsView: View {
                                         
                                     }
                                     
-                                    Divider()
                                 }
                             }
                             .padding()
