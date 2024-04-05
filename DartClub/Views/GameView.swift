@@ -33,7 +33,9 @@ struct GameView: View {
         var player1: [Int] = []
         var player2: [Int] = []
         var player3: [Int] = []
+        var winner: String = "" // Ajoutez cette ligne pour stocker le gagnant de la partie
     }
+
     
     @State private var player1Scores: [Int] = []
     @State private var player2Scores: [Int] = []
@@ -274,9 +276,26 @@ struct GameView: View {
     private func saveScoreHistory() {
         print("--------------------------------------------")
         print("func saveScoreHistory")
-        scoreHistories.append(scoreHistory)
+        
+        // Déterminer le gagnant
+        var winner = ""
+        if scorePlayer1 == 0 {
+            winner = namePlayer1
+        } else if scorePlayer2 == 0 {
+            winner = namePlayer2
+        } else if scorePlayer3 == 0 {
+            winner = namePlayer3
+        }
+        
+        // Ajouter les scores et le gagnant à l'historique
+        var history = scoreHistory
+        history.winner = winner
+        scoreHistories.append(history)
+        
+        // Réinitialiser l'historique des scores
         scoreHistory = ScoreHistory()
     }
+
     
     var newGameResetClosure: (() -> Void)?
 

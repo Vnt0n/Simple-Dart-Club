@@ -52,25 +52,25 @@ struct InformationsView: View {
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
                                             .padding(.bottom, 15)
-
+                                        
                                         Spacer()
-
+                                        
                                         Text("\(namePlayer2)")
                                             .fontWeight(.bold)
                                             .font(.system(size: 17))
                                             .frame(maxWidth: .infinity)
                                             .padding(.bottom, 15)
-
+                                        
                                         if !player3Scores.isEmpty {
                                             
                                             Spacer()
-
+                                            
                                             Text("\(namePlayer3)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.bottom, 15)
-
+                                            
                                         }
                                     }
                                     .padding(.horizontal)
@@ -78,7 +78,7 @@ struct InformationsView: View {
                                     ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
                                         
                                         Divider()
-
+                                        
                                         HStack {
                                             
                                             Spacer()
@@ -115,7 +115,7 @@ struct InformationsView: View {
                                         .padding(.horizontal)
                                         
                                         Divider()
-
+                                        
                                     }
                                 }
                                 .padding()
@@ -130,98 +130,98 @@ struct InformationsView: View {
                             .padding(.horizontal)
                         
                         VStack {
-                            ForEach(scoreHistories, id: \.self) { history in
-                                VStack {
-
-                                    Text("GAME \(scoreHistories.firstIndex(of: history)! + 1)")
-                                        .font(.headline)
-                                    Text("-")
-                                        .padding(.bottom, 15)
-
-                                    Spacer()
-
-                                    HStack {
-                                        Text("")
-                                            .fontWeight(.bold)
-                                            .frame(maxWidth: .infinity)
-                                        
-                                        Text("\(namePlayer1)")
-                                            .fontWeight(.bold)
-                                            .font(.system(size: 17))
-                                            .frame(maxWidth: .infinity)
+                            
+                            ForEach(scoreHistories.indices, id: \.self) { index in
+                                let history = scoreHistories[index]
+                                if !history.winner.isEmpty {
+                                    
+                                    VStack {
+                                        Text("GAME \(index + 1) - Winner: \(history.winner)")
                                             .padding(.bottom, 15)
-
+                                        
                                         Spacer()
                                         
-                                        Text("\(namePlayer2)")
-                                            .fontWeight(.bold)
-                                            .font(.system(size: 17))
-                                            .frame(maxWidth: .infinity)
-                                            .padding(.bottom, 15)
-
-                                        Spacer()
-                                        
-                                        if !history.player3.isEmpty {
-                                            Text("\(namePlayer3)")
+                                        HStack {
+                                            Text("")
+                                                .fontWeight(.bold)
+                                                .frame(maxWidth: .infinity)
+                                            
+                                            Text("\(namePlayer1)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.bottom, 15)
-
+                                            
                                             Spacer()
                                             
-                                        }
-                                    }
-                                    .padding(.horizontal)
-
-                                    ForEach(0..<max(history.player1.count, history.player2.count, history.player3.count), id: \.self) { index in
-                                        
-                                        Divider()
-
-                                        HStack {
-                                        
-                                            
-                                            Text("Turn \(index + 1)")
+                                            Text("\(namePlayer2)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
+                                                .padding(.bottom, 15)
                                             
                                             Spacer()
-                                            Divider()
-
-                                            Text("\(index < history.player1.count ? "\(history.player1[index])" : "-")")
-                                                .frame(maxWidth: .infinity)
-                                                .font(.system(size: 17))
                                             
-                                            Spacer()
-                                            Divider()
-
-                                            Text("\(index < history.player2.count ? "\(history.player2[index])" : "-")")
-                                                .frame(maxWidth: .infinity)
-                                                .font(.system(size: 17))
-                                            
-                                            Spacer()
-                                            Divider()
-
                                             if !history.player3.isEmpty {
-                                                Text("\(index < history.player3.count ? "\(history.player3[index])" : "-")")
-                                                    .frame(maxWidth: .infinity)
+                                                Text("\(namePlayer3)")
+                                                    .fontWeight(.bold)
                                                     .font(.system(size: 17))
+                                                    .frame(maxWidth: .infinity)
+                                                    .padding(.bottom, 15)
                                                 
                                                 Spacer()
-                                                
                                             }
                                         }
                                         .padding(.horizontal)
                                         
-                                        Divider()
-
+                                        ForEach(0..<max(history.player1.count, history.player2.count, history.player3.count), id: \.self) { index in
+                                            
+                                            Divider()
+                                            
+                                            HStack {
+                                                
+                                                Text("Turn \(index + 1)")
+                                                    .fontWeight(.bold)
+                                                    .font(.system(size: 17))
+                                                    .frame(maxWidth: .infinity)
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("\(index < history.player1.count ? "\(history.player1[index])" : "-")")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.system(size: 17))
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("\(index < history.player2.count ? "\(history.player2[index])" : "-")")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.system(size: 17))
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                if !history.player3.isEmpty {
+                                                    Text("\(index < history.player3.count ? "\(history.player3[index])" : "-")")
+                                                        .frame(maxWidth: .infinity)
+                                                        .font(.system(size: 17))
+                                                    
+                                                    Spacer()
+                                                }
+                                            }
+                                            .padding(.horizontal)
+                                            
+                                            Divider()
+                                            
+                                        }
                                     }
+                                    .padding()
+                                    
                                 }
-                                .padding()
+                                
                             }
                         }
-                        
                     }
                     
                     // Troisième tableau
@@ -304,30 +304,24 @@ struct InformationsView: View {
                             
                         }
                     }
-                    
                 }
             }
         }
     }
 }
-    
+
 struct InformationsView_Previews: PreviewProvider {
-    
     static var previews: some View {
-        let scoreHistories: [GameView.ScoreHistory] = [
-            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18]),
-            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17])
-        ]
-        
-        return InformationsView(scoreHistories: .constant(scoreHistories),
-                                player1Scores: .constant([10, 55, 35, 15]),
-                                player2Scores: .constant([25, 41, 17]),
-                                player3Scores: .constant([54, 22, 14]),
-                                scorePlayer1: 369,
-                                scorePlayer2: 250,
-                                scorePlayer3: 150,
-                                namePlayer1: "Alice",
-                                namePlayer2: "Bob",
-                                namePlayer3: "Charlie")
+        InformationsView(scoreHistories: .constant([]),
+                         player1Scores: .constant([]),
+                         player2Scores: .constant([]),
+                         player3Scores: .constant([]),
+                         scorePlayer1: 0,
+                         scorePlayer2: 0,
+                         scorePlayer3: 0,
+                         namePlayer1: "Player 1",
+                         namePlayer2: "Player 2",
+                         namePlayer3: "Player 3")
     }
 }
+
