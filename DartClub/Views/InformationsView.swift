@@ -22,6 +22,18 @@ struct InformationsView: View {
     var namePlayer2: String
     var namePlayer3: String
     
+    var player1Wins: Int {
+            scoreHistories.filter { $0.winner == namePlayer1 }.count
+        }
+        
+        var player2Wins: Int {
+            scoreHistories.filter { $0.winner == namePlayer2 }.count
+        }
+        
+        var player3Wins: Int {
+            scoreHistories.filter { $0.winner == namePlayer3 }.count
+        }
+    
     var body: some View {
         VStack {
             
@@ -300,6 +312,86 @@ struct InformationsView: View {
                                         Spacer()
                                         
                                         Text("\(scorePlayer3)")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.bold)
+                                        
+                                        Spacer()
+                                        
+                                    }
+                                    
+                                    Divider()
+                                }
+                            }
+                            .padding()
+                            
+                        }
+                    }
+                    // Quatrième tableau
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color.yellow.opacity(0.2))
+                            .padding(.horizontal)
+                        
+                        VStack {
+                            
+                            Text("TOTAL WINS")
+                                .font(.headline)
+                                .padding(.top, 15)
+                            Text("-")
+                            
+                            VStack(alignment: .leading, spacing: 8) {
+                                
+                                Divider()
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(namePlayer1)")
+                                        .font(.system(size: 17))
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(player1Wins)")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                    
+                                }
+                                
+                                Divider()
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(namePlayer2)")
+                                        .font(.system(size: 17))
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(player2Wins)")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.bold)
+                                    
+                                    Spacer()
+                                }
+                                
+                                Divider()
+                                
+                                if !player3Scores.isEmpty {
+                                    
+                                    HStack {
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(namePlayer3)")
+                                            .font(.system(size: 17))
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(player3Wins)")
                                             .font(.system(size: 17))
                                             .fontWeight(.bold)
                                         
