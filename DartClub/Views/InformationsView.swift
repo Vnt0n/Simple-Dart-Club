@@ -53,7 +53,7 @@ struct InformationsView: View {
                         
                         VStack {
                             Text("CURRENT GAME")
-                                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .fontWeight(.bold)
                             Text("-")
                             if !player1Scores.isEmpty || !player2Scores.isEmpty || !player3Scores.isEmpty {
                                 VStack {

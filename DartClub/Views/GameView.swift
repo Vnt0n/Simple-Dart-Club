@@ -35,7 +35,6 @@ struct GameView: View {
         var player3: [Int] = []
         var winner: String = ""
     }
-
     
     @State private var player1Scores: [Int] = []
     @State private var player2Scores: [Int] = []

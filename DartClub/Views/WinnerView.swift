@@ -12,7 +12,8 @@ struct WinnerView: View {
     
     @State private var counter = 0
     @State private var isGameStarted = false
-       
+    @State private var showInformationsView = false
+
     var playerNames: [String]
     
     @Binding var scorePlayer1: Int
@@ -73,6 +74,16 @@ struct WinnerView: View {
             .navigationDestination(isPresented: $isGameStarted) {
                 GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
             }
+            Button("ScoreBoard") {
+                           showInformationsView = true
+                       }
+                       .buttonStyle(.borderedProminent)
+                       .controlSize(.large)
+                       .padding()
+                       .sheet(isPresented: $showInformationsView) {
+                           // Présentez InformationsView sous forme de feuille
+                           InformationsView(scoreHistories: .constant([]), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([]), scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                       }
         }
         .navigationBarBackButtonHidden(true)
     }
