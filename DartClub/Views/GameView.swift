@@ -75,48 +75,67 @@ struct GameView: View {
             VStack(spacing: 0) {
                 
                 ZStack {
+                    
                     Color(.blue)
+                    
                     HStack {
+                        
                         Spacer()
+                        
                         NavigationLink(destination: InformationsView(scoreHistories: $scoreHistories, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
                         }
+                        
                         Spacer()
+                        
                         Text("\(currentPlayerName)")
                             .fontWeight(.bold)
+                        
                         Spacer()
+                        
                         Text("Game \(gameCount)")
                         Text("- Turn \(currentPlayerThrows)")
                             .bold()
 
                         Spacer()
+                        
                         Button(action: {
-                            
                             print("--------------------------------------------")
                             print("BUTTON undoLastScore. Done?")
-                            
                             undoLastScore()
-                            
                             print("DONE")
-                            
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
+                        
                             Spacer()
+                        
                     }
                 }
                 .background(Color.blue)
+                .foregroundColor(.white)
                 .frame(height: 60)
                 
                  ZStack {
+                     
                      Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                     
                      VStack {
-                         Text(namePlayer1)
-                             .fontWeight(.bold)
+                         
+                         Spacer()
+                         
+                         HStack {
+                             Text(namePlayer1)
+                                 .fontWeight(.bold)
+                             Text("Average Score - \(calculateAverageScore(scores: player1Scores))")
+                                 .font(
+                                     .system(size: 14))
+                         }
+                         
                          Button(action: {
                              enterScore = true
                          }) {
@@ -124,18 +143,29 @@ struct GameView: View {
                                  .font(.system(size: 140, weight: .bold, design: .default))
                          }
                          .disabled(currentPlayerIndex != 0)
-                         Text("Average Score - \(calculateAverageScore(scores: player1Scores))")
-                             .font(
-                                 .system(size: 14))
+                         
+                         Spacer()
+
                      }
                  }
                  .edgesIgnoringSafeArea(.all)
 
                 ZStack {
+                    
                     Color(currentPlayerIndex == 1 ? .yellow : .gray)
+                    
                     VStack {
-                        Text(namePlayer2)
-                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Text(namePlayer2)
+                                .fontWeight(.bold)
+                            Text("Average Score - \(calculateAverageScore(scores: player2Scores))")
+                                .font(
+                                    .system(size: 14))
+                        }
+                        
                         Button(action: {
                             enterScore = true
                         }) {
@@ -143,19 +173,31 @@ struct GameView: View {
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 1)
-                        Text("Average Score - \(calculateAverageScore(scores: player2Scores))")
-                            .font(
-                                .system(size: 14))
+
+                        Spacer()
+                        
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
 
                 if !namePlayer3.isEmpty {
+                    
                     ZStack {
+                        
                         Color(currentPlayerIndex == 2 ? .yellow : .gray)
+                        
                         VStack {
-                            Text(namePlayer3)
-                                .fontWeight(.bold)
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Text(namePlayer3)
+                                    .fontWeight(.bold)
+                                Text("- Average Score - \(calculateAverageScore(scores: player3Scores))")
+                                    .font(
+                                        .system(size: 14))
+                            }
+                            
                             Button(action: {
                                 enterScore = true
                             }) {
@@ -163,14 +205,13 @@ struct GameView: View {
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
-                            Text("Average Score - \(calculateAverageScore(scores: player3Scores))")
-                                .font(
-                                    .system(size: 14))
+                            
+                            Spacer()
+
                         }
                     }
                     .edgesIgnoringSafeArea(.all)
                 }
-                
             }
             .foregroundColor(.black)
             .sheet(isPresented: $enterScore) {
