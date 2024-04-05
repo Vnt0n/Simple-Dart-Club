@@ -152,11 +152,11 @@ struct InformationsView: View {
                                     VStack {
                                         
                                         Text("GAME \(index + 1)")
-                                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                            .fontWeight(.bold)
                                         Text("-")
 
                                         Text("🎉 \(history.winner) won! 🥇")
-                                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                            .fontWeight(.bold)
                                         
                                         Text("-")
                                             .padding(.bottom, 15)

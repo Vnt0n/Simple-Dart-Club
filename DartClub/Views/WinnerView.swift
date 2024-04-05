@@ -37,6 +37,7 @@ struct WinnerView: View {
                     .font(.system(size: 140, weight: .bold, design: .default))
                 Text(winnerName)
                     .padding([.bottom], 10)
+                    .font(.system(size: 30, weight: .bold, design: .default))
                     Text("You won!")
                         .font(.system(size: 50, weight: .bold, design: .default))
                         .foregroundColor(.blue)
