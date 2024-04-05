@@ -22,8 +22,6 @@ struct InformationsView: View {
     var namePlayer2: String
     var namePlayer3: String
     
-    @State private var winnerNamesList: [String] = []
-    
     var body: some View {
         VStack {
             
