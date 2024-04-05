@@ -91,14 +91,14 @@ struct InformationsView: View {
                                             Spacer()
                                             Divider()
                                             
-                                            Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "")")
+                                            Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "-")")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 17))
                                             
                                             Spacer()
                                             Divider()
                                             
-                                            Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "")")
+                                            Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "-")")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 17))
                                             
@@ -189,14 +189,14 @@ struct InformationsView: View {
                                             Spacer()
                                             Divider()
 
-                                            Text("\(index < history.player1.count ? "\(history.player1[index])" : "")")
+                                            Text("\(index < history.player1.count ? "\(history.player1[index])" : "-")")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 17))
                                             
                                             Spacer()
                                             Divider()
 
-                                            Text("\(index < history.player2.count ? "\(history.player2[index])" : "")")
+                                            Text("\(index < history.player2.count ? "\(history.player2[index])" : "-")")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 17))
                                             
@@ -231,6 +231,7 @@ struct InformationsView: View {
                             .padding(.horizontal)
                         
                         VStack {
+                            
                             Text("ACTUAL SCORES")
                                 .font(.headline)
                                 .padding(.top, 15)
@@ -309,19 +310,17 @@ struct InformationsView: View {
         }
     }
 }
-
-
     
 struct InformationsView_Previews: PreviewProvider {
     
     static var previews: some View {
         let scoreHistories: [GameView.ScoreHistory] = [
-            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18, 43]),
-            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62, 24], player3: [4, 18, 31, 15, 29, 17, 33])
+            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18]),
+            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17])
         ]
         
         return InformationsView(scoreHistories: .constant(scoreHistories),
-                                player1Scores: .constant([10, 55, 35]),
+                                player1Scores: .constant([10, 55, 35, 15]),
                                 player2Scores: .constant([25, 41, 17]),
                                 player3Scores: .constant([54, 22, 14]),
                                 scorePlayer1: 369,
