@@ -12,6 +12,8 @@ struct WinnerView: View {
     
     @State private var counter = 0
     @State private var isGameStarted = false
+    
+    @State private var winnerNamesList: [String] = []
        
     var playerNames: [String]
     
@@ -19,7 +21,6 @@ struct WinnerView: View {
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
     @Binding var currentPlayerIndex: Int
-
 
     var winnerName: String
     var namePlayer1: String
