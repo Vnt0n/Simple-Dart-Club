@@ -124,6 +124,9 @@ struct GameView: View {
                                  .font(.system(size: 140, weight: .bold, design: .default))
                          }
                          .disabled(currentPlayerIndex != 0)
+                         Text("Average Score - \(calculateAverageScore(scores: player1Scores))")
+                             .font(
+                                 .system(size: 14))
                      }
                  }
                  .edgesIgnoringSafeArea(.all)
@@ -140,6 +143,9 @@ struct GameView: View {
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 1)
+                        Text("Average Score - \(calculateAverageScore(scores: player2Scores))")
+                            .font(
+                                .system(size: 14))
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
@@ -157,6 +163,9 @@ struct GameView: View {
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
+                            Text("Average Score - \(calculateAverageScore(scores: player3Scores))")
+                                .font(
+                                    .system(size: 14))
                         }
                     }
                     .edgesIgnoringSafeArea(.all)
@@ -336,6 +345,12 @@ struct GameView: View {
         
         print("DONE")
 
+    }
+    
+    func calculateAverageScore(scores: [Int]) -> Int {
+      guard !scores.isEmpty else { return 0 }
+      let sum = scores.reduce(0, +)
+      return Int(round(Double(sum) / Double(scores.count)))
     }
 
 }

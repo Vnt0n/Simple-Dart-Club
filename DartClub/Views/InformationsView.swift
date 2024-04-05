@@ -36,6 +36,12 @@ struct InformationsView: View {
             scoreHistories.filter { $0.winner == namePlayer3 }.count
         }
     
+    func calculateAverageScore(scores: [Int]) -> Int {
+      guard !scores.isEmpty else { return 0 }
+      let sum = scores.reduce(0, +)
+      return Int(round(Double(sum) / Double(scores.count)))
+    }
+
     var body: some View {
         VStack {
             
@@ -437,6 +443,9 @@ struct InformationsView: View {
                         .sheet(isPresented: $showCreditView) {
                                    CreditView()
                         }
+                    Text("Average Score: \(calculateAverageScore(scores: player1Scores))")
+                    Text("Average Score: \(calculateAverageScore(scores: player2Scores))")
+                    Text("Average Score: \(calculateAverageScore(scores: player3Scores))")
                 }
             }
         }

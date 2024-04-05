@@ -67,6 +67,7 @@ struct WinnerView: View {
                         Text("\(namePlayer3)")
                             .bold()
                         Text("\(scorePlayer3)")
+                        
                     }
                     
                 }
@@ -121,11 +122,11 @@ struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
         WinnerView(
             playerNames: ["Alice", "Bob", "Charlie"],
-            scorePlayer1: .constant(0),
-            scorePlayer2: .constant(0),
+            scorePlayer1: .constant(153),
+            scorePlayer2: .constant(55),
             scorePlayer3: .constant(0),
             currentPlayerIndex: .constant(1),
-            winnerName: "Bob",
+            winnerName: "Charlie",
             namePlayer1: "Alice",
             namePlayer2: "Bob",
             namePlayer3: "Charlie"
