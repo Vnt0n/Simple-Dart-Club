@@ -311,17 +311,23 @@ struct InformationsView: View {
 }
 
 struct InformationsView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        InformationsView(scoreHistories: .constant([]),
-                         player1Scores: .constant([]),
-                         player2Scores: .constant([]),
-                         player3Scores: .constant([]),
-                         scorePlayer1: 0,
-                         scorePlayer2: 0,
-                         scorePlayer3: 0,
-                         namePlayer1: "Player 1",
-                         namePlayer2: "Player 2",
-                         namePlayer3: "Player 3")
+        let scoreHistories: [GameView.ScoreHistory] = [
+            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18]),
+            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17])
+        ]
+        
+        return InformationsView(scoreHistories: .constant(scoreHistories),
+                                player1Scores: .constant([10, 55, 35, 15]),
+                                player2Scores: .constant([25, 41, 17]),
+                                player3Scores: .constant([54, 22, 14]),
+                                scorePlayer1: 369,
+                                scorePlayer2: 250,
+                                scorePlayer3: 150,
+                                namePlayer1: "Alice",
+                                namePlayer2: "Bob",
+                                namePlayer3: "Charlie")
     }
 }
 
