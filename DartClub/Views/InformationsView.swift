@@ -432,7 +432,8 @@ struct InformationsView: View {
                         .onTapGesture {
                             showCreditView = true
                         }
-                        .padding()
+                        .padding(.bottom, 15)
+                        .padding(.top, 25)
                         .sheet(isPresented: $showCreditView) {
                                    CreditView()
                         }
