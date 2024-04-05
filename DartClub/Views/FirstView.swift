@@ -60,6 +60,7 @@ struct FirstView: View {
                                 isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
                             }
+                            .font(.title)
                     } else {
                         Text(namePlayer1)
                     }
@@ -74,6 +75,7 @@ struct FirstView: View {
                             .onSubmit {
                                 isNameTwoSubmitted = true
                             }
+                            .font(.title)
                     } else {
                         Text(namePlayer2)
                     }
@@ -83,7 +85,7 @@ struct FirstView: View {
                     if !isNameThreeSubmitted {
                         
                         if isPlayerAdded {
-                                                        
+                            
                             TextField("Player 3", text: $namePlayer3)
                                 .TextFieldStyling()
                                 .focused($isFocusedPlayer3)
@@ -93,14 +95,15 @@ struct FirstView: View {
                                 .onSubmit {
                                     isNameThreeSubmitted = true
                                 }
+                                .font(.title)
                             
                             Spacer()
                             
                         } else {
+                            
                             Button(action: {
-                                if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
+                                if !namePlayer1.isEmpty {
                                         isNameOneSubmitted = true
-                                        isNameTwoSubmitted = true
                                         isPlayerAdded = true
                                     }
                             }) {
