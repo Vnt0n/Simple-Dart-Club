@@ -236,7 +236,6 @@ struct GameView: View {
 
             }
         }
-
         
     }
     
@@ -289,7 +288,6 @@ struct GameView: View {
         currentPlayerName = playerNames[currentPlayerIndex]
     }
 
-    
     private func saveScoreHistory() {
         
         print("--------------------------------------------")
