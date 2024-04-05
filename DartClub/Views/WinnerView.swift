@@ -87,6 +87,7 @@ struct WinnerView: View {
                        }
         }
         .navigationBarBackButtonHidden(true)
+        
     }
     
     private func newGame() {

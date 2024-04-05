@@ -14,6 +14,8 @@ struct InformationsView: View {
     @Binding var player2Scores: [Int]
     @Binding var player3Scores: [Int]
     
+    @State private var showCreditView = false
+
     var scorePlayer1: Int
     var scorePlayer2: Int
     var scorePlayer3: Int
@@ -420,12 +422,20 @@ struct InformationsView: View {
                                     
                                     Divider()
                                 }
-                                
                             }
                             .padding()
-                            
                         }
                     }
+                    Image(systemName: "info.bubble")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .onTapGesture {
+                            showCreditView = true
+                        }
+                        .padding()
+                        .sheet(isPresented: $showCreditView) {
+                                   CreditView()
+                        }
                 }
             }
         }
