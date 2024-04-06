@@ -15,6 +15,9 @@ struct FirstView: View {
     @State private var isNameTwoSubmitted = false
     @State private var isNameThreeSubmitted = false
     
+    @State private var isThreeHundredOne = false
+    @State private var isFiveHundredOne = false
+    
     @FocusState private var isFocusedPlayer2: Bool
     @FocusState private var isFocusedPlayer3: Bool
     
@@ -129,6 +132,7 @@ struct FirstView: View {
                         Button("301") {
                             if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                                 isGameStarted = true
+                                isThreeHundredOne = true
                             }
                         }
                         .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
@@ -136,7 +140,7 @@ struct FirstView: View {
                         .controlSize(.large)
                         .padding(.bottom, 15)
                         .navigationDestination(isPresented: $isGameStarted) {
-                            GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                            GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                         }
                         
                         Spacer()
@@ -150,6 +154,7 @@ struct FirstView: View {
                         Button("501") {
                             if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                                 isGameStarted = true
+                                isFiveHundredOne = true
                             }
                         }
                         .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
@@ -157,7 +162,7 @@ struct FirstView: View {
                         .controlSize(.large)
                         .padding(.bottom, 15)
                         .navigationDestination(isPresented: $isGameStarted) {
-                            GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                            GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                         }
                     }
                     Spacer()

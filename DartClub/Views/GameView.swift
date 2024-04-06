@@ -14,6 +14,9 @@ struct GameView: View {
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
     
+    var isThreeHundredOne: Bool
+    var isFiveHundredOne:Bool
+    
     @State private var currentPlayerName: String = ""
     
     var namePlayer1: String
@@ -26,10 +29,10 @@ struct GameView: View {
     
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 1
-       
-    @State private var scorePlayer1: Int = 501
-    @State private var scorePlayer2: Int = 501
-    @State private var scorePlayer3: Int = 501
+
+    @State private var scorePlayer1: Int = 0
+    @State private var scorePlayer2: Int = 0
+    @State private var scorePlayer3: Int = 0
     
     @State private var player1Scores: [Int] = []
     @State private var player2Scores: [Int] = []
@@ -267,7 +270,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(scoreHistories: $scoreHistories, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
+            WinnerView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, scoreHistories: $scoreHistories, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
             if !informationRequested {
@@ -279,6 +282,19 @@ struct GameView: View {
                 currentPlayerName = playerNames[currentPlayerIndex]
                 
                 print("DONE")
+                
+                print(isThreeHundredOne)
+                print(isFiveHundredOne)
+                
+                if isThreeHundredOne {
+                    scorePlayer1 = 301
+                    scorePlayer2 = 301
+                    scorePlayer3 = 301
+                } else {
+                    scorePlayer1 = 501
+                    scorePlayer2 = 501
+                    scorePlayer3 = 501
+                }
 
             }
         }
@@ -397,6 +413,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ")
+        GameView(isThreeHundredOne: true, isFiveHundredOne: false, namePlayer1: "Player 1", namePlayer2: "Player 2", namePlayer3: "Player 3")
     }
 }

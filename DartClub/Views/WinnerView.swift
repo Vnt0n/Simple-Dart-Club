@@ -14,6 +14,9 @@ struct WinnerView: View {
     @State private var isGameStarted = false
     @State private var showCreditView = false
     
+    var isThreeHundredOne: Bool
+    var isFiveHundredOne:Bool
+    
     @State private var numberOfGamesPlayed = 0
     
     @Binding var scoreHistories: [GameView.ScoreHistory]
@@ -85,7 +88,7 @@ struct WinnerView: View {
                 .controlSize(.large)
                 .padding(.bottom, 25)
                 .navigationDestination(isPresented: $isGameStarted) {
-                    GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                    GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                 }
                 .confettiCannon(counter: $counter, num: 150, radius: 500.0)
 
@@ -634,17 +637,21 @@ struct WinnerView_Previews: PreviewProvider {
             GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
         ]
 
-        WinnerView(scoreHistories: .constant(scoreHistories1),
-                   scorePlayer1: .constant(369),
-                   scorePlayer2: .constant(250),
-                   scorePlayer3: .constant(0),
-                   player1Scores: .constant([10, 55, 35, 15]),
-                   player2Scores: .constant([25, 41, 17]),
-                   player3Scores: .constant([54, 22, 14]),
-                   currentPlayerIndex: .constant(0),
-                   winnerName: "Alice",
-                   namePlayer1: "Alice",
-                   namePlayer2: "Charlie",
-                   namePlayer3: "Bob")
+        WinnerView(
+            isThreeHundredOne: true,
+            isFiveHundredOne: false,
+            scoreHistories: .constant(scoreHistories1),
+            scorePlayer1: .constant(369),
+            scorePlayer2: .constant(250),
+            scorePlayer3: .constant(0),
+            player1Scores: .constant([10, 55, 35, 15]),
+            player2Scores: .constant([25, 41, 17]),
+            player3Scores: .constant([54, 22, 14]),
+            currentPlayerIndex: .constant(0),
+            winnerName: "Alice",
+            namePlayer1: "Alice",
+            namePlayer2: "Charlie",
+            namePlayer3: "Bob"
+        )
     }
 }
