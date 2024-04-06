@@ -26,16 +26,16 @@ struct InformationsView: View {
     var namePlayer3: String
     
     var player1Wins: Int {
-            scoreHistories.filter { $0.winner == namePlayer1 }.count
-        }
+        scoreHistories.filter { $0.winner == namePlayer1 }.count
+    }
         
-        var player2Wins: Int {
-            scoreHistories.filter { $0.winner == namePlayer2 }.count
-        }
+    var player2Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer2 }.count
+    }
         
-        var player3Wins: Int {
-            scoreHistories.filter { $0.winner == namePlayer3 }.count
-        }
+    var player3Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer3 }.count
+    }
 
     var body: some View {
         VStack {

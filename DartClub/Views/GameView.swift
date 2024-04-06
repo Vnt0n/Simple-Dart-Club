@@ -44,6 +44,18 @@ struct GameView: View {
         var player3: [Int] = []
         var winner: String = ""
     }
+    
+    var player1Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer1 }.count
+    }
+        
+    var player2Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer2 }.count
+    }
+        
+    var player3Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer3 }.count
+    }
 
     private var isAnyPlayerScoreZero: Bool {
         scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
@@ -271,7 +283,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
+            WinnerView(scoreHistories: $scoreHistories, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
             if !informationRequested {
