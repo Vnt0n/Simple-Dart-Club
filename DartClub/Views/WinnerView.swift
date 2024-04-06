@@ -36,261 +36,263 @@ struct WinnerView: View {
         
         NavigationStack {
             
-            VStack {
-                
-                Text("0")
-                    .padding([.bottom], 10)
-                    .font(.system(size: 140, weight: .bold, design: .default))
-                
-                Text(winnerName)
-                    .padding([.bottom], 10)
-                    .font(.system(size: 30, weight: .bold, design: .default))
-                
-                Text("You won!")
-                    .font(.system(size: 50, weight: .bold, design: .default))
-                    .foregroundColor(.blue)
-                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                            self.counter = 1
-                        }
-                    }
-
-            }
-            
-            // Premier tableau
-            ZStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color.blue.opacity(0.2))
-                    .padding(.horizontal)
+            ScrollView {
                 
                 VStack {
                     
+                    Text("0")
+                        .padding([.bottom], 10)
+                        .font(.system(size: 140, weight: .bold, design: .default))
+                    
+                    Text(winnerName)
+                        .padding([.bottom], 10)
+                        .font(.system(size: 30, weight: .bold, design: .default))
+                    
+                    Text("You won!")
+                        .font(.system(size: 50, weight: .bold, design: .default))
+                        .foregroundColor(.blue)
+                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                self.counter = 1
+                            }
+                        }
+                    
+                }
+                
+                Button("New game") {
+                    newGame()
+                    isGameStarted = true
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
+                .padding(.bottom, 25)
+                .navigationDestination(isPresented: $isGameStarted) {
+                    GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                }
+                
+                // Premier tableau
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.blue.opacity(0.2))
+                        .padding(.horizontal)
+                    
                     VStack {
                         
-                        Spacer()
-
-                        HStack {
-                            
-                            Text("")
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity)
-                            
-                            Text("\(namePlayer1)")
-                                .fontWeight(.bold)
-                                .font(.system(size: 17))
-                                .frame(maxWidth: .infinity)
-                                .padding(.bottom, 15)
+                        VStack {
                             
                             Spacer()
                             
-                            Text("\(namePlayer2)")
-                                .fontWeight(.bold)
-                                .font(.system(size: 17))
-                                .frame(maxWidth: .infinity)
-                                .padding(.bottom, 15)
-                            
-                            if !player3Scores.isEmpty {
+                            HStack {
                                 
-                                Spacer()
+                                Text("")
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
                                 
-                                Text("\(namePlayer3)")
+                                Text("\(namePlayer1)")
                                     .fontWeight(.bold)
                                     .font(.system(size: 17))
                                     .frame(maxWidth: .infinity)
                                     .padding(.bottom, 15)
                                 
-                            }
-                        }
-                        .padding(.horizontal)
-                        
-                        ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
-                            
-                            Divider()
-                            
-                            HStack {
-                                
                                 Spacer()
                                 
-                                Text("Turn \(index + 1)")
+                                Text("\(namePlayer2)")
                                     .fontWeight(.bold)
-                                    .font(.system(size: 15))
-                                    .frame(maxWidth: .infinity)
-                                
-                                Spacer()
-                                Divider()
-                                
-                                Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "-")")
-                                    .frame(maxWidth: .infinity)
                                     .font(.system(size: 17))
-                                
-                                Spacer()
-                                Divider()
-                                
-                                Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "-")")
                                     .frame(maxWidth: .infinity)
-                                    .font(.system(size: 17))
+                                    .padding(.bottom, 15)
                                 
                                 if !player3Scores.isEmpty {
                                     
                                     Spacer()
-                                    Divider()
                                     
-                                    Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
-                                        .frame(maxWidth: .infinity)
+                                    Text("\(namePlayer3)")
+                                        .fontWeight(.bold)
                                         .font(.system(size: 17))
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.bottom, 15)
+                                    
                                 }
                             }
                             .padding(.horizontal)
                             
-                            Divider()
-                            
-                        }
-                        
-                        Divider()
-
-                        HStack {
-                            
-                            Spacer()
-
-                            Text("TOTAL")
-                                .font(.system(size: 15))
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity)
-                            
-                            Spacer()
-                            Divider()
-                            
-                            Text("\(scorePlayer1)")
-                                .font(.system(size: 15))
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity)
-                            
-                            Spacer()
-                            Divider()
-                            
-                            Text("\(scorePlayer2)")
-                                .font(.system(size: 15))
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity)
-                            
-                            if !namePlayer3.isEmpty {
+                            ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
                                 
-                                Spacer()
                                 Divider()
                                 
-                                Text("\(scorePlayer3)")
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Text("Turn \(index + 1)")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 15))
+                                        .frame(maxWidth: .infinity)
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                    Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "-")")
+                                        .frame(maxWidth: .infinity)
+                                        .font(.system(size: 17))
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                    Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "-")")
+                                        .frame(maxWidth: .infinity)
+                                        .font(.system(size: 17))
+                                    
+                                    if !player3Scores.isEmpty {
+                                        
+                                        Spacer()
+                                        Divider()
+                                        
+                                        Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
+                                            .frame(maxWidth: .infinity)
+                                            .font(.system(size: 17))
+                                    }
+                                }
+                                .padding(.horizontal)
+                                
+                                Divider()
+                                
+                            }
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("TOTAL")
                                     .font(.system(size: 15))
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity)
                                 
-                            }
-                            
-                        }
-                        .padding(.horizontal)
-                        
-                        Spacer()
-                        Divider()
-                        Divider()
-                        
-                        Text("Average Scores")
-                            .frame(maxWidth: .infinity)
-                            .font(.system(size: 14))
-                            .fontWeight(.bold)
-
-                        Divider()
-                        
-                        HStack {
-                            
-                            Spacer()
-
-                            Text("\(namePlayer1)")
-                                .font(.system(size: 14))
-                                .frame(maxWidth: .infinity)
-                            
-                            Spacer()
-                            Divider()
-                            
-                            Text("\(calculateAverageScore(scores: player1Scores))")
-                                .frame(maxWidth: .infinity)
-                                .font(.system(size: 14))
-                            
-                            Spacer()
-                        }
-                        
-                        Divider()
-
-                        HStack {
-                            
-                            Spacer()
-
-                            Text("\(namePlayer2)")
-                            .font(.system(size: 14))
-                            .frame(maxWidth: .infinity)
-
-                            Spacer()
-                            Divider()
-
-                            Text("\(calculateAverageScore(scores: player2Scores))")
-                                .frame(maxWidth: .infinity)
-                                .font(.system(size: 14))
-                            
-                            Spacer()
-
-                        }
-
-                        Divider()
-                        
-                        if !player3Scores.isEmpty {
-
-                            HStack {
-                                         
-                                Spacer()
-
-                                Text("\(namePlayer3)")
-                                    .font(.system(size: 14))
-                                    .frame(maxWidth: .infinity)
-
                                 Spacer()
                                 Divider()
-
-                                Text("\(calculateAverageScore(scores: player3Scores))")
+                                
+                                Text("\(scorePlayer1)")
+                                    .font(.system(size: 15))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(scorePlayer2)")
+                                    .font(.system(size: 15))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+                                
+                                if !namePlayer3.isEmpty {
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                    Text("\(scorePlayer3)")
+                                        .font(.system(size: 15))
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity)
+                                    
+                                }
+                                
+                            }
+                            .padding(.horizontal)
+                            
+                            Spacer()
+                            Divider()
+                            Divider()
+                            
+                            Text("Average Scores")
+                                .frame(maxWidth: .infinity)
+                                .font(.system(size: 14))
+                                .fontWeight(.bold)
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("\(namePlayer1)")
+                                    .font(.system(size: 14))
+                                    .frame(maxWidth: .infinity)
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(calculateAverageScore(scores: player1Scores))")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 14))
+                                
+                                Spacer()
+                            }
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("\(namePlayer2)")
+                                    .font(.system(size: 14))
+                                    .frame(maxWidth: .infinity)
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(calculateAverageScore(scores: player2Scores))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                 
                                 Spacer()
                                 
                             }
+                            
                             Divider()
+                            
+                            if !player3Scores.isEmpty {
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(namePlayer3)")
+                                        .font(.system(size: 14))
+                                        .frame(maxWidth: .infinity)
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                    Text("\(calculateAverageScore(scores: player3Scores))")
+                                        .frame(maxWidth: .infinity)
+                                        .font(.system(size: 14))
+                                    
+                                    Spacer()
+                                    
+                                }
+                                Divider()
+                            }
                         }
-                    }
-                }.padding()
-            }
-            
-            Button("New game") {
-                newGame()
-                isGameStarted = true
-            }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-            .padding()
-            .navigationDestination(isPresented: $isGameStarted) {
-                GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-            }
-            
-            Image(systemName: "info.bubble")
-                .resizable()
-                .frame(width: 24, height: 24)
-                .onTapGesture {
-                    showCreditView = true
+                    }.padding()
                 }
-                .padding()
-                .sheet(isPresented: $showCreditView) {
-                           CreditView()
-                       }
+                
+                Image(systemName: "info.bubble")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .onTapGesture {
+                        showCreditView = true
+                    }
+                    .padding()
+                    .sheet(isPresented: $showCreditView) {
+                        CreditView()
+                    }
+            }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
-        
     }
 
     
