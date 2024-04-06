@@ -99,7 +99,10 @@ struct WinnerView: View {
         .navigationBarBackButtonHidden(true)
         
     }
+
     
+    // FUNCTIONS ///////////////////
+
     private func newGame() {
         
         print("--------------------------------------------")
@@ -116,6 +119,8 @@ struct WinnerView: View {
     }
 
 }
+
+// PREVIEWS ///////////////////
 
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {

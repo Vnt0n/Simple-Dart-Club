@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct FirstView: View {
-
-    @State private var namePlayer1 = ""
-    @State private var namePlayer2 = ""
-    @State private var namePlayer3 = ""
     
+    @State private var isGameStarted = false
     @State private var isPlayerAdded = false
-    @FocusState private var isFocusedPlayer2: Bool
-    @FocusState private var isFocusedPlayer3: Bool
-    
     @State private var isNameOneSubmitted = false
     @State private var isNameTwoSubmitted = false
     @State private var isNameThreeSubmitted = false
     
-    @FocusState private var isFocused: Bool
+    @FocusState private var isFocusedPlayer2: Bool
+    @FocusState private var isFocusedPlayer3: Bool
     
-    @State private var isGameStarted = false
-    
+    @State private var namePlayer1 = ""
+    @State private var namePlayer2 = ""
+    @State private var namePlayer3 = ""
+        
     var body: some View {
         NavigationStack {
             ZStack {
@@ -156,6 +153,9 @@ struct FirstView: View {
         }
     }
 }
+
+
+// PREVIEWS ///////////////////
 
 struct FirstScreen_Previews: PreviewProvider {
     static var previews: some View {

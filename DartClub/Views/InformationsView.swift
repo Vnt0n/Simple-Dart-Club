@@ -36,12 +36,6 @@ struct InformationsView: View {
         var player3Wins: Int {
             scoreHistories.filter { $0.winner == namePlayer3 }.count
         }
-    
-    func calculateAverageScore(scores: [Int]) -> Int {
-      guard !scores.isEmpty else { return 0 }
-      let sum = scores.reduce(0, +)
-      return Int(round(Double(sum) / Double(scores.count)))
-    }
 
     var body: some View {
         VStack {
@@ -582,6 +576,18 @@ struct InformationsView: View {
         }
     }
 }
+
+
+// FUNCTIONS ///////////////////
+
+func calculateAverageScore(scores: [Int]) -> Int {
+  guard !scores.isEmpty else { return 0 }
+  let sum = scores.reduce(0, +)
+  return Int(round(Double(sum) / Double(scores.count)))
+}
+
+
+// PREVIEWS ///////////////////
 
 struct InformationsView_Previews: PreviewProvider {
     

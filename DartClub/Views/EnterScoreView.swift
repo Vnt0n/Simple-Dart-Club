@@ -89,6 +89,9 @@ struct EnterScoreView: View {
     }
 }
 
+
+// PREVIEWS ///////////////////
+
 struct EnterScoreView_Previews: PreviewProvider {
     static var previews: some View {
         EnterScoreView(playerName: "Antoine", namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([])) { _ in }
