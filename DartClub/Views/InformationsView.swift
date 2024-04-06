@@ -9,13 +9,14 @@ import SwiftUI
 
 struct InformationsView: View {
     
+    @State private var showCreditView = false
+
     @Binding var scoreHistories: [GameView.ScoreHistory]
+    
     @Binding var player1Scores: [Int]
     @Binding var player2Scores: [Int]
     @Binding var player3Scores: [Int]
     
-    @State private var showCreditView = false
-
     var scorePlayer1: Int
     var scorePlayer2: Int
     var scorePlayer3: Int

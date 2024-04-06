@@ -17,9 +17,11 @@ struct WinnerView: View {
     @Binding var scorePlayer1: Int
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
+    
     @Binding var currentPlayerIndex: Int
 
     var winnerName: String
+    
     var namePlayer1: String
     var namePlayer2: String
     var namePlayer3: String

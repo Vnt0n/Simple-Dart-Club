@@ -19,7 +19,7 @@ struct CreditView: View {
                     .padding(.bottom)
                 
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit non lectus ut auctor. Aliquam cursus a enim quis vehicula. Mauris quis sem interdum, lobortis odio vitae, suscipit ipsum. Mauris volutpat augue pulvinar arcu aliquam sodales maximus vitae urna. Suspendisse congue aliquet risus tempor scelerisque.")
-                .lineSpacing(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                .lineSpacing(10)
                 .multilineTextAlignment(.center)
                 .padding()
                 Text("Beta V.2.0")

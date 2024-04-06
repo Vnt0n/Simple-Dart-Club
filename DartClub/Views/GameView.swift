@@ -9,11 +9,18 @@ import SwiftUI
 
 struct GameView: View {
     
+    var newGameResetClosure: (() -> Void)?
+    
+    @State private var informationRequested = false
+    @State private var enterScore = false
+    @State private var isGameOver = false
+    @State private var isConfettiAnimationActive = false
+    
+    @State private var currentPlayerName: String = ""
+    
     var namePlayer1: String
     var namePlayer2: String
     var namePlayer3: String
-    
-    @State private var currentPlayerName: String = ""
     
     private var playerNames: [String] {
         [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
@@ -26,6 +33,10 @@ struct GameView: View {
     @State private var scorePlayer2: Int = 501
     @State private var scorePlayer3: Int = 501
     
+    @State private var player1Scores: [Int] = []
+    @State private var player2Scores: [Int] = []
+    @State private var player3Scores: [Int] = []
+    
     @State private var scoreHistory = ScoreHistory()
     @State private var scoreHistories: [ScoreHistory] = []
 
@@ -35,11 +46,7 @@ struct GameView: View {
         var player3: [Int] = []
         var winner: String = ""
     }
-    
-    @State private var player1Scores: [Int] = []
-    @State private var player2Scores: [Int] = []
-    @State private var player3Scores: [Int] = []
-    
+
     private var isAnyPlayerScoreZero: Bool {
         scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
     }
@@ -60,13 +67,6 @@ struct GameView: View {
             return 0
         }
     }
-    
-    @State private var informationRequested = false
-       
-    @State private var enterScore = false
-    @State private var isGameOver = false
-    
-    @State private var isConfettiAnimationActive = false
         
     var body: some View {
         
@@ -290,6 +290,9 @@ struct GameView: View {
         }
         
     }
+
+    
+    // FUNCTIONS ///////////////////
     
     private func undoLastScore() {
         
@@ -342,7 +345,8 @@ struct GameView: View {
         }
         currentPlayerName = playerNames[currentPlayerIndex]
     }
-
+    
+    
     private func saveScoreHistory() {
         
         print("--------------------------------------------")
@@ -370,8 +374,6 @@ struct GameView: View {
 
     }
     
-    var newGameResetClosure: (() -> Void)?
-
     private func newGameReset() {
         
         print("--------------------------------------------")
@@ -395,6 +397,9 @@ struct GameView: View {
     }
 
 }
+
+
+// PREVIEWS ///////////////////
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
