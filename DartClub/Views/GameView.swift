@@ -131,7 +131,7 @@ struct GameView: View {
                          HStack {
                              Text(namePlayer1)
                                  .fontWeight(.bold)
-                             Text("Average Score - \(calculateAverageScore(scores: player1Scores))")
+                             Text("-  Average Score:  \(calculateAverageScore(scores: player1Scores))")
                                  .font(
                                      .system(size: 14))
                          }
@@ -161,7 +161,7 @@ struct GameView: View {
                         HStack {
                             Text(namePlayer2)
                                 .fontWeight(.bold)
-                            Text("Average Score - \(calculateAverageScore(scores: player2Scores))")
+                            Text("-  Average Score: \(calculateAverageScore(scores: player2Scores))")
                                 .font(
                                     .system(size: 14))
                         }
@@ -193,7 +193,7 @@ struct GameView: View {
                             HStack {
                                 Text(namePlayer3)
                                     .fontWeight(.bold)
-                                Text("- Average Score - \(calculateAverageScore(scores: player3Scores))")
+                                Text("-  Average Score: \(calculateAverageScore(scores: player3Scores))")
                                     .font(
                                         .system(size: 14))
                             }
