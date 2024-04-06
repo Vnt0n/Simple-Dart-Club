@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    
-    var newGameResetClosure: (() -> Void)?
-    
+        
     @State private var informationRequested = false
     @State private var enterScore = false
     @State private var isGameOver = false

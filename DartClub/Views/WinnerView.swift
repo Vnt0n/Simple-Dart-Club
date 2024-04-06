@@ -77,7 +77,6 @@ struct WinnerView: View {
             Button("New game") {
                 newGame()
                 isGameStarted = true
-                newGameResetClosure?()
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
