@@ -166,7 +166,7 @@ struct WinnerView: View {
                                 
                                 Spacer()
                                 
-                                Text("TOTAL")
+                                Text("Score")
                                     .font(.system(size: 15))
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity)
