@@ -13,8 +13,6 @@ struct WinnerView: View {
     @State private var counter = 0
     @State private var isGameStarted = false
     @State private var showCreditView = false
-
-    var playerNames: [String]
     
     @Binding var scorePlayer1: Int
     @Binding var scorePlayer2: Int
@@ -121,7 +119,6 @@ struct WinnerView: View {
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
         WinnerView(
-            playerNames: ["Alice", "Bob", "Charlie"],
             scorePlayer1: .constant(153),
             scorePlayer2: .constant(55),
             scorePlayer3: .constant(0),
