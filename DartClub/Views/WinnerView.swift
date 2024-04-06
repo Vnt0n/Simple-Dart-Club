@@ -18,6 +18,10 @@ struct WinnerView: View {
     @Binding var scorePlayer2: Int
     @Binding var scorePlayer3: Int
     
+    @Binding var player1Scores: [Int]
+    @Binding var player2Scores: [Int]
+    @Binding var player3Scores: [Int]
+    
     @Binding var currentPlayerIndex: Int
 
     var winnerName: String
@@ -122,17 +126,21 @@ struct WinnerView: View {
 
 // PREVIEWS ///////////////////
 
+import SwiftUI
+
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
-        WinnerView(
-            scorePlayer1: .constant(153),
-            scorePlayer2: .constant(55),
-            scorePlayer3: .constant(0),
-            currentPlayerIndex: .constant(1),
-            winnerName: "Charlie",
-            namePlayer1: "Alice",
-            namePlayer2: "Bob",
-            namePlayer3: "Charlie"
-        )
+        WinnerView(scorePlayer1: .constant(250),
+                   scorePlayer2: .constant(120),
+                   scorePlayer3: .constant(0),
+                   player1Scores: .constant([]),
+                   player2Scores: .constant([]),
+                   player3Scores: .constant([]),
+                   currentPlayerIndex: .constant(0),
+                   winnerName: "Charlie",
+                   namePlayer1: "Alice",
+                   namePlayer2: "Bob",
+                   namePlayer3: "Charlie")
     }
 }
+
