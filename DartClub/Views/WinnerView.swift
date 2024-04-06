@@ -24,6 +24,19 @@ struct WinnerView: View {
     @Binding var player2Scores: [Int]
     @Binding var player3Scores: [Int]
     
+    
+    var player1Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer1 }.count
+    }
+        
+    var player2Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer2 }.count
+    }
+        
+    var player3Wins: Int {
+        scoreHistories.filter { $0.winner == namePlayer3 }.count
+    }
+    
     @Binding var currentPlayerIndex: Int
 
     var winnerName: String
@@ -282,7 +295,7 @@ struct WinnerView: View {
                     }.padding()
                 }
                 
-                if !scoreHistories.isEmpty {
+//                if !scoreHistories.isEmpty {
                     
                     Section {
                         
@@ -475,6 +488,96 @@ struct WinnerView: View {
                             .background(Color.white)
                     }
                     
+//                }
+                
+                // Troisième tableau
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.yellow.opacity(0.2))
+                        .padding(.horizontal)
+                    
+                    VStack {
+                        
+                        Text("🎉 TOTAL WINS 🥇")
+                            .font(.headline)
+                            .padding(.top, 15)
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("\(namePlayer1)")
+                                    .font(.system(size: 17))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+
+                                Spacer()
+                                Divider()
+
+                                Text("\(player1Wins)")
+                                    .font(.system(size: 17))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+
+                                Spacer()
+                                
+                            }
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("\(namePlayer2)")
+                                    .font(.system(size: 17))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+
+                                Spacer()
+                                Divider()
+
+                                Text("\(player2Wins)")
+                                    .font(.system(size: 17))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+
+                                Spacer()
+                            }
+                            
+                            Divider()
+                            
+                            if !namePlayer3.isEmpty {
+                                
+                                HStack {
+                                    
+                                    Spacer()
+                                    
+                                    Text("\(namePlayer3)")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity)
+
+                                    Spacer()
+                                    Divider()
+
+                                    Text("\(player3Wins)")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity)
+
+                                    Spacer()
+                                    
+                                }
+                                
+                            }
+                        }
+                        .padding()
+                    }
                 }
                 
                 Image(systemName: "info.bubble")
@@ -520,32 +623,25 @@ struct WinnerView: View {
 
 // PREVIEWS ///////////////////
 
-//import SwiftUI
-//
-//struct WinnerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let scoreHistories1: [GameView.ScoreHistory] = [
-//            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"),
-//            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
-//        ]
-//        
-//        let scoreHistories2: [GameView.ScoreHistory] = [
-//            GameView.ScoreHistory(player1: [10, 20, 30], player2: [5, 15], player3: [15, 25], winner: "Dave"),
-//            GameView.ScoreHistory(player1: [20, 40, 60], player2: [10, 30, 50], player3: [25, 35], winner: "Eva")
-//        ]
-//        
-//            InformationsView(scoreHistories: .constant(scoreHistories1),
-//                             player1Scores: .constant([10, 55, 35, 15]),
-//                             player2Scores: .constant([25, 41, 17]),
-//                             player3Scores: .constant([54, 22, 14]),
-//                             scorePlayer1: 369,
-//                             scorePlayer2: 250,
-//                             scorePlayer3: 150,
-//                             namePlayer1: "Alice",
-//                             namePlayer2: "Bob",
-//                             namePlayer3: "Charlie")
-//            
-//        
-//    }
-//}
+struct WinnerView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        let scoreHistories1: [GameView.ScoreHistory] = [
+            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"),
+            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
+        ]
 
+        WinnerView(scoreHistories: .constant(scoreHistories1),
+                   scorePlayer1: .constant(369),
+                   scorePlayer2: .constant(250),
+                   scorePlayer3: .constant(0),
+                   player1Scores: .constant([10, 55, 35, 15]),
+                   player2Scores: .constant([25, 41, 17]),
+                   player3Scores: .constant([54, 22, 14]),
+                   currentPlayerIndex: .constant(0),
+                   winnerName: "Alice",
+                   namePlayer1: "Alice",
+                   namePlayer2: "Charlie",
+                   namePlayer3: "Bob")
+    }
+}

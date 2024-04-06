@@ -44,23 +44,7 @@ struct GameView: View {
         var player3: [Int] = []
         var winner: String = ""
     }
-    
-    var player1Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer1 }.count
-    }
         
-    var player2Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer2 }.count
-    }
-        
-    var player3Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer3 }.count
-    }
-
-    private var isAnyPlayerScoreZero: Bool {
-        scorePlayer1 == 0 || scorePlayer2 == 0 || scorePlayer3 == 0
-    }
-    
     @State private var throwsPlayer1: Int = 1
     @State private var throwsPlayer2: Int = 1
     @State private var throwsPlayer3: Int = 1
