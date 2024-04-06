@@ -283,8 +283,8 @@ struct GameView: View {
                 
                 print("DONE")
                 
-                print(isThreeHundredOne)
-                print(isFiveHundredOne)
+                print("isThreeHundredOne: \(isThreeHundredOne)")
+                print("isFiveHundredOne: \(isFiveHundredOne)")
                 
                 if isThreeHundredOne {
                     scorePlayer1 = 301

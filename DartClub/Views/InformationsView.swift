@@ -90,7 +90,7 @@ struct InformationsView: View {
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.bottom, 15)
                                             
-                                            if !player3Scores.isEmpty {
+                                            if !namePlayer3.isEmpty {
                                                 
                                                 Spacer()
                                                 
@@ -131,7 +131,7 @@ struct InformationsView: View {
                                                     .frame(maxWidth: .infinity)
                                                     .font(.system(size: 17))
                                                 
-                                                if !player3Scores.isEmpty {
+                                                if !namePlayer3.isEmpty {
                                                     
                                                     Spacer()
                                                     Divider()
