@@ -55,27 +55,216 @@ struct WinnerView: View {
                             self.counter = 1
                         }
                     }
+
+            }
+            
+            // Premier tableau
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color.blue.opacity(0.2))
+                    .padding(.horizontal)
                 
-                HStack {
+                VStack {
                     
-                    Text("\(namePlayer1)")
-                        .bold()
-                    Text("\(scorePlayer1) -")
-                    
-                    Text("\(namePlayer2)")
-                        .bold()
-                    Text("\(scorePlayer2)")
-                    
-                    if !namePlayer3.isEmpty {
-                        Text("-")
-                        Text("\(namePlayer3)")
-                            .bold()
-                        Text("\(scorePlayer3)")
+                    VStack {
                         
+                        Spacer()
+
+                        HStack {
+                            
+                            Text("")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                            
+                            Text("\(namePlayer1)")
+                                .fontWeight(.bold)
+                                .font(.system(size: 17))
+                                .frame(maxWidth: .infinity)
+                                .padding(.bottom, 15)
+                            
+                            Spacer()
+                            
+                            Text("\(namePlayer2)")
+                                .fontWeight(.bold)
+                                .font(.system(size: 17))
+                                .frame(maxWidth: .infinity)
+                                .padding(.bottom, 15)
+                            
+                            if !player3Scores.isEmpty {
+                                
+                                Spacer()
+                                
+                                Text("\(namePlayer3)")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 17))
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.bottom, 15)
+                                
+                            }
+                        }
+                        .padding(.horizontal)
+                        
+                        ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("Turn \(index + 1)")
+                                    .fontWeight(.bold)
+                                    .font(.system(size: 15))
+                                    .frame(maxWidth: .infinity)
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "-")")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 17))
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "-")")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 17))
+                                
+                                if !player3Scores.isEmpty {
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                    Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
+                                        .frame(maxWidth: .infinity)
+                                        .font(.system(size: 17))
+                                }
+                            }
+                            .padding(.horizontal)
+                            
+                            Divider()
+                            
+                        }
+                        
+                        Divider()
+
+                        HStack {
+                            
+                            Spacer()
+
+                            Text("TOTAL")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                            
+                            Spacer()
+                            Divider()
+                            
+                            Text("\(scorePlayer1)")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                            
+                            Spacer()
+                            Divider()
+                            
+                            Text("\(scorePlayer2)")
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                            
+                            if !namePlayer3.isEmpty {
+                                
+                                Spacer()
+                                Divider()
+                                
+                                Text("\(scorePlayer3)")
+                                    .font(.system(size: 15))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+                                
+                            }
+                            
+                        }
+                        .padding(.horizontal)
+                        
+                        Spacer()
+                        Divider()
+                        Divider()
+                        
+                        Text("Average Scores")
+                            .frame(maxWidth: .infinity)
+                            .font(.system(size: 14))
+                            .fontWeight(.bold)
+
+                        Divider()
+                        
+                        HStack {
+                            
+                            Spacer()
+
+                            Text("\(namePlayer1)")
+                                .font(.system(size: 14))
+                                .frame(maxWidth: .infinity)
+                            
+                            Spacer()
+                            Divider()
+                            
+                            Text("\(calculateAverageScore(scores: player1Scores))")
+                                .frame(maxWidth: .infinity)
+                                .font(.system(size: 14))
+                            
+                            Spacer()
+                        }
+                        
+                        Divider()
+
+                        HStack {
+                            
+                            Spacer()
+
+                            Text("\(namePlayer2)")
+                            .font(.system(size: 14))
+                            .frame(maxWidth: .infinity)
+
+                            Spacer()
+                            Divider()
+
+                            Text("\(calculateAverageScore(scores: player2Scores))")
+                                .frame(maxWidth: .infinity)
+                                .font(.system(size: 14))
+                            
+                            Spacer()
+
+                        }
+
+                        Divider()
+                        
+                        if !player3Scores.isEmpty {
+
+                            HStack {
+                                         
+                                Spacer()
+
+                                Text("\(namePlayer3)")
+                                    .font(.system(size: 14))
+                                    .frame(maxWidth: .infinity)
+
+                                Spacer()
+                                Divider()
+
+                                Text("\(calculateAverageScore(scores: player3Scores))")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 14))
+                                
+                                Spacer()
+                                
+                            }
+                            Divider()
+                        }
                     }
-                    
-                }
-                .padding()
+                }.padding()
             }
             
             Button("New game") {
@@ -106,6 +295,12 @@ struct WinnerView: View {
 
     
     // FUNCTIONS ///////////////////
+    
+    func calculateAverageScore(scores: [Int]) -> Int {
+      guard !scores.isEmpty else { return 0 }
+      let sum = scores.reduce(0, +)
+      return Int(round(Double(sum) / Double(scores.count)))
+    }
 
     private func newGame() {
         
@@ -133,9 +328,9 @@ struct WinnerView_Previews: PreviewProvider {
         WinnerView(scorePlayer1: .constant(250),
                    scorePlayer2: .constant(120),
                    scorePlayer3: .constant(0),
-                   player1Scores: .constant([]),
-                   player2Scores: .constant([]),
-                   player3Scores: .constant([]),
+                   player1Scores: .constant([10, 55, 35, 15]),
+                   player2Scores: .constant([25, 41, 17]),
+                   player3Scores: .constant([54, 22, 14]),
                    currentPlayerIndex: .constant(0),
                    winnerName: "Charlie",
                    namePlayer1: "Alice",
