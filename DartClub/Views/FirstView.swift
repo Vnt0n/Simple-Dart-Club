@@ -125,22 +125,42 @@ struct FirstView: View {
                     }
                     
                     Spacer()
-                    
-                    Button("Let's go !") {
-                        if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
-                              isGameStarted = true
+                    HStack {
+                        Button("301") {
+                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
+                                isGameStarted = true
+                            }
+                        }
+                        .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                        .padding(.bottom, 15)
+                        .navigationDestination(isPresented: $isGameStarted) {
+                            GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                        }
+                        
+                        Spacer()
+                        
+                        Text("or")
+                            .font(.system(size: 20))
+                            .padding(.bottom, 15)
+
+                        Spacer()
+                        
+                        Button("501") {
+                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
+                                isGameStarted = true
+                            }
+                        }
+                        .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                        .padding(.bottom, 15)
+                        .navigationDestination(isPresented: $isGameStarted) {
+                            GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                         }
                     }
-                    .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .padding(.bottom, 15)
-                    .navigationDestination(isPresented: $isGameStarted) {
-                        GameView(namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-                    }
-
                     Spacer()
-                    
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 24, weight: .bold, design: .default))
