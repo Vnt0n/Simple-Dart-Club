@@ -12,6 +12,28 @@ struct CreditView: View {
 
         ZStack {
             VStack {
+                
+                Text("Dart   ")
+                    .font(Font.custom("FightThis", size: 50))
+                    .shadow(color: Color.red, radius: 15)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .rotationEffect(Angle(degrees: 347))
+                    .frame(maxWidth: .infinity)
+                    .padding([.trailing], 40)
+                
+                Text("Club   ")
+                    .font(Font.custom("FightThis", size: 50))
+                    .shadow(color: Color.red, radius: 15)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .rotationEffect(Angle(degrees: 347))
+                    .frame(maxWidth: .infinity)
+                    .padding([.trailing], 40)
+                
+                Text(" ")
+                    .font(Font.custom("FightThis", size: 40))
+
                 Text("An app provided by")
                     .font(
                         .system(size: 20)
@@ -22,7 +44,7 @@ struct CreditView: View {
                 .lineSpacing(10)
                 .multilineTextAlignment(.center)
                 .padding()
-                Text("Beta V.2.0")
+                Text("Beta V.3.0")
                     .padding(.top, 50)
                     .font(
                         .system(size: 10))
