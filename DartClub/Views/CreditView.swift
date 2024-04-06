@@ -21,6 +21,7 @@ struct CreditView: View {
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
+                    .padding(.top, 30)
                 
                 Text("Club   ")
                     .font(Font.custom("FightThis", size: 50))
@@ -31,23 +32,28 @@ struct CreditView: View {
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
                 
-                Text(" ")
-                    .font(Font.custom("FightThis", size: 40))
+                Spacer()
 
                 Text("An app provided by")
                     .font(
                         .system(size: 20)
                         .weight(.bold))
-                    .padding(.bottom)
+                
+                Spacer()
+
                 
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit non lectus ut auctor. Aliquam cursus a enim quis vehicula. Mauris quis sem interdum, lobortis odio vitae, suscipit ipsum. Mauris volutpat augue pulvinar arcu aliquam sodales maximus vitae urna. Suspendisse congue aliquet risus tempor scelerisque.")
                 .lineSpacing(10)
                 .multilineTextAlignment(.center)
-                .padding()
+                
+                Spacer()
+
                 Text("Beta V.3.0")
-                    .padding(.top, 50)
                     .font(
                         .system(size: 10))
+                
+                Spacer()
+
             }
             .frame(maxWidth: 300)
         }
