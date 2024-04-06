@@ -261,7 +261,6 @@ struct InformationsView: View {
                                                 Spacer()
                                                 
                                             }
-                                            Divider()
                                         }
                                     }
                                 }
