@@ -13,6 +13,8 @@ struct GameView: View {
     @State private var enterScore = false
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
+    @State private var isBusted = false
+
     
     var isThreeHundredOne: Bool
     var isFiveHundredOne:Bool
@@ -100,9 +102,8 @@ struct GameView: View {
                         
                         Button(action: {
                             print("--------------------------------------------")
-                            print("BUTTON undoLastScore. Done?")
+                            print("BUTTON undoLastScore")
                             undoLastScore()
-                            print("DONE")
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
                                 .accessibilityLabel("Undo")
@@ -134,6 +135,8 @@ struct GameView: View {
                          }
                          
                          Button(action: {
+                             print("--------------------------------------------")
+                             print("BUTTON enterScore PLAYER 1")
                              enterScore = true
                          }) {
                              Text("\(scorePlayer1)")
@@ -164,6 +167,8 @@ struct GameView: View {
                         }
                         
                         Button(action: {
+                            print("--------------------------------------------")
+                            print("BUTTON enterScore PLAYER 2")
                             enterScore = true
                         }) {
                             Text("\(scorePlayer2)")
@@ -196,6 +201,8 @@ struct GameView: View {
                             }
                             
                             Button(action: {
+                                print("--------------------------------------------")
+                                print("BUTTON enterScore PLAYER 3")
                                 enterScore = true
                             }) {
                                 Text("\(scorePlayer3)")
@@ -215,50 +222,125 @@ struct GameView: View {
                 EnterScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores) { enteredScore in
 
                     var newScore = 0
+                    var isBusted = false
                     
                     switch currentPlayerName {
+                        
                     case namePlayer1:
+                        
                         let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
+                        
                         if tempScore < 0 {
+                            
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            isBusted = true
+                            
+                            print("--------------------------------------------")
+                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), switch currentPlayerName : DONE")
+                            
                             return
+                            
                         } else {
+                            
+                            print("--------------------------------------------")
+                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
+                            
                             scoreHistory.player1.append(scorePlayer1 - tempScore)
                             scorePlayer1 = tempScore
                             newScore = tempScore
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            
+                            print("Next player: \(currentPlayerName).")
+                            print("DONE")
+
                         }
+                        
                     case namePlayer2:
+                        
                         let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
+                        
                         if tempScore < 0 {
+                            
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            isBusted = true
+                            
+                            print("--------------------------------------------")
+                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), switch currentPlayerName : DONE")
+                            
                             return
+                            
                         } else {
+                            
+                            print("--------------------------------------------")
+                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
+
                             scoreHistory.player2.append(scorePlayer2 - tempScore)
                             scorePlayer2 = tempScore
                             newScore = tempScore
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            
+                            print("Next player: \(currentPlayerName).")
+                            print("DONE")
+
                         }
+                        
                     case namePlayer3:
+                        
                         let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
+                        
                         if tempScore < 0 {
+                            
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            isBusted = true
+                            
+                            print("--------------------------------------------")
+                            print("PLAYER 3 isBusted: \(isBusted), switch currentPlayerName : DONE")
+                            
                             return
+                            
                         } else {
+                            
+                            print("--------------------------------------------")
+                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
+
                             scoreHistory.player3.append(scorePlayer3 - tempScore)
                             scorePlayer3 = tempScore
                             newScore = tempScore
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+                            
+                            print("Next player: \(currentPlayerName).")
+                            print("DONE")
+
                         }
+                        
                     default:
+                        
+                        print("--------------------------------------------")
+                        print("switch currentPlayerName: BREAK")
+                        
                         break
                     }
                     
                     if newScore == 0 {
+                        
+                        print("--------------------------------------------")
+                        print("newScore == 0")
+                        
                         enterScore = false
                         isGameOver = true
                         saveScoreHistory()
-                    } else {
-                        currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
-                        currentPlayerName = playerNames[currentPlayerIndex]
-                    }
-                    
-                    if isGameOver {
                         gameCount += 1
+                        
+                        print("enterScore: \(enterScore)")
+                        print("isGameOver: \(isGameOver)")
+                        print("gameCount + 1: next game = GAME \(gameCount)")
+
                     }
                     
                 }
@@ -310,6 +392,8 @@ struct GameView: View {
         print("func undoLastScore. Done?")
         
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
+        print("previousPlayerIndex = \(previousPlayerIndex)")
+
         switch playerNames[previousPlayerIndex] {
             
         case namePlayer1:
