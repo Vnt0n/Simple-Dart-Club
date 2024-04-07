@@ -14,7 +14,6 @@ struct GameView: View {
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
     @State private var isBusted = false
-
     
     var isThreeHundredOne: Bool
     var isFiveHundredOne:Bool
@@ -386,60 +385,47 @@ struct GameView: View {
     
     // FUNCTIONS ///////////////////
     
+    
     private func undoLastScore() {
+        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         
         print("--------------------------------------------")
         print("func undoLastScore. Done?")
-        
-        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
-        print("previousPlayerIndex = \(previousPlayerIndex)")
+
+        var currentPlayerTotalScore: Int
+        var currentPlayerScores: [Int]
 
         switch playerNames[previousPlayerIndex] {
-            
         case namePlayer1:
-            if let lastScore = scoreHistory.player1.last {
-                currentPlayerIndex = previousPlayerIndex
-                scoreHistory.player1.removeLast()
-                scorePlayer1 += lastScore
-                throwsPlayer1 -= 1
-
-                if !player1Scores.isEmpty {
-                    player1Scores.removeLast()
-                }
-            }
-            
+            currentPlayerTotalScore = scorePlayer1
+            currentPlayerScores = player1Scores
         case namePlayer2:
-            if let lastScore = scoreHistory.player2.last {
-                currentPlayerIndex = previousPlayerIndex
-                scoreHistory.player2.removeLast()
-                scorePlayer2 += lastScore
-                throwsPlayer2 -= 1
-
-                if !player2Scores.isEmpty {
-                    player2Scores.removeLast()
-                }
-            }
-            
+            currentPlayerTotalScore = scorePlayer2
+            currentPlayerScores = player2Scores
         case namePlayer3:
-            if let lastScore = scoreHistory.player3.last {
-                currentPlayerIndex = previousPlayerIndex
-                scoreHistory.player3.removeLast()
-                scorePlayer3 += lastScore
-                throwsPlayer3 -= 1
-
-                if !player3Scores.isEmpty {
-                    player3Scores.removeLast()
-                }
-                
-                print("DONE")
-                
-            }
+            currentPlayerTotalScore = scorePlayer3
+            currentPlayerScores = player3Scores
         default:
-            break
+            return
         }
+
+        if let lastScore = currentPlayerScores.last {
+            currentPlayerIndex = previousPlayerIndex
+            currentPlayerScores.removeLast()
+            currentPlayerTotalScore += lastScore
+            throwsPlayer1 -= 1
+            
+            if !currentPlayerScores.isEmpty && currentPlayerTotalScore != scorePlayer1 {
+                player1Scores.removeLast()
+            }
+        }
+
         currentPlayerName = playerNames[currentPlayerIndex]
+        
+        print("DONE")
+
     }
-    
+
     
     private func saveScoreHistory() {
         
