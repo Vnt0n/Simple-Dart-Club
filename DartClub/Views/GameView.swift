@@ -416,6 +416,7 @@ struct GameView: View {
         print("func undoLastScore. Done?")
            
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
+        
         print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
         print("Previous Player: \(playerNames[previousPlayerIndex]). isBusted: \(isBusted)")
 
