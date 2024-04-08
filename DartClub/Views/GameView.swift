@@ -14,6 +14,7 @@ struct GameView: View {
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
     @State private var isBusted = false
+    @State private var isUndoDisabled = true
     
     var isThreeHundredOne: Bool
     var isFiveHundredOne: Bool
@@ -112,6 +113,8 @@ struct GameView: View {
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
+                        .disabled(isUndoDisabled)
+                        .foregroundColor(isUndoDisabled ? .gray : .white)
                         
                             Spacer()
                         
@@ -141,6 +144,7 @@ struct GameView: View {
                              print("--------------------------------------------")
                              print("BUTTON enterThrowScore PLAYER 1")
                              enterThrowScore = true
+                             isUndoDisabled = false
                          }) {
                              Text("\(totalScorePlayer1)")
                                  .font(.system(size: 140, weight: .bold, design: .default))
@@ -173,6 +177,7 @@ struct GameView: View {
                             print("--------------------------------------------")
                             print("BUTTON enterThrowScore PLAYER 2")
                             enterThrowScore = true
+                            isUndoDisabled = false
                         }) {
                             Text("\(totalScorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
@@ -207,6 +212,7 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 3")
                                 enterThrowScore = true
+                                isUndoDisabled = false
                             }) {
                                 Text("\(totalScorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
@@ -227,6 +233,12 @@ struct GameView: View {
                     var newScore = 0
                     var isBusted = false
                     
+                    saveTotalScoresHistory()
+                    
+                    print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
+                    print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
+                    print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
+                    
                     switch currentPlayerName {
                         
                     case namePlayer1:
@@ -242,7 +254,6 @@ struct GameView: View {
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -261,7 +272,6 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -283,7 +293,6 @@ struct GameView: View {
 
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -302,7 +311,6 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -324,7 +332,6 @@ struct GameView: View {
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -343,7 +350,6 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            saveTotalScoresHistory()
 
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
@@ -390,11 +396,6 @@ struct GameView: View {
         }
         .onAppear() {
             if !informationRequested {
-                
-                print("--------------------------------------------")
-                print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
-                print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
-                print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
 
                 print("--------------------------------------------")
                 print("onAppear GameView if !informationRequested. Done?")
@@ -416,7 +417,11 @@ struct GameView: View {
                     totalScorePlayer2 = 501
                     totalScorePlayer3 = 501
                 }
-
+                
+                print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
+                print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
+                print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
+                
             }
         }
         
@@ -427,64 +432,89 @@ struct GameView: View {
     
     
     private func undoLastScore() {
-           
         print("func undoLastScore. Done?")
-           
+        
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         
         print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
         print("Previous Player: \(playerNames[previousPlayerIndex]). isBusted: \(isBusted)")
 
         switch playerNames[previousPlayerIndex] {
-               
+            
         case namePlayer1:
+            
+            let lastIndex = totalScoresPlayer1History.count - 1
+            let lastScore = totalScoresPlayer1History[lastIndex]
+            
             if let lastThrewScore = throwsScoresHistory.player1.last {
+                
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player1.removeLast()
-                totalScorePlayer1 += lastThrewScore
                 throwsPlayer1 -= 1
-                   
+
+                if totalScorePlayer1 != lastScore {
+                    totalScorePlayer1 += lastThrewScore
+                }
+
                 if !player1ThrowsScores.isEmpty {
                     player1ThrowsScores.removeLast()
                 }
+                
             }
-               
+
         case namePlayer2:
+        
+            let lastIndex = totalScoresPlayer2History.count - 1
+            let lastScore = totalScoresPlayer2History[lastIndex]
+            
             if let lastThrewScore = throwsScoresHistory.player2.last {
+                
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player2.removeLast()
-                totalScorePlayer2 += lastThrewScore
                 throwsPlayer2 -= 1
-                   
+
+                if totalScorePlayer2 != lastScore {
+                    totalScorePlayer2 += lastThrewScore
+                }
+
                 if !player2ThrowsScores.isEmpty {
                     player2ThrowsScores.removeLast()
                 }
+                
             }
-               
+
         case namePlayer3:
+            
+            let lastIndex = totalScoresPlayer3History.count - 1
+            let lastScore = totalScoresPlayer3History[lastIndex]
+
             if let lastThrewScore = throwsScoresHistory.player3.last {
+                
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player3.removeLast()
-                totalScorePlayer3 += lastThrewScore
                 throwsPlayer3 -= 1
-                   
+
+                if totalScorePlayer3 != lastScore {
+                    totalScorePlayer3 += lastThrewScore
+                }
+
                 if !player3ThrowsScores.isEmpty {
                     player3ThrowsScores.removeLast()
                 }
-                                      
+                
             }
+
         default:
-               
-            print("--------------------------------------------")
-            print("switch func undoLastScore: BREAK")
-               
             break
         }
+        
         currentPlayerName = playerNames[currentPlayerIndex]
+        isUndoDisabled = true
         
         print("DONE")
         
-        }
+    }
+
 
     
     private func saveThrowsScoresHistory() {
@@ -516,10 +546,24 @@ struct GameView: View {
     
     
     private func saveTotalScoresHistory() {
-        totalScoresPlayer1History.append(totalScorePlayer1)
-        totalScoresPlayer2History.append(totalScorePlayer2)
-        totalScoresPlayer3History.append(totalScorePlayer3)
+        print("--------------------------------------------")
+        print("func saveTotalScoresHistory. Done?")
+        
+        switch currentPlayerName {
+        case namePlayer1:
+            totalScoresPlayer1History.append(totalScorePlayer1)
+        case namePlayer2:
+            totalScoresPlayer2History.append(totalScorePlayer2)
+        case namePlayer3:
+            totalScoresPlayer3History.append(totalScorePlayer3)
+        default:
+            break
+        }
+        
+        print("DONE")
+
     }
+
 
     
     private func newGameReset() {
