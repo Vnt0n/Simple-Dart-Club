@@ -422,10 +422,10 @@ struct GameView: View {
         switch playerNames[previousPlayerIndex] {
                
         case namePlayer1:
-            if let lastScore = throwsScoresHistory.player1.last {
+            if let lastThrewScore = throwsScoresHistory.player1.last {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player1.removeLast()
-                totalScorePlayer1 += lastScore
+                totalScorePlayer1 += lastThrewScore
                 throwsPlayer1 -= 1
                    
                 if !player1ThrowsScores.isEmpty {
@@ -434,10 +434,10 @@ struct GameView: View {
             }
                
         case namePlayer2:
-            if let lastScore = throwsScoresHistory.player2.last {
+            if let lastThrewScore = throwsScoresHistory.player2.last {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player2.removeLast()
-                totalScorePlayer2 += lastScore
+                totalScorePlayer2 += lastThrewScore
                 throwsPlayer2 -= 1
                    
                 if !player2ThrowsScores.isEmpty {
@@ -446,10 +446,10 @@ struct GameView: View {
             }
                
         case namePlayer3:
-            if let lastScore = throwsScoresHistory.player3.last {
+            if let lastThrewScore = throwsScoresHistory.player3.last {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player3.removeLast()
-                totalScorePlayer3 += lastScore
+                totalScorePlayer3 += lastThrewScore
                 throwsPlayer3 -= 1
                    
                 if !player3ThrowsScores.isEmpty {
