@@ -35,6 +35,10 @@ struct GameView: View {
     @State private var totalScorePlayer2: Int = 0
     @State private var totalScorePlayer3: Int = 0
     
+    @State private var totalScoresPlayer1History: [Int] = []
+    @State private var totalScoresPlayer2History: [Int] = []
+    @State private var totalScoresPlayer3History: [Int] = []
+    
     @State private var player1ThrowsScores: [Int] = []
     @State private var player2ThrowsScores: [Int] = []
     @State private var player3ThrowsScores: [Int] = []
@@ -238,7 +242,8 @@ struct GameView: View {
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -256,7 +261,8 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -277,7 +283,8 @@ struct GameView: View {
 
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -295,7 +302,8 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -316,7 +324,8 @@ struct GameView: View {
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -334,7 +343,8 @@ struct GameView: View {
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            
+                            saveTotalScoresHistory()
+
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
@@ -381,6 +391,11 @@ struct GameView: View {
         .onAppear() {
             if !informationRequested {
                 
+                print("--------------------------------------------")
+                print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
+                print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
+                print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
+
                 print("--------------------------------------------")
                 print("onAppear GameView if !informationRequested. Done?")
                 
@@ -498,6 +513,14 @@ struct GameView: View {
         print("DONE")
 
     }
+    
+    
+    private func saveTotalScoresHistory() {
+        totalScoresPlayer1History.append(totalScorePlayer1)
+        totalScoresPlayer2History.append(totalScorePlayer2)
+        totalScoresPlayer3History.append(totalScorePlayer3)
+    }
+
     
     private func newGameReset() {
         
