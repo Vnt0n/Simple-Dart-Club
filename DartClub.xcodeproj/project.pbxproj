@@ -20,6 +20,7 @@
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
 		71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1BC832BB62E3B007F8282 /* WinnerView.swift */; };
 		71F1BC872BB62EBE007F8282 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */; };
+		71FEAD522BC47AE3004E392A /* BustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FEAD512BC47AE3004E392A /* BustView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		71F1BC832BB62E3B007F8282 /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
+		71FEAD512BC47AE3004E392A /* BustView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BustView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				71F1BC832BB62E3B007F8282 /* WinnerView.swift */,
 				7167595B2BBDFD0300AC7800 /* InformationsView.swift */,
 				716CBB982BC051300086B7E6 /* CreditView.swift */,
+				71FEAD512BC47AE3004E392A /* BustView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */,
 				71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */,
 				7167595C2BBDFD0300AC7800 /* InformationsView.swift in Sources */,
+				71FEAD522BC47AE3004E392A /* BustView.swift in Sources */,
 				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
 				714C51522BB219E80036F6CF /* FirstView.swift in Sources */,

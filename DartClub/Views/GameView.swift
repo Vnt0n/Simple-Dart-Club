@@ -235,10 +235,6 @@ struct GameView: View {
                     
                     saveTotalScoresHistory()
                     
-                    print("Total Scores PLAYER 1 History: \(player1TotalScores)")
-                    print("Total Scores PLAYER 2 History: \(player2TotalScores)")
-                    print("Total Scores PLAYER 3 History: \(player3TotalScores)")
-                    
                     switch currentPlayerName {
                         
                     case namePlayer1:
@@ -417,10 +413,6 @@ struct GameView: View {
                     totalScorePlayer2 = 501
                     totalScorePlayer3 = 501
                 }
-                
-                print("Total Scores PLAYER 1 History: \(player1TotalScores)")
-                print("Total Scores PLAYER 2 History: \(player2TotalScores)")
-                print("Total Scores PLAYER 3 History: \(player3TotalScores)")
                 
             }
         }
