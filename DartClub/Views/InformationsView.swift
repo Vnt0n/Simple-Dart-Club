@@ -591,21 +591,18 @@ func calculateAverageThrowsScore(scores: [Int]) -> Int {
 struct InformationsView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let throwsScoresHistories1: [GameView.ThrowsScoresHistory] = [
-            GameView.ThrowsScoresHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"),
-            GameView.ThrowsScoresHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
-        ]
         
-        InformationsView(throwsScoresHistories: .constant(throwsScoresHistories1),
-                         player1ThrowsScores: .constant([10, 55, 35, 15]),
-                         player2ThrowsScores: .constant([25, 41, 17]),
-                         player3ThrowsScores: .constant([54, 22, 14]),
-                         totalScorePlayer1: 369,
-                         totalScorePlayer2: 250,
-                         totalScorePlayer3: 150,
-                         namePlayer1: "Alice",
-                         namePlayer2: "Bob",
-                         namePlayer3: "Charlie")
+        InformationsView(
+            throwsScoresHistories: .constant([GameView.ThrowsScoresHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"), GameView.ThrowsScoresHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")]),
+            player1ThrowsScores: .constant([10, 55, 35, 15]),
+            player2ThrowsScores: .constant([25, 41, 17]),
+            player3ThrowsScores: .constant([54, 22, 14]),
+            totalScorePlayer1: 369,
+            totalScorePlayer2: 250,
+            totalScorePlayer3: 150,
+            namePlayer1: "Alice",
+            namePlayer2: "Bob",
+            namePlayer3: "Charlie")
         
     }
 }
