@@ -11,7 +11,7 @@
 		711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B95082BB1B93B008691F4 /* DartClubApp.swift */; };
 		711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711B950A2BB1B93B008691F4 /* HomeView.swift */; };
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
-		71476FCA2BB5C86A00F5D31D /* EnterScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */; };
+		71476FCA2BB5C86A00F5D31D /* EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71476FC92BB5C86A00F5D31D /* EnterThrowScoreView.swift */; };
 		714C51522BB219E80036F6CF /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstView.swift */; };
 		71561E2B2BB82AAA006A89DE /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71561E2A2BB82A68006A89DE /* FightThis.ttf */; };
 		7167595C2BBDFD0300AC7800 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7167595B2BBDFD0300AC7800 /* InformationsView.swift */; };
@@ -47,7 +47,7 @@
 		711B950C2BB1B93C008691F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		711B95152BB1B93C008691F4 /* DartClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterScoreView.swift; sourceTree = "<group>"; };
+		71476FC92BB5C86A00F5D31D /* EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		714C51512BB219E80036F6CF /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		71561E2A2BB82A68006A89DE /* FightThis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FightThis.ttf; sourceTree = "<group>"; };
 		71561E2C2BB834A9006A89DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				714C51512BB219E80036F6CF /* FirstView.swift */,
 				71EC38EC2BB31286005822AC /* LaunchView.swift */,
 				71C4685E2BB36E7200587175 /* GameView.swift */,
-				71476FC92BB5C86A00F5D31D /* EnterScoreView.swift */,
+				71476FC92BB5C86A00F5D31D /* EnterThrowScoreView.swift */,
 				71F1BC832BB62E3B007F8282 /* WinnerView.swift */,
 				7167595B2BBDFD0300AC7800 /* InformationsView.swift */,
 				716CBB982BC051300086B7E6 /* CreditView.swift */,
@@ -289,7 +289,7 @@
 				71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */,
 				711B95092BB1B93B008691F4 /* DartClubApp.swift in Sources */,
 				714C51522BB219E80036F6CF /* FirstView.swift in Sources */,
-				71476FCA2BB5C86A00F5D31D /* EnterScoreView.swift in Sources */,
+				71476FCA2BB5C86A00F5D31D /* EnterThrowScoreView.swift in Sources */,
 				71C4685F2BB36E7200587175 /* GameView.swift in Sources */,
 				716CBB992BC051300086B7E6 /* CreditView.swift in Sources */,
 			);

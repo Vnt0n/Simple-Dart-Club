@@ -10,13 +10,13 @@ import SwiftUI
 struct GameView: View {
         
     @State private var informationRequested = false
-    @State private var enterScore = false
+    @State private var enterThrowScore = false
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
     @State private var isBusted = false
     
     var isThreeHundredOne: Bool
-    var isFiveHundredOne:Bool
+    var isFiveHundredOne: Bool
     
     @State private var currentPlayerName: String = ""
     
@@ -31,18 +31,18 @@ struct GameView: View {
     @State private var currentPlayerIndex: Int = 0
     @State private var gameCount: Int = 1
 
-    @State private var scorePlayer1: Int = 0
-    @State private var scorePlayer2: Int = 0
-    @State private var scorePlayer3: Int = 0
+    @State private var totalScorePlayer1: Int = 0
+    @State private var totalScorePlayer2: Int = 0
+    @State private var totalScorePlayer3: Int = 0
     
-    @State private var player1Scores: [Int] = []
-    @State private var player2Scores: [Int] = []
-    @State private var player3Scores: [Int] = []
+    @State private var player1ThrowsScores: [Int] = []
+    @State private var player2ThrowsScores: [Int] = []
+    @State private var player3ThrowsScores: [Int] = []
     
-    @State private var scoreHistory = ScoreHistory()
-    @State private var scoreHistories: [ScoreHistory] = []
+    @State private var throwsScoresHistory = ThrowsScoresHistory()
+    @State private var throwsScoresHistories: [ThrowsScoresHistory] = []
 
-    struct ScoreHistory: Hashable {
+    struct ThrowsScoresHistory: Hashable {
         var player1: [Int] = []
         var player2: [Int] = []
         var player3: [Int] = []
@@ -80,7 +80,7 @@ struct GameView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: InformationsView(scoreHistories: $scoreHistories, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, scorePlayer1: scorePlayer1, scorePlayer2: scorePlayer2, scorePlayer3: scorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
@@ -128,17 +128,17 @@ struct GameView: View {
                          HStack {
                              Text(namePlayer1)
                                  .fontWeight(.bold)
-                             Text("-  Average Score:  \(calculateAverageScore(scores: player1Scores))")
+                             Text("-  Average Score:  \(calculateAverageThrowsScore(scores: player1ThrowsScores))")
                                  .font(
                                      .system(size: 14))
                          }
                          
                          Button(action: {
                              print("--------------------------------------------")
-                             print("BUTTON enterScore PLAYER 1")
-                             enterScore = true
+                             print("BUTTON enterThrowScore PLAYER 1")
+                             enterThrowScore = true
                          }) {
-                             Text("\(scorePlayer1)")
+                             Text("\(totalScorePlayer1)")
                                  .font(.system(size: 140, weight: .bold, design: .default))
                          }
                          .disabled(currentPlayerIndex != 0)
@@ -160,17 +160,17 @@ struct GameView: View {
                         HStack {
                             Text(namePlayer2)
                                 .fontWeight(.bold)
-                            Text("-  Average Score: \(calculateAverageScore(scores: player2Scores))")
+                            Text("-  Average Score: \(calculateAverageThrowsScore(scores: player2ThrowsScores))")
                                 .font(
                                     .system(size: 14))
                         }
                         
                         Button(action: {
                             print("--------------------------------------------")
-                            print("BUTTON enterScore PLAYER 2")
-                            enterScore = true
+                            print("BUTTON enterThrowScore PLAYER 2")
+                            enterThrowScore = true
                         }) {
-                            Text("\(scorePlayer2)")
+                            Text("\(totalScorePlayer2)")
                                 .font(.system(size: 140, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 1)
@@ -194,17 +194,17 @@ struct GameView: View {
                             HStack {
                                 Text(namePlayer3)
                                     .fontWeight(.bold)
-                                Text("-  Average Score: \(calculateAverageScore(scores: player3Scores))")
+                                Text("-  Average Score: \(calculateAverageThrowsScore(scores: player3ThrowsScores))")
                                     .font(
                                         .system(size: 14))
                             }
                             
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON enterScore PLAYER 3")
-                                enterScore = true
+                                print("BUTTON enterThrowScore PLAYER 3")
+                                enterThrowScore = true
                             }) {
-                                Text("\(scorePlayer3)")
+                                Text("\(totalScorePlayer3)")
                                     .font(.system(size: 140, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
@@ -217,8 +217,8 @@ struct GameView: View {
                 }
             }
             .foregroundColor(.black)
-            .sheet(isPresented: $enterScore) {
-                EnterScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores) { enteredScore in
+            .sheet(isPresented: $enterThrowScore) {
+                enterThrowScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores) { enteredThrowScore in
 
                     var newScore = 0
                     var isBusted = false
@@ -227,94 +227,118 @@ struct GameView: View {
                         
                     case namePlayer1:
                         
-                        let tempScore = scorePlayer1 - (Int(enteredScore) ?? 0)
+                        let tempScore = totalScorePlayer1 - (Int(enteredThrowScore) ?? 0)
                         
                         if tempScore < 0 {
                             
+                            isBusted = true
+
+                            print("--------------------------------------------")
+                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+                            
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            isBusted = true
                             
-                            print("--------------------------------------------")
-                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), switch currentPlayerName : DONE")
-                            
+                            print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
+                            print("DONE")
+                            print("Current Player: \(currentPlayerName)")
+
                             return
                             
                         } else {
                             
                             print("--------------------------------------------")
-                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
-                            
-                            scoreHistory.player1.append(scorePlayer1 - tempScore)
-                            scorePlayer1 = tempScore
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+
+                            throwsScoresHistory.player1.append(totalScorePlayer1 - tempScore)
+                            totalScorePlayer1 = tempScore
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
                             
                             print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
                             print("DONE")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
                         }
                         
                     case namePlayer2:
                         
-                        let tempScore = scorePlayer2 - (Int(enteredScore) ?? 0)
+                        let tempScore = totalScorePlayer2 - (Int(enteredThrowScore) ?? 0)
                         
                         if tempScore < 0 {
-                            
+
+                            isBusted = true
+
+                            print("--------------------------------------------")
+                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            isBusted = true
                             
-                            print("--------------------------------------------")
-                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), switch currentPlayerName : DONE")
+                            print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
+                            print("DONE")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
                             
                             return
                             
                         } else {
                             
                             print("--------------------------------------------")
-                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
-                            scoreHistory.player2.append(scorePlayer2 - tempScore)
-                            scorePlayer2 = tempScore
+                            throwsScoresHistory.player2.append(totalScorePlayer2 - tempScore)
+                            totalScorePlayer2 = tempScore
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
                             
                             print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
                             print("DONE")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
                         }
                         
                     case namePlayer3:
                         
-                        let tempScore = scorePlayer3 - (Int(enteredScore) ?? 0)
+                        let tempScore = totalScorePlayer3 - (Int(enteredThrowScore) ?? 0)
                         
                         if tempScore < 0 {
                             
+                            isBusted = true
+
+                            print("--------------------------------------------")
+                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+                            
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
-                            isBusted = true
                             
-                            print("--------------------------------------------")
-                            print("PLAYER 3 isBusted: \(isBusted), switch currentPlayerName : DONE")
+                            print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
+                            print("DONE")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
                             
                             return
                             
                         } else {
                             
                             print("--------------------------------------------")
-                            print("\(playerNames[currentPlayerIndex]) isBusted: \(isBusted), calculate score & switch currentPlayerName. Done?")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
-                            scoreHistory.player3.append(scorePlayer3 - tempScore)
-                            scorePlayer3 = tempScore
+                            throwsScoresHistory.player3.append(totalScorePlayer3 - tempScore)
+                            totalScorePlayer3 = tempScore
                             newScore = tempScore
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
                             
                             print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
                             print("DONE")
+                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
                         }
                         
@@ -331,14 +355,15 @@ struct GameView: View {
                         print("--------------------------------------------")
                         print("newScore == 0")
                         
-                        enterScore = false
+                        enterThrowScore = false
                         isGameOver = true
-                        saveScoreHistory()
+                        saveThrowsScoresHistory()
                         gameCount += 1
                         
-                        print("enterScore: \(enterScore)")
+                        print("enterThrowScore: \(enterThrowScore)")
                         print("isGameOver: \(isGameOver)")
                         print("gameCount + 1: next game = GAME \(gameCount)")
+                        print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
 
                     }
                     
@@ -351,7 +376,7 @@ struct GameView: View {
             EmptyView()
         )
         .navigationDestination(isPresented: $isGameOver) {
-            WinnerView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, scoreHistories: $scoreHistories, scorePlayer1: $scorePlayer1, scorePlayer2: $scorePlayer2, scorePlayer3: $scorePlayer3, player1Scores: $player1Scores, player2Scores: $player2Scores, player3Scores: $player3Scores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
+            WinnerView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, throwsScoresHistories: $throwsScoresHistories, totalScorePlayer1: $totalScorePlayer1, totalScorePlayer2: $totalScorePlayer2, totalScorePlayer3: $totalScorePlayer3, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, currentPlayerIndex: $currentPlayerIndex, winnerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, newGameResetClosure: { self.newGameReset() })
         }
         .onAppear() {
             if !informationRequested {
@@ -368,13 +393,13 @@ struct GameView: View {
                 print("isFiveHundredOne: \(isFiveHundredOne)")
                 
                 if isThreeHundredOne {
-                    scorePlayer1 = 301
-                    scorePlayer2 = 301
-                    scorePlayer3 = 301
+                    totalScorePlayer1 = 301
+                    totalScorePlayer2 = 301
+                    totalScorePlayer3 = 301
                 } else {
-                    scorePlayer1 = 501
-                    scorePlayer2 = 501
-                    scorePlayer3 = 501
+                    totalScorePlayer1 = 501
+                    totalScorePlayer2 = 501
+                    totalScorePlayer3 = 501
                 }
 
             }
@@ -387,68 +412,87 @@ struct GameView: View {
     
     
     private func undoLastScore() {
-        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
-        
-        print("--------------------------------------------")
+           
         print("func undoLastScore. Done?")
-
-        var currentPlayerTotalScore: Int
-        var currentPlayerScores: [Int]
+           
+        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
+        print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+        print("Previous Player: \(playerNames[previousPlayerIndex]). isBusted: \(isBusted)")
 
         switch playerNames[previousPlayerIndex] {
+               
         case namePlayer1:
-            currentPlayerTotalScore = scorePlayer1
-            currentPlayerScores = player1Scores
-        case namePlayer2:
-            currentPlayerTotalScore = scorePlayer2
-            currentPlayerScores = player2Scores
-        case namePlayer3:
-            currentPlayerTotalScore = scorePlayer3
-            currentPlayerScores = player3Scores
-        default:
-            return
-        }
-
-        if let lastScore = currentPlayerScores.last {
-            currentPlayerIndex = previousPlayerIndex
-            currentPlayerScores.removeLast()
-            currentPlayerTotalScore += lastScore
-            throwsPlayer1 -= 1
-            
-            if !currentPlayerScores.isEmpty && currentPlayerTotalScore != scorePlayer1 {
-                player1Scores.removeLast()
+            if let lastScore = throwsScoresHistory.player1.last {
+                currentPlayerIndex = previousPlayerIndex
+                throwsScoresHistory.player1.removeLast()
+                totalScorePlayer1 += lastScore
+                throwsPlayer1 -= 1
+                   
+                if !player1ThrowsScores.isEmpty {
+                    player1ThrowsScores.removeLast()
+                }
             }
+               
+        case namePlayer2:
+            if let lastScore = throwsScoresHistory.player2.last {
+                currentPlayerIndex = previousPlayerIndex
+                throwsScoresHistory.player2.removeLast()
+                totalScorePlayer2 += lastScore
+                throwsPlayer2 -= 1
+                   
+                if !player2ThrowsScores.isEmpty {
+                    player2ThrowsScores.removeLast()
+                }
+            }
+               
+        case namePlayer3:
+            if let lastScore = throwsScoresHistory.player3.last {
+                currentPlayerIndex = previousPlayerIndex
+                throwsScoresHistory.player3.removeLast()
+                totalScorePlayer3 += lastScore
+                throwsPlayer3 -= 1
+                   
+                if !player3ThrowsScores.isEmpty {
+                    player3ThrowsScores.removeLast()
+                }
+                                      
+            }
+        default:
+               
+            print("--------------------------------------------")
+            print("switch func undoLastScore: BREAK")
+               
+            break
         }
-
         currentPlayerName = playerNames[currentPlayerIndex]
         
         print("DONE")
-
-    }
+        
+        }
 
     
-    private func saveScoreHistory() {
+    private func saveThrowsScoresHistory() {
         
         print("--------------------------------------------")
-        print("func saveScoreHistory. Done?")
+        print("func saveThrowsScoresHistory. Done?")
         
         // Déterminer le gagnant
         var winner = ""
-        if scorePlayer1 == 0 {
+        if totalScorePlayer1 == 0 {
             winner = namePlayer1
-        } else if scorePlayer2 == 0 {
+        } else if totalScorePlayer2 == 0 {
             winner = namePlayer2
-        } else if scorePlayer3 == 0 {
+        } else if totalScorePlayer3 == 0 {
             winner = namePlayer3
         }
         
         // Ajouter les scores et le gagnant à l'historique
-        var history = scoreHistory
+        var history = throwsScoresHistory
         history.winner = winner
-        scoreHistories.append(history)
+        throwsScoresHistories.append(history)
         
         // Réinitialiser l'historique des scores
-        scoreHistory = ScoreHistory()
+        throwsScoresHistory = ThrowsScoresHistory()
         
         print("DONE")
 
@@ -462,15 +506,15 @@ struct GameView: View {
         throwsPlayer1 = 1
         throwsPlayer2 = 1
         throwsPlayer3 = 1
-        player1Scores = []
-        player2Scores = []
-        player3Scores = []
+        player1ThrowsScores = []
+        player2ThrowsScores = []
+        player3ThrowsScores = []
         
         print("DONE")
 
     }
     
-    func calculateAverageScore(scores: [Int]) -> Int {
+    func calculateAverageThrowsScore(scores: [Int]) -> Int {
       guard !scores.isEmpty else { return 0 }
       let sum = scores.reduce(0, +)
       return Int(round(Double(sum) / Double(scores.count)))

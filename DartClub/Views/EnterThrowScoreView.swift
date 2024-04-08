@@ -1,5 +1,5 @@
 //
-//  EnterScoreView.swift
+//  enterThrowScoreView.swift
 //  DartClub
 //
 //  Created by Antoine on 28/03/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EnterScoreView: View {
+struct enterThrowScoreView: View {
     
     var playerName: String
     
@@ -19,9 +19,9 @@ struct EnterScoreView: View {
     @Binding var throwsPlayer2: Int
     @Binding var throwsPlayer3: Int
     
-    @Binding var player1Scores: [Int]
-    @Binding var player2Scores: [Int]
-    @Binding var player3Scores: [Int]
+    @Binding var player1ThrowsScores: [Int]
+    @Binding var player2ThrowsScores: [Int]
+    @Binding var player3ThrowsScores: [Int]
     
     @Environment(\.dismiss) var dismiss
     @State private var score: Int?
@@ -45,8 +45,7 @@ struct EnterScoreView: View {
                 .focused($isFocused)
                 .onAppear {
                     self.isFocused = true
-                    print("--------------------------------------------")
-                    print("EnterScoreView")
+                    print("enterThrowScoreView")
                 }
         }
  
@@ -66,21 +65,21 @@ struct EnterScoreView: View {
                     break
                 }
             
-            if let enteredScore = score {
+            if let enteredThrowScore = score {
                     switch playerName {
                         case namePlayer1:
-                            player1Scores.append(enteredScore)
+                            player1ThrowsScores.append(enteredThrowScore)
                         case namePlayer2:
-                            player2Scores.append(enteredScore)
+                            player2ThrowsScores.append(enteredThrowScore)
                         case namePlayer3:
-                            player3Scores.append(enteredScore)
+                            player3ThrowsScores.append(enteredThrowScore)
                         default:
                             break
                     }
                 
                 }
             print("--------------------------------------------")
-            print("OK BUTTON EnterScoreView")
+            print("OK BUTTON enterThrowScoreView")
         }
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
@@ -92,8 +91,8 @@ struct EnterScoreView: View {
 
 // PREVIEWS ///////////////////
 
-struct EnterScoreView_Previews: PreviewProvider {
+struct enterThrowScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterScoreView(playerName: "Antoine", namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1Scores: .constant([]), player2Scores: .constant([]), player3Scores: .constant([])) { _ in }
+        enterThrowScoreView(playerName: "Antoine", namePlayer1: "Antoine", namePlayer2: "Julien", namePlayer3: "JJ", throwsPlayer1: .constant(1), throwsPlayer2: .constant(1), throwsPlayer3: .constant(1), player1ThrowsScores: .constant([]), player2ThrowsScores: .constant([]), player3ThrowsScores: .constant([])) { _ in }
     }
 }

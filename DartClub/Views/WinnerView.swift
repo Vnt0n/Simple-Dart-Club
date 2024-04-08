@@ -19,27 +19,27 @@ struct WinnerView: View {
     
     @State private var numberOfGamesPlayed = 0
     
-    @Binding var scoreHistories: [GameView.ScoreHistory]
+    @Binding var throwsScoresHistories: [GameView.ThrowsScoresHistory]
     
-    @Binding var scorePlayer1: Int
-    @Binding var scorePlayer2: Int
-    @Binding var scorePlayer3: Int
+    @Binding var totalScorePlayer1: Int
+    @Binding var totalScorePlayer2: Int
+    @Binding var totalScorePlayer3: Int
     
-    @Binding var player1Scores: [Int]
-    @Binding var player2Scores: [Int]
-    @Binding var player3Scores: [Int]
+    @Binding var player1ThrowsScores: [Int]
+    @Binding var player2ThrowsScores: [Int]
+    @Binding var player3ThrowsScores: [Int]
     
     
     var player1Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer1 }.count
+        throwsScoresHistories.filter { $0.winner == namePlayer1 }.count
     }
         
     var player2Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer2 }.count
+        throwsScoresHistories.filter { $0.winner == namePlayer2 }.count
     }
         
     var player3Wins: Int {
-        scoreHistories.filter { $0.winner == namePlayer3 }.count
+        throwsScoresHistories.filter { $0.winner == namePlayer3 }.count
     }
     
     @Binding var currentPlayerIndex: Int
@@ -125,7 +125,7 @@ struct WinnerView: View {
                                     .frame(maxWidth: .infinity)
                                     .padding(.bottom, 15)
                                 
-                                if !player3Scores.isEmpty {
+                                if !player3ThrowsScores.isEmpty {
                                     
                                     Spacer()
                                     
@@ -139,7 +139,7 @@ struct WinnerView: View {
                             }
                             .padding(.horizontal)
                             
-                            ForEach(0..<max(player1Scores.count, player2Scores.count, player3Scores.count), id: \.self) { index in
+                            ForEach(0..<max(player1ThrowsScores.count, player2ThrowsScores.count, player3ThrowsScores.count), id: \.self) { index in
                                 
                                 Divider()
                                 
@@ -155,23 +155,23 @@ struct WinnerView: View {
                                     Spacer()
                                     Divider()
                                     
-                                    Text("\(index < player1Scores.count ? "\(player1Scores[index])" : "-")")
+                                    Text("\(index < player1ThrowsScores.count ? "\(player1ThrowsScores[index])" : "-")")
                                         .frame(maxWidth: .infinity)
                                         .font(.system(size: 17))
                                     
                                     Spacer()
                                     Divider()
                                     
-                                    Text("\(index < player2Scores.count ? "\(player2Scores[index])" : "-")")
+                                    Text("\(index < player2ThrowsScores.count ? "\(player2ThrowsScores[index])" : "-")")
                                         .frame(maxWidth: .infinity)
                                         .font(.system(size: 17))
                                     
-                                    if !player3Scores.isEmpty {
+                                    if !player3ThrowsScores.isEmpty {
                                         
                                         Spacer()
                                         Divider()
                                         
-                                        Text("\(index < player3Scores.count ? "\(player3Scores[index])" : "-")")
+                                        Text("\(index < player3ThrowsScores.count ? "\(player3ThrowsScores[index])" : "-")")
                                             .frame(maxWidth: .infinity)
                                             .font(.system(size: 17))
                                     }
@@ -196,7 +196,7 @@ struct WinnerView: View {
                                 Spacer()
                                 Divider()
                                 
-                                Text("\(scorePlayer1)")
+                                Text("\(totalScorePlayer1)")
                                     .font(.system(size: 15))
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity)
@@ -204,7 +204,7 @@ struct WinnerView: View {
                                 Spacer()
                                 Divider()
                                 
-                                Text("\(scorePlayer2)")
+                                Text("\(totalScorePlayer2)")
                                     .font(.system(size: 15))
                                     .fontWeight(.bold)
                                     .frame(maxWidth: .infinity)
@@ -214,7 +214,7 @@ struct WinnerView: View {
                                     Spacer()
                                     Divider()
                                     
-                                    Text("\(scorePlayer3)")
+                                    Text("\(totalScorePlayer3)")
                                         .font(.system(size: 15))
                                         .fontWeight(.bold)
                                         .frame(maxWidth: .infinity)
@@ -246,7 +246,7 @@ struct WinnerView: View {
                                 Spacer()
                                 Divider()
                                 
-                                Text("\(calculateAverageScore(scores: player1Scores))")
+                                Text("\(calculateAverageThrowsScore(scores: player1ThrowsScores))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                 
@@ -266,7 +266,7 @@ struct WinnerView: View {
                                 Spacer()
                                 Divider()
                                 
-                                Text("\(calculateAverageScore(scores: player2Scores))")
+                                Text("\(calculateAverageThrowsScore(scores: player2ThrowsScores))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                 
@@ -276,7 +276,7 @@ struct WinnerView: View {
                                               
                             Divider()
 
-                            if !player3Scores.isEmpty {
+                            if !player3ThrowsScores.isEmpty {
                                 
                                 HStack {
                                     
@@ -289,7 +289,7 @@ struct WinnerView: View {
                                     Spacer()
                                     Divider()
                                     
-                                    Text("\(calculateAverageScore(scores: player3Scores))")
+                                    Text("\(calculateAverageThrowsScore(scores: player3ThrowsScores))")
                                         .frame(maxWidth: .infinity)
                                         .font(.system(size: 14))
                                     
@@ -406,8 +406,8 @@ struct WinnerView: View {
                         
                         VStack {
                             
-                            ForEach(scoreHistories.indices, id: \.self) { index in
-                                let history = scoreHistories[index]
+                            ForEach(throwsScoresHistories.indices, id: \.self) { index in
+                                let history = throwsScoresHistories[index]
                                 if !history.winner.isEmpty {
                                     
                                     VStack {
@@ -518,7 +518,7 @@ struct WinnerView: View {
                                             Spacer()
                                             Divider()
                                             
-                                            Text("\(calculateAverageScore(scores: history.player1))")
+                                            Text("\(calculateAverageThrowsScore(scores: history.player1))")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 14))
                                             
@@ -538,7 +538,7 @@ struct WinnerView: View {
                                             Spacer()
                                             Divider()
                                             
-                                            Text("\(calculateAverageScore(scores: history.player2))")
+                                            Text("\(calculateAverageThrowsScore(scores: history.player2))")
                                                 .frame(maxWidth: .infinity)
                                                 .font(.system(size: 14))
                                             
@@ -561,7 +561,7 @@ struct WinnerView: View {
                                                 Spacer()
                                                 Divider()
                                                 
-                                                Text("\(calculateAverageScore(scores: history.player3))")
+                                                Text("\(calculateAverageThrowsScore(scores: history.player3))")
                                                     .frame(maxWidth: .infinity)
                                                     .font(.system(size: 14))
                                                 
@@ -597,14 +597,14 @@ struct WinnerView: View {
                     
         }
         .onAppear {
-            numberOfGamesPlayed = scoreHistories.count
+            numberOfGamesPlayed = throwsScoresHistories.count
         }
     }
 
     
     // FUNCTIONS ///////////////////
     
-    func calculateAverageScore(scores: [Int]) -> Int {
+    func calculateAverageThrowsScore(scores: [Int]) -> Int {
       guard !scores.isEmpty else { return 0 }
       let sum = scores.reduce(0, +)
       return Int(round(Double(sum) / Double(scores.count)))
@@ -615,9 +615,9 @@ struct WinnerView: View {
         print("--------------------------------------------")
         print("func newGame. Done?")
         
-        scorePlayer1 = 501
-        scorePlayer2 = 501
-        scorePlayer3 = 501
+        totalScorePlayer1 = 501
+        totalScorePlayer2 = 501
+        totalScorePlayer3 = 501
 
         print("DONE")
         
@@ -632,21 +632,21 @@ struct WinnerView: View {
 struct WinnerView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let scoreHistories1: [GameView.ScoreHistory] = [
-            GameView.ScoreHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"),
-            GameView.ScoreHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
+        let throwsScoresHistories1: [GameView.ThrowsScoresHistory] = [
+            GameView.ThrowsScoresHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"),
+            GameView.ThrowsScoresHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")
         ]
 
         WinnerView(
             isThreeHundredOne: true,
             isFiveHundredOne: false,
-            scoreHistories: .constant(scoreHistories1),
-            scorePlayer1: .constant(369),
-            scorePlayer2: .constant(250),
-            scorePlayer3: .constant(0),
-            player1Scores: .constant([10, 55, 35, 15]),
-            player2Scores: .constant([25, 41, 17]),
-            player3Scores: .constant([54, 22, 14]),
+            throwsScoresHistories: .constant(throwsScoresHistories1),
+            totalScorePlayer1: .constant(369),
+            totalScorePlayer2: .constant(250),
+            totalScorePlayer3: .constant(0),
+            player1ThrowsScores: .constant([10, 55, 35, 15]),
+            player2ThrowsScores: .constant([25, 41, 17]),
+            player3ThrowsScores: .constant([54, 22, 14]),
             currentPlayerIndex: .constant(0),
             winnerName: "Alice",
             namePlayer1: "Alice",
