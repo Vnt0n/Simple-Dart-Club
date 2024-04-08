@@ -36,9 +36,9 @@ struct GameView: View {
     @State private var totalScorePlayer2: Int = 0
     @State private var totalScorePlayer3: Int = 0
     
-    @State private var totalScoresPlayer1History: [Int] = []
-    @State private var totalScoresPlayer2History: [Int] = []
-    @State private var totalScoresPlayer3History: [Int] = []
+    @State private var player1TotalScores: [Int] = []
+    @State private var player2TotalScores: [Int] = []
+    @State private var player3TotalScores: [Int] = []
     
     @State private var player1ThrowsScores: [Int] = []
     @State private var player2ThrowsScores: [Int] = []
@@ -235,9 +235,9 @@ struct GameView: View {
                     
                     saveTotalScoresHistory()
                     
-                    print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
-                    print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
-                    print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
+                    print("Total Scores PLAYER 1 History: \(player1TotalScores)")
+                    print("Total Scores PLAYER 2 History: \(player2TotalScores)")
+                    print("Total Scores PLAYER 3 History: \(player3TotalScores)")
                     
                     switch currentPlayerName {
                         
@@ -418,9 +418,9 @@ struct GameView: View {
                     totalScorePlayer3 = 501
                 }
                 
-                print("Total Scores PLAYER 1 History: \(totalScoresPlayer1History)")
-                print("Total Scores PLAYER 2 History: \(totalScoresPlayer2History)")
-                print("Total Scores PLAYER 3 History: \(totalScoresPlayer3History)")
+                print("Total Scores PLAYER 1 History: \(player1TotalScores)")
+                print("Total Scores PLAYER 2 History: \(player2TotalScores)")
+                print("Total Scores PLAYER 3 History: \(player3TotalScores)")
                 
             }
         }
@@ -443,8 +443,8 @@ struct GameView: View {
             
         case namePlayer1:
             
-            let lastIndex = totalScoresPlayer1History.count - 1
-            let lastScore = totalScoresPlayer1History[lastIndex]
+            let lastIndex = player1TotalScores.count - 1
+            let lastScore = player1TotalScores[lastIndex]
             
             if let lastThrewScore = throwsScoresHistory.player1.last {
                 
@@ -464,8 +464,8 @@ struct GameView: View {
 
         case namePlayer2:
         
-            let lastIndex = totalScoresPlayer2History.count - 1
-            let lastScore = totalScoresPlayer2History[lastIndex]
+            let lastIndex = player2TotalScores.count - 1
+            let lastScore = player2TotalScores[lastIndex]
             
             if let lastThrewScore = throwsScoresHistory.player2.last {
                 
@@ -485,8 +485,8 @@ struct GameView: View {
 
         case namePlayer3:
             
-            let lastIndex = totalScoresPlayer3History.count - 1
-            let lastScore = totalScoresPlayer3History[lastIndex]
+            let lastIndex = player3TotalScores.count - 1
+            let lastScore = player3TotalScores[lastIndex]
 
             if let lastThrewScore = throwsScoresHistory.player3.last {
                 
@@ -551,11 +551,11 @@ struct GameView: View {
         
         switch currentPlayerName {
         case namePlayer1:
-            totalScoresPlayer1History.append(totalScorePlayer1)
+            player1TotalScores.append(totalScorePlayer1)
         case namePlayer2:
-            totalScoresPlayer2History.append(totalScorePlayer2)
+            player2TotalScores.append(totalScorePlayer2)
         case namePlayer3:
-            totalScoresPlayer3History.append(totalScorePlayer3)
+            player3TotalScores.append(totalScorePlayer3)
         default:
             break
         }
