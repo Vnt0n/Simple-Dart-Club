@@ -10,6 +10,10 @@ import SwiftUI
 struct InformationsView: View {
     
     @State private var showCreditView = false
+    
+    @Binding var isBustedPlayer1: Bool
+    @Binding var isBustedPlayer2: Bool
+    @Binding var isBustedPlayer3: Bool
 
     @Binding var throwsScoresHistories: [GameView.ThrowsScoresHistory]
     
@@ -593,6 +597,9 @@ struct InformationsView_Previews: PreviewProvider {
     static var previews: some View {
         
         InformationsView(
+            isBustedPlayer1: .constant(false),
+            isBustedPlayer2: .constant(false),
+            isBustedPlayer3: .constant(false),
             throwsScoresHistories: .constant([GameView.ThrowsScoresHistory(player1: [5, 57, 25, 65, 89, 45, 78], player2: [45, 36, 75, 29, 27, 65, 25], player3: [14, 28, 35, 45, 20, 18], winner: "Bob"), GameView.ThrowsScoresHistory(player1: [15, 5, 2, 25, 29, 35, 8], player2: [25, 6, 15, 19, 37, 62], player3: [4, 18, 31, 15, 29, 17], winner: "Alice")]),
             player1ThrowsScores: .constant([10, 55, 35, 15]),
             player2ThrowsScores: .constant([25, 41, 17]),

@@ -87,7 +87,7 @@ struct GameView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: InformationsView(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(isBustedPlayer1: $isBustedPlayer1, isBustedPlayer2: $isBustedPlayer2, isBustedPlayer3: $isBustedPlayer3, throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
@@ -248,7 +248,6 @@ struct GameView: View {
                 enterThrowScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores) { enteredThrowScore in
 
                     var newScore = 0
-                    var isBusted = false
                     
                     saveTotalScoresHistory()
                     
@@ -263,7 +262,7 @@ struct GameView: View {
                             isBustedPlayer1 = true
 
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName) < 0")
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
@@ -398,7 +397,7 @@ struct GameView: View {
                         print("enterThrowScore: \(enterThrowScore)")
                         print("isGameOver: \(isGameOver)")
                         print("gameCount + 1: next game = GAME \(gameCount)")
-                        print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                        print("Current Player: \(currentPlayerName)")
 
                     }
                     
