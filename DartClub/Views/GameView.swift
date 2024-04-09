@@ -87,7 +87,7 @@ struct GameView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: InformationsView(isBustedPlayer1: $isBustedPlayer1, isBustedPlayer2: $isBustedPlayer2, isBustedPlayer3: $isBustedPlayer3, throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
+                        NavigationLink(destination: InformationsView(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Menu")
                                 .font(.system(size: 25))
