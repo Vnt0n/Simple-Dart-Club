@@ -581,11 +581,6 @@ struct GameView: View {
         }
         
         print("DONE")
-        
-        print("--------------------------------------------")
-        print("isBustedPlayer1: \(isBustedPlayer1)")
-        print("isBustedPlayer2: \(isBustedPlayer2)")
-        print("isBustedPlayer3: \(isBustedPlayer3)")
     
     }
 
