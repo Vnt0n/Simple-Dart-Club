@@ -144,6 +144,7 @@ struct GameView: View {
                                  Text("- BUST")
                                      .fontWeight(.bold)
                                      .foregroundColor(.red)
+                                     .glowBorder(color: .black, lineWidth: 2)
                              }
                          }
                          
@@ -182,6 +183,7 @@ struct GameView: View {
                                 Text("- BUST")
                                     .fontWeight(.bold)
                                     .foregroundColor(.red)
+                                    .glowBorder(color: .black, lineWidth: 2)
                             }
                         }
                         
@@ -222,6 +224,7 @@ struct GameView: View {
                                     Text("- BUST")
                                         .fontWeight(.bold)
                                         .foregroundColor(.red)
+                                        .glowBorder(color: .black, lineWidth: 2)
                                 }
                             }
                             
