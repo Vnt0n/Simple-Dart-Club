@@ -141,7 +141,7 @@ struct GameView: View {
                                  .font(
                                      .system(size: 14))
                              if isBustedPlayer1 {
-                                 Text("- BUSTED")
+                                 Text("- BUST")
                                      .fontWeight(.bold)
                                      .foregroundColor(.red)
                              }
@@ -179,7 +179,7 @@ struct GameView: View {
                                 .font(
                                     .system(size: 14))
                             if isBustedPlayer2 {
-                                Text("- BUSTED")
+                                Text("- BUST")
                                     .fontWeight(.bold)
                                     .foregroundColor(.red)
                             }
@@ -219,7 +219,7 @@ struct GameView: View {
                                     .font(
                                         .system(size: 14))
                                 if isBustedPlayer3 {
-                                    Text("- BUSTED")
+                                    Text("- BUST")
                                         .fontWeight(.bold)
                                         .foregroundColor(.red)
                                 }
@@ -465,6 +465,7 @@ struct GameView: View {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player1.removeLast()
                 throwsPlayer1 -= 1
+                isBustedPlayer1 = false
 
                 if totalScorePlayer1 != lastScore {
                     totalScorePlayer1 += lastThrewScore
@@ -486,6 +487,7 @@ struct GameView: View {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player2.removeLast()
                 throwsPlayer2 -= 1
+                isBustedPlayer2 = false
 
                 if totalScorePlayer2 != lastScore {
                     totalScorePlayer2 += lastThrewScore
@@ -507,6 +509,7 @@ struct GameView: View {
                 currentPlayerIndex = previousPlayerIndex
                 throwsScoresHistory.player3.removeLast()
                 throwsPlayer3 -= 1
+                isBustedPlayer3 = false
 
                 if totalScorePlayer3 != lastScore {
                     totalScorePlayer3 += lastThrewScore
