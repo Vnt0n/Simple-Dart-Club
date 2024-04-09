@@ -13,7 +13,9 @@ struct GameView: View {
     @State private var enterThrowScore = false
     @State private var isGameOver = false
     @State private var isConfettiAnimationActive = false
-    @State private var isBusted = false
+    @State private var isBustedPlayer1 = false
+    @State private var isBustedPlayer2 = false
+    @State private var isBustedPlayer3 = false
     @State private var isUndoDisabled = true
     
     var isThreeHundredOne: Bool
@@ -138,6 +140,11 @@ struct GameView: View {
                              Text("-  Average Score:  \(calculateAverageThrowsScore(scores: player1ThrowsScores))")
                                  .font(
                                      .system(size: 14))
+                             if isBustedPlayer1 {
+                                 Text("- BUSTED")
+                                     .fontWeight(.bold)
+                                     .foregroundColor(.red)
+                             }
                          }
                          
                          Button(action: {
@@ -171,6 +178,11 @@ struct GameView: View {
                             Text("-  Average Score: \(calculateAverageThrowsScore(scores: player2ThrowsScores))")
                                 .font(
                                     .system(size: 14))
+                            if isBustedPlayer2 {
+                                Text("- BUSTED")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.red)
+                            }
                         }
                         
                         Button(action: {
@@ -206,6 +218,11 @@ struct GameView: View {
                                 Text("-  Average Score: \(calculateAverageThrowsScore(scores: player3ThrowsScores))")
                                     .font(
                                         .system(size: 14))
+                                if isBustedPlayer3 {
+                                    Text("- BUSTED")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                }
                             }
                             
                             Button(action: {
@@ -243,7 +260,7 @@ struct GameView: View {
                         
                         if tempScore < 0 {
                             
-                            isBusted = true
+                            isBustedPlayer1 = true
 
                             print("--------------------------------------------")
                             print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
@@ -260,8 +277,10 @@ struct GameView: View {
                             
                         } else {
                             
+                            isBustedPlayer1 = false
+                            
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                             throwsScoresHistory.player1.append(totalScorePlayer1 - tempScore)
                             totalScorePlayer1 = tempScore
@@ -272,7 +291,7 @@ struct GameView: View {
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                         }
                         
@@ -282,10 +301,10 @@ struct GameView: View {
                         
                         if tempScore < 0 {
 
-                            isBusted = true
+                            isBustedPlayer2 = true
 
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName) < 0")
 
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
@@ -293,14 +312,16 @@ struct GameView: View {
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
                             
                             return
                             
                         } else {
                             
+                            isBustedPlayer2 = false
+
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                             throwsScoresHistory.player2.append(totalScorePlayer2 - tempScore)
                             totalScorePlayer2 = tempScore
@@ -311,7 +332,7 @@ struct GameView: View {
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                         }
                         
@@ -321,10 +342,10 @@ struct GameView: View {
                         
                         if tempScore < 0 {
                             
-                            isBusted = true
+                            isBustedPlayer3 = true
 
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName) < 0. isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName) < 0")
                             
                             currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
                             currentPlayerName = playerNames[currentPlayerIndex]
@@ -332,14 +353,16 @@ struct GameView: View {
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
                             
                             return
                             
                         } else {
                             
+                            isBustedPlayer3 = false
+
                             print("--------------------------------------------")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                             throwsScoresHistory.player3.append(totalScorePlayer3 - tempScore)
                             totalScorePlayer3 = tempScore
@@ -350,7 +373,7 @@ struct GameView: View {
                             print("Next player: \(currentPlayerName).")
                             print("Switching Player. Done ?")
                             print("DONE")
-                            print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
+                            print("Current Player: \(currentPlayerName)")
 
                         }
                         
@@ -428,8 +451,8 @@ struct GameView: View {
         
         let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
         
-        print("Current Player: \(currentPlayerName). isBusted: \(isBusted)")
-        print("Previous Player: \(playerNames[previousPlayerIndex]). isBusted: \(isBusted)")
+        print("Current Player: \(currentPlayerName)")
+        print("Previous Player: \(playerNames[previousPlayerIndex])")
 
         switch playerNames[previousPlayerIndex] {
             
@@ -553,11 +576,15 @@ struct GameView: View {
         }
         
         print("DONE")
-
+        
+        print("--------------------------------------------")
+        print("isBustedPlayer1: \(isBustedPlayer1)")
+        print("isBustedPlayer2: \(isBustedPlayer2)")
+        print("isBustedPlayer3: \(isBustedPlayer3)")
+    
     }
 
 
-    
     private func newGameReset() {
         
         print("--------------------------------------------")
@@ -569,6 +596,9 @@ struct GameView: View {
         player1ThrowsScores = []
         player2ThrowsScores = []
         player3ThrowsScores = []
+        isBustedPlayer1 = false
+        isBustedPlayer2 = false
+        isBustedPlayer3 = false
         
         print("DONE")
 
