@@ -482,7 +482,7 @@ struct InformationsView: View {
                         
                         VStack {
                             
-                            Text("🎉 TOTAL WINS 🥇")
+                            Text("🎉 VICTORIES 🥇")
                                 .font(.headline)
                                 .padding(.top, 15)
                             
