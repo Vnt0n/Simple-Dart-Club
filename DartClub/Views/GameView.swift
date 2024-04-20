@@ -389,9 +389,12 @@ struct GameView: View {
                     
                     if newScore == 0 {
                         
+                        let previousPlayerIndex = (currentPlayerIndex - 1 + playerNames.count) % playerNames.count
+
                         print("--------------------------------------------")
                         print("newScore == 0")
                         
+                        currentPlayerName = playerNames[previousPlayerIndex]
                         enterThrowScore = false
                         isGameOver = true
                         saveThrowsScoresHistory()

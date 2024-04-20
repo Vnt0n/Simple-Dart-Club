@@ -75,6 +75,10 @@ struct WinnerView: View {
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                                 self.counter = 1
+                                
+                                print("--------------------------------------------")
+                                print("Winner Name: \(winnerName)")
+
                             }
                         }
                     
