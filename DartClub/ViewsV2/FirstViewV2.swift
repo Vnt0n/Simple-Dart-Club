@@ -173,7 +173,7 @@ struct FirstViewV2: View {
                         .controlSize(.large)
                         .padding(.bottom, 15)
                         .navigationDestination(isPresented: $isGameStarted) {
-                            GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                            GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4)
                         }
                                                 
                         Text("or")
@@ -191,7 +191,7 @@ struct FirstViewV2: View {
                         .controlSize(.large)
                         .padding(.bottom, 15)
                         .navigationDestination(isPresented: $isGameStarted) {
-                            GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                            GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4)
                         }
                     }
                     
