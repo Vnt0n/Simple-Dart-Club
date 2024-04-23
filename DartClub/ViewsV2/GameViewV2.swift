@@ -16,6 +16,7 @@ struct GameViewV2: View {
     @State private var isBustedPlayer1 = false
     @State private var isBustedPlayer2 = false
     @State private var isBustedPlayer3 = false
+    @State private var isBustedPlayer4 = false
     @State private var isUndoDisabled = true
     
     var isThreeHundredOne: Bool
@@ -29,7 +30,7 @@ struct GameViewV2: View {
     var namePlayer4: String
 
     private var playerNames: [String] {
-        [namePlayer1, namePlayer2, namePlayer3].filter { !$0.isEmpty }
+        [namePlayer1, namePlayer2, namePlayer3, namePlayer4].filter { !$0.isEmpty }
     }
     
     @State private var currentPlayerIndex: Int = 0
@@ -38,14 +39,17 @@ struct GameViewV2: View {
     @State private var totalScorePlayer1: Int = 0
     @State private var totalScorePlayer2: Int = 0
     @State private var totalScorePlayer3: Int = 0
+    @State private var totalScorePlayer4: Int = 0
     
     @State private var player1TotalScores: [Int] = []
     @State private var player2TotalScores: [Int] = []
     @State private var player3TotalScores: [Int] = []
+    @State private var player4TotalScores: [Int] = []
     
     @State private var player1ThrowsScores: [Int] = []
     @State private var player2ThrowsScores: [Int] = []
     @State private var player3ThrowsScores: [Int] = []
+    @State private var player4ThrowsScores: [Int] = []
     
     @State private var throwsScoresHistory = ThrowsScoresHistory()
     @State private var throwsScoresHistories: [ThrowsScoresHistory] = []
@@ -54,12 +58,14 @@ struct GameViewV2: View {
         var player1: [Int] = []
         var player2: [Int] = []
         var player3: [Int] = []
+        var player4: [Int] = []
         var winner: String = ""
     }
         
     @State private var throwsPlayer1: Int = 1
     @State private var throwsPlayer2: Int = 1
     @State private var throwsPlayer3: Int = 1
+    @State private var throwsPlayer4: Int = 1
     
     private var currentPlayerThrows: Int {
         switch currentPlayerName {
@@ -69,6 +75,8 @@ struct GameViewV2: View {
             return throwsPlayer2
         case namePlayer3:
             return throwsPlayer3
+        case namePlayer4:
+            return throwsPlayer4
         default:
             return 0
         }
@@ -88,7 +96,7 @@ struct GameViewV2: View {
                         
                         Spacer()
                         
-//                        NavigationLink(destination: InformationsView(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3), isActive: $informationRequested) {
+//                        NavigationLink(destination: InformationsViewV2(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, player4ThrowsScores: $player4ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, totalScorePlayer4: totalScorePlayer4, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4), isActive: $informationRequested) {
 //                            Image(systemName: "info.circle")
 //                                .accessibilityLabel("Menu")
 //                                .font(.system(size: 25))
@@ -264,7 +272,7 @@ struct GameViewV2: View {
                                 Text("-  Average Score: \(calculateAverageThrowsScore(scores: player3ThrowsScores))")
                                     .font(
                                         .system(size: 14))
-                                if isBustedPlayer3 {
+                                if isBustedPlayer4 {
                                     Text("- BUST")
                                         .fontWeight(.bold)
                                         .foregroundColor(.red)
@@ -274,14 +282,14 @@ struct GameViewV2: View {
                             
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 3")
+                                print("BUTTON enterThrowScore PLAYER 4")
                                 enterThrowScore = true
                                 isUndoDisabled = false
                             }) {
-                                Text("\(totalScorePlayer3)")
+                                Text("\(totalScorePlayer4)")
                                     .font(!namePlayer4.isEmpty ? .system(size: 80, weight: .bold, design: .default) : .system(size: 140, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 2)
+                            .disabled(currentPlayerIndex != 3)
                             
                             Spacer()
 
@@ -290,13 +298,10 @@ struct GameViewV2: View {
                     .edgesIgnoringSafeArea(.all)
                 }
                 
-                
-                
-                
             }
             .foregroundColor(.black)
             .sheet(isPresented: $enterThrowScore) {
-                enterThrowScoreView(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores) { enteredThrowScore in
+                EnterThrowScoreViewV2(playerName: currentPlayerName, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4, throwsPlayer1: $throwsPlayer1, throwsPlayer2: $throwsPlayer2, throwsPlayer3: $throwsPlayer3,throwsPlayer4: $throwsPlayer4, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, player4ThrowsScores: $player4ThrowsScores) { enteredThrowScore in
 
                     var newScore = 0
                     
@@ -427,6 +432,46 @@ struct GameViewV2: View {
 
                         }
                         
+                    case namePlayer4:
+                        
+                        let tempScore = totalScorePlayer4 - (Int(enteredThrowScore) ?? 0)
+                        
+                        if tempScore < 0 {
+                            
+                            isBustedPlayer4 = true
+
+                            print("--------------------------------------------")
+                            print("Current Player: \(currentPlayerName) < 0")
+                            
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+
+                            print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
+                            print("DONE")
+                            print("Current Player: \(currentPlayerName)")
+                            
+                            return
+                            
+                        } else {
+                            
+                            isBustedPlayer4 = false
+
+                            print("--------------------------------------------")
+                            print("Current Player: \(currentPlayerName)")
+
+                            throwsScoresHistory.player4.append(totalScorePlayer4 - tempScore)
+                            totalScorePlayer4 = tempScore
+                            newScore = tempScore
+                            currentPlayerIndex = (currentPlayerIndex + 1) % playerNames.count
+                            currentPlayerName = playerNames[currentPlayerIndex]
+
+                            print("Next player: \(currentPlayerName).")
+                            print("Switching Player. Done ?")
+                            print("DONE")
+                            print("Current Player: \(currentPlayerName)")
+
+                        }
                     default:
                         
                         print("--------------------------------------------")
@@ -484,10 +529,12 @@ struct GameViewV2: View {
                     totalScorePlayer1 = 301
                     totalScorePlayer2 = 301
                     totalScorePlayer3 = 301
+                    totalScorePlayer4 = 301
                 } else {
                     totalScorePlayer1 = 501
                     totalScorePlayer2 = 501
                     totalScorePlayer3 = 501
+                    totalScorePlayer4 = 501
                 }
                 
             }
@@ -574,6 +621,28 @@ struct GameViewV2: View {
                 }
                 
             }
+            
+        case namePlayer4:
+            
+            let lastIndex = player4TotalScores.count - 1
+            let lastScore = player4TotalScores[lastIndex]
+
+            if let lastThrewScore = throwsScoresHistory.player4.last {
+                
+                currentPlayerIndex = previousPlayerIndex
+                throwsScoresHistory.player4.removeLast()
+                throwsPlayer4 -= 1
+                isBustedPlayer4 = false
+
+                if totalScorePlayer4 != lastScore {
+                    totalScorePlayer4 += lastThrewScore
+                }
+
+                if !player4ThrowsScores.isEmpty {
+                    player4ThrowsScores.removeLast()
+                }
+                
+            }
 
         default:
             break
@@ -601,6 +670,8 @@ struct GameViewV2: View {
             winner = namePlayer2
         } else if totalScorePlayer3 == 0 {
             winner = namePlayer3
+        } else if totalScorePlayer4 == 0 {
+            winner = namePlayer4
         }
         
         // Ajouter les scores et le gagnant à l'historique
@@ -627,6 +698,8 @@ struct GameViewV2: View {
             player2TotalScores.append(totalScorePlayer2)
         case namePlayer3:
             player3TotalScores.append(totalScorePlayer3)
+        case namePlayer4:
+            player4TotalScores.append(totalScorePlayer4)
         default:
             break
         }
@@ -644,13 +717,16 @@ struct GameViewV2: View {
         throwsPlayer1 = 1
         throwsPlayer2 = 1
         throwsPlayer3 = 1
+        throwsPlayer4 = 1
         player1ThrowsScores = []
         player2ThrowsScores = []
         player3ThrowsScores = []
+        player4ThrowsScores = []
         isBustedPlayer1 = false
         isBustedPlayer2 = false
         isBustedPlayer3 = false
-        
+        isBustedPlayer4 = false
+
         print("DONE")
 
     }

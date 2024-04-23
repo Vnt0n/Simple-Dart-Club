@@ -32,10 +32,13 @@ struct HomeViewV2: View {
                     .padding([.trailing], 40)
                 Text(" ")
                     .font(Font.custom("FightThis", size: 40))
-                Text("Beta")
-                    .font(Font.custom("FightThis", size: 50))
+                Text("Beta V2")
                     .shadow(color: Color.red, radius: 15)
                     .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .font(.system(size: 20, design: .default))
+                    .shadow(color: Color.red, radius: 15)
             }
         }    }
 }
