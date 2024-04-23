@@ -199,11 +199,8 @@ struct FirstViewV2: View {
 
                 }
                 .foregroundColor(.white)
-                .font(.system(size: 24, weight: .bold, design: .default))
-                .shadow(radius: 10)
+                .font(.system(size: 20, weight: .bold, design: .default))
                 .navigationBarBackButtonHidden(true)
-                .frame(width: 200)
-                
             }
             
         }
