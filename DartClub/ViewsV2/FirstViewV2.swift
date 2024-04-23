@@ -11,8 +11,6 @@ struct FirstViewV2: View {
     
     @State private var isGameStarted = false
     
-    @State private var isPlayerAdded = false
-    
     @State private var isPlayerThreeAdded = false
     @State private var isPlayerFourAdded = false
     
@@ -66,8 +64,8 @@ struct FirstViewV2: View {
                         TextField("Player 1", text: $namePlayer1)
                             .TextFieldStyling()
                             .onSubmit {
-                                isFocusedPlayer2 = true
                                 isNameOneSubmitted = true
+                                isFocusedPlayer2 = true
                             }
                             .font(.title)
                     
@@ -78,18 +76,20 @@ struct FirstViewV2: View {
                             .focused($isFocusedPlayer2)
                             .onSubmit {
                                 isNameTwoSubmitted = true
+                                isFocusedPlayer3 = true
                             }
                             .font(.title)
                                       
                     Spacer()
                                            
-                    if isPlayerAdded {
+                    if isPlayerThreeAdded {
                         
                         TextField("Player 3", text: $namePlayer3)
                             .TextFieldStyling()
                             .focused($isFocusedPlayer3)
                             .onSubmit {
                                 isNameThreeSubmitted = true
+                                isFocusedPlayer4 = true
                             }
                             .font(.title)
                         
@@ -99,10 +99,11 @@ struct FirstViewV2: View {
                         
                         Button(action: {
                             if !namePlayer1.isEmpty {
-                                isPlayerAdded = true
+                                isPlayerThreeAdded = true
+                                isFocusedPlayer3 = true
                             }
                         }) {
-                            if !namePlayer1.isEmpty {
+                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
                                 Label("Add a 3rd player", systemImage: "person.fill.badge.plus")
                                     .accessibilityLabel("Add a player")
                                     .font(.system(size: 20))
@@ -119,16 +120,12 @@ struct FirstViewV2: View {
                         Spacer()
                         
                     }
-
                         
-                    if isPlayerThreeAdded {
+                    if isPlayerFourAdded {
                         
                         TextField("Player 4", text: $namePlayer4)
                             .TextFieldStyling()
                             .focused($isFocusedPlayer4)
-                            .onAppear {
-                                isFocusedPlayer4 = true
-                            }
                             .onSubmit {
                                 isNameFourSubmitted = true
                             }
@@ -140,7 +137,8 @@ struct FirstViewV2: View {
                                                 
                         Button(action: {
                             if !namePlayer3.isEmpty {
-                                isPlayerThreeAdded = true
+                                isPlayerFourAdded = true
+                                isFocusedPlayer4 = true
                             }
                         }) {
                             if !namePlayer3.isEmpty {
@@ -177,14 +175,10 @@ struct FirstViewV2: View {
                         .navigationDestination(isPresented: $isGameStarted) {
                             GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                         }
-                        
-                        Spacer()
-                        
+                                                
                         Text("or")
                             .font(.system(size: 20))
                             .padding(.bottom, 15)
-
-                        Spacer()
                         
                         Button("501") {
                             if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
@@ -200,6 +194,9 @@ struct FirstViewV2: View {
                             GameView(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
                         }
                     }
+                    
+                    Spacer()
+
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 24, weight: .bold, design: .default))
