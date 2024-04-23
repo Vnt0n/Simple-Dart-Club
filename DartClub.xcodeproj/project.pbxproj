@@ -22,6 +22,7 @@
 		71B9A9712BD51FE1007AC6E1 /* GameViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B9A9702BD51FE1007AC6E1 /* GameViewV2.swift */; };
 		71C4685F2BB36E7200587175 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C4685E2BB36E7200587175 /* GameView.swift */; };
 		71EA64672BD7E38E00B8425D /* EnterThrowScoreViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA64662BD7E38E00B8425D /* EnterThrowScoreViewV2.swift */; };
+		71EA64692BD7FF9200B8425D /* InformationsViewV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA64682BD7FF9200B8425D /* InformationsViewV2.swift */; };
 		71EC38ED2BB31286005822AC /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EC38EC2BB31286005822AC /* LaunchView.swift */; };
 		71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F1BC832BB62E3B007F8282 /* WinnerView.swift */; };
 		71F1BC872BB62EBE007F8282 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 71F1BC862BB62EBE007F8282 /* ConfettiSwiftUI */; };
@@ -64,6 +65,7 @@
 		71B9A9702BD51FE1007AC6E1 /* GameViewV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewV2.swift; sourceTree = "<group>"; };
 		71C4685E2BB36E7200587175 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		71EA64662BD7E38E00B8425D /* EnterThrowScoreViewV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreViewV2.swift; sourceTree = "<group>"; };
+		71EA64682BD7FF9200B8425D /* InformationsViewV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsViewV2.swift; sourceTree = "<group>"; };
 		71EC38EC2BB31286005822AC /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		71F1BC832BB62E3B007F8282 /* WinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				71B9A96A2BD51DE4007AC6E1 /* HomeViewV2.swift */,
+				71EA64682BD7FF9200B8425D /* InformationsViewV2.swift */,
 				71B9A96C2BD51DFF007AC6E1 /* FirstViewV2.swift */,
 				71B9A96E2BD51E1D007AC6E1 /* LaunchViewV2.swift */,
 				71EA64662BD7E38E00B8425D /* EnterThrowScoreViewV2.swift */,
@@ -310,6 +313,7 @@
 				71B9A96B2BD51DE4007AC6E1 /* HomeViewV2.swift in Sources */,
 				711B950B2BB1B93B008691F4 /* HomeView.swift in Sources */,
 				71B9A96D2BD51DFF007AC6E1 /* FirstViewV2.swift in Sources */,
+				71EA64692BD7FF9200B8425D /* InformationsViewV2.swift in Sources */,
 				71F1BC842BB62E3B007F8282 /* WinnerView.swift in Sources */,
 				7167595C2BBDFD0300AC7800 /* InformationsView.swift in Sources */,
 				71EA64672BD7E38E00B8425D /* EnterThrowScoreViewV2.swift in Sources */,

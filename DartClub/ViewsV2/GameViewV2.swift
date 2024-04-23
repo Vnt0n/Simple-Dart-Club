@@ -96,11 +96,11 @@ struct GameViewV2: View {
                         
                         Spacer()
                         
-//                        NavigationLink(destination: InformationsViewV2(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, player4ThrowsScores: $player4ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, totalScorePlayer4: totalScorePlayer4, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4), isActive: $informationRequested) {
-//                            Image(systemName: "info.circle")
-//                                .accessibilityLabel("Menu")
-//                                .font(.system(size: 25))
-//                        }
+                        NavigationLink(destination: InformationsViewV2(throwsScoresHistories: $throwsScoresHistories, player1ThrowsScores: $player1ThrowsScores, player2ThrowsScores: $player2ThrowsScores, player3ThrowsScores: $player3ThrowsScores, player4ThrowsScores: $player4ThrowsScores, totalScorePlayer1: totalScorePlayer1, totalScorePlayer2: totalScorePlayer2, totalScorePlayer3: totalScorePlayer3, totalScorePlayer4: totalScorePlayer4, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4), isActive: $informationRequested) {
+                            Image(systemName: "info.circle")
+                                .accessibilityLabel("Menu")
+                                .font(.system(size: 25))
+                        }
                         
                         Spacer()
                         
@@ -130,11 +130,12 @@ struct GameViewV2: View {
                             Spacer()
                         
                     }
-                    .padding(.bottom, 10)
+                    .padding(.top, 15)
+                    .padding(.bottom, 20)
                 }
                 .background(Color.blue)
                 .foregroundColor(.white)
-                .frame(height: 40)
+                .frame(height: 50)
                 
                  ZStack {
                      
