@@ -11,12 +11,16 @@ struct GameViewV2: View {
     
     var selectedGame: Int?
     var players: [Player]
+    
+    @State private var currentPlayerIndex: Int = 0
+    @State private var enterThrowScore = false
+    @State private var showInformationsView = false
 
     var body: some View {
         
         NavigationStack {
             
-            VStack {
+            VStack(spacing: 0) {
 
                 ZStack {
 
@@ -26,14 +30,23 @@ struct GameViewV2: View {
 
                         Spacer()
 
-
-                        Image(systemName: "info.circle")
-                            .accessibilityLabel("Menu")
-                            .font(.system(size: 25))
-
+                        Button(action: {
+                            print("--------------------------------------------")
+                            print("BUTTON undoLastScore")
+                            showInformationsView = true
+//                            undoLastScore()
+                        }) {
+                            Image(systemName: "info.circle")
+                                .accessibilityLabel("Undo")
+                                .font(.system(size: 25))
+                        }
+                        .sheet(isPresented: $showInformationsView) {
+                            InformationsViewV2()
+                        }
+                        
                         Spacer()
 
-                        Text("Player 1")
+                        Text("\(players[currentPlayerIndex].name)")
                             .fontWeight(.bold)
 
                         Spacer()
@@ -48,6 +61,7 @@ struct GameViewV2: View {
                             print("--------------------------------------------")
                             print("BUTTON undoLastScore")
 //                        undoLastScore()
+                            currentPlayerIndex = (currentPlayerIndex + 1) % players.count
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
                                 .accessibilityLabel("Undo")
@@ -58,24 +72,22 @@ struct GameViewV2: View {
 
                         Spacer()
 
-                    }
-                    .padding(.top, 5)
-                    .padding(.bottom, 20)
+                    }                    
                 }
                 .background(Color.blue)
                 .foregroundColor(.white)
-                .frame(height: 50)
+                .frame(height: 55)
 
                 ZStack {
-                    Color(.yellow)
-//                 Color(currentPlayerIndex == 0 ? .yellow : .gray)
+
+                    Color(currentPlayerIndex == 0 ? .yellow : .gray)
                     
                     VStack {
 
                         Spacer()
 
                         HStack {
-                            Text("Player 1")
+                            Text("\(players[0].name)")
                                 .fontWeight(.bold)
                             Text("-  Average Score:  #")
                                 .font(
@@ -91,13 +103,13 @@ struct GameViewV2: View {
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON enterThrowScore PLAYER 1")
-//                         enterThrowScore = true
+                         enterThrowScore = true
 //                         isUndoDisabled = false
                         }) {
                             Text("300")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
-                        //                     .disabled(currentPlayerIndex != 0)
+                        .disabled(currentPlayerIndex != 0)
 
                         Spacer()
 
@@ -107,15 +119,15 @@ struct GameViewV2: View {
                 if players.count > 1 {
 
                     ZStack {
-                        Color(.gray)
-//                 Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                        
+                        Color(currentPlayerIndex == 1 ? .yellow : .gray)
 
                         VStack {
 
                             Spacer()
 
                             HStack {
-                                Text("Player 2")
+                                Text("\(players[1].name)")
                                     .fontWeight(.bold)
                                 Text("-  Average Score:  #")
                                     .font(
@@ -131,13 +143,13 @@ struct GameViewV2: View {
                             Button(action: {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 1")
-//                         enterThrowScore = true
+                         enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
                                 Text("300")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-//                     .disabled(currentPlayerIndex != 0)
+                            .disabled(currentPlayerIndex != 1)
 
                             Spacer()
 
@@ -148,15 +160,15 @@ struct GameViewV2: View {
                 if players.count > 2 {
 
                     ZStack {
-                        Color(.yellow)
-//                 Color(currentPlayerIndex == 0 ? .yellow : .gray)
+
+                        Color(currentPlayerIndex == 2 ? .yellow : .gray)
 
                         VStack {
 
                             Spacer()
 
                             HStack {
-                                Text("Player 3")
+                                Text("\(players[2].name)")
                                     .fontWeight(.bold)
                                 Text("-  Average Score:  #")
                                     .font(
@@ -172,13 +184,13 @@ struct GameViewV2: View {
                             Button(action: {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 1")
-//                         enterThrowScore = true
+                         enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
                                 Text("300")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-//                     .disabled(currentPlayerIndex != 0)
+                            .disabled(currentPlayerIndex != 2)
 
                             Spacer()
 
@@ -189,15 +201,15 @@ struct GameViewV2: View {
                 if players.count > 3 {
 
                     ZStack {
-                        Color(.gray)
-//                 Color(currentPlayerIndex == 0 ? .yellow : .gray)
+
+                        Color(currentPlayerIndex == 3 ? .yellow : .gray)
 
                         VStack {
 
                             Spacer()
 
                             HStack {
-                                Text("Player 3")
+                                Text("\(players[3].name)")
                                     .fontWeight(.bold)
                                 Text("-  Average Score:  #")
                                     .font(
@@ -213,13 +225,13 @@ struct GameViewV2: View {
                             Button(action: {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 1")
-//                         enterThrowScore = true
+                         enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
                                 Text("300")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-//                     .disabled(currentPlayerIndex != 0)
+                            .disabled(currentPlayerIndex != 3)
 
                             Spacer()
 
@@ -229,34 +241,14 @@ struct GameViewV2: View {
             }
             .foregroundColor(.black)
             .edgesIgnoringSafeArea(.bottom)
+            .sheet(isPresented: $enterThrowScore) {
+                EnterThrowScoreViewV2(players: players, currentPlayerIndex: $currentPlayerIndex)
+            }
         }
-
+        .navigationBarBackButtonHidden(true)
     }
-    
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ///////////////////////////

@@ -26,6 +26,8 @@ struct FirstViewV2: View {
                 Color.black.ignoresSafeArea(.all)
                 VStack {
                     
+                    Spacer()
+                    
                     Text("Dart   ")
                         .font(Font.custom("FightThis", size: 84))
                         .shadow(color: Color.red, radius: 15)
@@ -43,7 +45,8 @@ struct FirstViewV2: View {
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
                         .padding([.trailing], 40)
-
+                        .padding(.top, -80)
+                    
                     Spacer()
 
                     ForEach(0..<numberOfPlayers, id: \.self) { index in
@@ -76,7 +79,8 @@ struct FirstViewV2: View {
                     }
                     
                     Spacer()
-                    
+                    Spacer()
+
                     HStack {
                         
                         Button("301") {
