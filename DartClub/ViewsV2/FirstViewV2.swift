@@ -7,38 +7,23 @@
 
 import SwiftUI
 
+struct Player {
+    var name: String = ""
+    var isNameSubmitted: Bool = false
+}
+
 struct FirstViewV2: View {
-    
-    @State private var isGameStarted = false
-    
-    @State private var isPlayerThreeAdded = false
-    @State private var isPlayerFourAdded = false
-    
-    @State private var isNameOneSubmitted = false
-    @State private var isNameTwoSubmitted = false
-    @State private var isNameThreeSubmitted = false
-    @State private var isNameFourSubmitted = false
-        
-    @FocusState private var isFocusedPlayer2: Bool
-    @FocusState private var isFocusedPlayer3: Bool
-    @FocusState private var isFocusedPlayer4: Bool
- 
-    @State private var namePlayer1 = ""
-    @State private var namePlayer2 = ""
-    @State private var namePlayer3 = ""
-    @State private var namePlayer4 = ""
-    
-    @State private var isThreeHundredOne = false
-    @State private var isFiveHundredOne = false
-    
+    @State private var players = Array(repeating: Player(), count: 4)
+    @State private var numberOfPlayers = 1
+    @State private var gameStarted = false
+    @State private var selectedGame: Int?
+
+    @FocusState private var focusedPlayerIndex: Int?
+
     var body: some View {
-        
         NavigationStack {
-            
             ZStack {
-                
-                Color(.black)
-                    .ignoresSafeArea(.all)
+                Color.black.ignoresSafeArea(.all)
                 VStack {
                     
                     Text("Dart   ")
@@ -60,152 +45,86 @@ struct FirstViewV2: View {
                         .padding([.trailing], 40)
 
                     Spacer()
-                                            
-                        TextField("Player 1", text: $namePlayer1)
+
+                    ForEach(0..<numberOfPlayers, id: \.self) { index in
+                        TextField("Player \(index + 1)", text: $players[index].name)
                             .TextFieldStyling()
+                            .focused($focusedPlayerIndex, equals: index)
                             .onSubmit {
-                                isNameOneSubmitted = true
-                                isFocusedPlayer2 = true
+                                players[index].isNameSubmitted = true
+                                focusedPlayerIndex = (index + 1 < numberOfPlayers) ? index + 1 : nil
+                                print("Player \(index + 1) submitted: \(players[index].name)")
                             }
                             .font(.title)
-                    
-                    Spacer()
-                                            
-                        TextField("Player 2", text: $namePlayer2)
-                            .TextFieldStyling()
-                            .focused($isFocusedPlayer2)
-                            .onSubmit {
-                                isNameTwoSubmitted = true
-                                isFocusedPlayer3 = true
-                            }
-                            .font(.title)
-                                      
-                    Spacer()
-                                           
-                    if isPlayerThreeAdded {
-                        
-                        TextField("Player 3", text: $namePlayer3)
-                            .TextFieldStyling()
-                            .focused($isFocusedPlayer3)
-                            .onSubmit {
-                                isNameThreeSubmitted = true
-                                isFocusedPlayer4 = true
-                            }
-                            .font(.title)
-                        
-                        Spacer()
-                        
-                    } else {
-                        
-                        Button(action: {
-                            if !namePlayer1.isEmpty {
-                                isPlayerThreeAdded = true
-                                isFocusedPlayer3 = true
-                            }
-                        }) {
-                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
-                                Label("Add a 3rd player", systemImage: "person.fill.badge.plus")
-                                    .accessibilityLabel("Add a player")
-                                    .font(.system(size: 20))
-                                    .padding(.top, 20)
-                            } else {
-                                Label("Add a 3rd player", systemImage: "person.fill.badge.plus")
-                                    .accessibilityLabel("Add a player")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.gray)
-                                    .padding(.top, 20)
-                            }
-                        }
                         
                         Spacer()
                         
                     }
-                        
-                    if isPlayerFourAdded {
-                        
-                        TextField("Player 4", text: $namePlayer4)
-                            .TextFieldStyling()
-                            .focused($isFocusedPlayer4)
-                            .onSubmit {
-                                isNameFourSubmitted = true
-                            }
-                            .font(.title)
-                        
-                        Spacer()
-                                                
-                    } else {
-                                                
+
+                    if numberOfPlayers < 4 {
                         Button(action: {
-                            if !namePlayer3.isEmpty {
-                                isPlayerFourAdded = true
-                                isFocusedPlayer4 = true
+                            withAnimation {
+                                numberOfPlayers += 1
+                                focusedPlayerIndex = numberOfPlayers - 1
                             }
                         }) {
-                            if !namePlayer3.isEmpty {
-                                Label("Add a 4th player", systemImage: "person.fill.badge.plus")
-                                    .accessibilityLabel("Add a player")
-                                    .font(.system(size: 20))
-                                    .padding(.top, 20)
-                            } else {
-                                Label("Add a 4th player", systemImage: "person.fill.badge.plus")
-                                    .accessibilityLabel("Add a player")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.gray)
-                                    .padding(.top, 20)
-                            }
+                            Label("Add a player", systemImage: "person.fill.badge.plus")
+                                .accessibilityLabel("Add a player")
+                                .font(.system(size: 20))
+                                .padding(.top, 20)
                         }
-                        
-                        Spacer()
-                        
                     }
                     
                     Spacer()
                     
                     HStack {
+                        
                         Button("301") {
-                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
-                                isGameStarted = true
-                                isThreeHundredOne = true
-                            }
+                            selectedGame = 301
+                            gameStarted = true
                         }
-                        .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
+                        .disabled(!canStartGame)
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
-                        .padding(.bottom, 15)
-                        .navigationDestination(isPresented: $isGameStarted) {
-                            GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4)
+                        .padding(.bottom, 55)
+                        .navigationDestination(isPresented: $gameStarted) {
+                            GameViewV2(selectedGame: selectedGame, players: players)
                         }
-                                                
+
                         Text("or")
                             .font(.system(size: 20))
-                            .padding(.bottom, 15)
-                        
+                            .padding(.bottom, 55)
+
                         Button("501") {
-                            if !namePlayer1.isEmpty && !namePlayer2.isEmpty {
-                                isGameStarted = true
-                                isFiveHundredOne = true
-                            }
+                            selectedGame = 501
+                            gameStarted = true
                         }
-                        .disabled(namePlayer1.isEmpty || namePlayer2.isEmpty)
+                        .disabled(!canStartGame)
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
-                        .padding(.bottom, 15)
-                        .navigationDestination(isPresented: $isGameStarted) {
-                            GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3, namePlayer4: namePlayer4)
+                        .padding(.bottom, 55)
+                        .navigationDestination(isPresented: $gameStarted) {
+                            GameViewV2(selectedGame: selectedGame, players: players)
                         }
                     }
-                    
-                    Spacer()
-
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .navigationBarBackButtonHidden(true)
+                .interactiveDismissDisabled()
             }
-            
         }
     }
+
+    var canStartGame: Bool {
+        if numberOfPlayers < 1 {
+            return false
+        }
+        return players.prefix(numberOfPlayers).allSatisfy { !$0.name.isEmpty }
+    }
+
 }
+
 
 #Preview {
     FirstViewV2()
