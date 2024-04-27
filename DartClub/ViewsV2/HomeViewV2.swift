@@ -43,6 +43,10 @@ struct HomeViewV2: View {
         }    }
 }
 
+
+// ///////////////////////////
+// PREVIEW //////////////////
+
 #Preview {
     HomeViewV2()
 }

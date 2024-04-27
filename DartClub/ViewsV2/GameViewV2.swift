@@ -262,46 +262,25 @@ struct GameViewV2: View {
 }
 
 
-
 // ///////////////////////////
 // PREVIEW //////////////////
 
-//struct GameViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            // Prévisualisation avec un jeu 301 sélectionné et 1 joueurs
-//            GameViewV2(selectedGame: 301, players: [
-//                Player(name: "Alice", isNameSubmitted: true)
-//            ])
-//            .previewLayout(.sizeThatFits)
-//            .previewDisplayName("301 - 1 Player")
-//            
-//            // Prévisualisation avec un jeu 301 sélectionné et 2 joueurs
-//            GameViewV2(selectedGame: 301, players: [
-//                Player(name: "Alice", isNameSubmitted: true),
-//                Player(name: "Bob", isNameSubmitted: true)
-//            ])
-//            .previewLayout(.sizeThatFits)
-//            .previewDisplayName("301 - 2 Players")
-//            
-//            // Prévisualisation avec un jeu 301 sélectionné et 3 joueurs
-//            GameViewV2(selectedGame: 301, players: [
-//                Player(name: "Alice", isNameSubmitted: true),
-//                Player(name: "Bob", isNameSubmitted: true),
-//                Player(name: "Charlie", isNameSubmitted: true)
-//            ])
-//            .previewLayout(.sizeThatFits)
-//            .previewDisplayName("301 - 3 Players")
-//
-//            // Prévisualisation avec un jeu 501 sélectionné et 4 joueurs
-//            GameViewV2(selectedGame: 501, players: [
-//                Player(name: "Alice", isNameSubmitted: true),
-//                Player(name: "Bob", isNameSubmitted: true),
-//                Player(name: "Charlie", isNameSubmitted: true),
-//                Player(name: "Diana", isNameSubmitted: true)
-//            ])
-//            .previewLayout(.sizeThatFits)
-//            .previewDisplayName("501 - 4 Players")
-//        }
-//    }
-//}
+struct GameViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+        // Définissez des joueurs de test
+        let players = [
+            Player(name: "Alice", scores: [[10, 20, 30]]),
+            Player(name: "Bob", scores: [[15, 25, 35]]),
+            Player(name: "Charlie", scores: [[20, 30, 40]]),
+            Player(name: "Dana", scores: [[25, 35, 45]])
+        ]
+        
+        // Créez une instance de GameViewModel avec un jeu de type 501 et des joueurs
+        let gameType = 501
+        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
+        
+        // Affichez GameViewV2 pour tester
+        GameViewV2(players: players, viewModel: viewModel)
+    }
+}
+

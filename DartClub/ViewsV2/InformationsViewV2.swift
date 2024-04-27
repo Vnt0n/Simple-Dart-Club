@@ -645,16 +645,21 @@ struct InformationsViewV2: View {
 
 }
 
-//struct InformationsViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//        let players = [
-//            Player(name: "Alice", isNameSubmitted: true),
-//            Player(name: "E", isNameSubmitted: true),
-//            Player(name: "F", isNameSubmitted: true),
-//            Player(name: "G", isNameSubmitted: true)
-//        ]
-//        
-//        InformationsViewV2(players: players)
-//    }
-//}
+
+
+// ///////////////////////////
+// PREVIEW //////////////////
+
+struct InformationsViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+
+        let players = [
+            Player(name: "Alice", scores: []),
+            Player(name: "Bob", scores: []),
+            Player(name: "Charlie", scores: []),
+            Player(name: "Dana", scores: [])
+        ]
+        
+        InformationsViewV2(players: players)
+    }
+}
