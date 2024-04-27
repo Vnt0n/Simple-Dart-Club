@@ -31,6 +31,7 @@ struct InformationsViewV2: View {
                         
                         // Premier tableau
                         ZStack {
+                            
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(Color.blue.opacity(0.2))
                                 .padding(.horizontal)
@@ -44,6 +45,7 @@ struct InformationsViewV2: View {
                                 Spacer()
                                 
 //                                if !player1ThrowsScores.isEmpty || !player2ThrowsScores.isEmpty || !player3ThrowsScores.isEmpty {
+                                
                                     VStack {
                                         Spacer()
 
@@ -644,7 +646,6 @@ struct InformationsViewV2: View {
     }
 
 }
-
 
 
 // ///////////////////////////

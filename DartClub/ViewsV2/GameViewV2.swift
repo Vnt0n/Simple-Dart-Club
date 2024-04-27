@@ -19,7 +19,6 @@ struct GameViewV2: View {
     
     @ObservedObject var viewModel: GameViewModel
 
-
     var body: some View {
         
         NavigationStack {
@@ -253,7 +252,6 @@ struct GameViewV2: View {
 
     
     // FUNCTIONS ///////////////////
-    
     
     private func undoLastScore() {
         viewModel.undoLastScore(forPlayer: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)

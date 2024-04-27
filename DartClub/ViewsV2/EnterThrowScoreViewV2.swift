@@ -29,11 +29,13 @@ struct EnterThrowScoreViewV2: View {
                 
                 Text("\(viewModel.currentGame.players[currentPlayerIndex].name)")
                     .font(.system(size: 45, weight: .bold, design: .default))
+                
                 Text("Enter your score")
                     .font(.system(size: 30,  design: .default))
+                
                 TextField("1st throw", value: $firstThrowScore, format: .number)
                     .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 30,  design: .default))
+                    .font(.system(size: 30, design: .default))
                     .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
@@ -60,7 +62,6 @@ struct EnterThrowScoreViewV2: View {
                     .keyboardType(.decimalPad)
                     .frame(width: 200)
 
-                
                 Button("OK          ") {
                     
                     if let first = firstThrowScore, let second = secondThrowScore, let third = thirdThrowScore {
@@ -69,6 +70,7 @@ struct EnterThrowScoreViewV2: View {
                         viewModel.addScore(forPlayer: currentPlayerIndex, score: scores)
                         
                     }
+                    
                     dismiss()
                     
                 }
@@ -76,6 +78,7 @@ struct EnterThrowScoreViewV2: View {
                 .controlSize(.large)
                 .padding()
                 .disabled(!allFieldsHaveValues)
+                
             }
         }
     }
@@ -84,6 +87,7 @@ struct EnterThrowScoreViewV2: View {
         let scores = [firstThrowScore, secondThrowScore, thirdThrowScore].compactMap { $0 }
         return scores.count == 3 && scores.allSatisfy { $0 <= 60 }
     }
+    
 }
 
 
@@ -92,7 +96,7 @@ struct EnterThrowScoreViewV2: View {
 
 struct EnterThrowScoreViewV2_Previews: PreviewProvider {
     static var previews: some View {
-        // Initialisation correcte des joueurs avec des noms
+
         let players = [
             Player(name: "Alice", scores: []),
             Player(name: "Bob", scores: []),
@@ -100,12 +104,10 @@ struct EnterThrowScoreViewV2_Previews: PreviewProvider {
             Player(name: "Dana", scores: [])
         ]
         
-        // Créez une instance de GameViewModel avec un jeu de 501 points et des joueurs
         let gameType = 501
         let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
         viewModel.currentGame.players = players  // Assignez les joueurs avec des noms au modèle de jeu
         
-        // Affichez EnterThrowScoreViewV2 pour le premier joueur (index 0)
         return EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: 0)
     }
 }
