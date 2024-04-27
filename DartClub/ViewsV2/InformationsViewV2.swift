@@ -11,6 +11,8 @@ struct InformationsViewV2: View {
     
     @State private var  showCreditView = false
     
+    var players: [Player]
+    
     var body: some View {
 
         VStack {
@@ -51,31 +53,46 @@ struct InformationsViewV2: View {
                                                 .fontWeight(.bold)
                                                 .frame(maxWidth: .infinity)
                                             
-                                            Text("Player 1")
+                                            Text("\(players[0].name)")
                                                 .fontWeight(.bold)
                                                 .font(.system(size: 17))
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.bottom, 15)
                                             
-                                            Spacer()
-                                            
-                                            Text("Player 2")
-                                                .fontWeight(.bold)
-                                                .font(.system(size: 17))
-                                                .frame(maxWidth: .infinity)
-                                                .padding(.bottom, 15)
-                                            
-//                                            if !namePlayer3.isEmpty {
+                                            if !players[1].name.isEmpty {
                                                 
                                                 Spacer()
                                                 
-                                                Text("Player 3")
+                                                Text("\(players[1].name)")
+                                                    .fontWeight(.bold)
+                                                    .font(.system(size: 17))
+                                                    .frame(maxWidth: .infinity)
+                                                    .padding(.bottom, 15)
+                                            }
+                                            
+                                            if !players[2].name.isEmpty {
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(players[2].name)")
                                                     .fontWeight(.bold)
                                                     .font(.system(size: 17))
                                                     .frame(maxWidth: .infinity)
                                                     .padding(.bottom, 15)
                                                 
-//                                            }
+                                            }
+                                            
+                                            if !players[3].name.isEmpty {
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(players[3].name)")
+                                                    .fontWeight(.bold)
+                                                    .font(.system(size: 17))
+                                                    .frame(maxWidth: .infinity)
+                                                    .padding(.bottom, 15)
+                                                
+                                            }
                                         }
                                         .padding(.horizontal)
                                         
@@ -127,39 +144,56 @@ struct InformationsViewV2: View {
                                         HStack {
                                             
                                             Spacer()
-
+                                            
                                             Text("Score")
                                                 .font(.system(size: 15))
                                                 .fontWeight(.bold)
                                                 .frame(maxWidth: .infinity)
                                             
-                                            Spacer()
-                                            Divider()
-                                            
-                                            Text("Score Total P1")
-                                                .font(.system(size: 15))
-                                                .fontWeight(.bold)
-                                                .frame(maxWidth: .infinity)
-                                            
-                                            Spacer()
-                                            Divider()
-                                            
-                                            Text("Score Total P2")
-                                                .font(.system(size: 15))
-                                                .fontWeight(.bold)
-                                                .frame(maxWidth: .infinity)
-                                            
-//                                            if !namePlayer3.isEmpty {
+                                            if !players[1].name.isEmpty {
                                                 
                                                 Spacer()
                                                 Divider()
                                                 
-                                                Text("Score Total P3")
+                                                Text("301")
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(.bold)
+                                                    .frame(maxWidth: .infinity)
+                                            }
+                                            
+                                            if !players[2].name.isEmpty {
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("301")
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(.bold)
+                                                    .frame(maxWidth: .infinity)
+                                            }
+                                            
+                                            if !players[3].name.isEmpty {
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("301")
                                                     .font(.system(size: 15))
                                                     .fontWeight(.bold)
                                                     .frame(maxWidth: .infinity)
                                                 
-//                                            }
+                                            }
+                                            
+                                            if players.count > 3 {
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("301")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.bold)
+                                                .frame(maxWidth: .infinity)
+                                            }
                                             
                                         }
                                         .padding(.horizontal)
@@ -179,7 +213,7 @@ struct InformationsViewV2: View {
                                             
                                             Spacer()
 
-                                            Text("Player 1")
+                                            Text("\(players[0].name)")
                                                 .font(.system(size: 14))
                                                 .frame(maxWidth: .infinity)
                                             
@@ -193,36 +227,39 @@ struct InformationsViewV2: View {
                                             Spacer()
                                         }
                                         
-                                        Divider()
+                                        if !players[1].name.isEmpty {
 
-                                        HStack {
-                                            
-                                            Spacer()
-
-                                            Text("Player 2")
-                                            .font(.system(size: 14))
-                                            .frame(maxWidth: .infinity)
-
-                                            Spacer()
                                             Divider()
 
-                                            Text("Average Score")
-                                                .frame(maxWidth: .infinity)
-                                                .font(.system(size: 14))
-                                            
-                                            Spacer()
-
+                                            HStack {
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(players[1].name)")
+                                                    .font(.system(size: 14))
+                                                    .frame(maxWidth: .infinity)
+                                                
+                                                Spacer()
+                                                Divider()
+                                                
+                                                Text("Average Score")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.system(size: 14))
+                                                
+                                                Spacer()
+                                                
+                                            }
                                         }
-
-                                        Divider()
                                         
-//                                        if !player3ThrowsScores.isEmpty {
+                                        if !players[2].name.isEmpty {
+
+                                            Divider()
 
                                             HStack {
                                                          
                                                 Spacer()
 
-                                                Text("Player 3")
+                                                Text("\(players[2].name)")
                                                     .font(.system(size: 14))
                                                     .frame(maxWidth: .infinity)
 
@@ -235,7 +272,31 @@ struct InformationsViewV2: View {
                                                 
                                                 Spacer()
                                                 
-//                                            }
+                                            }
+                                        }
+                                        
+                                        if !players[3].name.isEmpty {
+                                            
+                                            Divider()
+
+                                            HStack {
+                                                         
+                                                Spacer()
+
+                                                Text("\(players[3].name)")
+                                                    .font(.system(size: 14))
+                                                    .frame(maxWidth: .infinity)
+
+                                                Spacer()
+                                                Divider()
+
+                                                Text("Average Score")
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.system(size: 14))
+                                                
+                                                Spacer()
+                                                
+                                            }
                                         }
                                     }
 //                                }
@@ -252,16 +313,16 @@ struct InformationsViewV2: View {
                     
 //                    if !throwsScoresHistories.isEmpty {
                         
-                        Section {
+//                        Section {
                             
                             // Deuxième tableau
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(Color.green.opacity(0.2))
-                                    .padding(.horizontal)
-                                
-                                VStack {
-                                    
+//                            ZStack {
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .foregroundColor(Color.green.opacity(0.2))
+//                                    .padding(.horizontal)
+//                                
+//                                VStack {
+//                                    
 //                                    ForEach(throwsScoresHistories.indices, id: \.self) { index in
 //                                        let history = throwsScoresHistories[index]
 //                                        if !history.winner.isEmpty {
@@ -433,17 +494,17 @@ struct InformationsViewV2: View {
 //                                        }
 //                                        
 //                                    }
-                                }
-                            }
-                            
-                        } header: {
-                            Text("History")
-                                .font(.title)
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white)
-                        }
-                        
-                    }
+//                                }
+//                            }
+//                            
+//                        } header: {
+//                            Text("History")
+//                                .font(.title)
+//                                .frame(maxWidth: .infinity)
+//                                .background(Color.white)
+//                        }
+//                        
+//                    }
                                         
                     // Troisième tableau
                     ZStack {
@@ -465,7 +526,7 @@ struct InformationsViewV2: View {
                                     
                                     Spacer()
                                     
-                                    Text("Player 1")
+                                    Text("\(players[0].name)")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
                                         .frame(maxWidth: .infinity)
@@ -473,7 +534,7 @@ struct InformationsViewV2: View {
                                     Spacer()
                                     Divider()
 
-                                    Text("Wins Player 1")
+                                    Text("3")
                                         .font(.system(size: 17))
                                         .fontWeight(.bold)
                                         .frame(maxWidth: .infinity)
@@ -481,38 +542,41 @@ struct InformationsViewV2: View {
                                     Spacer()
                                     
                                 }
-                                
-                                Divider()
-                                
-                                HStack {
+                                                                
+                                if !players[1].name.isEmpty {
                                     
-                                    Spacer()
-                                    
-                                    Text("Player 2")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity)
-
-                                    Spacer()
                                     Divider()
 
-                                    Text("Wins Player 2")
-                                        .font(.system(size: 17))
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity)
-
-                                    Spacer()
-                                }
-                                
-                                Divider()
-                                
-//                                if !namePlayer3.isEmpty {
-                                    
                                     HStack {
                                         
                                         Spacer()
                                         
-                                        Text("Player 3")
+                                        Text("\(players[1].name)")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                        
+                                        Spacer()
+                                        Divider()
+                                        
+                                        Text("2")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                        
+                                        Spacer()
+                                    }
+                                }
+                                                               
+                                if !players[2].name.isEmpty {
+
+                                    Divider()
+
+                                    HStack {
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(players[2].name)")
                                             .font(.system(size: 17))
                                             .fontWeight(.bold)
                                             .frame(maxWidth: .infinity)
@@ -520,7 +584,7 @@ struct InformationsViewV2: View {
                                         Spacer()
                                         Divider()
 
-                                        Text("Wins Player 3")
+                                        Text("0")
                                             .font(.system(size: 17))
                                             .fontWeight(.bold)
                                             .frame(maxWidth: .infinity)
@@ -529,7 +593,35 @@ struct InformationsViewV2: View {
                                         
                                     }
                                     
-//                                }
+                                }
+                                
+                                if !players[3].name.isEmpty {
+                                    
+                                    Divider()
+                                    
+                                    HStack {
+                                        
+                                        Spacer()
+                                        
+                                        Text("\(players[3].name)")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+
+                                        Spacer()
+                                        Divider()
+
+                                        Text("1")
+                                            .font(.system(size: 17))
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+
+                                        Spacer()
+                                        
+                                    }
+                                    
+                                }
+                                
                             }
                             .padding()
                         }
@@ -545,7 +637,7 @@ struct InformationsViewV2: View {
                         .sheet(isPresented: $showCreditView) {
                                    CreditViewV2()
                         }
-//                }
+                }
             }
         }
         .foregroundColor(.black)
@@ -553,6 +645,16 @@ struct InformationsViewV2: View {
 
 }
 
-#Preview {
-    InformationsViewV2()
-}
+//struct InformationsViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        let players = [
+//            Player(name: "Alice", isNameSubmitted: true),
+//            Player(name: "E", isNameSubmitted: true),
+//            Player(name: "F", isNameSubmitted: true),
+//            Player(name: "G", isNameSubmitted: true)
+//        ]
+//        
+//        InformationsViewV2(players: players)
+//    }
+//}

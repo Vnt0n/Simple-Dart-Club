@@ -13,8 +13,12 @@ struct GameViewV2: View {
     var players: [Player]
     
     @State private var currentPlayerIndex: Int = 0
-    @State private var enterThrowScore = false
+    @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
+    @State private var currentTurn: Int = 0
+    
+    @ObservedObject var viewModel: GameViewModel
+
 
     var body: some View {
         
@@ -32,16 +36,16 @@ struct GameViewV2: View {
 
                         Button(action: {
                             print("--------------------------------------------")
-                            print("BUTTON undoLastScore")
+                            print("BUTTON InformationsViewV2")
                             showInformationsView = true
-//                            undoLastScore()
+                            undoLastScore()
                         }) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
                         .sheet(isPresented: $showInformationsView) {
-                            InformationsViewV2()
+                            InformationsViewV2(players: players)
                         }
                         
                         Spacer()
@@ -60,8 +64,7 @@ struct GameViewV2: View {
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON undoLastScore")
-//                        undoLastScore()
-                            currentPlayerIndex = (currentPlayerIndex + 1) % players.count
+                        undoLastScore()
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
                                 .accessibilityLabel("Undo")
@@ -242,54 +245,63 @@ struct GameViewV2: View {
             .foregroundColor(.black)
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
-                EnterThrowScoreViewV2(players: players, currentPlayerIndex: $currentPlayerIndex)
+                EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)
             }
         }
         .navigationBarBackButtonHidden(true)
     }
 
+    
+    // FUNCTIONS ///////////////////
+    
+    
+    private func undoLastScore() {
+        viewModel.undoLastScore(forPlayer: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)
+    }
+    
 }
+
 
 
 // ///////////////////////////
 // PREVIEW //////////////////
 
-struct GameViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            // Prévisualisation avec un jeu 301 sélectionné et 1 joueurs
-            GameViewV2(selectedGame: 301, players: [
-                Player(name: "Alice", isNameSubmitted: true)
-            ])
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("301 - 1 Player")
-            
-            // Prévisualisation avec un jeu 301 sélectionné et 2 joueurs
-            GameViewV2(selectedGame: 301, players: [
-                Player(name: "Alice", isNameSubmitted: true),
-                Player(name: "Bob", isNameSubmitted: true)
-            ])
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("301 - 2 Players")
-            
-            // Prévisualisation avec un jeu 301 sélectionné et 3 joueurs
-            GameViewV2(selectedGame: 301, players: [
-                Player(name: "Alice", isNameSubmitted: true),
-                Player(name: "Bob", isNameSubmitted: true),
-                Player(name: "Charlie", isNameSubmitted: true)
-            ])
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("301 - 3 Players")
-
-            // Prévisualisation avec un jeu 501 sélectionné et 4 joueurs
-            GameViewV2(selectedGame: 501, players: [
-                Player(name: "Alice", isNameSubmitted: true),
-                Player(name: "Bob", isNameSubmitted: true),
-                Player(name: "Charlie", isNameSubmitted: true),
-                Player(name: "Diana", isNameSubmitted: true)
-            ])
-            .previewLayout(.sizeThatFits)
-            .previewDisplayName("501 - 4 Players")
-        }
-    }
-}
+//struct GameViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            // Prévisualisation avec un jeu 301 sélectionné et 1 joueurs
+//            GameViewV2(selectedGame: 301, players: [
+//                Player(name: "Alice", isNameSubmitted: true)
+//            ])
+//            .previewLayout(.sizeThatFits)
+//            .previewDisplayName("301 - 1 Player")
+//            
+//            // Prévisualisation avec un jeu 301 sélectionné et 2 joueurs
+//            GameViewV2(selectedGame: 301, players: [
+//                Player(name: "Alice", isNameSubmitted: true),
+//                Player(name: "Bob", isNameSubmitted: true)
+//            ])
+//            .previewLayout(.sizeThatFits)
+//            .previewDisplayName("301 - 2 Players")
+//            
+//            // Prévisualisation avec un jeu 301 sélectionné et 3 joueurs
+//            GameViewV2(selectedGame: 301, players: [
+//                Player(name: "Alice", isNameSubmitted: true),
+//                Player(name: "Bob", isNameSubmitted: true),
+//                Player(name: "Charlie", isNameSubmitted: true)
+//            ])
+//            .previewLayout(.sizeThatFits)
+//            .previewDisplayName("301 - 3 Players")
+//
+//            // Prévisualisation avec un jeu 501 sélectionné et 4 joueurs
+//            GameViewV2(selectedGame: 501, players: [
+//                Player(name: "Alice", isNameSubmitted: true),
+//                Player(name: "Bob", isNameSubmitted: true),
+//                Player(name: "Charlie", isNameSubmitted: true),
+//                Player(name: "Diana", isNameSubmitted: true)
+//            ])
+//            .previewLayout(.sizeThatFits)
+//            .previewDisplayName("501 - 4 Players")
+//        }
+//    }
+//}
