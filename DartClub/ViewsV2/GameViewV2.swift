@@ -264,22 +264,20 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-//struct GameViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        // Définissez des joueurs de test
-//        let players = [
-//            Player(name: "Alice", scores: [[10, 20, 30]]),
-//            Player(name: "Bob", scores: [[15, 25, 35]]),
-//            Player(name: "Charlie", scores: [[20, 30, 40]]),
-//            Player(name: "Dana", scores: [[25, 35, 45]])
-//        ]
-//        
-//        // Créez une instance de GameViewModel avec un jeu de type 501 et des joueurs
-//        let gameType = 501
-//        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
-//        
-//        // Affichez GameViewV2 pour tester
-//        GameViewV2(players: players, viewModel: viewModel)
-//    }
-//}
+struct GameViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+        let gameType = 501  // Supposons que nous utilisons le type de jeu 501
+        let playerCount = 4  // Supposons qu'il y ait 4 joueurs
 
+        // Création d'un modèle pour la vue, avec les paramètres initiaux
+        let viewModel = GameViewModel(gameType: gameType, playerCount: playerCount)
+        // Ajout de noms aux joueurs pour la prévisualisation
+        viewModel.currentGame.players[0].name = "Alice"
+        viewModel.currentGame.players[1].name = "Bob"
+        viewModel.currentGame.players[2].name = "Carol"
+        viewModel.currentGame.players[3].name = "Dave"
+
+        // Retourne la GameViewV2 avec le viewModel configuré
+        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+    }
+}
