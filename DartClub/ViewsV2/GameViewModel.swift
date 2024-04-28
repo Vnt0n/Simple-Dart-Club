@@ -10,6 +10,7 @@ import SwiftUI
 struct Player {
     var name: String = ""
     var scores: [[Int]] = []  // List of scores for each turn, each score is an array of three throws
+    var remainingScore: Int
 }
 
 struct Game {
@@ -23,7 +24,7 @@ class GameViewModel: ObservableObject {
     @Published var gameStarted: Bool = false
 
     init(gameType: Int, playerCount: Int) {
-        let players = Array(repeating: Player(), count: playerCount)
+        let players = Array(repeating: Player(remainingScore: gameType), count: playerCount)
         self.currentGame = Game(players: players, gameType: gameType)
     }
     

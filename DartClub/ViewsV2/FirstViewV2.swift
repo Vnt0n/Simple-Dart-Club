@@ -61,7 +61,7 @@ struct FirstViewV2: View {
                         Button(action: {
                             withAnimation {
                                 numberOfPlayers += 1
-                                viewModel.currentGame.players.append(Player())
+//                                GameViewV2(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
                             }
                         }) {
                             Label("Add a player", systemImage: "person.fill.badge.plus")

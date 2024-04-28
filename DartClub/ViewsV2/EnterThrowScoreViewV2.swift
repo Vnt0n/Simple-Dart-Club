@@ -94,21 +94,21 @@ struct EnterThrowScoreViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-struct EnterThrowScoreViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-
-        let players = [
-            Player(name: "Alice", scores: []),
-            Player(name: "Bob", scores: []),
-            Player(name: "Charlie", scores: []),
-            Player(name: "Dana", scores: [])
-        ]
-        
-        let gameType = 501
-        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
-        viewModel.currentGame.players = players  // Assignez les joueurs avec des noms au modèle de jeu
-        
-        return EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: 0)
-    }
-}
+//struct EnterThrowScoreViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        let players = [
+//            Player(name: "Alice", scores: []),
+//            Player(name: "Bob", scores: []),
+//            Player(name: "Charlie", scores: []),
+//            Player(name: "Dana", scores: [])
+//        ]
+//        
+//        let gameType = 501
+//        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
+//        viewModel.currentGame.players = players  // Assignez les joueurs avec des noms au modèle de jeu
+//        
+//        return EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: 0)
+//    }
+//}
 

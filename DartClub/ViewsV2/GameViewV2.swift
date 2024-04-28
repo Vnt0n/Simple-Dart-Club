@@ -16,7 +16,8 @@ struct GameViewV2: View {
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
     @State private var currentTurn: Int = 0
-    
+    @State private var gameCount: Int = 1
+
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
@@ -44,7 +45,7 @@ struct GameViewV2: View {
                                 .font(.system(size: 25))
                         }
                         .sheet(isPresented: $showInformationsView) {
-                            InformationsViewV2(players: players)
+                            InformationsViewV2(viewModel: viewModel)  // Utilisez viewModel ici
                         }
                         
                         Spacer()
@@ -263,22 +264,22 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-struct GameViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        // Définissez des joueurs de test
-        let players = [
-            Player(name: "Alice", scores: [[10, 20, 30]]),
-            Player(name: "Bob", scores: [[15, 25, 35]]),
-            Player(name: "Charlie", scores: [[20, 30, 40]]),
-            Player(name: "Dana", scores: [[25, 35, 45]])
-        ]
-        
-        // Créez une instance de GameViewModel avec un jeu de type 501 et des joueurs
-        let gameType = 501
-        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
-        
-        // Affichez GameViewV2 pour tester
-        GameViewV2(players: players, viewModel: viewModel)
-    }
-}
+//struct GameViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Définissez des joueurs de test
+//        let players = [
+//            Player(name: "Alice", scores: [[10, 20, 30]]),
+//            Player(name: "Bob", scores: [[15, 25, 35]]),
+//            Player(name: "Charlie", scores: [[20, 30, 40]]),
+//            Player(name: "Dana", scores: [[25, 35, 45]])
+//        ]
+//        
+//        // Créez une instance de GameViewModel avec un jeu de type 501 et des joueurs
+//        let gameType = 501
+//        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
+//        
+//        // Affichez GameViewV2 pour tester
+//        GameViewV2(players: players, viewModel: viewModel)
+//    }
+//}
 
