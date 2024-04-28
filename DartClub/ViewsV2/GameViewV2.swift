@@ -15,7 +15,6 @@ struct GameViewV2: View {
     @State private var currentPlayerIndex: Int = 0
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
-    @State private var currentTurn: Int = 0
     @State private var gameCount: Int = 1
 
     @ObservedObject var viewModel: GameViewModel
@@ -45,7 +44,7 @@ struct GameViewV2: View {
                                 .font(.system(size: 25))
                         }
                         .sheet(isPresented: $showInformationsView) {
-                            InformationsViewV2(viewModel: viewModel)  // Utilisez viewModel ici
+                            InformationsViewV2(viewModel: viewModel)
                         }
                         
                         Spacer()
@@ -55,8 +54,8 @@ struct GameViewV2: View {
 
                         Spacer()
 
-                        Text("Game #")
-                        Text("- Turn #")
+                        Text("Game \(gameCount)")
+                        Text("- Turn \(viewModel.currentGame.currentTurn)")
                             .bold()
 
                         Spacer()
@@ -75,7 +74,7 @@ struct GameViewV2: View {
 
                         Spacer()
 
-                    }                    
+                    }
                 }
                 .background(Color.blue)
                 .foregroundColor(.white)
@@ -106,10 +105,10 @@ struct GameViewV2: View {
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON enterThrowScore PLAYER 1")
-                         enterThrowScore = true
+                            enterThrowScore = true
 //                         isUndoDisabled = false
                         }) {
-                            Text("300")
+                            Text("\(viewModel.currentGame.gameType)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 0)
@@ -145,11 +144,11 @@ struct GameViewV2: View {
 
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 1")
+                                print("BUTTON enterThrowScore PLAYER 2")
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("300")
+                                Text("\(viewModel.currentGame.gameType)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 1)
@@ -186,11 +185,11 @@ struct GameViewV2: View {
 
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 1")
+                                print("BUTTON enterThrowScore PLAYER 3")
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("300")
+                                Text("\(viewModel.currentGame.gameType)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
@@ -227,11 +226,11 @@ struct GameViewV2: View {
 
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 1")
+                                print("BUTTON enterThrowScore PLAYER 4")
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("300")
+                                Text("\(viewModel.currentGame.gameType)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 3)
@@ -245,7 +244,7 @@ struct GameViewV2: View {
             .foregroundColor(.black)
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
-                EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)
+                EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct Player {
     var name: String = ""
-    var scores: [[Int]] = []  // List of scores for each turn, each score is an array of three throws
+    var scores: [[Int]] = []
     var remainingScore: Int
 }
 
 struct Game {
     var players: [Player]
-    var gameType: Int  // 301 or 501 for example
-    var currentTurn: Int = 0
+    var gameType: Int
+    var currentTurn: Int = 1
 }
 
 class GameViewModel: ObservableObject {
@@ -28,15 +28,36 @@ class GameViewModel: ObservableObject {
         self.currentGame = Game(players: players, gameType: gameType)
     }
     
+    
     func addScore(forPlayer index: Int, score: [Int]) {
-        guard score.count == 3 else { return }
+        
+        print("Tentative d'ajouter un score: \(score)")
+        
+        guard score.count == 3 else {
+            
+            print("Score incorrect, attendu 3 valeurs, reçu : \(score.count)")
+            
+            return
+        }
+        
         currentGame.players[index].scores.append(score)
-        currentGame.currentTurn += 1
+        
+        if index == currentGame.players.count - 1 {
+            
+            currentGame.currentTurn += 1
+            
+        }
+        
+        print("Current turn : \(currentGame.currentTurn)")
     }
+
     
     func undoLastScore(forPlayer index: Int) {
+        
         if !currentGame.players[index].scores.isEmpty {
+            
             currentGame.players[index].scores.removeLast()
+            
         }
     }
 }

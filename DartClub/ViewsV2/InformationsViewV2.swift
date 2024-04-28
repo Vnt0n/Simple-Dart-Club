@@ -49,6 +49,9 @@ struct InformationsViewV2: View {
                         .background(Color.blue.opacity(0.1))
                         .cornerRadius(10)
                         .shadow(radius: 5)
+                        .onAppear {
+                            print("Displaying scores for \(player.name): \(player.scores)")
+                        }
                     }
                 }
                 .padding()

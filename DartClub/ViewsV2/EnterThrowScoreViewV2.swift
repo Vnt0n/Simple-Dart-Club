@@ -11,12 +11,12 @@ struct EnterThrowScoreViewV2: View {
     
     @ObservedObject var viewModel: GameViewModel
     
-    var currentPlayerIndex: Int
+    @Binding var currentPlayerIndex: Int
 
     @State private var firstThrowScore: Int?
     @State private var secondThrowScore: Int?
     @State private var thirdThrowScore: Int?
-
+    
     @FocusState private var isFocused: Bool
     
     @Environment(\.dismiss) var dismiss
@@ -68,10 +68,10 @@ struct EnterThrowScoreViewV2: View {
                         
                         let scores = [first, second, third]
                         viewModel.addScore(forPlayer: currentPlayerIndex, score: scores)
+                        currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
+                        dismiss()
                         
                     }
-                    
-                    dismiss()
                     
                 }
                 .buttonStyle(.borderedProminent)
