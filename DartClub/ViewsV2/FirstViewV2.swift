@@ -9,8 +9,7 @@ import SwiftUI
 
 struct FirstViewV2: View {
 
-    @StateObject var viewModel = GameViewModel(gameType: 301, playerCount: 4)  // Default to 301 game type
-    @State private var numberOfPlayers = 1
+    @StateObject var viewModel = GameViewModel(gameType: 301)  // Default to 301 game type
     @State private var navigateToGame = false  // Contrôle la navigation
 
     var body: some View {
@@ -46,22 +45,18 @@ struct FirstViewV2: View {
                     
                     Spacer()
                     
-                    ForEach(0..<numberOfPlayers, id: \.self) { index in
+                    ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
                         TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
                             .TextFieldStyling()
-                        
                     }
                     .font(.title)
                     
                     Spacer()
                     
-                    
-                    
-                    if numberOfPlayers < 4 {
+                    if viewModel.currentGame.players.count < 4 {
                         Button(action: {
                             withAnimation {
-                                numberOfPlayers += 1
-//                                GameViewV2(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+                                viewModel.addPlayer()
                             }
                         }) {
                             Label("Add a player", systemImage: "person.fill.badge.plus")
@@ -113,7 +108,7 @@ struct FirstViewV2: View {
             }
         }
         var canStartGame: Bool {
-            numberOfPlayers > 0 && viewModel.currentGame.players.prefix(numberOfPlayers).allSatisfy { !$0.name.isEmpty }
+            !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
         }
 
 }

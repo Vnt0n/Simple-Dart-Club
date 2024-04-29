@@ -245,6 +245,15 @@ struct GameViewV2: View {
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
                 EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
+                    .onAppear {
+                                // Ici, tu imprimes directement les scores du premier joueur
+                                if let firstPlayer = viewModel.currentGame.players.first {
+                                    let scores = firstPlayer.scores
+                                    print("Scores du player 1: \(scores)")
+                                } else {
+                                    print("No players available")
+                                }
+                            }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -255,6 +264,8 @@ struct GameViewV2: View {
     
     private func undoLastScore() {
         viewModel.undoLastScore(forPlayer: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)
+        print("----------------------------------------")
+        print("Function undoLastScore 02")
     }
     
 }
@@ -263,20 +274,20 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-struct GameViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        let gameType = 501  // Supposons que nous utilisons le type de jeu 501
-        let playerCount = 4  // Supposons qu'il y ait 4 joueurs
-
-        // Création d'un modèle pour la vue, avec les paramètres initiaux
-        let viewModel = GameViewModel(gameType: gameType, playerCount: playerCount)
-        // Ajout de noms aux joueurs pour la prévisualisation
-        viewModel.currentGame.players[0].name = "Alice"
-        viewModel.currentGame.players[1].name = "Bob"
-        viewModel.currentGame.players[2].name = "Carol"
-        viewModel.currentGame.players[3].name = "Dave"
-
-        // Retourne la GameViewV2 avec le viewModel configuré
-        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
-    }
-}
+//struct GameViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let gameType = 501  // Supposons que nous utilisons le type de jeu 501
+//        let playerCount = 4  // Supposons qu'il y ait 4 joueurs
+//
+//        // Création d'un modèle pour la vue, avec les paramètres initiaux
+//        let viewModel = GameViewModel(gameType: gameType, playerCount: playerCount)
+//        // Ajout de noms aux joueurs pour la prévisualisation
+//        viewModel.currentGame.players[0].name = "Alice"
+//        viewModel.currentGame.players[1].name = "Bob"
+//        viewModel.currentGame.players[2].name = "Carol"
+//        viewModel.currentGame.players[3].name = "Dave"
+//
+//        // Retourne la GameViewV2 avec le viewModel configuré
+//        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+//    }
+//}

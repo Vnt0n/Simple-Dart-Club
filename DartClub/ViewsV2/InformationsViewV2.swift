@@ -61,20 +61,20 @@ struct InformationsViewV2: View {
     }
 }
 
-// Preview Provider
-struct InformationsViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        let model = GameViewModel(gameType: 501, playerCount: 4)
-        model.currentGame.players[0].name = "Alice"
-        model.currentGame.players[0].scores = [[60, 20, 25], [50, 10, 10]]
-        model.currentGame.players[1].name = "Bob"
-        model.currentGame.players[1].scores = [[40, 15, 10], [60, 10, 5]]
-        model.currentGame.players[2].name = "Charlie"
-        model.currentGame.players[2].scores = [[20, 30, 40], [10, 5, 5]]
-        model.currentGame.players[3].name = "Diana"
-        model.currentGame.players[3].scores = [[25, 25, 25], [30, 10, 5]]
-        
-        return InformationsViewV2(viewModel: model)
-    }
-}
+//// Preview Provider
+//struct InformationsViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let model = GameViewModel(gameType: 501, playerCount: 4)
+//        model.currentGame.players[0].name = "Alice"
+//        model.currentGame.players[0].scores = [[60, 20, 25], [50, 10, 10]]
+//        model.currentGame.players[1].name = "Bob"
+//        model.currentGame.players[1].scores = [[40, 15, 10], [60, 10, 5]]
+//        model.currentGame.players[2].name = "Charlie"
+//        model.currentGame.players[2].scores = [[20, 30, 40], [10, 5, 5]]
+//        model.currentGame.players[3].name = "Diana"
+//        model.currentGame.players[3].scores = [[25, 25, 25], [30, 10, 5]]
+//        
+//        return InformationsViewV2(viewModel: model)
+//    }
+//}
 
