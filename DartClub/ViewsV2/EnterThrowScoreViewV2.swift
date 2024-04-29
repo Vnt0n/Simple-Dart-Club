@@ -94,21 +94,23 @@ struct EnterThrowScoreViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-//struct EnterThrowScoreViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//        let players = [
-//            Player(name: "Alice", scores: []),
-//            Player(name: "Bob", scores: []),
-//            Player(name: "Charlie", scores: []),
-//            Player(name: "Dana", scores: [])
-//        ]
-//        
-//        let gameType = 501
-//        let viewModel = GameViewModel(gameType: gameType, playerCount: players.count)
-//        viewModel.currentGame.players = players  // Assignez les joueurs avec des noms au modèle de jeu
-//        
-//        return EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: 0)
-//    }
-//}
+struct EnterThrowScoreViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+        let gameType = 501  // Define the game type
+        let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
 
+        // Ensure we have exactly 4 players for the preview
+        while viewModel.currentGame.players.count < 4 {
+            viewModel.addPlayer()
+        }
+
+        // Assign names to players for the preview
+        viewModel.currentGame.players[0].name = "Alice"
+        viewModel.currentGame.players[1].name = "Bob"
+        viewModel.currentGame.players[2].name = "Charlie"
+        viewModel.currentGame.players[3].name = "Dana"
+
+        // Create a binding to simulate the currentPlayerIndex interaction
+        return EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: .constant(0))
+    }
+}

@@ -37,7 +37,6 @@ struct GameViewV2: View {
                             print("--------------------------------------------")
                             print("BUTTON InformationsViewV2")
                             showInformationsView = true
-                            undoLastScore()
                         }) {
                             Image(systemName: "info.circle")
                                 .accessibilityLabel("Undo")
@@ -274,20 +273,23 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-//struct GameViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let gameType = 501  // Supposons que nous utilisons le type de jeu 501
-//        let playerCount = 4  // Supposons qu'il y ait 4 joueurs
-//
-//        // Création d'un modèle pour la vue, avec les paramètres initiaux
-//        let viewModel = GameViewModel(gameType: gameType, playerCount: playerCount)
-//        // Ajout de noms aux joueurs pour la prévisualisation
-//        viewModel.currentGame.players[0].name = "Alice"
-//        viewModel.currentGame.players[1].name = "Bob"
-//        viewModel.currentGame.players[2].name = "Carol"
-//        viewModel.currentGame.players[3].name = "Dave"
-//
-//        // Retourne la GameViewV2 avec le viewModel configuré
-//        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
-//    }
-//}
+struct GameViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+        let gameType = 501  // Assuming the game type is 501
+        let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
+
+        // Ensure we have exactly 4 players for the preview
+        while viewModel.currentGame.players.count < 4 {
+            viewModel.addPlayer()
+        }
+
+        // Assign names to players for the preview
+        viewModel.currentGame.players[0].name = "Alice"
+        viewModel.currentGame.players[1].name = "Bob"
+        viewModel.currentGame.players[2].name = "Carol"
+        viewModel.currentGame.players[3].name = "Dave"
+
+        // Return the GameViewV2 with the configured viewModel
+        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+    }
+}
