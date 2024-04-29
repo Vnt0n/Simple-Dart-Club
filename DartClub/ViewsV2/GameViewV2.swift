@@ -245,7 +245,6 @@ struct GameViewV2: View {
             .sheet(isPresented: $enterThrowScore) {
                 EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
                     .onAppear {
-                                // Ici, tu imprimes directement les scores du premier joueur
                                 if let firstPlayer = viewModel.currentGame.players.first {
                                     let scores = firstPlayer.scores
                                     print("Scores du player 1: \(scores)")
@@ -287,9 +286,6 @@ struct GameViewV2: View {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
     }
-
-
-    
 }
 
 
