@@ -96,7 +96,7 @@ struct EnterThrowScoreViewV2: View {
 
 struct EnterThrowScoreViewV2_Previews: PreviewProvider {
     static var previews: some View {
-        let gameType = 501  // Define the game type
+        let gameType = 180  // Define the game type
         let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
 
         // Ensure we have exactly 4 players for the preview

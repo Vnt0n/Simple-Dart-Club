@@ -34,18 +34,13 @@ class GameViewModel: ObservableObject {
     }
         
     func addScore(forPlayer index: Int, score: [Int]) {
-        print("----------------------------------------")
-        print("Function addScore OK")
-        print("Tentative d'ajouter un score: \(score)")
         guard score.count == 3 else {
-            print("Score incorrect, attendu 3 valeurs, reçu : \(score.count)")
             return
         }
         currentGame.players[index].scores.append(score)
         if index == currentGame.players.count - 1 {
             currentGame.currentTurn += 1
         }
-        print("Current turn : \(currentGame.currentTurn)")
     }
 
     func remainingScore(forPlayer index: Int) -> Int {

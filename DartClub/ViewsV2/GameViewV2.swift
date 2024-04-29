@@ -244,14 +244,12 @@ struct GameViewV2: View {
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
                 EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
-                    .onAppear {
-                                if let firstPlayer = viewModel.currentGame.players.first {
-                                    let scores = firstPlayer.scores
-                                    print("Scores du player 1: \(scores)")
-                                } else {
-                                    print("No players available")
-                                }
-                            }
+//                    .onAppear {
+//                                if let firstPlayer = viewModel.currentGame.players.first {
+//                                    let _ = firstPlayer.scores
+//                                } else {
+//                                }
+//                            }
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -294,7 +292,7 @@ struct GameViewV2: View {
 
 struct GameViewV2_Previews: PreviewProvider {
     static var previews: some View {
-        let gameType = 501  // Assuming the game type is 501
+        let gameType = 180  // Assuming the game type is 501
         let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
 
         // Ensure we have exactly 4 players for the preview
