@@ -24,7 +24,7 @@ struct InformationsViewV2: View {
                             ForEach(player.scores.indices, id: \.self) { turnIndex in
                                 let turnScores = player.scores[turnIndex]
                                 let turnSum = turnScores.reduce(0, +)
-                                let remainingScore = 501 - turnSum
+                                let remainingScore = viewModel.currentGame.gameType - turnSum
                                 
                                 HStack {
                                     VStack(alignment: .leading) {
@@ -32,7 +32,7 @@ struct InformationsViewV2: View {
                                             .fontWeight(.semibold)
                                         Text("Throws: \(turnScores.map(String.init).joined(separator: ", "))")
                                         Text("Sum: \(turnSum)")
-                                        Text("Remaining from 501: \(remainingScore)")
+                                        Text("Remaining score: \(remainingScore)")
                                     }
                                     .padding()
                                     .background(Color.gray.opacity(0.2))

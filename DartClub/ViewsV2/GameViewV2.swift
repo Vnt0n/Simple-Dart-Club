@@ -107,7 +107,7 @@ struct GameViewV2: View {
                             enterThrowScore = true
 //                         isUndoDisabled = false
                         }) {
-                            Text("\(viewModel.currentGame.gameType)")
+                            Text("\(viewModel.remainingScore(forPlayer: 0))")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 0)
@@ -147,7 +147,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.currentGame.gameType)")
+                                Text("\(viewModel.remainingScore(forPlayer: 1))")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 1)
@@ -188,7 +188,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.currentGame.gameType)")
+                                Text("\(viewModel.remainingScore(forPlayer: 2))")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
@@ -229,7 +229,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.currentGame.gameType)")
+                                Text("\(viewModel.remainingScore(forPlayer: 3))")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 3)
@@ -262,10 +262,33 @@ struct GameViewV2: View {
     // FUNCTIONS ///////////////////
     
     private func undoLastScore() {
-        viewModel.undoLastScore(forPlayer: viewModel.currentGame.currentTurn % viewModel.currentGame.players.count)
         print("----------------------------------------")
-        print("Function undoLastScore 02")
+        print("Function undoLastScore in GameViewV2")
+
+        // Calcul de l'index du joueur précédent
+        var previousPlayerIndex = currentPlayerIndex - 1
+        if previousPlayerIndex < 0 {
+            previousPlayerIndex = viewModel.currentGame.players.count - 1
+        }
+
+        // Vérification si le joueur a des scores à annuler
+        if !viewModel.currentGame.players[previousPlayerIndex].scores.isEmpty {
+            // Retirer le dernier score du joueur précédent
+            viewModel.currentGame.players[previousPlayerIndex].scores.removeLast()
+
+            // Ajuster l'index du joueur actuel
+            currentPlayerIndex = previousPlayerIndex
+
+            // Ajuster le tour, si nécessaire
+            if viewModel.currentGame.currentTurn > 1 {
+                viewModel.currentGame.currentTurn -= 1
+            }
+        } else {
+            print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
+        }
     }
+
+
     
 }
 

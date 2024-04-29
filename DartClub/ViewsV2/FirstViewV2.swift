@@ -9,8 +9,9 @@ import SwiftUI
 
 struct FirstViewV2: View {
 
-    @StateObject var viewModel = GameViewModel(gameType: 301)  // Default to 301 game type
-    @State private var navigateToGame = false  // Contrôle la navigation
+    @State private var navigateToGame = false
+    @StateObject var viewModel = GameViewModel(gameType: 0)
+
 
     var body: some View {
         

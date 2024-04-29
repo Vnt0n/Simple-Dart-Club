@@ -33,8 +33,7 @@ class GameViewModel: ObservableObject {
             currentGame.players.append(Player(remainingScore: currentGame.gameType))
         }
     }
-    
-    
+        
     func addScore(forPlayer index: Int, score: [Int]) {
 
         print("----------------------------------------")
@@ -59,17 +58,36 @@ class GameViewModel: ObservableObject {
         print("Current turn : \(currentGame.currentTurn)")
     }
 
-    
-    func undoLastScore(forPlayer index: Int) {
-        
-        print("----------------------------------------")
-        print("Function undoLastScore 01")
-        
-        if !currentGame.players[index].scores.isEmpty {
-            
-            currentGame.players[index].scores.removeLast()
-            
-        }
-        
+    func remainingScore(forPlayer index: Int) -> Int {
+        let totalScore = currentGame.players[index].scores.flatMap { $0 }.reduce(0, +)
+        return currentGame.gameType - totalScore
     }
+    
+//    func undoLastScore() {
+//        print("----------------------------------------")
+//        print("Function undoLastScore 01")
+//
+//        if currentGame.currentTurn > 1 || !currentGame.players.first!.scores.isEmpty {
+//            // Déterminez le joueur précédent
+//            var previousPlayerIndex = currentGame.currentTurn - 1
+//            if previousPlayerIndex < 0 {
+//                previousPlayerIndex = currentGame.players.count - 1  // Boucle au dernier joueur si c'était le premier tour
+//            }
+//
+//            // Supprimer le dernier score du joueur précédent
+//            if !currentGame.players[previousPlayerIndex].scores.isEmpty {
+//                currentGame.players[previousPlayerIndex].scores.removeLast()
+//            }
+//
+//            // Mettre à jour le tour actuel
+//            if currentGame.currentTurn > 1 {
+//                currentGame.currentTurn -= 1
+//            } else {
+//                // Si c'est le premier tour, nous devons gérer cela spécifiquement (par exemple, ne rien faire ou ajuster autrement)
+//            }
+//        } else {
+//            print("No scores to undo.")
+//        }
+//    }
+
 }
