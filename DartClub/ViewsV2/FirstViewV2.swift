@@ -11,7 +11,7 @@ struct FirstViewV2: View {
 
     @State private var navigateToGame = false
     @StateObject var viewModel = GameViewModel(gameType: 0)
-
+    @FocusState private var focusedPlayerIndex: Int?
 
     var body: some View {
         
@@ -49,6 +49,7 @@ struct FirstViewV2: View {
                     ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
                         TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
                             .TextFieldStyling()
+                            .focused($focusedPlayerIndex, equals: index)
                     }
                     .font(.title)
                     
@@ -58,6 +59,7 @@ struct FirstViewV2: View {
                         Button(action: {
                             withAnimation {
                                 viewModel.addPlayer()
+                                focusedPlayerIndex = viewModel.currentGame.players.count - 1
                             }
                         }) {
                             Label("Add a player", systemImage: "person.fill.badge.plus")

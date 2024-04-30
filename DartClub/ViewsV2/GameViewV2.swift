@@ -305,7 +305,7 @@ struct GameViewV2: View {
         }
 
         // Vérification si le joueur a des scores à annuler
-        if let lastScore = viewModel.currentGame.players[previousPlayerIndex].scores.popLast() {
+        if let _ = viewModel.currentGame.players[previousPlayerIndex].scores.popLast() {
             // Mettre à jour les remainingScoresPerTurn si utilisé
             if !viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.isEmpty {
                 viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.removeLast()

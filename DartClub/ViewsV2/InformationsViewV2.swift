@@ -62,24 +62,53 @@ struct InformationsViewV2: View {
     }
 }
 
-// Preview Provider
-//struct InformationsViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let model = GameViewModel(gameType: 501)
-//        // Assurez-vous d'avoir le nombre de joueurs nécessaire pour la preview
-//        while model.currentGame.players.count < 4 {
-//            model.addPlayer()
-//        }
-//        // Configuration des joueurs
-//        model.currentGame.players[0].name = "Alice"
-//        model.currentGame.players[0].scores = [[60, 20, 25], [50, 10, 10]]
-//        model.currentGame.players[1].name = "Bob"
-//        model.currentGame.players[1].scores = [[40, 15, 10], [60, 10, 5]]
-//        model.currentGame.players[2].name = "Charlie"
-//        model.currentGame.players[2].scores = [[20, 30, 40], [10, 5, 5]]
-//        model.currentGame.players[3].name = "Diana"
-//        model.currentGame.players[3].scores = [[25, 25, 25], [30, 10, 5]]
-//        
-//        return InformationsViewV2(viewModel: model)
-//    }
-//}
+
+struct InformationsViewV2_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            // Preview avec 1 joueur
+            InformationsViewV2(viewModel: viewModelWithPlayers(count: 1))
+                .previewDisplayName("1 Player")
+                .previewLayout(.sizeThatFits)
+
+            // Preview avec 2 joueurs
+            InformationsViewV2(viewModel: viewModelWithPlayers(count: 2))
+                .previewDisplayName("2 Players")
+                .previewLayout(.sizeThatFits)
+
+            // Preview avec 3 joueurs
+            InformationsViewV2(viewModel: viewModelWithPlayers(count: 3))
+                .previewDisplayName("3 Players")
+                .previewLayout(.sizeThatFits)
+
+            // Preview avec 4 joueurs
+            InformationsViewV2(viewModel: viewModelWithPlayers(count: 4))
+                .previewDisplayName("4 Players")
+                .previewLayout(.sizeThatFits)
+        }
+    }
+
+    // Helper function to create a GameViewModel with a given number of players
+    static func viewModelWithPlayers(count: Int) -> GameViewModel {
+        let model = GameViewModel(gameType: 501)
+        for _ in 0..<count {
+            model.addPlayer()
+        }
+        let names = ["Alice", "Bob", "Charlie", "Diana"]
+        let scores = [
+            [[60, 20, 25], [50, 10, 10]],
+            [[40, 15, 10], [60, 10, 5]],
+            [[20, 30, 40], [10, 5, 5]],
+            [[25, 25, 25], [30, 10, 5]]
+        ]
+
+        for i in 0..<count {
+            model.currentGame.players[i].name = names[i]
+            model.currentGame.players[i].scores = scores[i]
+            let _ = scores[i].flatMap { $0 }.reduce(0, +)
+            let remainingScoresPerTurn = scores[i].map { model.currentGame.gameType - $0.reduce(0, +) }
+            model.currentGame.players[i].remainingScoresPerTurn = remainingScoresPerTurn
+        }
+        return model
+    }
+}
