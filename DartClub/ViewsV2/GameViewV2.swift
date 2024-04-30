@@ -333,23 +333,45 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-struct GameViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        let gameType = 180  // Assuming the game type is 501
-        let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
+import SwiftUI
 
-        // Ensure we have exactly 4 players for the preview
-        while viewModel.currentGame.players.count < 4 {
+// Define a preview provider for the GameViewV2
+struct GameViewV2_Previews: PreviewProvider {
+
+    // Helper function to create a GameViewModel with a specified number of players
+    static func createViewModel(playerCount: Int) -> GameViewModel {
+        let viewModel = GameViewModel(gameType: 501) // Assuming a game type of 501
+        while viewModel.currentGame.players.count < playerCount {
             viewModel.addPlayer()
         }
+        for i in 0..<viewModel.currentGame.players.count {
+            viewModel.currentGame.players[i].name = "Player \(i + 1)"
+            viewModel.currentGame.players[i].remainingScore = viewModel.currentGame.gameType
+            // Assign some sample scores if needed for realistic preview
+            viewModel.currentGame.players[i].scores = [[20, 15, 16], [25, 18, 17]]
+            viewModel.currentGame.players[i].remainingScoresPerTurn = [viewModel.currentGame.gameType - 51, viewModel.currentGame.gameType - 110]
+        }
+        return viewModel
+    }
 
-        // Assign names to players for the preview
-        viewModel.currentGame.players[0].name = "Alice"
-        viewModel.currentGame.players[1].name = "Bob"
-        viewModel.currentGame.players[2].name = "Carol"
-        viewModel.currentGame.players[3].name = "Dave"
-
-        // Return the GameViewV2 with the configured viewModel
-        return GameViewV2(selectedGame: gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+    static var previews: some View {
+        Group {
+            // Preview with 1 player
+            GameViewV2(selectedGame: 501, players: createViewModel(playerCount: 1).currentGame.players, viewModel: createViewModel(playerCount: 1))
+                .previewDisplayName("1 Player")
+            
+            // Preview with 2 players
+            GameViewV2(selectedGame: 501, players: createViewModel(playerCount: 2).currentGame.players, viewModel: createViewModel(playerCount: 2))
+                .previewDisplayName("2 Players")
+            
+            // Preview with 3 players
+            GameViewV2(selectedGame: 501, players: createViewModel(playerCount: 3).currentGame.players, viewModel: createViewModel(playerCount: 3))
+                .previewDisplayName("3 Players")
+            
+            // Preview with 4 players
+            GameViewV2(selectedGame: 501, players: createViewModel(playerCount: 4).currentGame.players, viewModel: createViewModel(playerCount: 4))
+                .previewDisplayName("4 Players")
+        }
     }
 }
+
