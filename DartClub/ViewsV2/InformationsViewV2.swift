@@ -51,6 +51,7 @@ struct InformationsViewV2: View {
                         .shadow(radius: 5)
                         .onAppear {
                             print("Displaying scores for \(player.name): \(player.scores)")
+                            print("Remaining scores for \(player.name): \(player.remainingScore)")
                         }
                     }
                 }

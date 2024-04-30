@@ -70,42 +70,46 @@ struct FirstViewV2: View {
                     Spacer()
                     
                     HStack {
-                                            Button("301") {
-                                                viewModel.currentGame.gameType = 301
-                                                viewModel.gameStarted = true
-                                                navigateToGame = true
-                                            }
-                                            .disabled(!canStartGame)
-                                            .buttonStyle(.borderedProminent)
-                                            .controlSize(.large)
-                                            .padding(.bottom, 55)
+                    Button("301") {
+                        viewModel.currentGame.gameType = 301
+                        viewModel.gameStarted = true
+                        navigateToGame = true
+                    }
+                    .disabled(!canStartGame)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .padding(.bottom, 55)
 
-                                            Text("or").font(.system(size: 20)).padding(.bottom, 55)
+                    Text("or").font(.system(size: 20)).padding(.bottom, 55)
 
-                                            Button("501") {
-                                                viewModel.currentGame.gameType = 501
-                                                viewModel.gameStarted = true
-                                                navigateToGame = true
-                                            }
-                                            .disabled(!canStartGame)
-                                            .buttonStyle(.borderedProminent)
-                                            .controlSize(.large)
-                                            .padding(.bottom, 55)
-                                        }
-                                    }
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 20, weight: .bold, design: .default))
-                                    .navigationBarBackButtonHidden(true)
-                                    .interactiveDismissDisabled()
-                                }
-            .navigationDestination(isPresented: $navigateToGame) {
-                GameViewV2(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
-            }
-
+                    Button("501") {
+                        viewModel.currentGame.gameType = 501
+                        viewModel.gameStarted = true
+                        navigateToGame = true
+                    }
+                    .disabled(!canStartGame)
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .padding(.bottom, 55)
+                    }
+                }
                 .foregroundColor(.white)
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .navigationBarBackButtonHidden(true)
                 .interactiveDismissDisabled()
+            }
+            .navigationDestination(isPresented: $navigateToGame) {
+                GameViewV2(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
+            }
+                .foregroundColor(.white)
+                .font(.system(size: 20, weight: .bold, design: .default))
+                .navigationBarBackButtonHidden(true)
+                .interactiveDismissDisabled()
+            }
+            .onAppear {
+                print("------------------------------")
+                print("STARTING APP")
+
             }
         }
         var canStartGame: Bool {

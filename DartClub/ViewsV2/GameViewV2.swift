@@ -46,6 +46,33 @@ struct GameViewV2: View {
                             InformationsViewV2(viewModel: viewModel)
                         }
                         
+                        Button(action: {
+                            
+//                            viewModel.currentGame.players[0].remainingScore = viewModel.currentGame.gameType
+                            print("--------------------------------------------")
+                            print("DEBUG")
+                            print("--------------------------------------------")
+                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
+                            print("NOMBRE DE JOUEURS : \(viewModel.currentGame.players.count)")
+                            print("NAME PLAYER 1 : \(viewModel.currentGame.players[0].name)")
+                            print("REMAINGSCORE PLAYER 1 : \(viewModel.remainingScore(forPlayer: 0))")
+                            print("NAME PLAYER 2 : \(viewModel.currentGame.players[1].name)")
+                            print("REMAINGSCORE PLAYER 2 : \(viewModel.remainingScore(forPlayer: 1))")
+                            print("NAME PLAYER 3 : \(viewModel.currentGame.players[2].name)")
+                            print("REMAINGSCORE PLAYER 3 : \(viewModel.remainingScore(forPlayer: 2))")
+                            print("NAME PLAYER 4 : \(viewModel.currentGame.players[3].name)")
+                            print("REMAINGSCORE PLAYER 4 : \(viewModel.remainingScore(forPlayer: 3))")
+                            print("CURRENT TURN : \(viewModel.currentGame.currentTurn)")
+                            print("CURRENT PLAYER : \(players[currentPlayerIndex].name)")
+                           
+                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
+
+                        }) {
+                            Image(systemName: "ladybug.circle")
+                                .accessibilityLabel("Undo")
+                                .font(.system(size: 25))
+                        }
+                        
                         Spacer()
 
                         Text("\(players[currentPlayerIndex].name)")
@@ -250,6 +277,15 @@ struct GameViewV2: View {
 //                                } else {
 //                                }
 //                            }
+            }
+            .onAppear {
+                print("------------------------------")
+                print("GAMEVIEW")
+                print("------------------------------")
+                viewModel.currentGame.players[0].remainingScore = viewModel.currentGame.gameType
+                viewModel.currentGame.players[1].remainingScore = viewModel.currentGame.gameType
+                viewModel.currentGame.players[2].remainingScore = viewModel.currentGame.gameType
+                viewModel.currentGame.players[3].remainingScore = viewModel.currentGame.gameType
             }
         }
         .navigationBarBackButtonHidden(true)
