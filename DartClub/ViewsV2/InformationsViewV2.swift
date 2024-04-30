@@ -13,6 +13,7 @@ struct InformationsViewV2: View {
     @ObservedObject var viewModel: GameViewModel
     @State private var counter = 0
     @State private var isGameStarted = false
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationStack {
@@ -49,15 +50,12 @@ struct InformationsViewV2: View {
                     Button("New game") {
                         //                    newGame()
                         isGameStarted = true
+                        dismiss()
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .padding(.bottom, 25)
-                    //                .navigationDestination(isPresented: $isGameStarted) {
-                    //                    GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-                    //                }
                     .confettiCannon(counter: $counter, num: 150, radius: 500.0)
-                    
                 }
                 
                 VStack(alignment: .leading, spacing: 20) {
