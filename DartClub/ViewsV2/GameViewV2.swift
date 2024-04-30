@@ -271,12 +271,6 @@ struct GameViewV2: View {
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
                 EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
-//                    .onAppear {
-//                                if let firstPlayer = viewModel.currentGame.players.first {
-//                                    let _ = firstPlayer.scores
-//                                } else {
-//                                }
-//                            }
             }
             .onAppear {
                 print("------------------------------")
@@ -311,9 +305,15 @@ struct GameViewV2: View {
         }
 
         // Vérification si le joueur a des scores à annuler
-        if !viewModel.currentGame.players[previousPlayerIndex].scores.isEmpty {
-            // Retirer le dernier score du joueur précédent
-            viewModel.currentGame.players[previousPlayerIndex].scores.removeLast()
+        if let lastScore = viewModel.currentGame.players[previousPlayerIndex].scores.popLast() {
+            // Mettre à jour les remainingScoresPerTurn si utilisé
+            if !viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.isEmpty {
+                viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.removeLast()
+            }
+
+            // Recalculer le score total et mettre à jour le remainingScore
+            let totalScore = viewModel.currentGame.players[previousPlayerIndex].scores.flatMap { $0 }.reduce(0, +)
+            viewModel.currentGame.players[previousPlayerIndex].remainingScore = viewModel.currentGame.gameType - totalScore
 
             // Ajuster l'index du joueur actuel
             currentPlayerIndex = previousPlayerIndex
@@ -326,6 +326,7 @@ struct GameViewV2: View {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
     }
+
 }
 
 
