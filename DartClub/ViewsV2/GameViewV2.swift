@@ -286,6 +286,16 @@ struct GameViewV2: View {
                     }
                 }
             }
+            .onChange(of: viewModel.remainingScore(forPlayer: 0)) {
+                if viewModel.remainingScore(forPlayer: 0) == 0 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        showInformationsView = true
+                    }
+                }
+            }
+            .sheet(isPresented: $showInformationsView) {
+                InformationsViewV2(viewModel: viewModel)
+            }
         }
         .navigationBarBackButtonHidden(true)
     }

@@ -125,8 +125,11 @@ struct InformationsViewV2: View {
                 .padding()
             }
             .navigationBarTitle("Game Information", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
+            .interactiveDismissDisabled()
         }
     }
+
 }
 
 struct InformationsViewV2_Previews: PreviewProvider {
