@@ -17,7 +17,6 @@ struct Player {
     var scores: [[Int]] = []
     var remainingScore: Int
     var remainingScoresPerTurn: [Int] = []  // Ajoutez cette ligne
-
 }
 
 struct Game {
