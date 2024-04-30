@@ -68,6 +68,30 @@ class GameViewModel: ObservableObject {
         }
     }
 
+    func averageThrowScore(forPlayer index: Int) -> Int {
+        let player = currentGame.players[index]
+        let totalThrows = player.scores.flatMap { $0 }.count
+        if totalThrows > 0 {
+            let totalScore = player.scores.flatMap { $0 }.reduce(0, +)
+            let averageScore = Double(totalScore) / Double(totalThrows)
+            return Int(floor(averageScore))
+        } else {
+            return 0
+        }
+    }
+
+//    func averageTotalScore(forPlayer index: Int) -> Int {
+//        let player = currentGame.players[index]
+//        let totalScores = player.scores.flatMap { $0 }
+//        if !totalScores.isEmpty {
+//            let totalScore = totalScores.reduce(0, +)
+//            let averageScore = Double(totalScore) / Double(totalScores.count)
+//            return Int(floor(averageScore))
+//        } else {
+//            return 0
+//        }
+//    }
+
     func remainingScore(forPlayer index: Int) -> Int {
         // Cette fonction retourne simplement le remainingScore actuel
         return currentGame.players[index].remainingScore
