@@ -48,7 +48,7 @@ struct InformationsViewV2: View {
                     }
                     
                     Button("New game") {
-                        //                    newGame()
+                        viewModel.resetForNextGame()
                         isGameStarted = true
                         dismiss()
                     }

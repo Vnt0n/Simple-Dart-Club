@@ -15,7 +15,6 @@ struct GameViewV2: View {
     @State private var currentPlayerIndex: Int = 0
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
-    @State private var gameCount: Int = 1
 
     @ObservedObject var viewModel: GameViewModel
 
@@ -80,7 +79,7 @@ struct GameViewV2: View {
 
                         Spacer()
 
-                        Text("Game \(gameCount)")
+                        Text("Game \(viewModel.gameCount)")
                         Text("- Turn \(viewModel.currentGame.currentTurn)")
                             .bold()
 

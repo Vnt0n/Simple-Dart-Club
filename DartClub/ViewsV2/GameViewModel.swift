@@ -24,7 +24,8 @@ struct Game {
 class GameViewModel: ObservableObject {
     @Published var currentGame: Game
     @Published var gameStarted: Bool = false
-    
+    @Published var gameCount: Int = 1
+
     init(gameType: Int) {
         let initialPlayer = Player(name: "", scores: [], remainingScore: gameType)
         self.currentGame = Game(players: [initialPlayer], gameType: gameType)
@@ -67,4 +68,15 @@ class GameViewModel: ObservableObject {
         // Cette fonction retourne simplement le remainingScore actuel
         return currentGame.players[index].remainingScore
     }
+    
+    func resetForNextGame() {
+        gameCount += 1  // Incrémenter le compteur de jeu
+        for i in 0..<currentGame.players.count {
+            currentGame.players[i].remainingScore = currentGame.gameType
+            currentGame.players[i].scores.removeAll()
+            currentGame.players[i].remainingScoresPerTurn.removeAll()
+        }
+        currentGame.currentTurn = 1
+    }
+
 }
