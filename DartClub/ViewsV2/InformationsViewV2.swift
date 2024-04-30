@@ -24,15 +24,15 @@ struct InformationsViewV2: View {
                             ForEach(player.scores.indices, id: \.self) { turnIndex in
                                 let turnScores = player.scores[turnIndex]
                                 let turnSum = turnScores.reduce(0, +)
-                                let remainingScore = viewModel.currentGame.gameType - turnSum
-                                
+                                let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
+
                                 HStack {
                                     VStack(alignment: .leading) {
                                         Text("Turn \(turnIndex + 1):")
                                             .fontWeight(.semibold)
                                         Text("Throws: \(turnScores.map(String.init).joined(separator: ", "))")
                                         Text("Sum: \(turnSum)")
-                                        Text("Remaining score: \(remainingScore)")
+                                        Text("Remaining Score Turn \(turnIndex + 1): \(totalRemainingScore)")
                                     }
                                     .padding()
                                     .background(Color.gray.opacity(0.2))
@@ -63,23 +63,23 @@ struct InformationsViewV2: View {
 }
 
 // Preview Provider
-struct InformationsViewV2_Previews: PreviewProvider {
-    static var previews: some View {
-        let model = GameViewModel(gameType: 501)
-        // Assurez-vous d'avoir le nombre de joueurs nécessaire pour la preview
-        while model.currentGame.players.count < 4 {
-            model.addPlayer()
-        }
-        // Configuration des joueurs
-        model.currentGame.players[0].name = "Alice"
-        model.currentGame.players[0].scores = [[60, 20, 25], [50, 10, 10]]
-        model.currentGame.players[1].name = "Bob"
-        model.currentGame.players[1].scores = [[40, 15, 10], [60, 10, 5]]
-        model.currentGame.players[2].name = "Charlie"
-        model.currentGame.players[2].scores = [[20, 30, 40], [10, 5, 5]]
-        model.currentGame.players[3].name = "Diana"
-        model.currentGame.players[3].scores = [[25, 25, 25], [30, 10, 5]]
-        
-        return InformationsViewV2(viewModel: model)
-    }
-}
+//struct InformationsViewV2_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let model = GameViewModel(gameType: 501)
+//        // Assurez-vous d'avoir le nombre de joueurs nécessaire pour la preview
+//        while model.currentGame.players.count < 4 {
+//            model.addPlayer()
+//        }
+//        // Configuration des joueurs
+//        model.currentGame.players[0].name = "Alice"
+//        model.currentGame.players[0].scores = [[60, 20, 25], [50, 10, 10]]
+//        model.currentGame.players[1].name = "Bob"
+//        model.currentGame.players[1].scores = [[40, 15, 10], [60, 10, 5]]
+//        model.currentGame.players[2].name = "Charlie"
+//        model.currentGame.players[2].scores = [[20, 30, 40], [10, 5, 5]]
+//        model.currentGame.players[3].name = "Diana"
+//        model.currentGame.players[3].scores = [[25, 25, 25], [30, 10, 5]]
+//        
+//        return InformationsViewV2(viewModel: model)
+//    }
+//}

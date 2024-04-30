@@ -11,6 +11,8 @@ struct Player {
     var name: String = ""
     var scores: [[Int]] = []
     var remainingScore: Int
+    var remainingScoresPerTurn: [Int] = []  // Ajoutez cette ligne
+
 }
 
 struct Game {
@@ -39,23 +41,27 @@ class GameViewModel: ObservableObject {
             return  // S'assurer que chaque score contient trois lancers
         }
         
-        // Calculer le score total incluant le nouveau score
-        let totalScoreWithNew = currentGame.players[index].scores.flatMap { $0 }.reduce(0, +) + score.reduce(0, +)
-        
-        // Vérifier si le nouveau total dépasse le gameType
-        if totalScoreWithNew <= currentGame.gameType {
-            // Mettre à jour le remainingScore normalement
-            currentGame.players[index].remainingScore = currentGame.gameType - totalScoreWithNew
-        }
-        
-        // Ajouter le score à l'historique du joueur indépendamment du résultat
-        currentGame.players[index].scores.append(score)
+        // Ajouter le score à l'historique des scores du joueur
+        var player = currentGame.players[index]
+        player.scores.append(score)
 
-        // Passer au tour suivant, indépendamment de si le score dépasse la limite
+        // Calculer le score total incluant le nouveau score
+        let totalScoreWithNew = player.scores.flatMap { $0 }.reduce(0, +)
+
+        // Mettre à jour le remainingScore en fonction du nouveau total
+        let newRemainingScore = currentGame.gameType - totalScoreWithNew
+        player.remainingScoresPerTurn.append(newRemainingScore)
+        player.remainingScore = newRemainingScore  // Mettre à jour le remainingScore général
+
+        // Sauvegarder les modifications
+        currentGame.players[index] = player
+
+        // Passer au tour suivant
         if index == currentGame.players.count - 1 {
             currentGame.currentTurn += 1
         }
     }
+
 
     func remainingScore(forPlayer index: Int) -> Int {
         // Cette fonction retourne simplement le remainingScore actuel
