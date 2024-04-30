@@ -84,6 +84,7 @@ struct InformationsViewV2: View {
                                     .shadow(radius: 2)
                                 }
                             }
+                            
                             if player.scores.isEmpty {
                                 Text("No scores recorded yet")
                                     .italic()
