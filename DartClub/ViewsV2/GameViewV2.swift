@@ -119,7 +119,7 @@ struct GameViewV2: View {
                         HStack {
                             Text("\(players[0].name)")
                                 .fontWeight(.bold)
-                            Text("-  Average Score:  #")
+                            Text("-  Average Throw Score:  #")
                                 .font(
                                     .system(size: 14))
 //                         if isBustedPlayer1 {
@@ -140,9 +140,14 @@ struct GameViewV2: View {
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 0)
-
+                        
+                        Text("Average Total Score:  #")
+                            .font(
+                            .system(size: 14))
+                        
                         Spacer()
-
+                        Divider()
+                        
                     }
                 }
                 
@@ -159,7 +164,7 @@ struct GameViewV2: View {
                             HStack {
                                 Text("\(players[1].name)")
                                     .fontWeight(.bold)
-                                Text("-  Average Score:  #")
+                                Text("-  Average Throw Score:  #")
                                     .font(
                                         .system(size: 14))
 //                         if isBustedPlayer1 {
@@ -180,8 +185,13 @@ struct GameViewV2: View {
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 1)
-
+                            
+                            Text("Average Total Score:  #")
+                                .font(
+                                .system(size: 14))
+                            
                             Spacer()
+                            Divider()
 
                         }
                     }
@@ -200,7 +210,7 @@ struct GameViewV2: View {
                             HStack {
                                 Text("\(players[2].name)")
                                     .fontWeight(.bold)
-                                Text("-  Average Score:  #")
+                                Text("-  Average Throw Score:  #")
                                     .font(
                                         .system(size: 14))
 //                             if isBustedPlayer1 {
@@ -221,8 +231,13 @@ struct GameViewV2: View {
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
-
+                            
+                            Text("Average Total Score:  #")
+                                .font(
+                                .system(size: 14))
+                            
                             Spacer()
+                            Divider()
 
                         }
                     }
@@ -241,7 +256,7 @@ struct GameViewV2: View {
                             HStack {
                                 Text("\(players[3].name)")
                                     .fontWeight(.bold)
-                                Text("-  Average Score:  #")
+                                Text("-  Average Throw Score:  #")
                                     .font(
                                         .system(size: 14))
 //                             if isBustedPlayer1 {
@@ -262,7 +277,11 @@ struct GameViewV2: View {
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 3)
-
+                            
+                            Text("Average Total Score:  #")
+                                .font(
+                                .system(size: 14))
+                            
                             Spacer()
 
                         }
