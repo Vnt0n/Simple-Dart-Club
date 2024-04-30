@@ -19,7 +19,9 @@ struct InformationsViewV2: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                
                 if let winningPlayer = viewModel.currentGame.players.first(where: { $0.remainingScore == 0 }) {
+                    
                     VStack {
                         Text("🥇")
                             .padding([.bottom], 10)
@@ -42,6 +44,7 @@ struct InformationsViewV2: View {
                             }
                     }
                     .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                    
                     Button("New game") {
                         viewModel.endGame()
                         isGameStarted = true
@@ -132,7 +135,6 @@ struct InformationsViewV2: View {
             .interactiveDismissDisabled(isDismissForbidden)
         }
     }
-
 }
 
 
