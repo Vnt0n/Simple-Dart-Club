@@ -18,11 +18,8 @@ struct InformationsViewV2: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                
                 if let winningPlayer = viewModel.currentGame.players.first(where: { $0.remainingScore == 0 }) {
-
                     VStack {
-                        
                         Text("🥇")
                             .padding([.bottom], 10)
                             .padding([.top], 50)
@@ -39,23 +36,18 @@ struct InformationsViewV2: View {
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                                     self.counter = 1
-                                    
-                                    print("--------------------------------------------")
-                                    print("Winner Name: \(winningPlayer.name)")
-                                    
                                 }
                             }
                     }
-                    
+                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     Button("New game") {
-                        viewModel.resetForNextGame()
+                        viewModel.endGame()
                         isGameStarted = true
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .padding(.bottom, 25)
-                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                 }
                 
                 VStack(alignment: .leading, spacing: 20) {
@@ -102,40 +94,68 @@ struct InformationsViewV2: View {
                     }
                 }
                 .padding()
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    ForEach(viewModel.gameHistory, id: \.gameNumber) { record in
+                        VStack(alignment: .leading) {
+                            Text("Game \(record.gameNumber)")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            ForEach(record.finalScores, id: \.name) { player in
+                                Text("\(player.name)")
+                                    .fontWeight(.bold)
+                                ForEach(player.scores.indices, id: \.self) { index in
+                                    let turn = player.scores[index]
+                                    VStack(alignment: .leading) {
+                                        Text("Turn \(index + 1): \(turn.map(String.init).joined(separator: ", "))")
+                                            .padding()
+                                    }
+                                    .background(Color.gray.opacity(0.2))
+                                    .cornerRadius(8)
+                                    .shadow(radius: 2)
+                                }
+                            }
+                        }
+                        .padding()
+                        .background(Color.blue.opacity(0.1))
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                    }
+                }
+                .padding()
             }
             .navigationBarTitle("Game Information", displayMode: .inline)
         }
     }
 }
 
-
 struct InformationsViewV2_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             // Preview avec 1 joueur
-            InformationsViewV2(viewModel: viewModelWithPlayers(count: 1))
+            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 1))
                 .previewDisplayName("1 Player")
                 .previewLayout(.sizeThatFits)
 
             // Preview avec 2 joueurs
-            InformationsViewV2(viewModel: viewModelWithPlayers(count: 2))
+            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 2))
                 .previewDisplayName("2 Players")
                 .previewLayout(.sizeThatFits)
 
             // Preview avec 3 joueurs
-            InformationsViewV2(viewModel: viewModelWithPlayers(count: 3))
+            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 3))
                 .previewDisplayName("3 Players")
                 .previewLayout(.sizeThatFits)
 
             // Preview avec 4 joueurs
-            InformationsViewV2(viewModel: viewModelWithPlayers(count: 4))
+            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 4))
                 .previewDisplayName("4 Players")
                 .previewLayout(.sizeThatFits)
         }
     }
 
-    // Helper function to create a GameViewModel with a given number of players
-    static func viewModelWithPlayers(count: Int) -> GameViewModel {
+    // Fonction aidante pour créer un GameViewModel avec un nombre donné de joueurs et un historique de parties
+    static func viewModelWithPlayersAndHistory(count: Int) -> GameViewModel {
         let model = GameViewModel(gameType: 501)
         for _ in 0..<count {
             model.addPlayer()
@@ -148,6 +168,7 @@ struct InformationsViewV2_Previews: PreviewProvider {
             [[25, 25, 25], [30, 10, 5]]
         ]
 
+        // Ajout des scores et des configurations initiales des joueurs
         for i in 0..<count {
             model.currentGame.players[i].name = names[i]
             model.currentGame.players[i].scores = scores[i]
@@ -155,6 +176,20 @@ struct InformationsViewV2_Previews: PreviewProvider {
             let remainingScoresPerTurn = scores[i].map { model.currentGame.gameType - $0.reduce(0, +) }
             model.currentGame.players[i].remainingScoresPerTurn = remainingScoresPerTurn
         }
+
+        // Simulation des historiques de jeux
+        let historyScores = [[[30, 30, 30], [20, 20, 20]], [[60, 20, 15], [40, 30, 20]], [[45, 10, 20], [40, 10, 10]]]
+        for gameNumber in 1...3 {
+            var players = [Player]()
+            for i in 0..<min(count, 3) {
+                let player = Player(name: names[i], scores: historyScores[i], remainingScore: 501 - historyScores[i].flatMap { $0 }.reduce(0, +))
+                players.append(player)
+            }
+            let gameRecord = GameRecord(gameNumber: gameNumber, finalScores: players)
+            model.gameHistory.append(gameRecord)
+        }
+
         return model
     }
 }
+

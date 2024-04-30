@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+struct GameRecord {
+    var gameNumber: Int
+    var finalScores: [Player]
+}
+
 struct Player {
     var name: String = ""
     var scores: [[Int]] = []
@@ -25,7 +30,8 @@ class GameViewModel: ObservableObject {
     @Published var currentGame: Game
     @Published var gameStarted: Bool = false
     @Published var gameCount: Int = 1
-
+    @Published var gameHistory: [GameRecord] = []
+    
     init(gameType: Int) {
         let initialPlayer = Player(name: "", scores: [], remainingScore: gameType)
         self.currentGame = Game(players: [initialPlayer], gameType: gameType)
@@ -63,11 +69,17 @@ class GameViewModel: ObservableObject {
         }
     }
 
-
     func remainingScore(forPlayer index: Int) -> Int {
         // Cette fonction retourne simplement le remainingScore actuel
         return currentGame.players[index].remainingScore
     }
+    
+    func endGame() {
+        let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players)
+        gameHistory.append(record)
+        resetForNextGame() // Cette fonction réinitialise le jeu pour le prochain tour
+    }
+
     
     func resetForNextGame() {
         gameCount += 1  // Incrémenter le compteur de jeu
