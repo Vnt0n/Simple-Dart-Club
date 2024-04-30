@@ -283,9 +283,15 @@ struct GameViewV2: View {
                 print("GAMEVIEW")
                 print("------------------------------")
                 viewModel.currentGame.players[0].remainingScore = viewModel.currentGame.gameType
-                viewModel.currentGame.players[1].remainingScore = viewModel.currentGame.gameType
-                viewModel.currentGame.players[2].remainingScore = viewModel.currentGame.gameType
-                viewModel.currentGame.players[3].remainingScore = viewModel.currentGame.gameType
+                if players.count > 1 {
+                    viewModel.currentGame.players[1].remainingScore = viewModel.currentGame.gameType
+                    if players.count > 2 {
+                        viewModel.currentGame.players[2].remainingScore = viewModel.currentGame.gameType
+                        if players.count > 3 {
+                            viewModel.currentGame.players[3].remainingScore = viewModel.currentGame.gameType
+                        }
+                    }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
