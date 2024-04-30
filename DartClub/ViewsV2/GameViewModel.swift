@@ -80,23 +80,6 @@ class GameViewModel: ObservableObject {
         }
     }
 
-//    func averageTotalScore(forPlayer index: Int) -> Int {
-//        let player = currentGame.players[index]
-//        let totalScores = player.scores.flatMap { $0 }
-//        if !totalScores.isEmpty {
-//            let totalScore = totalScores.reduce(0, +)
-//            let averageScore = Double(totalScore) / Double(totalScores.count)
-//            return Int(floor(averageScore))
-//        } else {
-//            return 0
-//        }
-//    }
-
-    func remainingScore(forPlayer index: Int) -> Int {
-        // Cette fonction retourne simplement le remainingScore actuel
-        return currentGame.players[index].remainingScore
-    }
-    
     func endGame() {
         let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players)
         gameHistory.append(record)

@@ -136,7 +136,7 @@ struct GameViewV2: View {
                             enterThrowScore = true
 //                         isUndoDisabled = false
                         }) {
-                            Text("\(viewModel.remainingScore(forPlayer: 0))")
+                            Text("\(viewModel.currentGame.players[0].remainingScore)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
                         .disabled(currentPlayerIndex != 0)
@@ -177,7 +177,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.remainingScore(forPlayer: 1))")
+                                Text("\(viewModel.currentGame.players[1].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 1)
@@ -219,7 +219,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.remainingScore(forPlayer: 2))")
+                                Text("\(viewModel.currentGame.players[2].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 2)
@@ -261,7 +261,7 @@ struct GameViewV2: View {
                          enterThrowScore = true
 //                         isUndoDisabled = false
                             }) {
-                                Text("\(viewModel.remainingScore(forPlayer: 3))")
+                                Text("\(viewModel.currentGame.players[3].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
                             .disabled(currentPlayerIndex != 3)
@@ -292,12 +292,8 @@ struct GameViewV2: View {
                     }
                 }
             }
-            .onChange(of: viewModel.remainingScore(forPlayer: 0)) {
-                if viewModel.remainingScore(forPlayer: 0) == 0 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        showInformationsView = true
-                    }
-                }
+            .onChange(of: viewModel.currentGame.players.map({ $0.remainingScore })) {
+                checkScores()
             }
             .sheet(isPresented: $showInformationsView) {
                 InformationsViewV2(viewModel: viewModel)
@@ -308,6 +304,17 @@ struct GameViewV2: View {
 
     
     // FUNCTIONS ///////////////////
+    
+    private func checkScores() {
+        for (_, player) in viewModel.currentGame.players.enumerated() {
+            if player.remainingScore == 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    showInformationsView = true
+                }
+                break
+            }
+        }
+    }
     
     private func undoLastScore() {
         print("----------------------------------------")
