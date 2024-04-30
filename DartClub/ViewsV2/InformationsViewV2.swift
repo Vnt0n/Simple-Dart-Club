@@ -132,6 +132,10 @@ struct InformationsViewV2: View {
 
 }
 
+
+// ///////////////////////////
+// PREVIEW //////////////////
+
 struct InformationsViewV2_Previews: PreviewProvider {
     static var previews: some View {
         Group {

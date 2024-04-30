@@ -80,7 +80,6 @@ class GameViewModel: ObservableObject {
         resetForNextGame() // Cette fonction réinitialise le jeu pour le prochain tour
     }
 
-    
     func resetForNextGame() {
         gameCount += 1  // Incrémenter le compteur de jeu
         for i in 0..<currentGame.players.count {

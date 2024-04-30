@@ -45,9 +45,10 @@ struct GameViewV2: View {
                             InformationsViewV2(viewModel: viewModel)
                         }
                         
+// /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
+
                         Button(action: {
                             
-//                            viewModel.currentGame.players[0].remainingScore = viewModel.currentGame.gameType
                             print("--------------------------------------------")
                             print("DEBUG")
                             print("--------------------------------------------")
@@ -71,6 +72,8 @@ struct GameViewV2: View {
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
+                        
+// //////////////////////////////////////////////////////////////////////////////////////
                         
                         Spacer()
 
@@ -200,12 +203,12 @@ struct GameViewV2: View {
                                 Text("-  Average Score:  #")
                                     .font(
                                         .system(size: 14))
-//                         if isBustedPlayer1 {
-//                             Text("- BUST")
-//                                 .fontWeight(.bold)
-//                                 .foregroundColor(.red)
-//                                 .glowBorder(color: .black, lineWidth: 2)
-//                         }
+//                             if isBustedPlayer1 {
+//                                 Text("- BUST")
+//                                     .fontWeight(.bold)
+//                                     .foregroundColor(.red)
+//                                     .glowBorder(color: .black, lineWidth: 2)
+//                             }
                             }
 
                             Button(action: {
@@ -241,12 +244,12 @@ struct GameViewV2: View {
                                 Text("-  Average Score:  #")
                                     .font(
                                         .system(size: 14))
-//                         if isBustedPlayer1 {
-//                             Text("- BUST")
-//                                 .fontWeight(.bold)
-//                                 .foregroundColor(.red)
-//                                 .glowBorder(color: .black, lineWidth: 2)
-//                         }
+//                             if isBustedPlayer1 {
+//                                 Text("- BUST")
+//                                     .fontWeight(.bold)
+//                                     .foregroundColor(.red)
+//                                     .glowBorder(color: .black, lineWidth: 2)
+//                             }
                             }
 
                             Button(action: {
@@ -341,8 +344,6 @@ struct GameViewV2: View {
 
 // ///////////////////////////
 // PREVIEW //////////////////
-
-import SwiftUI
 
 // Define a preview provider for the GameViewV2
 struct GameViewV2_Previews: PreviewProvider {

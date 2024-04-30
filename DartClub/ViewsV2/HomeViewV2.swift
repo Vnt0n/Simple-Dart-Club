@@ -40,7 +40,8 @@ struct HomeViewV2: View {
                     .font(.system(size: 20, design: .default))
                     .shadow(color: Color.red, radius: 15)
             }
-        }    }
+        }
+    }
 }
 
 
