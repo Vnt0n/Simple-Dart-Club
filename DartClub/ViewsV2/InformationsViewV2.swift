@@ -18,7 +18,7 @@ struct InformationsViewV2: View {
         NavigationStack {
             ScrollView {
                 
-                if viewModel.currentGame.players.contains(where: { $0.remainingScore == 0 }) {
+                if let winningPlayer = viewModel.currentGame.players.first(where: { $0.remainingScore == 0 }) {
 
                     VStack {
                         
@@ -27,9 +27,10 @@ struct InformationsViewV2: View {
                             .padding([.top], 50)
                             .font(.system(size: 130))
                         
-                        Text("winnerName")
+                        Text("\(winningPlayer.name)")
                             .padding([.bottom], 10)
                             .font(.system(size: 30, weight: .bold, design: .default))
+                            .foregroundColor(.black)
                         
                         Text("You won!")
                             .font(.system(size: 50, weight: .bold, design: .default))
@@ -39,7 +40,7 @@ struct InformationsViewV2: View {
                                     self.counter = 1
                                     
                                     print("--------------------------------------------")
-                                    print("Winner Name: winnerName")
+                                    print("Winner Name: \(winningPlayer.name)")
                                     
                                 }
                             }
