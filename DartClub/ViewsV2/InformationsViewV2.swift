@@ -18,44 +18,46 @@ struct InformationsViewV2: View {
         NavigationStack {
             ScrollView {
                 
-                VStack {
-                    
-                    Text("🥇")
-                        .padding([.bottom], 10)
-                        .padding([.top], 50)
-                        .font(.system(size: 130))
-                    
-                    Text("winnerName")
-                        .padding([.bottom], 10)
-                        .font(.system(size: 30, weight: .bold, design: .default))
-                    
-                    Text("You won!")
-                        .font(.system(size: 50, weight: .bold, design: .default))
-                        .foregroundColor(.blue)
-                        .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                                self.counter = 1
-                                
-                                print("--------------------------------------------")
-                                print("Winner Name: winnerName")
+                if viewModel.currentGame.players.contains(where: { $0.remainingScore == 0 }) {
 
+                    VStack {
+                        
+                        Text("🥇")
+                            .padding([.bottom], 10)
+                            .padding([.top], 50)
+                            .font(.system(size: 130))
+                        
+                        Text("winnerName")
+                            .padding([.bottom], 10)
+                            .font(.system(size: 30, weight: .bold, design: .default))
+                        
+                        Text("You won!")
+                            .font(.system(size: 50, weight: .bold, design: .default))
+                            .foregroundColor(.blue)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                                    self.counter = 1
+                                    
+                                    print("--------------------------------------------")
+                                    print("Winner Name: winnerName")
+                                    
+                                }
                             }
-                        }
+                    }
+                    
+                    Button("New game") {
+                        //                    newGame()
+                        isGameStarted = true
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .padding(.bottom, 25)
+                    //                .navigationDestination(isPresented: $isGameStarted) {
+                    //                    GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
+                    //                }
+                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     
                 }
-                
-                Button("New game") {
-//                    newGame()
-                    isGameStarted = true
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .padding(.bottom, 25)
-//                .navigationDestination(isPresented: $isGameStarted) {
-//                    GameViewV2(isThreeHundredOne: isThreeHundredOne, isFiveHundredOne: isFiveHundredOne, namePlayer1: namePlayer1, namePlayer2: namePlayer2, namePlayer3: namePlayer3)
-//                }
-                .confettiCannon(counter: $counter, num: 150, radius: 500.0)
-                
                 
                 VStack(alignment: .leading, spacing: 20) {
                     ForEach(viewModel.currentGame.players.indices, id: \.self) { playerIndex in
