@@ -13,6 +13,7 @@ struct InformationsViewV2: View {
     @ObservedObject var viewModel: GameViewModel
     @State private var counter = 0
     @State private var isGameStarted = false
+    @State private var isDismissForbidden = false
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -37,12 +38,14 @@ struct InformationsViewV2: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                                     self.counter = 1
                                 }
+                                isDismissForbidden = true
                             }
                     }
                     .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     Button("New game") {
                         viewModel.endGame()
                         isGameStarted = true
+                        isDismissForbidden = false
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)
@@ -126,7 +129,7 @@ struct InformationsViewV2: View {
             }
             .navigationBarTitle("Game Information", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
-//            .interactiveDismissDisabled()
+            .interactiveDismissDisabled(isDismissForbidden)
         }
     }
 
