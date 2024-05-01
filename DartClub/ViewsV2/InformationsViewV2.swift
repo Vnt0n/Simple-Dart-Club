@@ -22,7 +22,7 @@ struct InformationsViewV2: View {
                 VStack(spacing: 20) {
                     winningView
                     Divider()
-                    currentGameView
+//                    currentGameView
                     
                     if !viewModel.gameHistory.isEmpty {
                         Divider()
@@ -203,29 +203,67 @@ struct InformationsViewV2: View {
                         if let winner = record.winners.first {
                             Text("🎉 \(winner.name) won! 🥇")
                                 .fontWeight(.bold)
-                        } else {
-                            Text("No winner this game")
-                                .fontWeight(.bold)
                         }
-                        
-                        Divider()
                         
                         ForEach(record.finalScores, id: \.name) { player in
+                            
                             VStack(alignment: .center) {
+                                
+                                Divider()
+
                                 Text(player.name)
                                     .fontWeight(.bold)
+                                
+                                Divider()
+                                
                                 ForEach(player.scores.indices, id: \.self) { index in
                                     let turn = player.scores[index]
+                                    let turnScores = player.scores[index]
+                                    let turnSum = turnScores.reduce(0, +)
+
                                     HStack {
-                                        Text("Turn \(index + 1) -")
+                                        
+                                        Spacer()
+                                        
+                                        Text("Turn \(index + 1)")
                                             .fontWeight(.bold)
-                                        Text("\(turn.map(String.init).joined(separator: " | "))")
+                                        
+                                        Spacer()
+                                        Divider()
+                                        Spacer()
+
+                                        Text("\(turn.map(String.init).joined(separator: "    |    "))")
+                                        
+                                        Spacer()
+                                        Divider()
+                                        Spacer()
+                                        
+                                        Text("(\(turnSum))")
+                                            .fontWeight(.bold)
+                                        
+                                        Spacer()
+
                                     }
+                                    
+                                    Divider()
+                                    
                                 }
-                                .frame(width: 200)
+                                
+                                Divider()
+                                
+                                Text("TOTAL Average Throws Score FOR GAME X: ????")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 14))
+                                    .fontWeight(.semibold)
+                                
+                                Divider()
+                                Divider()
+
                             }
                             .padding()
+                            
                         }
+                        
                     }
                     .padding()
                 }
