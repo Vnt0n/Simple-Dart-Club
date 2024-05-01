@@ -119,6 +119,7 @@ class GameViewModel: ObservableObject {
             currentGame.players[i].remainingScore = currentGame.gameType
             currentGame.players[i].scores.removeAll()
             currentGame.players[i].remainingScoresPerTurn.removeAll()
+            currentGame.players[i].isBusted = false
         }
         currentGame.currentTurn = 1
         print("currentPlayerIndex AVANT Formule : \(currentPlayerIndex)")
