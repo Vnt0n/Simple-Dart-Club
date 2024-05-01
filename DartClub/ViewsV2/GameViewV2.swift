@@ -46,46 +46,46 @@ struct GameViewV2: View {
                         
 // /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
 
-                        Button(action: {
-                            
-                            print("--------------------------------------------")
-                            print("--------------------------------------------")
-                            print("DEBUG")
-                            print("--------------------------------------------")
-                            print("--------------------------------------------")
-                            print(" ")
-                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
-                            print(" ")
-                            print("NOMBRE DE JOUEURS : \(viewModel.currentGame.players.count)")
-                            print(" ")
-                            print("NAME PLAYER 1 : \(viewModel.currentGame.players[0].name)")
-                            print("REMAINGSCORE PLAYER 1 : \(viewModel.currentGame.players[0].remainingScore)")
-                            print(" ")
-                            if players.count > 1 {
-                                print("NAME PLAYER 2 : \(viewModel.currentGame.players[1].name)")
-                                print("REMAINGSCORE PLAYER 2 : \(viewModel.currentGame.players[1].remainingScore)")
-                                print(" ")
-                            }
-                            if players.count > 2 {
-                                print("NAME PLAYER 3 : \(viewModel.currentGame.players[2].name)")
-                                print("REMAINGSCORE PLAYER 3 : \(viewModel.currentGame.players[2].remainingScore)")
-                                print(" ")
-                            }
-                            if players.count > 3 {
-                                print("NAME PLAYER 4 : \(viewModel.currentGame.players[3].name)")
-                                print("REMAINGSCORE PLAYER 4 : \(viewModel.currentGame.players[3].remainingScore)")
-                                print(" ")
-                            }
-                            print("CURRENT TURN : \(viewModel.currentGame.currentTurn)")
-                            print(" ")
-                            print("CURRENT PLAYER : \(players[viewModel.currentPlayerIndex].name)")
-                            print("CURRENT PLAYER INDEX : \(viewModel.currentPlayerIndex)")
-                            print(" ")
-                        }) {
-                            Image(systemName: "ladybug.circle")
-                                .accessibilityLabel("Undo")
-                                .font(.system(size: 25))
-                        }
+//                        Button(action: {
+//                            
+//                            print("--------------------------------------------")
+//                            print("--------------------------------------------")
+//                            print("DEBUG")
+//                            print("--------------------------------------------")
+//                            print("--------------------------------------------")
+//                            print(" ")
+//                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
+//                            print(" ")
+//                            print("NOMBRE DE JOUEURS : \(viewModel.currentGame.players.count)")
+//                            print(" ")
+//                            print("NAME PLAYER 1 : \(viewModel.currentGame.players[0].name)")
+//                            print("REMAINGSCORE PLAYER 1 : \(viewModel.currentGame.players[0].remainingScore)")
+//                            print(" ")
+//                            if players.count > 1 {
+//                                print("NAME PLAYER 2 : \(viewModel.currentGame.players[1].name)")
+//                                print("REMAINGSCORE PLAYER 2 : \(viewModel.currentGame.players[1].remainingScore)")
+//                                print(" ")
+//                            }
+//                            if players.count > 2 {
+//                                print("NAME PLAYER 3 : \(viewModel.currentGame.players[2].name)")
+//                                print("REMAINGSCORE PLAYER 3 : \(viewModel.currentGame.players[2].remainingScore)")
+//                                print(" ")
+//                            }
+//                            if players.count > 3 {
+//                                print("NAME PLAYER 4 : \(viewModel.currentGame.players[3].name)")
+//                                print("REMAINGSCORE PLAYER 4 : \(viewModel.currentGame.players[3].remainingScore)")
+//                                print(" ")
+//                            }
+//                            print("CURRENT TURN : \(viewModel.currentGame.currentTurn)")
+//                            print(" ")
+//                            print("CURRENT PLAYER : \(players[viewModel.currentPlayerIndex].name)")
+//                            print("CURRENT PLAYER INDEX : \(viewModel.currentPlayerIndex)")
+//                            print(" ")
+//                        }) {
+//                            Image(systemName: "ladybug.circle")
+//                                .accessibilityLabel("Undo")
+//                                .font(.system(size: 25))
+//                        }
                         
 // //////////////////////////////////////////////////////////////////////////////////////
                         
@@ -137,10 +137,10 @@ struct GameViewV2: View {
                                 .font(
                                     .system(size: 14))
                             if viewModel.currentGame.players[0].isBusted {
-                                Text("- BUST")
+                                Text("🥊 BUST")
                                     .fontWeight(.bold)
                                     .foregroundColor(.red)
-                                    .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                    .shadow(color: .black, radius: 0, x: 1, y: 1)
                             }
                         }
 

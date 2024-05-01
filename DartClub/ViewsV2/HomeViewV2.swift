@@ -32,7 +32,7 @@ struct HomeViewV2: View {
                     .padding([.trailing], 40)
                 Text(" ")
                     .font(Font.custom("FightThis", size: 40))
-                Text("Beta V2")
+                Text("Beta V3")
                     .shadow(color: Color.red, radius: 15)
                     .foregroundColor(.red)
                     .multilineTextAlignment(.center)
