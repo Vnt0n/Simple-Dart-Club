@@ -27,19 +27,22 @@ struct EnterThrowScoreViewV2: View {
             
             VStack {
                 
-                Text("\(viewModel.currentGame.players[currentPlayerIndex].name)")
-                    .font(.system(size: 45, weight: .bold, design: .default))
+                Spacer()
                 
+                Text("\(viewModel.currentGame.players[currentPlayerIndex].name)")
+                    .font(.system(size: 40, weight: .bold, design: .default))
+                    .padding(.bottom, 1)
+
                 Text("Enter your score")
-                    .font(.system(size: 30,  design: .default))
+                    .font(.system(size: 20,  design: .default))
                 
                 TextField("1st throw", value: $firstThrowScore, format: .number)
                     .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 30, design: .default))
+                    .font(.system(size: 23, design: .default))
                     .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
-                    .frame(width: 200)
+                    .frame(width: 150)
                     .focused($isFocused)
                     .onAppear {
                         self.isFocused = true
@@ -47,20 +50,20 @@ struct EnterThrowScoreViewV2: View {
 
                 TextField("2nd throw", value: $secondThrowScore, format: .number)
                     .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 30, design: .default))
+                    .font(.system(size: 23, design: .default))
                     .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
-                    .frame(width: 200)
+                    .frame(width: 150)
 
 
                 TextField("3rd throw", value: $thirdThrowScore, format: .number)
                     .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 30, design: .default))
+                    .font(.system(size: 23, design: .default))
                     .multilineTextAlignment(.center)
                     .padding()
                     .keyboardType(.decimalPad)
-                    .frame(width: 200)
+                    .frame(width: 150)
 
                 Button("OK          ") {
                     
@@ -79,6 +82,8 @@ struct EnterThrowScoreViewV2: View {
                 .padding()
                 .disabled(!allFieldsHaveValues)
                 
+                Spacer()
+
             }
         }
     }
