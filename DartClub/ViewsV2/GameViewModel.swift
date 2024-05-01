@@ -99,6 +99,13 @@ class GameViewModel: ObservableObject {
         }
     }
     
+    func averageThrowScoreInGame(forPlayer player: Player, gameRecord: GameRecord) -> Int {
+        let scores = gameRecord.finalScores.first { $0.name == player.name }?.scores.flatMap { $0 } ?? []
+        let totalThrows = scores.count
+        let totalScore = scores.reduce(0, +)
+        return totalThrows > 0 ? Int(floor(Double(totalScore) / Double(totalThrows))) : 0
+    }
+    
     func isPlayerBusted(playerIndex: Int) -> Bool {
         return currentGame.players[playerIndex].remainingScore < 0
     }

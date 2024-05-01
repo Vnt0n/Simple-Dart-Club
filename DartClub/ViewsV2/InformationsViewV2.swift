@@ -14,6 +14,8 @@ struct InformationsViewV2: View {
     @State private var counter = 0
     @State private var isGameStarted = false
     @State private var isDismissForbidden = false
+    @State private var showCreditView = false
+
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -22,7 +24,7 @@ struct InformationsViewV2: View {
                 VStack(spacing: 20) {
                     winningView
                     Divider()
-//                    currentGameView
+                    currentGameView
                     
                     if !viewModel.gameHistory.isEmpty {
                         Divider()
@@ -30,6 +32,18 @@ struct InformationsViewV2: View {
                         Divider()
                         victoriesView
                     }
+                    
+                    Image(systemName: "info.bubble")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .onTapGesture {
+                            showCreditView = true
+                        }
+                        .padding(.bottom, 25)
+                        .padding(.top, 25)
+                        .sheet(isPresented: $showCreditView) {
+                                   CreditViewV2()
+                        }
                     
                 }
                 .padding()
@@ -251,7 +265,7 @@ struct InformationsViewV2: View {
                                 
                                 Divider()
                                 
-                                Text("TOTAL Average Throws Score FOR GAME X: ????")
+                                Text("Average Throws Score \(viewModel.averageThrowScoreInGame(forPlayer: player, gameRecord: record))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
@@ -283,7 +297,7 @@ struct InformationsViewV2: View {
 
                 VStack {
                     
-                    Text("🎉 VICTORIES 🥇")
+                    Text("🏆 VICTORIES 🏆")
                         .font(.title2)
                         .padding(.top, 15)
 
@@ -316,18 +330,6 @@ struct InformationsViewV2: View {
                 }
                 
             }
-            
-            Image(systemName: "info.bubble")
-                .resizable()
-                .frame(width: 24, height: 24)
-    //            .onTapGesture {
-    //                showCreditView = true
-    //            }
-                .padding(.bottom, 25)
-                .padding(.top, 25)
-    //            .sheet(isPresented: $showCreditViewV2) {
-    //                       CreditView()
-    //            }
             
         }
 
