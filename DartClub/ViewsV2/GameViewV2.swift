@@ -344,21 +344,30 @@ struct GameViewV2: View {
 
         // Vérification si le joueur a des scores à annuler
         if let _ = viewModel.currentGame.players[previousPlayerIndex].scores.popLast() {
+            print("Undoing score for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
+
             // Mettre à jour les remainingScoresPerTurn si utilisé
             if !viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.isEmpty {
                 viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.removeLast()
             }
 
-            // Recalculer le score total et mettre à jour le remainingScore
-            let totalScore = viewModel.currentGame.players[previousPlayerIndex].scores.flatMap { $0 }.reduce(0, +)
-            viewModel.currentGame.players[previousPlayerIndex].remainingScore = viewModel.currentGame.gameType - totalScore
+            // Utiliser le dernier remainingScoresPerTurn valide pour recalculer le remainingScore
+            if let lastValidRemainingScore = viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.last {
+                viewModel.currentGame.players[previousPlayerIndex].remainingScore = lastValidRemainingScore
+            } else {
+                // Si aucun remainingScore valide n'est disponible, revenir à la valeur initiale du jeu
+                viewModel.currentGame.players[previousPlayerIndex].remainingScore = viewModel.currentGame.gameType
+            }
 
             // Ajuster l'index du joueur actuel
             viewModel.currentPlayerIndex = previousPlayerIndex
 
             // Ajuster le tour, si nécessaire
-            if viewModel.currentGame.currentTurn > 1 {
+            if viewModel.currentGame.currentTurn > 1 && viewModel.currentGame.scoresThisTurn == 0 {
                 viewModel.currentGame.currentTurn -= 1
+                viewModel.currentGame.scoresThisTurn = viewModel.currentGame.players.count - 1
+            } else if viewModel.currentGame.scoresThisTurn > 0 {
+                viewModel.currentGame.scoresThisTurn -= 1
             }
         } else {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")

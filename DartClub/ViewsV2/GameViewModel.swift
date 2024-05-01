@@ -50,39 +50,37 @@ class GameViewModel: ObservableObject {
         
     func addScore(forPlayer index: Int, score: [Int]) {
         guard score.count == 3 else {
-            return  // S'assurer que chaque score contient trois lancers
+            return  // Assurer que chaque score contient trois lancers
         }
-        print("--------------------------------------------")
-        print("FONCTION ADDSCORE")
-        print(" ")
-        print("currentTurn AVANT addScore : \(currentGame.currentTurn)")
-        print(" ")
-        
-        // Ajouter le score à l'historique des scores du joueur
+
         var player = currentGame.players[index]
-        player.scores.append(score)
+        player.scores.append(score)  // Ajouter toujours le score à l'historique
 
-        // Calculer le score total incluant le nouveau score
-        let totalScoreWithNew = player.scores.flatMap { $0 }.reduce(0, +)
+        // Calculer le score total pour ce tour à partir du dernier remainingScore valide
+        let lastValidRemainingScore = player.remainingScoresPerTurn.last ?? currentGame.gameType
+        let scoreTotalForTurn = score.reduce(0, +)
+        let newRemainingScore = lastValidRemainingScore - scoreTotalForTurn
 
-        // Mettre à jour le remainingScore en fonction du nouveau total
-        let newRemainingScore = currentGame.gameType - totalScoreWithNew
-        player.remainingScoresPerTurn.append(newRemainingScore)
-        player.remainingScore = newRemainingScore  // Mettre à jour le remainingScore général
-
-        // Sauvegarder les modifications
-        currentGame.players[index] = player
-        
-        // Incrémenter le compteur de scores pour ce tour
-        currentGame.scoresThisTurn += 1
-
-        // Vérifier si tous les joueurs ont joué ce tour
-        if currentGame.scoresThisTurn == currentGame.players.count {
-            currentGame.currentTurn += 1  // Passer au tour suivant
-            currentGame.scoresThisTurn = 0  // Réinitialiser le compteur pour le prochain tour
+        if newRemainingScore < 0 {
+            // Si le score est négatif, considérer cela comme un bust et ne pas mettre à jour le remainingScore
+            // Enregistrer le dernier remainingScore valide à la place du score négatif pour ce tour
+            print("Bust! Score remains the same at \(lastValidRemainingScore), recording \(lastValidRemainingScore) for this turn.")
+            player.remainingScoresPerTurn.append(lastValidRemainingScore)  // Ajouter le dernier valide à nouveau
+        } else {
+            // Sinon, mettre à jour le remainingScore avec le nouveau calculé et ajouter à l'historique des scores valides
+            player.remainingScore = newRemainingScore
+            player.remainingScoresPerTurn.append(newRemainingScore)  // Enregistrer ce remainingScore comme valide
         }
-        print("currentTurn APRÈS addScore : \(currentGame.currentTurn)")
-        print(" ")
+
+        // Sauvegarder les modifications dans le tableau des joueurs
+        currentGame.players[index] = player
+
+        // Gérer l'incrémentation des tours
+        currentGame.scoresThisTurn += 1
+        if currentGame.scoresThisTurn == currentGame.players.count {
+            currentGame.currentTurn += 1
+            currentGame.scoresThisTurn = 0
+        }
     }
 
     func averageThrowScore(forPlayer index: Int) -> Int {
