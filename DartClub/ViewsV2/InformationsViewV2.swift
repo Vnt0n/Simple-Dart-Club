@@ -130,7 +130,7 @@ struct InformationsViewV2: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("Game Information", displayMode: .inline)
+            .navigationBarTitle("ScoreBoard", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
         }
