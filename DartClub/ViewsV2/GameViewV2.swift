@@ -387,7 +387,6 @@ struct GameViewV2: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-// Define a preview provider for the GameViewV2
 struct GameViewV2_Previews: PreviewProvider {
 
     // Helper function to create a GameViewModel with a specified number of players
@@ -426,4 +425,3 @@ struct GameViewV2_Previews: PreviewProvider {
         }
     }
 }
-

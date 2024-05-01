@@ -353,7 +353,3 @@ struct InformationsViewV2_Previews: PreviewProvider {
         }
     }
 }
-
-
-
-
