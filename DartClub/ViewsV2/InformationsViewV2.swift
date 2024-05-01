@@ -97,7 +97,7 @@ struct InformationsViewV2: View {
         
         VStack(alignment: .center, spacing: 20) {
                 
-            Text("🎉 CURRENT GAME 🥇")
+            Text("CURRENT GAME")
                 .font(.title2)
                 .padding(.top, 15)
             
@@ -128,20 +128,46 @@ struct InformationsViewV2: View {
                                     let turnSum = turnScores.reduce(0, +)
                                     let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
                                     
-                                    VStack(alignment: .center) {
+                                    HStack {
+                                        
+                                        Spacer()
+
                                         Text("Turn \(turnIndex + 1)")
                                             .fontWeight(.semibold)
-                                        HStack {
-                                            Text("Throws")
-                                                .fontWeight(.bold)
-                                            Text("\(turnScores.map(String.init).joined(separator: " | ")) = \(turnSum)")
-                                        }
-                                        Text("Remaining Score")
+                                        
+                                        Spacer()
+                                        Divider()
+                                        Spacer()
+
+                                        Text("\(turnScores.map(String.init).joined(separator: "    |     "))")
+                                        
+                                        Spacer()
+                                        Divider()
+                                        Spacer()
+
+                                        Text("(\(turnSum))")
                                             .fontWeight(.bold)
-                                        Text("\(totalRemainingScore)")
+                                        
+                                        Spacer()
+
+                                        }
+                                    HStack {
+                                        Text("Remaining Score: \(totalRemainingScore)")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 14))
                                     }
-                                    .padding()
+                                    
+                                    Divider()
+  
                                 }
+                                
+                                Divider()
+                                
+                                Text("Average Throws Score: \(viewModel.averageThrowScore(forPlayer: playerIndex))")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.system(size: 14))
+                                    .fontWeight(.semibold)
+                                
                             }
                         }
                         .padding()
@@ -280,8 +306,16 @@ struct InformationsViewV2: View {
 extension Player {
     static var demoPlayers: [Player] {
         [
-            Player(name: "Alice", scores: [[10, 20, 30]], remainingScore: 140, remainingScoresPerTurn: [140], isBusted: false),
-            Player(name: "Bob", scores: [[20, 10, 15]], remainingScore: 155, remainingScoresPerTurn: [155], isBusted: false)
+            Player(name: "Alice",
+                   scores: [[10, 20, 30], [5, 15, 25]],
+                   remainingScore: 130,
+                   remainingScoresPerTurn: [140, 130],
+                   isBusted: false),
+            Player(name: "Bob",
+                   scores: [[20, 10, 15], [10, 15, 20]],
+                   remainingScore: 140,
+                   remainingScoresPerTurn: [155, 140],
+                   isBusted: false)
         ]
     }
 }
@@ -290,8 +324,14 @@ extension Player {
 extension GameRecord {
     static var demoHistory: [GameRecord] {
         [
-            GameRecord(gameNumber: 1, finalScores: Player.demoPlayers, winners: [Player.demoPlayers[1]]), // Bob comme gagnant pour le jeu 1
-            GameRecord(gameNumber: 2, finalScores: Player.demoPlayers, winners: [Player.demoPlayers[0]])  // Alice comme gagnante pour le jeu 2
+            GameRecord(gameNumber: 1, finalScores: [
+                Player(name: "Alice", scores: [[10, 20, 30], [5, 15, 25]], remainingScore: 130, remainingScoresPerTurn: [140, 130], isBusted: false),
+                Player(name: "Bob", scores: [[20, 10, 15], [10, 15, 20]], remainingScore: 140, remainingScoresPerTurn: [155, 140], isBusted: false)
+            ], winners: [Player.demoPlayers[1]]), // Bob comme gagnant pour le jeu 1
+            GameRecord(gameNumber: 2, finalScores: [
+                Player(name: "Alice", scores: [[10, 20, 30], [5, 15, 25]], remainingScore: 130, remainingScoresPerTurn: [140, 130], isBusted: false),
+                Player(name: "Bob", scores: [[20, 10, 15], [10, 15, 20]], remainingScore: 140, remainingScoresPerTurn: [155, 140], isBusted: false)
+            ], winners: [Player.demoPlayers[0]])  // Alice comme gagnante pour le jeu 2
         ]
     }
 }
@@ -313,6 +353,7 @@ struct InformationsViewV2_Previews: PreviewProvider {
         }
     }
 }
+
 
 
 
