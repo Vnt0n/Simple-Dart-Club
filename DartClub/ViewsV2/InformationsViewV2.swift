@@ -19,7 +19,10 @@ struct InformationsViewV2: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                
+
+//  ///////////////////////////////////////////////////////////////////////////////
+//  //////////////////////// WINNING VIEW ////////////////////////////////
+
                 if let winningPlayer = viewModel.currentGame.players.first(where: { $0.remainingScore == 0 }) {
                     
                     VStack {
@@ -56,10 +59,22 @@ struct InformationsViewV2: View {
                     .padding(.bottom, 25)
                 }
                 
-                VStack(alignment: .leading, spacing: 20) {
+//  ///////////////////////////////////////////////////////////////////////////////
+//  ///////////////////////////////////////////////////////////////////////////////
+
+                
+                Divider()
+                
+                VStack(alignment: .center, spacing: 20) {
+                    
+                    Text("CURRENT GAME")
+                        .fontWeight(.bold)
+                    
                     ForEach(viewModel.currentGame.players.indices, id: \.self) { playerIndex in
                         let player = viewModel.currentGame.players[playerIndex]
-                        VStack(alignment: .leading, spacing: 10) {
+                        
+                        VStack(alignment: .center, spacing: 10) {
+                            
                             Text("\(player.name)")
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -68,20 +83,20 @@ struct InformationsViewV2: View {
                                 let turnScores = player.scores[turnIndex]
                                 let turnSum = turnScores.reduce(0, +)
                                 let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
-
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("Turn \(turnIndex + 1):")
+                                  
+                                    VStack(alignment: .center) {
+                                        
+                                        Text("Turn \(turnIndex + 1)")
                                             .fontWeight(.semibold)
-                                        Text("Throws: \(turnScores.map(String.init).joined(separator: ", "))")
-                                        Text("Sum: \(turnSum)")
-                                        Text("Remaining Score Turn \(turnIndex + 1): \(totalRemainingScore)")
+                                        Text("Throws - \(turnScores.map(String.init).joined(separator: " | ")) = \(turnSum)")
+                                        Text("Remaining Score - \(totalRemainingScore)")
+                                        
                                     }
                                     .padding()
                                     .background(Color.gray.opacity(0.2))
                                     .cornerRadius(8)
                                     .shadow(radius: 2)
-                                }
+                                    
                             }
                             
 //                            if player.scores.isEmpty {
@@ -101,31 +116,47 @@ struct InformationsViewV2: View {
                 }
                 .padding()
                 
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .center, spacing: 10) {
+                    
+                    Text("HISTORY")
+                        .fontWeight(.bold)
+                    
                     ForEach(viewModel.gameHistory, id: \.gameNumber) { record in
-                        VStack(alignment: .leading) {
+                        
+                        VStack(alignment: .center) {
+                            
                             Text("Game \(record.gameNumber)")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            ForEach(record.finalScores, id: \.name) { player in
-                                Text("\(player.name)")
-                                    .fontWeight(.bold)
-                                ForEach(player.scores.indices, id: \.self) { index in
-                                    let turn = player.scores[index]
-                                    VStack(alignment: .leading) {
-                                        Text("Turn \(index + 1): \(turn.map(String.init).joined(separator: ", "))")
-                                            .padding()
+                            
+                            VStack(alignment: .center) {
+                                
+                                ForEach(record.finalScores, id: \.name) { player in
+                                    
+                                    Text("\(player.name)")
+                                        .fontWeight(.bold)
+                                    
+                                    ForEach(player.scores.indices, id: \.self) { index in
+                                        let turn = player.scores[index]
+                                                                                    
+                                            Text("Throws Turn \(index + 1)")
+                                                .fontWeight(.bold)
+                                            Text("\(turn.map(String.init).joined(separator: " | "))")
+                                        
                                     }
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(8)
-                                    .shadow(radius: 2)
+                                    
                                 }
                             }
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(8)
+                            .shadow(radius: 2)
+                            .padding()
                         }
                         .padding()
                         .background(Color.blue.opacity(0.1))
                         .cornerRadius(10)
                         .shadow(radius: 5)
+//                        frame(width: 200)
                     }
                 }
                 .padding()
@@ -133,6 +164,7 @@ struct InformationsViewV2: View {
             .navigationBarTitle("ScoreBoard", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
+            .frame(maxWidth: .infinity)
         }
     }
 }
