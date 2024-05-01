@@ -23,6 +23,7 @@ struct Game {
     var players: [Player]
     var gameType: Int
     var currentTurn: Int = 1
+    var scoresThisTurn: Int = 0
 }
 
 class GameViewModel: ObservableObject {
@@ -30,13 +31,18 @@ class GameViewModel: ObservableObject {
     @Published var gameStarted: Bool = false
     @Published var gameCount: Int = 1
     @Published var gameHistory: [GameRecord] = []
+    @Published var currentPlayerIndex: Int = 0
     
     init(gameType: Int) {
+        print("--------------------------------------------")
+        print("INIT GAME")
         let initialPlayer = Player(name: "", scores: [], remainingScore: gameType)
         self.currentGame = Game(players: [initialPlayer], gameType: gameType)
     }
     
     func addPlayer() {
+        print("--------------------------------------------")
+        print("FONCTION ADDPLAYER")
         if currentGame.players.count < 4 {
             currentGame.players.append(Player(name: "", scores: [], remainingScore: currentGame.gameType))
         }
@@ -46,6 +52,11 @@ class GameViewModel: ObservableObject {
         guard score.count == 3 else {
             return  // S'assurer que chaque score contient trois lancers
         }
+        print("--------------------------------------------")
+        print("FONCTION ADDSCORE")
+        print(" ")
+        print("currentTurn AVANT addScore : \(currentGame.currentTurn)")
+        print(" ")
         
         // Ajouter le score à l'historique des scores du joueur
         var player = currentGame.players[index]
@@ -61,11 +72,17 @@ class GameViewModel: ObservableObject {
 
         // Sauvegarder les modifications
         currentGame.players[index] = player
+        
+        // Incrémenter le compteur de scores pour ce tour
+        currentGame.scoresThisTurn += 1
 
-        // Passer au tour suivant
-        if index == currentGame.players.count - 1 {
-            currentGame.currentTurn += 1
+        // Vérifier si tous les joueurs ont joué ce tour
+        if currentGame.scoresThisTurn == currentGame.players.count {
+            currentGame.currentTurn += 1  // Passer au tour suivant
+            currentGame.scoresThisTurn = 0  // Réinitialiser le compteur pour le prochain tour
         }
+        print("currentTurn APRÈS addScore : \(currentGame.currentTurn)")
+        print(" ")
     }
 
     func averageThrowScore(forPlayer index: Int) -> Int {
@@ -81,12 +98,17 @@ class GameViewModel: ObservableObject {
     }
 
     func endGame() {
+        print("--------------------------------------------")
+        print("FONCTION ENDGAME")
         let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players)
         gameHistory.append(record)
         resetForNextGame() // Cette fonction réinitialise le jeu pour le prochain tour
     }
 
     func resetForNextGame() {
+        print("--------------------------------------------")
+        print("FONCTION RESETFORNEXTGAME")
+        print(" ")
         gameCount += 1  // Incrémenter le compteur de jeu
         for i in 0..<currentGame.players.count {
             currentGame.players[i].remainingScore = currentGame.gameType
@@ -94,6 +116,14 @@ class GameViewModel: ObservableObject {
             currentGame.players[i].remainingScoresPerTurn.removeAll()
         }
         currentGame.currentTurn = 1
+        print("currentPlayerIndex AVANT Formule : \(currentPlayerIndex)")
+        print(" ")
+        currentPlayerIndex = (gameCount - 1) % currentGame.players.count
+        print("currentPlayerIndex APRÈS Formule : \(currentPlayerIndex)")
+        print(" ")
+        print("currentTurn APRÈS resetForNextGame : \(currentGame.currentTurn)")
+        print(" ")
+        currentGame.scoresThisTurn = 0
     }
 
 }

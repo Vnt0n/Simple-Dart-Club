@@ -12,7 +12,7 @@ struct GameViewV2: View {
     var selectedGame: Int?
     var players: [Player]
     
-    @State private var currentPlayerIndex: Int = 0
+//    @State private var viewModel.currentPlayerIndex: Int = 0
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
 
@@ -47,37 +47,52 @@ struct GameViewV2: View {
                         
 // /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
 
-//                        Button(action: {
-//                            
-//                            print("--------------------------------------------")
-//                            print("DEBUG")
-//                            print("--------------------------------------------")
-//                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
-//                            print("NOMBRE DE JOUEURS : \(viewModel.currentGame.players.count)")
-//                            print("NAME PLAYER 1 : \(viewModel.currentGame.players[0].name)")
-//                            print("REMAINGSCORE PLAYER 1 : \(viewModel.remainingScore(forPlayer: 0))")
-//                            print("NAME PLAYER 2 : \(viewModel.currentGame.players[1].name)")
-//                            print("REMAINGSCORE PLAYER 2 : \(viewModel.remainingScore(forPlayer: 1))")
-//                            print("NAME PLAYER 3 : \(viewModel.currentGame.players[2].name)")
-//                            print("REMAINGSCORE PLAYER 3 : \(viewModel.remainingScore(forPlayer: 2))")
-//                            print("NAME PLAYER 4 : \(viewModel.currentGame.players[3].name)")
-//                            print("REMAINGSCORE PLAYER 4 : \(viewModel.remainingScore(forPlayer: 3))")
-//                            print("CURRENT TURN : \(viewModel.currentGame.currentTurn)")
-//                            print("CURRENT PLAYER : \(players[currentPlayerIndex].name)")
-//                           
-//                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
-//
-//                        }) {
-//                            Image(systemName: "ladybug.circle")
-//                                .accessibilityLabel("Undo")
-//                                .font(.system(size: 25))
-//                        }
+                        Button(action: {
+                            
+                            print("--------------------------------------------")
+                            print("--------------------------------------------")
+                            print("DEBUG")
+                            print("--------------------------------------------")
+                            print("--------------------------------------------")
+                            print(" ")
+                            print("GAMETYPE : \(viewModel.currentGame.gameType)")
+                            print(" ")
+                            print("NOMBRE DE JOUEURS : \(viewModel.currentGame.players.count)")
+                            print(" ")
+                            print("NAME PLAYER 1 : \(viewModel.currentGame.players[0].name)")
+                            print("REMAINGSCORE PLAYER 1 : \(viewModel.currentGame.players[0].remainingScore)")
+                            print(" ")
+                            if players.count > 1 {
+                                print("NAME PLAYER 2 : \(viewModel.currentGame.players[1].name)")
+                                print("REMAINGSCORE PLAYER 2 : \(viewModel.currentGame.players[1].remainingScore)")
+                                print(" ")
+                            }
+                            if players.count > 2 {
+                                print("NAME PLAYER 3 : \(viewModel.currentGame.players[2].name)")
+                                print("REMAINGSCORE PLAYER 3 : \(viewModel.currentGame.players[2].remainingScore)")
+                                print(" ")
+                            }
+                            if players.count > 3 {
+                                print("NAME PLAYER 4 : \(viewModel.currentGame.players[3].name)")
+                                print("REMAINGSCORE PLAYER 4 : \(viewModel.currentGame.players[3].remainingScore)")
+                                print(" ")
+                            }
+                            print("CURRENT TURN : \(viewModel.currentGame.currentTurn)")
+                            print(" ")
+                            print("CURRENT PLAYER : \(players[viewModel.currentPlayerIndex].name)")
+                            print("CURRENT PLAYER INDEX : \(viewModel.currentPlayerIndex)")
+                            print(" ")
+                        }) {
+                            Image(systemName: "ladybug.circle")
+                                .accessibilityLabel("Undo")
+                                .font(.system(size: 25))
+                        }
                         
 // //////////////////////////////////////////////////////////////////////////////////////
                         
                         Spacer()
 
-                        Text("\(players[currentPlayerIndex].name)")
+                        Text("\(players[viewModel.currentPlayerIndex].name)")
                             .fontWeight(.bold)
 
                         Spacer()
@@ -110,7 +125,7 @@ struct GameViewV2: View {
 
                 ZStack {
 
-                    Color(currentPlayerIndex == 0 ? .yellow : .gray)
+                    Color(viewModel.currentPlayerIndex == 0 ? .yellow : .gray)
                     
                     VStack {
 
@@ -139,7 +154,7 @@ struct GameViewV2: View {
                             Text("\(viewModel.currentGame.players[0].remainingScore)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                         }
-                        .disabled(currentPlayerIndex != 0)
+                        .disabled(viewModel.currentPlayerIndex != 0)
                         
                         Spacer()
                         Divider()
@@ -151,7 +166,7 @@ struct GameViewV2: View {
 
                     ZStack {
                         
-                        Color(currentPlayerIndex == 1 ? .yellow : .gray)
+                        Color(viewModel.currentPlayerIndex == 1 ? .yellow : .gray)
 
                         VStack {
 
@@ -180,7 +195,7 @@ struct GameViewV2: View {
                                 Text("\(viewModel.currentGame.players[1].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 1)
+                            .disabled(viewModel.currentPlayerIndex != 1)
                             
                             Spacer()
                             Divider()
@@ -193,7 +208,7 @@ struct GameViewV2: View {
 
                     ZStack {
 
-                        Color(currentPlayerIndex == 2 ? .yellow : .gray)
+                        Color(viewModel.currentPlayerIndex == 2 ? .yellow : .gray)
 
                         VStack {
 
@@ -222,7 +237,7 @@ struct GameViewV2: View {
                                 Text("\(viewModel.currentGame.players[2].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 2)
+                            .disabled(viewModel.currentPlayerIndex != 2)
                             
                             Spacer()
                             Divider()
@@ -235,7 +250,7 @@ struct GameViewV2: View {
 
                     ZStack {
 
-                        Color(currentPlayerIndex == 3 ? .yellow : .gray)
+                        Color(viewModel.currentPlayerIndex == 3 ? .yellow : .gray)
 
                         VStack {
 
@@ -264,7 +279,7 @@ struct GameViewV2: View {
                                 Text("\(viewModel.currentGame.players[3].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
                             }
-                            .disabled(currentPlayerIndex != 3)
+                            .disabled(viewModel.currentPlayerIndex != 3)
                             
                             Spacer()
 
@@ -275,12 +290,11 @@ struct GameViewV2: View {
             .foregroundColor(.black)
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
-                EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $currentPlayerIndex)
+                EnterThrowScoreViewV2(viewModel: viewModel, currentPlayerIndex: $viewModel.currentPlayerIndex)
             }
             .onAppear {
                 print("------------------------------")
                 print("GAMEVIEW")
-                print("------------------------------")
                 viewModel.currentGame.players[0].remainingScore = viewModel.currentGame.gameType
                 if players.count > 1 {
                     viewModel.currentGame.players[1].remainingScore = viewModel.currentGame.gameType
@@ -314,14 +328,16 @@ struct GameViewV2: View {
                 break
             }
         }
+        print("----------------------------------------")
+        print("FONCTION CHECKSCORE")
     }
     
     private func undoLastScore() {
         print("----------------------------------------")
-        print("Function undoLastScore in GameViewV2")
+        print("FONCTION UNDOLASTSCORE (GAMEVIEW)")
 
         // Calcul de l'index du joueur précédent
-        var previousPlayerIndex = currentPlayerIndex - 1
+        var previousPlayerIndex = viewModel.currentPlayerIndex - 1
         if previousPlayerIndex < 0 {
             previousPlayerIndex = viewModel.currentGame.players.count - 1
         }
@@ -338,7 +354,7 @@ struct GameViewV2: View {
             viewModel.currentGame.players[previousPlayerIndex].remainingScore = viewModel.currentGame.gameType - totalScore
 
             // Ajuster l'index du joueur actuel
-            currentPlayerIndex = previousPlayerIndex
+            viewModel.currentPlayerIndex = previousPlayerIndex
 
             // Ajuster le tour, si nécessaire
             if viewModel.currentGame.currentTurn > 1 {
