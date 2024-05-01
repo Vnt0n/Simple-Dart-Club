@@ -10,6 +10,7 @@ import SwiftUI
 struct GameRecord {
     var gameNumber: Int
     var finalScores: [Player]
+    var winners: [Player]
 }
 
 struct Player {
@@ -105,10 +106,23 @@ class GameViewModel: ObservableObject {
     func endGame() {
         print("--------------------------------------------")
         print("FONCTION ENDGAME")
-        let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players)
+        let winners = currentGame.players.filter { $0.remainingScore == 0 }
+        let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
         gameHistory.append(record)
         resetForNextGame() // Cette fonction réinitialise le jeu pour le prochain tour
     }
+    
+    func countVictories() -> [String: Int] {
+            var victories = [String: Int]()
+
+            for record in gameHistory {
+                for winner in record.winners {
+                    victories[winner.name, default: 0] += 1
+                }
+            }
+            
+            return victories
+        }
 
     func resetForNextGame() {
         print("--------------------------------------------")

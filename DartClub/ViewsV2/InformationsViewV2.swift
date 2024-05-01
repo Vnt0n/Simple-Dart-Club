@@ -23,17 +23,32 @@ struct InformationsViewV2: View {
                     winningView
                     Divider()
                     currentGameView
-                    Divider()
-                    gameHistoryView
+                    
+                    if !viewModel.gameHistory.isEmpty {
+                        Divider()
+                        gameHistoryView
+                        Divider()
+                        victoriesView
+                    }
+                    
                 }
                 .padding()
             }
-            .navigationBarTitle("ScoreBoard", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
-//            .frame(maxWidth: .infinity)
             .background(Color(.white))
             .foregroundColor(.black)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("ScoreBoard")
+                        .font(.largeTitle.bold())
+                        .accessibilityAddTraits(.isHeader)
+                        .foregroundColor(.black)
+                        .padding(.top, 15)
+                        .padding(.bottom, 5)
+                }
+            }
         }
     }
     
@@ -71,6 +86,7 @@ struct InformationsViewV2: View {
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     .padding(.bottom, 25)
+                    .foregroundColor(.white)
                 }
             }
             
@@ -78,168 +94,189 @@ struct InformationsViewV2: View {
     }
     
     private var currentGameView: some View {
+        
         VStack(alignment: .center, spacing: 20) {
-            Text("CURRENT GAME")
-                .font(.title)
-                .fontWeight(.bold)
+                
+            Text("🎉 CURRENT GAME 🥇")
+                .font(.title2)
+                .padding(.top, 15)
             
             ForEach(viewModel.currentGame.players.indices, id: \.self) { playerIndex in
                 let player = viewModel.currentGame.players[playerIndex]
                 
-                VStack(alignment: .center, spacing: 10) {
-                    Text(player.name)
-                        .font(.title2)
-                        .fontWeight(.bold)
-
-                    ForEach(player.scores.indices, id: \.self) { turnIndex in
-                        let turnScores = player.scores[turnIndex]
-                        let turnSum = turnScores.reduce(0, +)
-                        let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
-                          
-                        VStack(alignment: .center) {
-                            Text("Turn \(turnIndex + 1)")
-                                .fontWeight(.semibold)
-                            HStack {
-                                Text("Throws")
-                                    .fontWeight(.bold)
-                                Text("\(turnScores.map(String.init).joined(separator: " | ")) = \(turnSum)")
-                            }
-                            Text("Remaining Score")
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.blue.opacity(0.2))
+                        .padding(.horizontal)
+                                            
+                        VStack(alignment: .center, spacing: 8) {
+                            
+                            Text(player.name)
+                                .font(.title3)
                                 .fontWeight(.bold)
-                            Text("\(totalRemainingScore)")
+                            
+                            Divider()
+                            
+                            if player.scores.isEmpty {
+                                 Text("No score yet")
+                                     .fontWeight(.semibold)
+                                     .padding()
+                            } else {
+                                
+                                ForEach(player.scores.indices, id: \.self) { turnIndex in
+                                    let turnScores = player.scores[turnIndex]
+                                    let turnSum = turnScores.reduce(0, +)
+                                    let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
+                                    
+                                    VStack(alignment: .center) {
+                                        Text("Turn \(turnIndex + 1)")
+                                            .fontWeight(.semibold)
+                                        HStack {
+                                            Text("Throws")
+                                                .fontWeight(.bold)
+                                            Text("\(turnScores.map(String.init).joined(separator: " | ")) = \(turnSum)")
+                                        }
+                                        Text("Remaining Score")
+                                            .fontWeight(.bold)
+                                        Text("\(totalRemainingScore)")
+                                    }
+                                    .padding()
+                                }
+                            }
                         }
                         .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(8)
-                        .shadow(radius: 2)
-                    }
-                    .frame(width: 300)
                 }
-                .padding()
-                .background(Color.blue.opacity(0.1))
-                .cornerRadius(10)
-                .shadow(radius: 5)
-
+            }
+        }
+        
+    }
+    
+    private var gameHistoryView: some View {
+        
+        VStack(alignment: .center, spacing: 20) {
+            
+        Text("🎉 HISTORY 🥇")
+            .font(.title2)
+            .padding(.top, 15)
+            
+            ForEach(viewModel.gameHistory, id: \.gameNumber) { record in
+                    
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color.green.opacity(0.2))
+                        .padding(.horizontal)
+                        
+                    VStack(alignment: .center) {
+                        
+                        Text("Game \(record.gameNumber)")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        if let winner = record.winners.first {
+                            Text("🎉 \(winner.name) won! 🥇")
+                                .fontWeight(.bold)
+                        } else {
+                            Text("No winner this game")
+                                .fontWeight(.bold)
+                        }
+                        
+                        Divider()
+                        
+                        ForEach(record.finalScores, id: \.name) { player in
+                            VStack(alignment: .center) {
+                                Text(player.name)
+                                    .fontWeight(.bold)
+                                ForEach(player.scores.indices, id: \.self) { index in
+                                    let turn = player.scores[index]
+                                    HStack {
+                                        Text("Turn \(index + 1) -")
+                                            .fontWeight(.bold)
+                                        Text("\(turn.map(String.init).joined(separator: " | "))")
+                                    }
+                                }
+                                .frame(width: 200)
+                            }
+                            .padding()
+                        }
+                    }
+                    .padding()
+                }
             }
         }
     }
     
-    private var gameHistoryView: some View {
+    private var victoriesView: some View {
+        
         VStack(alignment: .center, spacing: 20) {
-            Text("HISTORY")
-                .font(.title)
-                .fontWeight(.bold)
             
-            ForEach(viewModel.gameHistory, id: \.gameNumber) { record in
-                VStack(alignment: .center) {
-                    Text("Game \(record.gameNumber)")
-                        .font(.title2)
-                        .fontWeight(.bold)
+            ZStack {
+                
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color.yellow.opacity(0.2))
+                    .padding(.horizontal)
+
+                VStack {
                     
-                    ForEach(record.finalScores, id: \.name) { player in
-                        VStack(alignment: .center) {
-                            Text(player.name)
-                                .fontWeight(.bold)
-                            ForEach(player.scores.indices, id: \.self) { index in
-                                let turn = player.scores[index]
-                                HStack {
-                                    Text("Turn \(index + 1) -")
-                                        .fontWeight(.bold)
-                                    Text("\(turn.map(String.init).joined(separator: " | "))")
-                                }
+                    Text("🎉 VICTORIES 🥇")
+                        .font(.title2)
+                        .padding(.top, 15)
+
+                    VStack(alignment: .center, spacing: 8) {
+                        
+                        ForEach(Array(viewModel.countVictories().keys), id: \.self) { playerName in
+                            
+                            Divider()
+                            
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text(playerName)
+                                    .fontWeight(.bold)
+                                
+                                Spacer()
+                                Divider()
+                                Spacer()
+                                
+                                Text("\(viewModel.countVictories()[playerName, default: 0])")
+                                
+                                Spacer()
+                                
                             }
-                            .frame(width: 200)
+                            .padding(.horizontal)
                         }
-                        .padding()
                     }
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
-                    .shadow(radius: 2)
                     .padding()
-                    .frame(width: 300)
                 }
-                .padding()
-                .background(Color.blue.opacity(0.1))
-                .cornerRadius(10)
-                .shadow(radius: 5)
+                
             }
+            
+            Image(systemName: "info.bubble")
+                .resizable()
+                .frame(width: 24, height: 24)
+    //            .onTapGesture {
+    //                showCreditView = true
+    //            }
+                .padding(.bottom, 25)
+                .padding(.top, 25)
+    //            .sheet(isPresented: $showCreditViewV2) {
+    //                       CreditView()
+    //            }
+            
         }
 
     }
-}
 
+}
 
 
 // ///////////////////////////
 // PREVIEW //////////////////
 
-//struct InformationsViewV2_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            // Preview avec 1 joueur
-//            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 1))
-//                .previewDisplayName("1 Player")
-//                .previewLayout(.sizeThatFits)
-//
-//            // Preview avec 2 joueurs
-//            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 2))
-//                .previewDisplayName("2 Players")
-//                .previewLayout(.sizeThatFits)
-//
-//            // Preview avec 3 joueurs
-//            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 3))
-//                .previewDisplayName("3 Players")
-//                .previewLayout(.sizeThatFits)
-//
-//            // Preview avec 4 joueurs
-//            InformationsViewV2(viewModel: viewModelWithPlayersAndHistory(count: 4))
-//                .previewDisplayName("4 Players")
-//                .previewLayout(.sizeThatFits)
-//        }
-//    }
-//
-//    // Fonction aidante pour créer un GameViewModel avec un nombre donné de joueurs et un historique de parties
-//    static func viewModelWithPlayersAndHistory(count: Int) -> GameViewModel {
-//        let model = GameViewModel(gameType: 501)
-//        for _ in 0..<count {
-//            model.addPlayer()
-//        }
-//        let names = ["Alice", "Bob", "Charlie", "Diana"]
-//        let scores = [
-//            [[60, 20, 25], [50, 10, 10]],
-//            [[40, 15, 10], [60, 10, 5]],
-//            [[20, 30, 40], [10, 5, 5]],
-//            [[25, 25, 25], [30, 10, 5]]
-//        ]
-//
-//        // Ajout des scores et des configurations initiales des joueurs
-//        for i in 0..<count {
-//            model.currentGame.players[i].name = names[i]
-//            model.currentGame.players[i].scores = scores[i]
-//            let _ = scores[i].flatMap { $0 }.reduce(0, +)
-//            let remainingScoresPerTurn = scores[i].map { model.currentGame.gameType - $0.reduce(0, +) }
-//            model.currentGame.players[i].remainingScoresPerTurn = remainingScoresPerTurn
-//        }
-//
-//        // Simulation des historiques de jeux
-//        let historyScores = [[[30, 30, 30], [20, 20, 20]], [[60, 20, 15], [40, 30, 20]], [[45, 10, 20], [40, 10, 10]]]
-//        for gameNumber in 1...3 {
-//            var players = [Player]()
-//            for i in 0..<min(count, 3) {
-//                let player = Player(name: names[i], scores: historyScores[i], remainingScore: 501 - historyScores[i].flatMap { $0 }.reduce(0, +))
-//                players.append(player)
-//            }
-//            let gameRecord = GameRecord(gameNumber: gameNumber, finalScores: players)
-//            model.gameHistory.append(gameRecord)
-//        }
-//
-//        return model
-//    }
-//}
 
-import SwiftUI
-
-// Mock data pour simuler les joueurs et les historiques de parties
+// Extension fournissant des données de démonstration pour le type Player
 extension Player {
     static var demoPlayers: [Player] {
         [
@@ -249,29 +286,33 @@ extension Player {
     }
 }
 
+// Extension fournissant des données de démonstration pour le type GameRecord
 extension GameRecord {
     static var demoHistory: [GameRecord] {
         [
-            GameRecord(gameNumber: 1, finalScores: Player.demoPlayers),
-            GameRecord(gameNumber: 2, finalScores: Player.demoPlayers)
+            GameRecord(gameNumber: 1, finalScores: Player.demoPlayers, winners: [Player.demoPlayers[1]]), // Bob comme gagnant pour le jeu 1
+            GameRecord(gameNumber: 2, finalScores: Player.demoPlayers, winners: [Player.demoPlayers[0]])  // Alice comme gagnante pour le jeu 2
         ]
     }
 }
 
-// ViewModel initialisé avec des données mockées
+// ViewModel de démonstration initialisé avec des données mockées
 class MockGameViewModel: GameViewModel {
     override init(gameType: Int) {
-        super.init(gameType: 301) // Initialiser avec un score standard pour les jeux de fléchettes
+        super.init(gameType: 301) // Initialiser avec un score standard de 301 pour les jeux de fléchettes
         self.currentGame = Game(players: Player.demoPlayers, gameType: 301)
         self.gameHistory = GameRecord.demoHistory
     }
 }
 
-// Prévisualisation de la vue InformationsViewV2
+// Prévisualisation pour InformationsViewV2 utilisant MockGameViewModel
 struct InformationsViewV2_Previews: PreviewProvider {
     static var previews: some View {
-        InformationsViewV2(viewModel: MockGameViewModel(gameType: 301))
+        NavigationStack {
+            InformationsViewV2(viewModel: MockGameViewModel(gameType: 301))
+        }
     }
 }
+
 
 
