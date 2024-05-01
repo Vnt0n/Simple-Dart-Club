@@ -16,7 +16,8 @@ struct Player {
     var name: String = ""
     var scores: [[Int]] = []
     var remainingScore: Int
-    var remainingScoresPerTurn: [Int] = []  // Ajoutez cette ligne
+    var remainingScoresPerTurn: [Int] = []
+    var isBusted: Bool = false
 }
 
 struct Game {
@@ -66,11 +67,13 @@ class GameViewModel: ObservableObject {
             // Enregistrer le dernier remainingScore valide à la place du score négatif pour ce tour
             print("Bust! Score remains the same at \(lastValidRemainingScore), recording \(lastValidRemainingScore) for this turn.")
             player.remainingScoresPerTurn.append(lastValidRemainingScore)  // Ajouter le dernier valide à nouveau
+            player.isBusted = true
         } else {
             // Sinon, mettre à jour le remainingScore avec le nouveau calculé et ajouter à l'historique des scores valides
             player.remainingScore = newRemainingScore
             player.remainingScoresPerTurn.append(newRemainingScore)  // Enregistrer ce remainingScore comme valide
-        }
+            player.isBusted = false
+         }
 
         // Sauvegarder les modifications dans le tableau des joueurs
         currentGame.players[index] = player
@@ -93,6 +96,10 @@ class GameViewModel: ObservableObject {
         } else {
             return 0
         }
+    }
+    
+    func isPlayerBusted(playerIndex: Int) -> Bool {
+        return currentGame.players[playerIndex].remainingScore < 0
     }
 
     func endGame() {

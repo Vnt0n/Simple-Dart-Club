@@ -84,10 +84,10 @@ struct InformationsViewV2: View {
                                 }
                             }
                             
-                            if player.scores.isEmpty {
-                                Text("No scores recorded yet")
-                                    .italic()
-                            }
+//                            if player.scores.isEmpty {
+//                                Text("No scores recorded yet")
+//                                    .italic()
+//                            }
                         }
                         .padding()
                         .background(Color.blue.opacity(0.1))

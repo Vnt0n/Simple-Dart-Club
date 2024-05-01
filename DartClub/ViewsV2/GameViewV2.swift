@@ -12,7 +12,6 @@ struct GameViewV2: View {
     var selectedGame: Int?
     var players: [Player]
     
-//    @State private var viewModel.currentPlayerIndex: Int = 0
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
 
@@ -137,12 +136,12 @@ struct GameViewV2: View {
                             Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 0))")
                                 .font(
                                     .system(size: 14))
-//                         if isBustedPlayer1 {
-//                             Text("- BUST")
-//                                 .fontWeight(.bold)
-//                                 .foregroundColor(.red)
-//                                 .glowBorder(color: .black, lineWidth: 2)
-//                         }
+                            if viewModel.currentGame.players[0].isBusted {
+                                Text("- BUST")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.red)
+                                    .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                            }
                         }
 
                         Button(action: {
@@ -153,6 +152,8 @@ struct GameViewV2: View {
                         }) {
                             Text("\(viewModel.currentGame.players[0].remainingScore)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                .foregroundColor(viewModel.currentGame.players[0].isBusted ? .red : .black)
+                                .shadow(color: viewModel.currentGame.players[0].isBusted ? .black : .clear, radius: viewModel.currentGame.players[0].isBusted ? 2 : 0, x: 1, y: 1)
                         }
                         .disabled(viewModel.currentPlayerIndex != 0)
                         
@@ -178,12 +179,12 @@ struct GameViewV2: View {
                                 Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 1))")
                                     .font(
                                         .system(size: 14))
-//                         if isBustedPlayer1 {
-//                             Text("- BUST")
-//                                 .fontWeight(.bold)
-//                                 .foregroundColor(.red)
-//                                 .glowBorder(color: .black, lineWidth: 2)
-//                         }
+                                if viewModel.currentGame.players[1].isBusted {
+                                    Text("- BUST")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                }
                             }
 
                             Button(action: {
@@ -194,6 +195,8 @@ struct GameViewV2: View {
                             }) {
                                 Text("\(viewModel.currentGame.players[1].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                    .foregroundColor(viewModel.currentGame.players[1].isBusted ? .red : .black)
+                                    .shadow(color: viewModel.currentGame.players[1].isBusted ? .black : .clear, radius: viewModel.currentGame.players[1].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 1)
                             
@@ -220,12 +223,12 @@ struct GameViewV2: View {
                                 Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 2))")
                                     .font(
                                         .system(size: 14))
-//                             if isBustedPlayer1 {
-//                                 Text("- BUST")
-//                                     .fontWeight(.bold)
-//                                     .foregroundColor(.red)
-//                                     .glowBorder(color: .black, lineWidth: 2)
-//                             }
+                                if viewModel.currentGame.players[2].isBusted {
+                                    Text("- BUST")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                }
                             }
 
                             Button(action: {
@@ -236,6 +239,8 @@ struct GameViewV2: View {
                             }) {
                                 Text("\(viewModel.currentGame.players[2].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                    .foregroundColor(viewModel.currentGame.players[2].isBusted ? .red : .black)
+                                    .shadow(color: viewModel.currentGame.players[2].isBusted ? .black : .clear, radius: viewModel.currentGame.players[2].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 2)
                             
@@ -262,12 +267,12 @@ struct GameViewV2: View {
                                 Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 3))")
                                     .font(
                                         .system(size: 14))
-//                             if isBustedPlayer1 {
-//                                 Text("- BUST")
-//                                     .fontWeight(.bold)
-//                                     .foregroundColor(.red)
-//                                     .glowBorder(color: .black, lineWidth: 2)
-//                             }
+                                if viewModel.currentGame.players[3].isBusted {
+                                    Text("- BUST")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.red)
+                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                }
                             }
 
                             Button(action: {
@@ -278,6 +283,8 @@ struct GameViewV2: View {
                             }) {
                                 Text("\(viewModel.currentGame.players[3].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                    .foregroundColor(viewModel.currentGame.players[3].isBusted ? .red : .black)
+                                    .shadow(color: viewModel.currentGame.players[3].isBusted ? .black : .clear, radius: viewModel.currentGame.players[3].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 3)
                             
