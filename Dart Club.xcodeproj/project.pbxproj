@@ -18,6 +18,7 @@
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
 		71082C4F2BE3DC3E0088C1D8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */; };
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
+		718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71082C3A2BE3DA800088C1D8 /* FightThis.ttf */; };
 		71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */; };
 		71F6C3642BE3CD0300EE60EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3632BE3CD0300EE60EE /* ContentView.swift */; };
 		71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3652BE3CD0400EE60EE /* Assets.xcassets */; };
@@ -184,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71F6C3692BE3CD0400EE60EE /* Preview Assets.xcassets in Resources */,
+				718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */,
 				71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

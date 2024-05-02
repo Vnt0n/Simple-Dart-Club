@@ -133,6 +133,7 @@ struct FirstView: View {
                                 .font(.system(size: 18))
                         }
                         .padding()
+                        
                         Spacer()
                     }
                     .frame(width: 200)

@@ -114,22 +114,22 @@ struct InformationsView: View {
             
  /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
 
-                        Button(action: {
+        Button(action: {
 
-                            print("--------------------------------------------")
-                            print("--------------------------------------------")
-                            print("DEBUG")
-                            print("--------------------------------------------")
-                            print("--------------------------------------------")
-                            print(" ")
-                            print("GAMETYPE : \(viewModel.currentGame.players[0].remainingScoresPerTurn)")
-                            print(" ")
-                            
-                        }) {
-                            Image(systemName: "ladybug.circle")
-                                .accessibilityLabel("Undo")
-                                .font(.system(size: 25))
-                        }
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print(" ")
+            print("GAMETYPE : \(viewModel.currentGame.players[0].remainingScoresPerTurn)")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+        }
                         
  //////////////////////////////////////////////////////////////////////////////////////
                 
