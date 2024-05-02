@@ -14,6 +14,7 @@ struct FirstViewV2: View {
     @FocusState private var focusedPlayerIndex: Int?
     @State private var showSettingsView = false
     @State private var isToggledDoubleOut = false
+    @State private var isTyping = false
 
     var body: some View {
         
@@ -27,31 +28,39 @@ struct FirstViewV2: View {
                     
                     Spacer()
                     
-                    Text("Dart   ")
-                        .font(Font.custom("FightThis", size: 84))
-                        .shadow(color: Color.red, radius: 15)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                        .rotationEffect(Angle(degrees: 347))
-                        .frame(maxWidth: .infinity)
-                        .padding([.trailing], 40)
+                    if !isTyping {
+                        VStack {
+                            Text("Dart   ")
+                                .font(Font.custom("FightThis", size: 84))
+                                .shadow(color: Color.red, radius: 15)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
+                                .rotationEffect(Angle(degrees: 347))
+                                .frame(maxWidth: .infinity)
+                                .padding([.trailing], 40)
+                            
+                            Text("Club   ")
+                                .font(Font.custom("FightThis", size: 84))
+                                .shadow(color: Color.red, radius: 15)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
+                                .rotationEffect(Angle(degrees: 347))
+                                .frame(maxWidth: .infinity)
+                                .padding([.trailing], 40)
+                                .padding(.top, -80)
+                        }
+                        .transition(.opacity)
+                    }
                     
-                    Text("Club   ")
-                        .font(Font.custom("FightThis", size: 84))
-                        .shadow(color: Color.red, radius: 15)
-                        .foregroundColor(.red)
-                        .multilineTextAlignment(.center)
-                        .rotationEffect(Angle(degrees: 347))
-                        .frame(maxWidth: .infinity)
-                        .padding([.trailing], 40)
-                        .padding(.top, -80)
-                    
-                    Spacer()
-                        
                         ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
                             TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
                                 .TextFieldStyling()
                                 .focused($focusedPlayerIndex, equals: index)
+                                .onChange(of: focusedPlayerIndex) {
+                                    withAnimation {
+                                        isTyping = true
+                                    }
+                                }
                         }
                         .font(.title)
                         
@@ -82,11 +91,12 @@ struct FirstViewV2: View {
                             .disabled(!canStartGame)
                             .buttonStyle(.borderedProminent)
                             .controlSize(.large)
-                            //                        .padding(.bottom, 55)
+//                        .padding(.bottom, 55)
                             
                             Text("or")
                                 .font(.system(size: 20))
-                            //                            .padding(.bottom, 55)
+                            
+//                            .padding(.bottom, 55)
                             
                             Button("501") {
                                 viewModel.currentGame.gameType = 501
@@ -96,21 +106,22 @@ struct FirstViewV2: View {
                             .disabled(!canStartGame)
                             .buttonStyle(.borderedProminent)
                             .controlSize(.large)
-                            //                        .padding(.bottom, 55)
                             
-                            //                    Button(action: {
-                            //                        print("--------------------------------------------")
-                            //                        print("BUTTON SettingsView")
-                            //                        showSettingsView = true
-                            //                        }) {
-                            //                            Image(systemName: "gearshape")
-                            //                                .accessibilityLabel("Undo")
-                            //                                .font(.system(size: 20))
-                            //                        }
-                            //                        .sheet(isPresented: $showSettingsView) {
-                            //                            SettingsView()
-                            //                        }
-                            //                        .padding(.bottom, 55)
+//                        .padding(.bottom, 55)
+
+//                    Button(action: {
+//                        print("--------------------------------------------")
+//                        print("BUTTON SettingsView")
+//                        showSettingsView = true
+//                        }) {
+//                            Image(systemName: "gearshape")
+//                                .accessibilityLabel("Undo")
+//                                .font(.system(size: 20))
+//                        }
+//                        .sheet(isPresented: $showSettingsView) {
+//                            SettingsView()
+//                        }
+//                        .padding(.bottom, 55)
                         }
                     
                     HStack {
@@ -120,7 +131,7 @@ struct FirstViewV2: View {
                                 .font(.system(size: 18))
                         }
                         .padding()
-                        
+                        Spacer()
                     }
                     .frame(width: 200)
                     
@@ -146,6 +157,7 @@ struct FirstViewV2: View {
 
             }
         }
+    
         var canStartGame: Bool {
             !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
         }
