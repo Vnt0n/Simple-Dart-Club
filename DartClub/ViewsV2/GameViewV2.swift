@@ -14,6 +14,7 @@ struct GameViewV2: View {
     
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
+    @State private var showSettingsView = false
 
     @ObservedObject var viewModel: GameViewModel
 
@@ -31,6 +32,19 @@ struct GameViewV2: View {
 
                         Spacer()
 
+//                        Button(action: {
+//                            print("--------------------------------------------")
+//                            print("BUTTON SettingsView")
+//                            showSettingsView = true
+//                        }) {
+//                            Image(systemName: "gearshape")
+//                                .accessibilityLabel("Undo")
+//                                .font(.system(size: 25))
+//                        }
+//                        .sheet(isPresented: $showSettingsView) {
+//                            SettingsView()
+//                        }
+                        
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON InformationsViewV2")

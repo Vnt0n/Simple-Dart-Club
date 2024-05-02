@@ -15,6 +15,7 @@ struct InformationsViewV2: View {
     @State private var isGameStarted = false
     @State private var isDismissForbidden = false
     @State private var showCreditView = false
+    @State private var isToggled: Bool = false
 
     @Environment(\.dismiss) var dismiss
 

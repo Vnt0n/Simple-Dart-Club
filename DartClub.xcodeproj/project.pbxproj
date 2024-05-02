@@ -13,6 +13,7 @@
 		711B950D2BB1B93C008691F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 711B950C2BB1B93C008691F4 /* Assets.xcassets */; };
 		71476FCA2BB5C86A00F5D31D /* EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71476FC92BB5C86A00F5D31D /* EnterThrowScoreView.swift */; };
 		714C51522BB219E80036F6CF /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714C51512BB219E80036F6CF /* FirstView.swift */; };
+		7152BFF62BE3960700731934 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7152BFF52BE3960700731934 /* SettingsView.swift */; };
 		71561E2B2BB82AAA006A89DE /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71561E2A2BB82A68006A89DE /* FightThis.ttf */; };
 		7167595C2BBDFD0300AC7800 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7167595B2BBDFD0300AC7800 /* InformationsView.swift */; };
 		716CBB992BC051300086B7E6 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716CBB982BC051300086B7E6 /* CreditView.swift */; };
@@ -57,6 +58,7 @@
 		711B951F2BB1B93C008691F4 /* DartClubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DartClubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71476FC92BB5C86A00F5D31D /* EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		714C51512BB219E80036F6CF /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		7152BFF52BE3960700731934 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		71561E2A2BB82A68006A89DE /* FightThis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FightThis.ttf; sourceTree = "<group>"; };
 		71561E2C2BB834A9006A89DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7167595B2BBDFD0300AC7800 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				71E6D3532BDC417700311BBB /* InformationsViewV2.swift */,
 				71E6D3552BDC547800311BBB /* CreditViewV2.swift */,
 				7187F10E2BDD426000280F0B /* GameViewModel.swift */,
+				7152BFF52BE3960700731934 /* SettingsView.swift */,
 			);
 			path = ViewsV2;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				71C4685F2BB36E7200587175 /* GameView.swift in Sources */,
 				716CBB992BC051300086B7E6 /* CreditView.swift in Sources */,
 				71E6D3542BDC417700311BBB /* InformationsViewV2.swift in Sources */,
+				7152BFF62BE3960700731934 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
