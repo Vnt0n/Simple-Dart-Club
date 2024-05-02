@@ -29,7 +29,9 @@ struct FirstViewV2: View {
                     Spacer()
                     
                     if !isTyping {
+                        
                         VStack {
+                            
                             Text("Dart   ")
                                 .font(Font.custom("FightThis", size: 84))
                                 .shadow(color: Color.red, radius: 15)
@@ -48,22 +50,23 @@ struct FirstViewV2: View {
                                 .frame(maxWidth: .infinity)
                                 .padding([.trailing], 40)
                                 .padding(.top, -80)
+                            
                         }
                         .transition(.opacity)
+                        
                     }
                     
-                        ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
-                            TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
-                                .TextFieldStyling()
-                                .focused($focusedPlayerIndex, equals: index)
-                                .onChange(of: focusedPlayerIndex) {
-                                    withAnimation {
-                                        isTyping = true
-                                    }
+                    ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
+                        TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
+                            .TextFieldStyling()
+                            .focused($focusedPlayerIndex, equals: index)
+                            .onChange(of: focusedPlayerIndex) {
+                                withAnimation {
+                                    isTyping = true
                                 }
+                            }
                         }
                         .font(.title)
-                        
                         
                     Spacer()
                     
@@ -91,7 +94,6 @@ struct FirstViewV2: View {
                             .disabled(!canStartGame)
                             .buttonStyle(.borderedProminent)
                             .controlSize(.large)
-//                        .padding(.bottom, 55)
                             
                             Text("or")
                                 .font(.system(size: 20))
