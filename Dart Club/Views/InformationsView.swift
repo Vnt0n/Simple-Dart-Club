@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//import ConfettiSwiftUI
+import ConfettiSwiftUI
 
 struct InformationsView: View {
     
@@ -90,7 +90,7 @@ struct InformationsView: View {
                             }
                             isDismissForbidden = true
                         }
-//                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     
                     Button("New game") {
                         viewModel.endGame()

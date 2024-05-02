@@ -17,6 +17,7 @@
 		71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */; };
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
 		71082C4F2BE3DC3E0088C1D8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */; };
+		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
 		71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */; };
 		71F6C3642BE3CD0300EE60EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3632BE3CD0300EE60EE /* ContentView.swift */; };
 		71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3652BE3CD0400EE60EE /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +135,9 @@
 			dependencies = (
 			);
 			name = "Dart Club";
+			packageProductDependencies = (
+				718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */,
+			);
 			productName = "Dart Club";
 			productReference = 71F6C35E2BE3CD0300EE60EE /* Dart Club.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +166,9 @@
 				Base,
 			);
 			mainGroup = 71F6C3552BE3CD0300EE60EE;
+			packageReferences = (
+				718F2CFC2BE3E31E001C025F /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = 71F6C35F2BE3CD0300EE60EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -420,6 +428,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		718F2CFC2BE3E31E001C025F /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 718F2CFC2BE3E31E001C025F /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 71F6C3562BE3CD0300EE60EE /* Project object */;
 }
