@@ -110,6 +110,27 @@ struct InformationsViewV2: View {
     private var currentGameView: some View {
         
         VStack(alignment: .center, spacing: 20) {
+            
+ /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
+
+                        Button(action: {
+
+                            print("--------------------------------------------")
+                            print("--------------------------------------------")
+                            print("DEBUG")
+                            print("--------------------------------------------")
+                            print("--------------------------------------------")
+                            print(" ")
+                            print("GAMETYPE : \(viewModel.currentGame.players[0].remainingScoresPerTurn)")
+                            print(" ")
+                            
+                        }) {
+                            Image(systemName: "ladybug.circle")
+                                .accessibilityLabel("Undo")
+                                .font(.system(size: 25))
+                        }
+                        
+ //////////////////////////////////////////////////////////////////////////////////////
                 
             Text("CURRENT GAME")
                 .font(.title2)
@@ -166,9 +187,23 @@ struct InformationsViewV2: View {
 
                                         }
                                     HStack {
-                                        Text("Remaining Score: \(totalRemainingScore)")
-                                            .fontWeight(.semibold)
-                                            .font(.system(size: 14))
+                                        if turnIndex > 0 && player.remainingScoresPerTurn[turnIndex] == player.remainingScoresPerTurn[turnIndex - 1] {
+                                            Text("BUST")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(.red)
+                                            Text("-  Remaining Score: \(totalRemainingScore)  -")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                            Text("BUST")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(.red)
+                                        } else {
+                                            Text("Remaining Score: \(totalRemainingScore)")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                        }
                                     }
                                     
                                     Divider()
@@ -230,16 +265,17 @@ struct InformationsViewV2: View {
                                 
                                 Divider()
                                 
-                                ForEach(player.scores.indices, id: \.self) { index in
-                                    let turn = player.scores[index]
-                                    let turnScores = player.scores[index]
+                                ForEach(player.scores.indices, id: \.self) { turnIndex in
+                                    let turn = player.scores[turnIndex]
+                                    let turnScores = player.scores[turnIndex]
                                     let turnSum = turnScores.reduce(0, +)
+                                    let totalRemainingScore = player.remainingScoresPerTurn[turnIndex]
 
                                     HStack {
                                         
                                         Spacer()
                                         
-                                        Text("Turn \(index + 1)")
+                                        Text("Turn \(turnIndex + 1)")
                                             .fontWeight(.bold)
                                         
                                         Spacer()
@@ -258,7 +294,25 @@ struct InformationsViewV2: View {
                                         Spacer()
 
                                     }
-                                    
+                                    HStack {
+                                        if turnIndex > 0 && player.remainingScoresPerTurn[turnIndex] == player.remainingScoresPerTurn[turnIndex - 1] {
+                                            Text("BUST")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(.red)
+                                            Text("-  Remaining Score: \(totalRemainingScore)  -")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                            Text("BUST")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                                .foregroundColor(.red)
+                                        } else {
+                                            Text("Remaining Score: \(totalRemainingScore)")
+                                                .fontWeight(.semibold)
+                                                .font(.system(size: 14))
+                                        }
+                                    }
                                     Divider()
                                     
                                 }
