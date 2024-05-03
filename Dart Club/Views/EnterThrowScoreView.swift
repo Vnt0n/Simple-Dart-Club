@@ -71,14 +71,13 @@ struct ScoreInputRow: View {
 
     var body: some View {
         HStack {
-            
             Spacer()
             
             ToggleScoreButton(systemImageName: "2.square", isActivated: $isDouble, otherIsActivated: $isTriple, score: $score, factor: 2)
             ToggleScoreButton(systemImageName: "3.square", isActivated: $isTriple, otherIsActivated: $isDouble, score: $score, factor: 3)
 
-            TextField("\(index+1)st throw", value: $score, format: .number)
-                .font(.system(size: 23))
+            TextField("\(ordinal(for: index+1)) throw", value: $score, format: .number)
+                .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding()
                 .keyboardType(.decimalPad)
@@ -92,7 +91,17 @@ struct ScoreInputRow: View {
             
             Spacer()
             Spacer()
+        }
+    }
 
+    private func ordinal(for number: Int) -> String {
+        let suffix: [String] = ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"]
+        let ones = number % 10
+        let tens = (number % 100) / 10
+        if tens == 1 {
+            return "\(number)th"
+        } else {
+            return "\(number)\(suffix[ones])"
         }
     }
 }
@@ -145,7 +154,6 @@ struct ToggleScoreButton: View {
         }
     }
 }
-
 
 
 // ///////////////////////////
