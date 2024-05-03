@@ -114,22 +114,22 @@ struct InformationsView: View {
             
  /////////////////////// DEBUG BUTTON //////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print(" ")
-            print("GAMETYPE : \(viewModel.currentGame.players[0].remainingScoresPerTurn)")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print(" ")
+//            print("GAMETYPE : \(viewModel.currentGame.players[0].remainingScoresPerTurn)")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
                         
  //////////////////////////////////////////////////////////////////////////////////////
                 
@@ -231,7 +231,7 @@ struct InformationsView: View {
         
         VStack(alignment: .center, spacing: 20) {
             
-        Text("🎉 HISTORY 🥇")
+        Text("HISTORY")
             .font(.title2)
             .padding(.top, 15)
             

@@ -10,7 +10,7 @@ import SwiftUI
 struct EnterThrowScoreView: View {
     @ObservedObject var viewModel: GameViewModel
     @Binding var currentPlayerIndex: Int
-    @State private var throwScores = [Int?](repeating: nil, count: 3)
+    @State private var throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
     @State private var isDouble = [false, false, false]
     @State private var isTriple = [false, false, false]
 
@@ -33,7 +33,7 @@ struct EnterThrowScoreView: View {
                     .font(.system(size: 20, design: .default))
 
                 ForEach(0..<3) { index in
-                    ScoreInputRow(index: index, score: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
+                    ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
                 }
 
                 Button("OK          ") {
@@ -50,12 +50,22 @@ struct EnterThrowScoreView: View {
     }
 
     var allScoresEntered: Bool {
-        throwScores.allSatisfy { $0 != nil }
+        let allFilled = throwScores.allSatisfy { $0.score != nil }
+        let allValid = throwScores.allSatisfy { entry in
+            guard let score = entry.score else { return false }
+            return (0...20).contains(score) || score == 25 || isResultOfDoublingOrTripling(entry)
+        }
+        return allFilled && allValid
+    }
+
+    
+    private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
+        return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
     }
 
     func submitScores() {
-        if allScoresEntered, let first = throwScores[0], let second = throwScores[1], let third = throwScores[2] {
-            let scores = [first, second, third]
+        if allScoresEntered {
+            let scores = throwScores.compactMap { $0.score }
             viewModel.addScore(forPlayer: currentPlayerIndex, score: scores)
             currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
             dismiss()
@@ -63,27 +73,36 @@ struct EnterThrowScoreView: View {
     }
 }
 
+struct ScoreEntry {
+    var score: Int?
+    var isModified: Bool
+    var isDoubleButtonActivated: Bool = false
+    var isTripleButtonActivated: Bool = false
+}
+
 struct ScoreInputRow: View {
     let index: Int
-    @Binding var score: Int?
+    @Binding var scoreEntry: ScoreEntry
     @Binding var isDouble: Bool
     @Binding var isTriple: Bool
 
     var body: some View {
+        
         HStack {
+            
             Spacer()
             
-            ToggleScoreButton(systemImageName: "2.square", isActivated: $isDouble, otherIsActivated: $isTriple, score: $score, factor: 2)
-            ToggleScoreButton(systemImageName: "3.square", isActivated: $isTriple, otherIsActivated: $isDouble, score: $score, factor: 3)
+            ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
+            ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
 
-            TextField("\(ordinal(for: index+1)) throw", value: $score, format: .number)
+            TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding()
                 .keyboardType(.decimalPad)
                 .frame(width: 130)
-                .onChange(of: score) {
-                    if score == nil {
+                .onChange(of: scoreEntry.score) {
+                    if scoreEntry.score == nil {
                         isDouble = false
                         isTriple = false
                     }
@@ -91,6 +110,7 @@ struct ScoreInputRow: View {
             
             Spacer()
             Spacer()
+            
         }
     }
 
@@ -108,46 +128,86 @@ struct ScoreInputRow: View {
 
 struct ToggleScoreButton: View {
     let systemImageName: String
-    @Binding var isActivated: Bool
-    @Binding var otherIsActivated: Bool
-    @Binding var score: Int?
-    let factor: Int
+        let isDoubleButton: Bool
+        @Binding var isActivated: Bool
+        @Binding var otherIsActivated: Bool
+        @Binding var scoreEntry: ScoreEntry
+        let factor: Int
 
-    var body: some View {
-        Button(action: toggleState) {
-            Image(systemName: iconForButton())
-                .font(.system(size: 25))
+        var body: some View {
+            Button(action: toggleState) {
+                Image(systemName: iconForButton())
+                    .font(.system(size: 25))
+            }
+            .foregroundColor(colorForButton())
+            .disabled(shouldDisableButton() || otherIsActivated || scoreEntry.score == nil)
         }
-        .foregroundColor(colorForButton())
-        .disabled(shouldDisableButton() || otherIsActivated || score == nil)  // Disable if any condition applies
-    }
 
     private func toggleState() {
-        guard let currentScore = score, !(currentScore == 25 || currentScore == 50) else { return }
-        score = isActivated ? currentScore / factor : currentScore * factor
-        isActivated.toggle()
+        guard let currentScore = scoreEntry.score else { return }
+
+        // Si le bouton est actuellement activé, il sera désactivé et vice-versa.
+        // Mettre à jour le score selon l'état activé/désactivé du bouton.
         if isActivated {
-            otherIsActivated = false
+            // Si le bouton est actuellement activé, divisez le score pour "annuler" l'effet du doublement ou triplement.
+            scoreEntry.score = currentScore / factor
+            scoreEntry.isModified = false  // Marquer comme non modifié car on "annule" l'effet
+        } else {
+            // Si le bouton n'est pas activé, multipliez le score pour appliquer l'effet du doublement ou triplement.
+            scoreEntry.score = currentScore * factor
+            scoreEntry.isModified = true   // Marquer comme modifié car on applique l'effet
+        }
+
+        // Basculez l'état d'activation du bouton.
+        isActivated.toggle()
+
+        // Assurer que seulement un des boutons peut être activé à la fois.
+        if isActivated {
+            if isDoubleButton {
+                scoreEntry.isDoubleButtonActivated = true
+                scoreEntry.isTripleButtonActivated = false
+            } else {
+                scoreEntry.isTripleButtonActivated = true
+                scoreEntry.isDoubleButtonActivated = false
+            }
+        } else {
+            if isDoubleButton {
+                scoreEntry.isDoubleButtonActivated = false
+            } else {
+                scoreEntry.isTripleButtonActivated = false
+            }
         }
     }
 
     private func shouldDisableButton() -> Bool {
-        guard let score = score else { return true }
-        return score == 25 || score == 50 || !(score <= 50 || (score > 20 && score < 50))
+        guard let score = scoreEntry.score else { return true }
+
+        if scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated {
+            return false
+        }
+
+        if score == 25 && isDoubleButton {
+            // Activer le bouton double
+            return false
+        }
+        
+        if score < 0 || score > 20 {
+            return true
+        }
+
+        return false
     }
 
     private func iconForButton() -> String {
-        // Return the non-fill icon if the button is disabled
-        if shouldDisableButton() || otherIsActivated || score == nil {
-            return systemImageName
-        } else {
-            return isActivated ? "\(systemImageName).fill" : systemImageName
-        }
-    }
-
+          if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
+              return systemImageName
+          } else {
+              return isActivated ? "\(systemImageName).fill" : systemImageName
+          }
+      }
+    
     private func colorForButton() -> Color {
-        // Always gray when disabled, blue when active or activable
-        if shouldDisableButton() || otherIsActivated || score == nil {
+        if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
             return .gray
         } else {
             return .blue
