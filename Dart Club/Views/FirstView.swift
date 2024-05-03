@@ -58,8 +58,12 @@ struct FirstView: View {
                     
                     ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
                         TextField("Player \(index + 1)", text: $viewModel.currentGame.players[index].name)
-                            .TextFieldStyling()
-                            .focused($focusedPlayerIndex, equals: index)
+                            .padding(.horizontal, 50)
+                            .textFieldStyle(.roundedBorder)
+                            .frame(width: 350)
+                            .multilineTextAlignment(.center)
+                            .disableAutocorrection(true)
+                            .foregroundColor(.black)                            .focused($focusedPlayerIndex, equals: index)
                             .onChange(of: focusedPlayerIndex) {
                                 withAnimation {
                                     isTyping = true
