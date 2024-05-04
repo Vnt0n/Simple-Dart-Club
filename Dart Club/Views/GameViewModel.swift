@@ -22,7 +22,6 @@ struct Player {
     var lastThrowWasDouble: Bool = false // Ajout pour suivre si le dernier lancer était un double
 }
 
-
 struct Game {
     var players: [Player]
     var gameType: Int
@@ -115,13 +114,11 @@ class GameViewModel: ObservableObject {
             return false
         }
 
-    // Fonction pour gérer les cas de bust
     func handleBustForPlayer(_ player: inout Player, _ lastValidScore: Int) {
         print("Bust! Score remains the same at \(lastValidScore), recording \(lastValidScore) for this turn.")
         player.remainingScoresPerTurn.append(lastValidScore)  // Ajouter le dernier valide à nouveau
         player.isBusted = true
     }
-        
 
     func averageThrowScore(forPlayer index: Int) -> Int {
         let player = currentGame.players[index]
