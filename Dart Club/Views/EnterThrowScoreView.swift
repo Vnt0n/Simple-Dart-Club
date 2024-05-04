@@ -79,7 +79,6 @@ struct EnterThrowScoreView: View {
         }
         return allFilled && allValid
     }
-
     
     private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
         return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
@@ -128,6 +127,8 @@ struct ScoreInputRow: View {
                     if scoreEntry.score == nil {
                         isDouble = false
                         isTriple = false
+                        scoreEntry.isDoubleButtonActivated = false
+                        scoreEntry.isTripleButtonActivated = false
                     }
                 }
             
