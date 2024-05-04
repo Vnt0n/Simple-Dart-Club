@@ -51,15 +51,12 @@ struct InformationsView: View {
             }
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
-            .background(Color(.white))
-            .foregroundColor(.black)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("ScoreBoard")
                         .font(.largeTitle.bold())
                         .accessibilityAddTraits(.isHeader)
-                        .foregroundColor(.black)
                         .padding(.top, 15)
                         .padding(.bottom, 5)
                 }

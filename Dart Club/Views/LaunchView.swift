@@ -22,7 +22,6 @@ struct LaunchView: View {
           FirstView()
         }
     }
-    .preferredColorScheme(.light)
   }
 }
 

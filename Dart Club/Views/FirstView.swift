@@ -62,7 +62,7 @@ struct FirstView: View {
                             .frame(width: 350)
                             .multilineTextAlignment(.center)
                             .disableAutocorrection(true)
-                            .foregroundColor(.black)
+                            .foregroundColor(.primary)
                             .focused($focusedPlayerIndex, equals: index)
                             .onChange(of: focusedPlayerIndex) {
                                 withAnimation {
