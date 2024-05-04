@@ -152,6 +152,15 @@ struct ScoreInputRow: View {
                         scoreEntry.isTripleButtonActivated = false
                     }
                 }
+                .onTapGesture {
+                    if scoreEntry.score != nil {
+                        scoreEntry.score = nil
+                        isDouble = false
+                        isTriple = false
+                        scoreEntry.isDoubleButtonActivated = false
+                        scoreEntry.isTripleButtonActivated = false
+                    }
+                }
             
             Spacer()
             Spacer()
