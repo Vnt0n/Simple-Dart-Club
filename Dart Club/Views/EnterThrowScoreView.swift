@@ -119,6 +119,7 @@ struct ScoreInputRow: View {
     @Binding var scoreEntry: ScoreEntry
     @Binding var isDouble: Bool
     @Binding var isTriple: Bool
+    @FocusState private var textFieldFocus: Bool
 
     var body: some View {
         
@@ -127,15 +128,22 @@ struct ScoreInputRow: View {
             Spacer()
             
             ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
-
+                .onChange(of: isDouble) {
+                     textFieldFocus = false // Enlever le focus lorsque l'état du bouton double change
+                 }
+            
             ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
-
+                .onChange(of: isTriple) {
+                    textFieldFocus = false // Enlever le focus lorsque l'état du bouton triple change
+                }
+            
             TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding()
                 .keyboardType(.decimalPad)
                 .frame(width: 130)
+                .focused($textFieldFocus)
                 .onChange(of: scoreEntry.score) {
                     if scoreEntry.score == nil {
                         isDouble = false
