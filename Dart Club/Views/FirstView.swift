@@ -140,7 +140,7 @@ struct FirstView: View {
             print("DEBUG")
             print("--------------------------------------------")
             print("--------------------------------------------")
-            print(" ")
+            print("DOUBLE OUT: \(viewModel.currentGame.isDoubleOutRequired)")
             print(" ")
             print(" ")
             
@@ -156,7 +156,7 @@ struct FirstView: View {
                     
                     HStack {
 
-                        Toggle(isOn: $isToggledDoubleOut) {
+                        Toggle(isOn: $viewModel.currentGame.isDoubleOutRequired) {
                             Text("Double Out")
                                 .font(.system(size: 18))
                         }

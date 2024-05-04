@@ -59,7 +59,7 @@ struct EnterThrowScoreView: View {
             print("DEBUG")
             print("--------------------------------------------")
             print("--------------------------------------------")
-            print(" ")
+            print("DOUBLE OUT: \(viewModel.currentGame.isDoubleOutRequired)")
             print(" ")
             print(" ")
             
