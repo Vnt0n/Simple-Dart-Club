@@ -44,7 +44,29 @@ struct EnterThrowScoreView: View {
                 .padding()
                 .disabled(!allScoresEntered)
 
+//////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
+
+        Button(action: {
+
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print(" ")
+            print(" ")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+        }
+                    
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
                 Spacer()
+                
             }
         }
     }
@@ -93,6 +115,7 @@ struct ScoreInputRow: View {
             Spacer()
             
             ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
+
             ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
 
             TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
@@ -137,7 +160,7 @@ struct ToggleScoreButton: View {
         var body: some View {
             Button(action: toggleState) {
                 Image(systemName: iconForButton())
-                    .font(.system(size: 25))
+                    .font(.system(size: 35))
             }
             .foregroundColor(colorForButton())
             .disabled(shouldDisableButton() || otherIsActivated || scoreEntry.score == nil)
