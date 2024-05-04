@@ -45,9 +45,9 @@ struct CreditView: View {
                 Spacer()
 
                 
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit non lectus ut auctor. Aliquam cursus a enim quis vehicula. Mauris quis sem interdum, lobortis odio vitae, suscipit ipsum. Mauris volutpat augue pulvinar arcu aliquam sodales maximus vitae urna. Suspendisse congue aliquet risus tempor scelerisque.")
-                .lineSpacing(10)
-                .multilineTextAlignment(.center)
+                Link("github.com/Vnt0n", destination: URL(string: "https://github.com/Vnt0n")!)
+//                .lineSpacing(10)
+//                .multilineTextAlignment(.center)
                 
                 Spacer()
 
