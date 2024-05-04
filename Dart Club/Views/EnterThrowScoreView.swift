@@ -92,12 +92,15 @@ struct EnterThrowScoreView: View {
 
     func submitScores() {
         if allScoresEntered {
-            let scores = throwScores.compactMap { $0.score }
-            viewModel.addScore(forPlayer: currentPlayerIndex, score: scores)
+            // Créer un tableau de tuples pour chaque lancer avec son score et s'il était un double
+            let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
+            viewModel.addScore(forPlayer: currentPlayerIndex, throwDetails: throwDetails)
             currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
             dismiss()
         }
     }
+
+
 }
 
 struct ScoreEntry {

@@ -369,6 +369,7 @@ struct GameView: View {
         } else {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
+        viewModel.currentGame.players[previousPlayerIndex].isBusted = false
     }
 
 }

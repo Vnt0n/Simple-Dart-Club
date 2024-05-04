@@ -19,7 +19,9 @@ struct Player {
     var remainingScore: Int
     var remainingScoresPerTurn: [Int] = []
     var isBusted: Bool = false
+    var lastThrowWasDouble: Bool = false // Ajout pour suivre si le dernier lancer était un double
 }
+
 
 struct Game {
     var players: [Player]
@@ -51,42 +53,75 @@ class GameViewModel: ObservableObject {
         }
     }
         
-    func addScore(forPlayer index: Int, score: [Int]) {
-        guard score.count == 3 else {
-            return  // Assurer que chaque score contient trois lancers
-        }
-
+    func addScore(forPlayer index: Int, throwDetails: [(score: Int, isDouble: Bool)]) {
         var player = currentGame.players[index]
-        player.scores.append(score)  // Ajouter toujours le score à l'historique
+        let scores = throwDetails.map { $0.score }
+        player.scores.append(scores)  // Ajouter toujours le score à l'historique des lancers du joueur
 
-        // Calculer le score total pour ce tour à partir du dernier remainingScore valide
+        let scoreTotalForTurn = scores.reduce(0, +)
         let lastValidRemainingScore = player.remainingScoresPerTurn.last ?? currentGame.gameType
-        let scoreTotalForTurn = score.reduce(0, +)
         let newRemainingScore = lastValidRemainingScore - scoreTotalForTurn
 
         if newRemainingScore < 0 {
-            // Si le score est négatif, considérer cela comme un bust et ne pas mettre à jour le remainingScore
-            // Enregistrer le dernier remainingScore valide à la place du score négatif pour ce tour
-            print("Bust! Score remains the same at \(lastValidRemainingScore), recording \(lastValidRemainingScore) for this turn.")
-            player.remainingScoresPerTurn.append(lastValidRemainingScore)  // Ajouter le dernier valide à nouveau
-            player.isBusted = true
+            // Gérer le cas où le joueur dépasse le score requis (bust)
+            handleBustForPlayer(&player, lastValidRemainingScore)
+        } else if newRemainingScore == 0 {
+            // Gérer le cas où le joueur atteint exactement zéro
+            if currentGame.isToggledDoubleOut {
+                // Si Double Out est activé, vérifier que le dernier lancer était un double et qu'aucun point n'est marqué après
+                if checkDoubleOut(throwDetails: throwDetails, newRemainingScore: newRemainingScore) {
+                    player.remainingScore = 0
+                    player.remainingScoresPerTurn.append(0)
+                    player.isBusted = false
+                    player.lastThrowWasDouble = true
+                } else {
+                    handleBustForPlayer(&player, lastValidRemainingScore)
+                }
+            } else {
+                // Si Double Out n'est pas activé, le joueur gagne dès que son score atteint zéro
+                player.remainingScore = 0
+                player.remainingScoresPerTurn.append(0)
+                player.isBusted = false
+            }
         } else {
-            // Sinon, mettre à jour le remainingScore avec le nouveau calculé et ajouter à l'historique des scores valides
+            // Pour les scores positifs qui ne sont pas exactement zéro
             player.remainingScore = newRemainingScore
-            player.remainingScoresPerTurn.append(newRemainingScore)  // Enregistrer ce remainingScore comme valide
+            player.remainingScoresPerTurn.append(newRemainingScore)
             player.isBusted = false
-         }
-
-        // Sauvegarder les modifications dans le tableau des joueurs
-        currentGame.players[index] = player
-
-        // Gérer l'incrémentation des tours
-        currentGame.scoresThisTurn += 1
-        if currentGame.scoresThisTurn == currentGame.players.count {
-            currentGame.currentTurn += 1
-            currentGame.scoresThisTurn = 0
         }
+
+        currentGame.players[index] = player
+            
+            // Gérer l'incrémentation des tours
+            currentGame.scoresThisTurn += 1
+            if currentGame.scoresThisTurn == currentGame.players.count {
+                currentGame.currentTurn += 1
+                currentGame.scoresThisTurn = 0
+            }
     }
+    
+    func checkDoubleOut(throwDetails: [(score: Int, isDouble: Bool)], newRemainingScore: Int) -> Bool {
+            if newRemainingScore != 0 || !currentGame.isToggledDoubleOut {
+                return false
+            }
+            for (index, detail) in throwDetails.enumerated() {
+                if detail.isDouble {
+                    let subsequentScoresAreZero = throwDetails.dropFirst(index + 1).allSatisfy { $0.score == 0 }
+                    if subsequentScoresAreZero {
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+
+    // Fonction pour gérer les cas de bust
+    func handleBustForPlayer(_ player: inout Player, _ lastValidScore: Int) {
+        print("Bust! Score remains the same at \(lastValidScore), recording \(lastValidScore) for this turn.")
+        player.remainingScoresPerTurn.append(lastValidScore)  // Ajouter le dernier valide à nouveau
+        player.isBusted = true
+    }
+        
 
     func averageThrowScore(forPlayer index: Int) -> Int {
         let player = currentGame.players[index]
@@ -112,14 +147,18 @@ class GameViewModel: ObservableObject {
     }
 
     func endGame() {
-        print("--------------------------------------------")
-        print("FONCTION ENDGAME")
-        let winners = currentGame.players.filter { $0.remainingScore == 0 }
+        let winners = currentGame.players.filter {
+            if currentGame.isToggledDoubleOut {
+                return $0.remainingScore == 0 && $0.lastThrowWasDouble
+            } else {
+                return $0.remainingScore == 0
+            }
+        }
         let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
         gameHistory.append(record)
-        resetForNextGame() // Cette fonction réinitialise le jeu pour le prochain tour
+        resetForNextGame()
     }
-    
+
     func countVictories() -> [String: Int] {
             var victories = [String: Int]()
 
