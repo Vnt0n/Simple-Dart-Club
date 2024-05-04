@@ -15,7 +15,8 @@ struct GameView: View {
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
     @State private var showSettingsView = false
-
+    @State private var isUndoDisabled = true
+    
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
@@ -101,8 +102,8 @@ struct GameView: View {
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
-//                    .disabled(isUndoDisabled)
-//                    .foregroundColor(isUndoDisabled ? .gray : .white)
+                        .disabled(isUndoDisabled)
+                        .foregroundColor(isUndoDisabled ? .gray : .white)
 
                         Spacer()
 
@@ -138,7 +139,6 @@ struct GameView: View {
                             print("--------------------------------------------")
                             print("BUTTON enterThrowScore PLAYER 1")
                             enterThrowScore = true
-//                         isUndoDisabled = false
                         }) {
                             Text("\(viewModel.currentGame.players[0].remainingScore)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -181,7 +181,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 2")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[1].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -225,7 +224,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 3")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[2].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -269,7 +267,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 4")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[3].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -302,9 +299,11 @@ struct GameView: View {
                         }
                     }
                 }
+                updateUndoButtonState()
             }
             .onChange(of: viewModel.currentGame.players.map({ $0.remainingScore })) {
                 checkScores()
+                updateUndoButtonState()
             }
             .sheet(isPresented: $showInformationsView) {
                 InformationsView(viewModel: viewModel)
@@ -370,6 +369,13 @@ struct GameView: View {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
         viewModel.currentGame.players[previousPlayerIndex].isBusted = false
+    }
+    
+    private func updateUndoButtonState() {
+        // Cette fonction met à jour l'état du bouton undo en fonction de la possibilité d'annuler un score
+        let playerIndex = viewModel.currentPlayerIndex
+        let previousIndex = playerIndex == 0 ? viewModel.currentGame.players.count - 1 : playerIndex - 1
+        isUndoDisabled = viewModel.currentGame.players[previousIndex].scores.isEmpty
     }
 
 }
