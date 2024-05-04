@@ -223,6 +223,10 @@ struct ToggleScoreButton: View {
             return false
         }
         
+        if score == 0 {
+            return true
+        }
+        
         if score < 0 || score > 20 {
             return true
         }
