@@ -137,6 +137,11 @@ struct InformationsView: View {
                 .font(.title2)
                 .padding(.top, 15)
             
+            if viewModel.currentGame.isToggledDoubleOut {
+                Text("Double Out")
+                    .foregroundColor(.blue)
+            }
+            
             ForEach(viewModel.currentGame.players.indices, id: \.self) { playerIndex in
                 let player = viewModel.currentGame.players[playerIndex]
                 
@@ -437,6 +442,7 @@ class MockGameViewModel: GameViewModel {
         super.init(gameType: 301) // Initialiser avec un score standard de 301 pour les jeux de fléchettes
         self.currentGame = Game(players: Player.demoPlayers, gameType: 301)
         self.gameHistory = GameRecord.demoHistory
+        self.currentGame.isToggledDoubleOut = true
     }
 }
 

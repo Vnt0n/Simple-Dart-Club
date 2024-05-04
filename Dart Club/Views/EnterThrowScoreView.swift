@@ -50,6 +50,10 @@ struct EnterThrowScoreView: View {
                     }
                 }
 
+                if viewModel.currentGame.isToggledDoubleOut {
+                    Text("Double Out")
+                    .foregroundColor(.blue)                }
+                
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
         Button(action: {
@@ -67,6 +71,7 @@ struct EnterThrowScoreView: View {
             Image(systemName: "ladybug.circle")
                 .accessibilityLabel("Undo")
                 .font(.system(size: 25))
+                .padding()
         }
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,6 +275,8 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
         viewModel.currentGame.players[1].name = "Bob"
         viewModel.currentGame.players[2].name = "Charlie"
         viewModel.currentGame.players[3].name = "Dana"
+        
+        viewModel.currentGame.isToggledDoubleOut = true
 
         // Create a binding to simulate the currentPlayerIndex interaction
         return EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
