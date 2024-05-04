@@ -67,7 +67,7 @@ struct GameView: View {
             print("DEBUG")
             print("--------------------------------------------")
             print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isDoubleOutRequired)")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
             print(" ")
             print(" ")
             

@@ -13,7 +13,6 @@ struct FirstView: View {
     @StateObject var viewModel = GameViewModel(gameType: 0)
     @FocusState private var focusedPlayerIndex: Int?
     @State private var showSettingsView = false
-    @State private var isToggledDoubleOut = false
     @State private var isTyping = false
 
     var body: some View {
@@ -140,7 +139,7 @@ struct FirstView: View {
             print("DEBUG")
             print("--------------------------------------------")
             print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isDoubleOutRequired)")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
             print(" ")
             print(" ")
             
@@ -156,7 +155,7 @@ struct FirstView: View {
                     
                     HStack {
 
-                        Toggle(isOn: $isToggledDoubleOut) {
+                        Toggle(isOn: $viewModel.currentGame.isToggledDoubleOut) {
                             Text("Double Out")
                                 .font(.system(size: 18))
                         }
