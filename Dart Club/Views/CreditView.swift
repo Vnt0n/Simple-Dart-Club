@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CreditView: View {
+    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     var body: some View {
 
         ZStack {
@@ -53,11 +56,20 @@ struct CreditView: View {
                         .system(size: 10))
                 
                 Spacer()
-
+                
+                Toggle(isOn: $isDarkMode) {
+                    Text("Dark Mode")
+                        .font(.system(size: 18))
+                }
+                .padding()
+                .frame(maxWidth: 200)
+                
+                Spacer()
+                
             }
             .frame(maxWidth: 300)
         }
-        
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 

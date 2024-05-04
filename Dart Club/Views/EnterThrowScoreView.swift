@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct EnterThrowScoreView: View {
+    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     @ObservedObject var viewModel: GameViewModel
+    
     @Binding var currentPlayerIndex: Int
     @State private var throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
     @State private var isDouble = [false, false, false]
@@ -56,23 +60,23 @@ struct EnterThrowScoreView: View {
                 
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-                .padding()
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//                .padding()
+//        }
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
@@ -80,6 +84,8 @@ struct EnterThrowScoreView: View {
                 
             }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
+
     }
 
     var allScoresEntered: Bool {

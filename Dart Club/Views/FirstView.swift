@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FirstView: View {
 
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+
     @State private var navigateToGame = false
     @StateObject var viewModel = GameViewModel(gameType: 0)
     @FocusState private var focusedPlayerIndex: Int?
@@ -132,22 +134,22 @@ struct FirstView: View {
                             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             
@@ -186,6 +188,7 @@ struct FirstView: View {
                 print("STARTING APP")
 
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     
         var canStartGame: Bool {

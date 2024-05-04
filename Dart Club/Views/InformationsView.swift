@@ -10,6 +10,8 @@ import ConfettiSwiftUI
 
 struct InformationsView: View {
     
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     @ObservedObject var viewModel: GameViewModel
     @State private var counter = 0
     @State private var isGameStarted = false
@@ -52,6 +54,7 @@ struct InformationsView: View {
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
             .navigationBarTitleDisplayMode(.inline)
+            .foregroundColor(.primary)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("ScoreBoard")
@@ -59,9 +62,11 @@ struct InformationsView: View {
                         .accessibilityAddTraits(.isHeader)
                         .padding(.top, 15)
                         .padding(.bottom, 5)
+                        .foregroundColor(.primary)
                 }
             }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
     
     private var winningView: some View {
@@ -111,22 +116,22 @@ struct InformationsView: View {
             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
