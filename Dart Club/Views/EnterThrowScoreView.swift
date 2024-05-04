@@ -100,7 +100,6 @@ struct EnterThrowScoreView: View {
         }
     }
 
-
 }
 
 struct ScoreEntry {
