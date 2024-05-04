@@ -34,6 +34,7 @@ struct EnterThrowScoreView: View {
 
                 ForEach(0..<3) { index in
                     ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
+                        .focused($isFocused, equals: index == 0) // Appliquer le modificateur focused
                 }
 
                 Button("OK          ") {
@@ -43,6 +44,11 @@ struct EnterThrowScoreView: View {
                 .controlSize(.large)
                 .padding()
                 .disabled(!allScoresEntered)
+                .onAppear {
+                    DispatchQueue.main.async {
+                        self.isFocused = true // Définir le focus sur le premier champ à l'apparition de la vue
+                    }
+                }
 
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 

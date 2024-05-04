@@ -63,7 +63,8 @@ struct FirstView: View {
                             .frame(width: 350)
                             .multilineTextAlignment(.center)
                             .disableAutocorrection(true)
-                            .foregroundColor(.black)                            .focused($focusedPlayerIndex, equals: index)
+                            .foregroundColor(.black)
+                            .focused($focusedPlayerIndex, equals: index)
                             .onChange(of: focusedPlayerIndex) {
                                 withAnimation {
                                     isTyping = true
