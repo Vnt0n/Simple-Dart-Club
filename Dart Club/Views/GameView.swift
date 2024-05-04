@@ -9,13 +9,16 @@ import SwiftUI
 
 struct GameView: View {
     
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     var selectedGame: Int?
     var players: [Player]
     
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
     @State private var showSettingsView = false
-
+    @State private var isUndoDisabled = true
+    
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
@@ -60,22 +63,22 @@ struct GameView: View {
                         
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         
@@ -101,8 +104,8 @@ struct GameView: View {
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
-//                    .disabled(isUndoDisabled)
-//                    .foregroundColor(isUndoDisabled ? .gray : .white)
+                        .disabled(isUndoDisabled)
+                        .foregroundColor(isUndoDisabled ? .gray : .white)
 
                         Spacer()
 
@@ -138,7 +141,6 @@ struct GameView: View {
                             print("--------------------------------------------")
                             print("BUTTON enterThrowScore PLAYER 1")
                             enterThrowScore = true
-//                         isUndoDisabled = false
                         }) {
                             Text("\(viewModel.currentGame.players[0].remainingScore)")
                                 .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -181,7 +183,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 2")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[1].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -225,7 +226,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 3")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[2].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -269,7 +269,6 @@ struct GameView: View {
                                 print("--------------------------------------------")
                                 print("BUTTON enterThrowScore PLAYER 4")
                          enterThrowScore = true
-//                         isUndoDisabled = false
                             }) {
                                 Text("\(viewModel.currentGame.players[3].remainingScore)")
                                     .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
@@ -302,15 +301,18 @@ struct GameView: View {
                         }
                     }
                 }
+                updateUndoButtonState()
             }
             .onChange(of: viewModel.currentGame.players.map({ $0.remainingScore })) {
                 checkScores()
+                updateUndoButtonState()
             }
             .sheet(isPresented: $showInformationsView) {
                 InformationsView(viewModel: viewModel)
             }
         }
         .navigationBarBackButtonHidden(true)
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 
     
@@ -369,6 +371,14 @@ struct GameView: View {
         } else {
             print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
+        viewModel.currentGame.players[previousPlayerIndex].isBusted = false
+    }
+    
+    private func updateUndoButtonState() {
+        // Cette fonction met à jour l'état du bouton undo en fonction de la possibilité d'annuler un score
+        let playerIndex = viewModel.currentPlayerIndex
+        let previousIndex = playerIndex == 0 ? viewModel.currentGame.players.count - 1 : playerIndex - 1
+        isUndoDisabled = viewModel.currentGame.players[previousIndex].scores.isEmpty
     }
 
 }
@@ -378,39 +388,38 @@ struct GameView: View {
 // PREVIEW //////////////////
 
 struct GameViewV2_Previews: PreviewProvider {
-
-    // Helper function to create a GameViewModel with a specified number of players
     static func createViewModel(playerCount: Int) -> GameViewModel {
-        let viewModel = GameViewModel(gameType: 501) // Assuming a game type of 501
+        let viewModel = GameViewModel(gameType: 501)
         while viewModel.currentGame.players.count < playerCount {
             viewModel.addPlayer()
         }
         for i in 0..<viewModel.currentGame.players.count {
             viewModel.currentGame.players[i].name = "Player \(i + 1)"
             viewModel.currentGame.players[i].remainingScore = viewModel.currentGame.gameType
-            // Assign some sample scores if needed for realistic preview
             viewModel.currentGame.players[i].scores = [[20, 15, 16], [25, 18, 17]]
             viewModel.currentGame.players[i].remainingScoresPerTurn = [viewModel.currentGame.gameType - 51, viewModel.currentGame.gameType - 110]
         }
+        viewModel.currentGame.isToggledDoubleOut = true
         return viewModel
     }
 
     static var previews: some View {
         Group {
-            // Preview with 1 player
-            GameView(selectedGame: 501, players: createViewModel(playerCount: 1).currentGame.players, viewModel: createViewModel(playerCount: 1))
+            let onePlayerVM = createViewModel(playerCount: 1)
+            let twoPlayerVM = createViewModel(playerCount: 2)
+            let threePlayerVM = createViewModel(playerCount: 3)
+            let fourPlayerVM = createViewModel(playerCount: 4)
+            
+            GameView(selectedGame: 501, players: onePlayerVM.currentGame.players, viewModel: onePlayerVM)
                 .previewDisplayName("1 Player")
             
-            // Preview with 2 players
-            GameView(selectedGame: 501, players: createViewModel(playerCount: 2).currentGame.players, viewModel: createViewModel(playerCount: 2))
+            GameView(selectedGame: 501, players: twoPlayerVM.currentGame.players, viewModel: twoPlayerVM)
                 .previewDisplayName("2 Players")
             
-            // Preview with 3 players
-            GameView(selectedGame: 501, players: createViewModel(playerCount: 3).currentGame.players, viewModel: createViewModel(playerCount: 3))
+            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
                 .previewDisplayName("3 Players")
             
-            // Preview with 4 players
-            GameView(selectedGame: 501, players: createViewModel(playerCount: 4).currentGame.players, viewModel: createViewModel(playerCount: 4))
+            GameView(selectedGame: 501, players: fourPlayerVM.currentGame.players, viewModel: fourPlayerVM)
                 .previewDisplayName("4 Players")
         }
     }

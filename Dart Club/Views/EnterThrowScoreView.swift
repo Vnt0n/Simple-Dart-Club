@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct EnterThrowScoreView: View {
+    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     @ObservedObject var viewModel: GameViewModel
+    
     @Binding var currentPlayerIndex: Int
     @State private var throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
     @State private var isDouble = [false, false, false]
@@ -50,24 +54,29 @@ struct EnterThrowScoreView: View {
                     }
                 }
 
+                if viewModel.currentGame.isToggledDoubleOut {
+                    Text("Double Out")
+                    .foregroundColor(.blue)                }
+                
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//                .padding()
+//        }
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
@@ -75,6 +84,8 @@ struct EnterThrowScoreView: View {
                 
             }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
+
     }
 
     var allScoresEntered: Bool {
@@ -92,12 +103,14 @@ struct EnterThrowScoreView: View {
 
     func submitScores() {
         if allScoresEntered {
-            let scores = throwScores.compactMap { $0.score }
-            viewModel.addScore(forPlayer: currentPlayerIndex, score: scores)
+            // Créer un tableau de tuples pour chaque lancer avec son score et s'il était un double
+            let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
+            viewModel.addScore(forPlayer: currentPlayerIndex, throwDetails: throwDetails)
             currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
             dismiss()
         }
     }
+
 }
 
 struct ScoreEntry {
@@ -112,6 +125,7 @@ struct ScoreInputRow: View {
     @Binding var scoreEntry: ScoreEntry
     @Binding var isDouble: Bool
     @Binding var isTriple: Bool
+    @FocusState private var textFieldFocus: Bool
 
     var body: some View {
         
@@ -120,17 +134,33 @@ struct ScoreInputRow: View {
             Spacer()
             
             ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
-
+                .onChange(of: isDouble) {
+                     textFieldFocus = false // Enlever le focus lorsque l'état du bouton double change
+                 }
+            
             ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
-
+                .onChange(of: isTriple) {
+                    textFieldFocus = false // Enlever le focus lorsque l'état du bouton triple change
+                }
+            
             TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding()
                 .keyboardType(.decimalPad)
                 .frame(width: 130)
+                .focused($textFieldFocus)
                 .onChange(of: scoreEntry.score) {
                     if scoreEntry.score == nil {
+                        isDouble = false
+                        isTriple = false
+                        scoreEntry.isDoubleButtonActivated = false
+                        scoreEntry.isTripleButtonActivated = false
+                    }
+                }
+                .onTapGesture {
+                    if scoreEntry.score != nil {
+                        scoreEntry.score = nil
                         isDouble = false
                         isTriple = false
                         scoreEntry.isDoubleButtonActivated = false
@@ -221,6 +251,10 @@ struct ToggleScoreButton: View {
             return false
         }
         
+        if score == 0 {
+            return true
+        }
+        
         if score < 0 || score > 20 {
             return true
         }
@@ -264,6 +298,8 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
         viewModel.currentGame.players[1].name = "Bob"
         viewModel.currentGame.players[2].name = "Charlie"
         viewModel.currentGame.players[3].name = "Dana"
+        
+        viewModel.currentGame.isToggledDoubleOut = true
 
         // Create a binding to simulate the currentPlayerIndex interaction
         return EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))

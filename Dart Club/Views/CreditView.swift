@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CreditView: View {
+    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     var body: some View {
 
         ZStack {
@@ -42,9 +45,9 @@ struct CreditView: View {
                 Spacer()
 
                 
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit non lectus ut auctor. Aliquam cursus a enim quis vehicula. Mauris quis sem interdum, lobortis odio vitae, suscipit ipsum. Mauris volutpat augue pulvinar arcu aliquam sodales maximus vitae urna. Suspendisse congue aliquet risus tempor scelerisque.")
-                .lineSpacing(10)
-                .multilineTextAlignment(.center)
+                Link("github.com/Vnt0n", destination: URL(string: "https://github.com/Vnt0n")!)
+//                .lineSpacing(10)
+//                .multilineTextAlignment(.center)
                 
                 Spacer()
 
@@ -53,11 +56,20 @@ struct CreditView: View {
                         .system(size: 10))
                 
                 Spacer()
-
+                
+                Toggle(isOn: $isDarkMode) {
+                    Text("Dark Mode")
+                        .font(.system(size: 18))
+                }
+                .padding()
+                .frame(maxWidth: 200)
+                
+                Spacer()
+                
             }
             .frame(maxWidth: 300)
         }
-        
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 

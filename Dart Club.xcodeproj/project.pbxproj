@@ -20,7 +20,6 @@
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
 		718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71082C3A2BE3DA800088C1D8 /* FightThis.ttf */; };
 		71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */; };
-		71F6C3642BE3CD0300EE60EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3632BE3CD0300EE60EE /* ContentView.swift */; };
 		71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3652BE3CD0400EE60EE /* Assets.xcassets */; };
 		71F6C3692BE3CD0400EE60EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3682BE3CD0400EE60EE /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		71F6C35E2BE3CD0300EE60EE /* Dart Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dart Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dart_ClubApp.swift; sourceTree = "<group>"; };
-		71F6C3632BE3CD0300EE60EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71F6C3652BE3CD0400EE60EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71F6C3682BE3CD0400EE60EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71F6C3752BE3D14500EE60EE /* Dart-Club-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Dart-Club-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -105,7 +103,6 @@
 				71082C392BE3DA740088C1D8 /* Fonts */,
 				71F6C3752BE3D14500EE60EE /* Dart-Club-Info.plist */,
 				71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */,
-				71F6C3632BE3CD0300EE60EE /* ContentView.swift */,
 				71F6C3652BE3CD0400EE60EE /* Assets.xcassets */,
 				71F6C3672BE3CD0400EE60EE /* Preview Content */,
 			);
@@ -201,7 +198,6 @@
 				71082C492BE3DBD90088C1D8 /* EnterThrowScoreView.swift in Sources */,
 				71082C3F2BE3DB000088C1D8 /* GameViewModel.swift in Sources */,
 				71082C3D2BE3DAB90088C1D8 /* Styling.swift in Sources */,
-				71F6C3642BE3CD0300EE60EE /* ContentView.swift in Sources */,
 				71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */,
 				71082C452BE3DB8D0088C1D8 /* FirstView.swift in Sources */,
 				71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */,
@@ -358,7 +354,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "antoine-chosson.Dart-Club";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -395,7 +391,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "antoine-chosson.Dart-Club";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
