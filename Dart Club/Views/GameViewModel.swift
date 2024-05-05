@@ -61,7 +61,7 @@ class GameViewModel: ObservableObject {
         let lastValidRemainingScore = player.remainingScoresPerTurn.last ?? currentGame.gameType
         let newRemainingScore = lastValidRemainingScore - scoreTotalForTurn
 
-        if newRemainingScore < 0 {
+        if newRemainingScore < 0 || newRemainingScore == 1 && currentGame.isToggledDoubleOut {
             // Gérer le cas où le joueur dépasse le score requis (bust)
             handleBustForPlayer(&player, lastValidRemainingScore)
         } else if newRemainingScore == 0 {
