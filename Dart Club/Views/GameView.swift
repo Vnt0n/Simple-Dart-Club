@@ -35,6 +35,8 @@ struct GameView: View {
 
                         Spacer()
 
+//////////////////////////////////////////////////////////////////// SETTINGS /////////////////////////////////////////////////////////////////
+
 //                        Button(action: {
 //                            print("--------------------------------------------")
 //                            print("BUTTON SettingsView")
@@ -48,6 +50,8 @@ struct GameView: View {
 //                            SettingsView()
 //                        }
                         
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON InformationsViewV2")
@@ -61,7 +65,6 @@ struct GameView: View {
                         .sheet(isPresented: $showInformationsView) {
                             InformationsView(viewModel: viewModel)
                         }
-
                         
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
@@ -419,15 +422,23 @@ struct GameViewV2_Previews: PreviewProvider {
             
             GameView(selectedGame: 501, players: onePlayerVM.currentGame.players, viewModel: onePlayerVM)
                 .previewDisplayName("1 Player")
-            
+                .environment(\.locale, Locale(identifier: "en"))
+
             GameView(selectedGame: 501, players: twoPlayerVM.currentGame.players, viewModel: twoPlayerVM)
                 .previewDisplayName("2 Players")
-            
+                .environment(\.locale, Locale(identifier: "en"))
+
             GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
                 .previewDisplayName("3 Players")
-            
+                .environment(\.locale, Locale(identifier: "en"))
+
             GameView(selectedGame: 501, players: fourPlayerVM.currentGame.players, viewModel: fourPlayerVM)
                 .previewDisplayName("4 Players")
+                .environment(\.locale, Locale(identifier: "en"))
+
+            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
+                .previewDisplayName("Français")
+                .environment(\.locale, Locale(identifier: "fr"))
         }
     }
 }

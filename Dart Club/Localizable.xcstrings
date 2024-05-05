@@ -1,0 +1,520 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " " : {
+
+    },
+    "-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Une fléchette se compose d'une pointe métallique, d'un barillet et peut comprendre jusqu'à cinq parties telles que des ailettes et des protections."
+          }
+        }
+      }
+    },
+    "-     Darts must be thrown one at a time, deliberately and towards the target. Each round consists of three dart throws." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Les fléchettes doivent être lancées une par une, délibérément et vers la cible. Chaque tour se compose de trois lancers de fléchettes."
+          }
+        }
+      }
+    },
+    "-     Each leg starts without any special conditions for scoring (straight in), and ends by doubling, meaning the final throw must land in a double zone or the bullseye." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Chaque manche commence sans conditions particulières pour marquer des points (straight in) et se termine par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
+          }
+        }
+      }
+    },
+    "-     Having fun is mandatory, failure to comply will result in exclusion in the kitchen with a bowl on your head." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Il est obligatoire de s'amuser, sous peine d'être exclu dans la cuisine avec un bol sur la tête."
+          }
+        }
+      }
+    },
+    "-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score that does not allow for a double finish or a score higher than needed is an error that cancels the throw." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas."
+          }
+        }
+      }
+    },
+    "-     If a player exceeds the needed score, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+          }
+        }
+      }
+    },
+    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the bullseye." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche doit se terminer par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
+          }
+        }
+      }
+    },
+    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- UNIQUEMENT SI L'OPTION DOUBLE OUT EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+          }
+        }
+      }
+    },
+    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro et en réussissant un double."
+          }
+        }
+      }
+    },
+    "-     Points are subtracted from an initial total (301 or 501) until exactly zero is reached. Scores are recorded based on the section of the dartboard where the dart lands (single, double, or triple)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Les points sont soustraits du total initial (301 ou 501) jusqu'à ce que l'on atteigne exactement zéro. Les scores sont enregistrés en fonction de la section de la cible où la fléchette a atterri (simple, double ou triple)."
+          }
+        }
+      }
+    },
+    "-     Scoring errors must be corrected before the next player's throw." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
+          }
+        }
+      }
+    },
+    "-     The correct dartboard height is 5 feet 8 inches (173 cm) from the bullseye to the floor." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (bullseye) et le sol."
+          }
+        }
+      }
+    },
+    "-     The dartboard is divided into numbered segments with double and triple zones that allow for higher scoring." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Le jeu de fléchettes est divisé en segments numérotés avec des zones doubles et triples qui permettent d'obtenir des scores plus élevés."
+          }
+        }
+      }
+    },
+    "-     The distance from the throw line to the dartboard is 8 feet (237 cm)." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- La distance entre la ligne de lancer et la cible est de 237 cm."
+          }
+        }
+      }
+    },
+    "-     Touching or manipulating darts in the dartboard before completing the turn is prohibited." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Il est interdit de toucher ou de manipuler les fléchettes avant d'avoir terminé le tour."
+          }
+        }
+      }
+    },
+    "-    The center of the dartboard (Bullseye) counts for 50 points and is also considered a double 25." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Le centre de la cible (Bullseye) compte pour 50 points et est également considéré comme un double 25."
+          }
+        }
+      }
+    },
+    "-  Average Score: %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-  Moyenne des lancés %lld"
+          }
+        }
+      }
+    },
+    "-  Remaining Score: %lld  -" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Points restants : %lld  -"
+          }
+        }
+      }
+    },
+    "- BUST" : {
+
+    },
+    "- Turn %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Tour %lld"
+          }
+        }
+      }
+    },
+    "(%lld)" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ throw" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lancé %@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "🎉 %@ won! 🥇" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🎉 %@ a gagné! 🥇"
+          }
+        }
+      }
+    },
+    "🏆 VICTORIES 🏆" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🏆 VICTOIRES 🏆"
+          }
+        }
+      }
+    },
+    "🥇" : {
+
+    },
+    "🥊 BUST" : {
+
+    },
+    "1. Required Equipment:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Équipement requis :"
+          }
+        }
+      }
+    },
+    "2. How to Play:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Comment jouer :"
+          }
+        }
+      }
+    },
+    "3. Scoring:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Les scores"
+          }
+        }
+      }
+    },
+    "4. Additional Rules:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Règles additionelles :"
+          }
+        }
+      }
+    },
+    "301" : {
+
+    },
+    "501" : {
+
+    },
+    "Activer la fonctionnalité" : {
+
+    },
+    "Add a player" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter un joueur"
+          }
+        }
+      }
+    },
+    "An app provided by" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une app crée par"
+          }
+        }
+      }
+    },
+    "Average Throws Score %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moyenne des lancés %lld"
+          }
+        }
+      }
+    },
+    "Average Throws Score: %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moyenne des lancés: %lld"
+          }
+        }
+      }
+    },
+    "Beta V.3.0" : {
+
+    },
+    "Beta V3" : {
+
+    },
+    "BUST" : {
+
+    },
+    "Club   " : {
+
+    },
+    "CURRENT GAME" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JEU EN COURS"
+          }
+        }
+      }
+    },
+    "Dark Mode" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode sombre"
+          }
+        }
+      }
+    },
+    "Dart   " : {
+
+    },
+    "Dart Game Rules" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Règles des fléchettes"
+          }
+        }
+      }
+    },
+    "Double Out" : {
+
+    },
+    "Enter your score" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez votre score"
+          }
+        }
+      }
+    },
+    "Game %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partie %lld"
+          }
+        }
+      }
+    },
+    "github.com/Vnt0n" : {
+
+    },
+    "HISTORY" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HISTORIQUE"
+          }
+        }
+      }
+    },
+    "New game" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle partie"
+          }
+        }
+      }
+    },
+    "No score yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rien pour le moment"
+          }
+        }
+      }
+    },
+    "OK          " : {
+
+    },
+    "or" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ou"
+          }
+        }
+      }
+    },
+    "Player %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Joueur %lld"
+          }
+        }
+      }
+    },
+    "Remaining Score: %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Points restants %lld"
+          }
+        }
+      }
+    },
+    "ScoreBoard" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau des scores"
+          }
+        }
+      }
+    },
+    "These are exact official rules from the World Darts Federation (if Double Out enabled and 501 scoring)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce sont ici les règles exactes de la Fédération Internationale de fléchettes (si le Double Out est activé et le score 501)"
+          }
+        }
+      }
+    },
+    "Turn %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tour %lld"
+          }
+        }
+      }
+    },
+    "Undo" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        }
+      }
+    },
+    "You won!" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez gagné !"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

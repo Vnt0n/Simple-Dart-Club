@@ -134,6 +134,11 @@ struct CreditView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     CreditView()
+        .environment(\.locale, Locale(identifier: "en"))
+}
+#Preview("Français") {
+    CreditView()
+        .environment(\.locale, Locale(identifier: "fr"))
 }

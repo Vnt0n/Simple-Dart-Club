@@ -403,8 +403,6 @@ struct InformationsView: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-
-// Extension fournissant des données de démonstration pour le type Player
 extension Player {
     static var demoPlayers: [Player] {
         [
@@ -422,7 +420,6 @@ extension Player {
     }
 }
 
-// Extension fournissant des données de démonstration pour le type GameRecord
 extension GameRecord {
     static var demoHistory: [GameRecord] {
         [
@@ -438,7 +435,6 @@ extension GameRecord {
     }
 }
 
-// ViewModel de démonstration initialisé avec des données mockées
 class MockGameViewModel: GameViewModel {
     override init(gameType: Int) {
         super.init(gameType: 301) // Initialiser avec un score standard de 301 pour les jeux de fléchettes
@@ -448,11 +444,20 @@ class MockGameViewModel: GameViewModel {
     }
 }
 
-// Prévisualisation pour InformationsViewV2 utilisant MockGameViewModel
-struct InformationsView_Previews: PreviewProvider {
+struct InformationsViewEN_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             InformationsView(viewModel: MockGameViewModel(gameType: 301))
+                .environment(\.locale, Locale(identifier: "en"))
+        }
+    }
+}
+
+struct InformationsViewFR_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+                .environment(\.locale, Locale(identifier: "fr"))
         }
     }
 }

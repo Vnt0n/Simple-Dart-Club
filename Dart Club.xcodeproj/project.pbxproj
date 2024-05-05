@@ -17,6 +17,7 @@
 		71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */; };
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
 		71082C4F2BE3DC3E0088C1D8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */; };
+		717F57AD2BE7EC7B009A303E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */; };
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
 		718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71082C3A2BE3DA800088C1D8 /* FightThis.ttf */; };
 		71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */; };
@@ -36,6 +37,7 @@
 		71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		71082C4C2BE3DC140088C1D8 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		71F6C35E2BE3CD0300EE60EE /* Dart Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dart Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dart_ClubApp.swift; sourceTree = "<group>"; };
 		71F6C3652BE3CD0400EE60EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */,
 				71F6C3652BE3CD0400EE60EE /* Assets.xcassets */,
 				71F6C3672BE3CD0400EE60EE /* Preview Content */,
+				717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */,
 			);
 			path = "Dart Club";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 71F6C3552BE3CD0300EE60EE;
 			packageReferences = (
@@ -183,6 +187,7 @@
 			files = (
 				71F6C3692BE3CD0400EE60EE /* Preview Assets.xcassets in Resources */,
 				718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */,
+				717F57AD2BE7EC7B009A303E /* Localizable.xcstrings in Resources */,
 				71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -286,15 +286,15 @@ struct ToggleScoreButton: View {
 
 struct EnterThrowScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        let gameType = 180  // Define the game type
-        let viewModel = GameViewModel(gameType: gameType)  // Initialize the view model with the game type
+        let gameType = 180  // Définir le type de jeu
+        let viewModel = GameViewModel(gameType: gameType)  // Initialiser le viewModel avec le type de jeu
 
-        // Ensure we have exactly 4 players for the preview
+        // S'assurer qu'il y a exactement 4 joueurs pour la prévisualisation
         while viewModel.currentGame.players.count < 4 {
             viewModel.addPlayer()
         }
 
-        // Assign names to players for the preview
+        // Attribuer des noms aux joueurs pour la prévisualisation
         viewModel.currentGame.players[0].name = "Alice"
         viewModel.currentGame.players[1].name = "Bob"
         viewModel.currentGame.players[2].name = "Charlie"
@@ -302,7 +302,14 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
         
         viewModel.currentGame.isToggledDoubleOut = true
 
-        // Create a binding to simulate the currentPlayerIndex interaction
-        return EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
+        return Group {
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
+                .previewDisplayName("English")
+                .environment(\.locale, Locale(identifier: "en"))
+
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
+                .previewDisplayName("Français")
+                .environment(\.locale, Locale(identifier: "fr"))
+        }
     }
 }

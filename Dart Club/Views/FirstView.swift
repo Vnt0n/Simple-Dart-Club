@@ -116,6 +116,8 @@ struct FirstView: View {
                             .buttonStyle(.borderedProminent)
                             .controlSize(.large)
                             
+//////////////////////////////////////////////////////////////////// SETTINGSVIEW /////////////////////////////////////////////////////////////////
+                            
 //                        .padding(.bottom, 55)
 
 //                    Button(action: {
@@ -202,6 +204,12 @@ struct FirstView: View {
 // ///////////////////////////
 // PREVIEW //////////////////
 
-#Preview {
+#Preview("English") {
     FirstView()
+        .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview("Français") {
+    FirstView()
+        .environment(\.locale, Locale(identifier: "fr"))
 }
