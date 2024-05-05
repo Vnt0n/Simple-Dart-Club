@@ -88,6 +88,7 @@ struct FirstView: View {
                                 .font(.system(size: 20))
                                 .padding(.top, 20)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
                     Spacer()

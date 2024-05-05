@@ -199,6 +199,7 @@ struct ToggleScoreButton: View {
                 Image(systemName: iconForButton())
                     .font(.system(size: 35))
             }
+            .buttonStyle(PlainButtonStyle())
             .foregroundColor(colorForButton())
             .disabled(shouldDisableButton() || otherIsActivated || scoreEntry.score == nil)
         }

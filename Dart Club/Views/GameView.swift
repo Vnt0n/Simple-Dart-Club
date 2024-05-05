@@ -57,9 +57,11 @@ struct GameView: View {
                                 .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
+                        .buttonStyle(PlainButtonStyle())
                         .sheet(isPresented: $showInformationsView) {
                             InformationsView(viewModel: viewModel)
                         }
+
                         
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
@@ -106,6 +108,7 @@ struct GameView: View {
                         }
                         .disabled(isUndoDisabled)
                         .foregroundColor(isUndoDisabled ? .gray : .white)
+                        .buttonStyle(PlainButtonStyle())
 
                         Spacer()
 
@@ -148,7 +151,8 @@ struct GameView: View {
                                 .shadow(color: viewModel.currentGame.players[0].isBusted ? .black : .clear, radius: viewModel.currentGame.players[0].isBusted ? 2 : 0, x: 1, y: 1)
                         }
                         .disabled(viewModel.currentPlayerIndex != 0)
-                        
+                        .buttonStyle(PlainButtonStyle())
+
                         Spacer()
                         Divider()
                         
@@ -190,7 +194,8 @@ struct GameView: View {
                                     .shadow(color: viewModel.currentGame.players[1].isBusted ? .black : .clear, radius: viewModel.currentGame.players[1].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 1)
-                            
+                            .buttonStyle(PlainButtonStyle())
+
                             Spacer()
                             Divider()
 
@@ -233,7 +238,8 @@ struct GameView: View {
                                     .shadow(color: viewModel.currentGame.players[2].isBusted ? .black : .clear, radius: viewModel.currentGame.players[2].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 2)
-                            
+                            .buttonStyle(PlainButtonStyle())
+
                             Spacer()
                             Divider()
 
@@ -276,7 +282,8 @@ struct GameView: View {
                                     .shadow(color: viewModel.currentGame.players[3].isBusted ? .black : .clear, radius: viewModel.currentGame.players[3].isBusted ? 2 : 0, x: 1, y: 1)
                             }
                             .disabled(viewModel.currentPlayerIndex != 3)
-                            
+                            .buttonStyle(PlainButtonStyle())
+
                             Spacer()
 
                         }
