@@ -106,15 +106,16 @@ struct CreditView: View {
                         .weight(.bold))
                 Spacer()
                 Link("github.com/Vnt0n", destination: URL(string: "https://github.com/Vnt0n")!)
+                    .font(.system(size: 15))
+                    .bold()
                 
                 Spacer()
 
                 Text("Beta V.3.0")
                     .font(
-                        .system(size: 10))
-                
-                Spacer()
-                
+                        .system(size: 10)
+                    )
+                               
                 Toggle(isOn: $isDarkMode) {
                     Text("Dark Mode")
                         .font(.system(size: 18))
@@ -123,7 +124,9 @@ struct CreditView: View {
                 .frame(maxWidth: 200)
                 
                 Spacer()
-                
+                Spacer()
+                Spacer()
+
             }
             .frame(maxWidth: 300)
         }
