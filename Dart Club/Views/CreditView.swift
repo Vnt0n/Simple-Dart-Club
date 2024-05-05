@@ -52,7 +52,7 @@ struct CreditView: View {
                                     
                                     Text("-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors.")
                                     Text("-     The dartboard is divided into numbered segments with double and triple zones that allow for higher scoring.")
-                                    Text("-     The correct dart board height is 5 feet 8 inches (173 cm) from the bullseye to the floor.")
+                                    Text("-     The correct dartboard height is 5 feet 8 inches (173 cm) from the bullseye to the floor.")
                                     Text("-     The distance from the throw line to the dartboard is 8 feet (237 cm).")
                                 }
 
