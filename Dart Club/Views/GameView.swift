@@ -83,9 +83,9 @@ struct GameView: View {
             Image(systemName: "ladybug.circle")
                 .accessibilityLabel("Undo")
                 .font(.system(size: 25))
-                .buttonStyle(PlainButtonStyle())
         }
-                        
+        .buttonStyle(PlainButtonStyle())
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         
                         Spacer()
