@@ -9,13 +9,10 @@ import SwiftUI
 
 @main
 struct Dart_ClubApp: App {
-    
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
-    
+      
     var body: some Scene {
         WindowGroup {
             LaunchView()
-                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

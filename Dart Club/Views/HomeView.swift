@@ -38,7 +38,6 @@ struct HomeView: View {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .font(.system(size: 20, design: .default))
-                    .shadow(color: Color.red, radius: 15)
             }
         }
     }
