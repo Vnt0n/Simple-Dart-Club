@@ -43,7 +43,7 @@ struct FirstView: View {
     @StateObject var viewModel = GameViewModel(gameType: 0)
     @FocusState private var focusedPlayerIndex: Int?
     @State private var showSettingsView = false
-    @State private var isTyping = false
+    @State private var isDartClubVisible = true
 
     var body: some View {
         
@@ -113,50 +113,50 @@ struct FirstView: View {
                         
                         VStack {
                                 
-                                Spacer()
+                            Spacer()
                                 
-                                if !isTyping {
+                            if isDartClubVisible {
+
+                                dartClubText
                                     
-                                    dartClubText
-                                    
-                                }
+                            }
                                 
-                                playerFields
+                            playerFields
                                 
-                                Spacer()
+                            Spacer()
                                 
-                                if viewModel.currentGame.players.count < 4 {
-                                    Button(action: {
-                                        withAnimation {
-                                            viewModel.addPlayer()
-                                            focusedPlayerIndex = viewModel.currentGame.players.count - 1
-                                        }
-                                    }) {
-                                        Label("Add a player", systemImage: "person.fill.badge.plus")
-                                            .accessibilityLabel("Add a player")
-                                            .font(.system(size: 20))
-                                            .padding(.top, 20)
+                            if viewModel.currentGame.players.count < 4 {
+                                Button(action: {
+                                    withAnimation {
+                                        viewModel.addPlayer()
+                                        focusedPlayerIndex = viewModel.currentGame.players.count - 1
                                     }
-                                    .buttonStyle(PlainButtonStyle())
+                                }) {
+                                    Label("Add a player", systemImage: "person.fill.badge.plus")
+                                        .accessibilityLabel("Add a player")
+                                        .font(.system(size: 20))
+                                        .padding(.top, 20)
                                 }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                            
+                            Spacer()
+                            
+                            gameControls
+                            
+                            HStack {
+                                
+                                Toggle(isOn: $viewModel.currentGame.isToggledDoubleOut) {
+                                    Text("Double Out")
+                                        .font(.system(size: 18))
+                                }
+                                .padding()
                                 
                                 Spacer()
-                                
-                                gameControls
-                                
-                                HStack {
-                                    
-                                    Toggle(isOn: $viewModel.currentGame.isToggledDoubleOut) {
-                                        Text("Double Out")
-                                            .font(.system(size: 18))
-                                    }
-                                    .padding()
-                                    
-                                    Spacer()
-                                }
-                                .frame(width: 200)
-                                
-                                Spacer()
+                            }
+                            .frame(width: 200)
+                            
+                            Spacer()
                             
                         }
                     }
@@ -220,8 +220,14 @@ struct FirstView: View {
                 .foregroundColor(.primary)
                 .focused($focusedPlayerIndex, equals: index)
                 .onChange(of: focusedPlayerIndex) {
-                    withAnimation {
-                        isTyping = true
+                    if focusedPlayerIndex != nil {
+                        withAnimation(.easeInOut) {
+                            isDartClubVisible = false
+                        }
+                    } else {
+                        withAnimation(.easeInOut) {
+                            isDartClubVisible = true
+                        }
                     }
                 }
             }
