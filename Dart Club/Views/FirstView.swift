@@ -54,14 +54,14 @@ struct FirstView: View {
                 Color.black.ignoresSafeArea(.all)
 
                 VStack {
-                    
+
                     Spacer()
                     
                     if UIDevice.current.userInterfaceIdiom == .pad && orientationDetected.isLandscape || UIDevice.current.userInterfaceIdiom == .pad && UIDevice.current.orientation.isLandscape {
                         
                         HStack {
                                                         
-                                dartClubText
+                            dartClubText
                                 .frame(maxWidth: 650)
                             
                             VStack {
@@ -118,7 +118,7 @@ struct FirstView: View {
                             if isDartClubVisible {
 
                                 dartClubText
-                                    
+
                             }
                                 
                             playerFields
