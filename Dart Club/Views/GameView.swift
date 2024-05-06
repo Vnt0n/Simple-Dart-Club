@@ -68,22 +68,22 @@ struct GameView: View {
                         
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//        }
+        Button(action: {
+
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+            print(" ")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         
@@ -329,6 +329,8 @@ struct GameView: View {
     // FUNCTIONS ///////////////////
     
     private func checkScores() {
+        print("--------------------------------------------")
+        print("checkScores FUNCTION")
         for (_, player) in viewModel.currentGame.players.enumerated() {
             if player.remainingScore == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -337,55 +339,45 @@ struct GameView: View {
                 break
             }
         }
-        print("----------------------------------------")
-        print("FONCTION CHECKSCORE")
     }
     
     private func undoLastScore() {
-        print("----------------------------------------")
-        print("FONCTION UNDOLASTSCORE (GAMEVIEW)")
+        print("--------------------------------------------")
+        print("undoLastScore FUNCTION")
 
-        // Calcul de l'index du joueur précédent
         var previousPlayerIndex = viewModel.currentPlayerIndex - 1
         if previousPlayerIndex < 0 {
             previousPlayerIndex = viewModel.currentGame.players.count - 1
         }
 
-        // Vérification si le joueur a des scores à annuler
         if let _ = viewModel.currentGame.players[previousPlayerIndex].scores.popLast() {
             print("Undoing score for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
 
-            // Mettre à jour les remainingScoresPerTurn si utilisé
             if !viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.isEmpty {
                 viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.removeLast()
             }
 
-            // Utiliser le dernier remainingScoresPerTurn valide pour recalculer le remainingScore
             if let lastValidRemainingScore = viewModel.currentGame.players[previousPlayerIndex].remainingScoresPerTurn.last {
                 viewModel.currentGame.players[previousPlayerIndex].remainingScore = lastValidRemainingScore
             } else {
-                // Si aucun remainingScore valide n'est disponible, revenir à la valeur initiale du jeu
                 viewModel.currentGame.players[previousPlayerIndex].remainingScore = viewModel.currentGame.gameType
             }
 
-            // Ajuster l'index du joueur actuel
             viewModel.currentPlayerIndex = previousPlayerIndex
 
-            // Ajuster le tour, si nécessaire
             if viewModel.currentGame.currentTurn > 1 && viewModel.currentGame.scoresThisTurn == 0 {
                 viewModel.currentGame.currentTurn -= 1
                 viewModel.currentGame.scoresThisTurn = viewModel.currentGame.players.count - 1
             } else if viewModel.currentGame.scoresThisTurn > 0 {
                 viewModel.currentGame.scoresThisTurn -= 1
             }
-        } else {
-            print("No scores to undo for player \(viewModel.currentGame.players[previousPlayerIndex].name).")
         }
         viewModel.currentGame.players[previousPlayerIndex].isBusted = false
     }
     
     private func updateUndoButtonState() {
-        // Cette fonction met à jour l'état du bouton undo en fonction de la possibilité d'annuler un score
+        print("--------------------------------------------")
+        print("updateUndoButtonState FUNCTION")
         let playerIndex = viewModel.currentPlayerIndex
         let previousIndex = playerIndex == 0 ? viewModel.currentGame.players.count - 1 : playerIndex - 1
         isUndoDisabled = viewModel.currentGame.players[previousIndex].scores.isEmpty

@@ -94,6 +94,8 @@ struct FirstView: View {
                     Spacer()
                         HStack {
                             Button("301") {
+                                print("--------------------------------------------")
+                                print("BUTTON 301")
                                 viewModel.currentGame.gameType = 301
                                 viewModel.gameStarted = true
                                 navigateToGame = true
@@ -108,6 +110,8 @@ struct FirstView: View {
 //                            .padding(.bottom, 55)
                             
                             Button("501") {
+                                print("--------------------------------------------")
+                                print("BUTTON 501")
                                 viewModel.currentGame.gameType = 501
                                 viewModel.gameStarted = true
                                 navigateToGame = true
@@ -137,22 +141,22 @@ struct FirstView: View {
                             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//        }
+        Button(action: {
+
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+            print(" ")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             
@@ -185,11 +189,6 @@ struct FirstView: View {
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .navigationBarBackButtonHidden(true)
                 .interactiveDismissDisabled()
-            }
-            .onAppear {
-                print("------------------------------")
-                print("STARTING APP")
-
             }
             .preferredColorScheme(isDarkMode ? .dark : .light)
         }

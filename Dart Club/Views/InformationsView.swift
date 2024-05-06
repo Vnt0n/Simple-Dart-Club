@@ -116,22 +116,22 @@ struct InformationsView: View {
             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//        }
+        Button(action: {
+
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+            print(" ")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+        }
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 

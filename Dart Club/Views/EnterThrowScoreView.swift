@@ -38,7 +38,7 @@ struct EnterThrowScoreView: View {
 
                 ForEach(0..<3) { index in
                     ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
-                        .focused($isFocused, equals: index == 0) // Appliquer le modificateur focused
+                        .focused($isFocused, equals: index == 0)
                 }
 
                 Button("OK          ") {
@@ -50,33 +50,34 @@ struct EnterThrowScoreView: View {
                 .disabled(!allScoresEntered)
                 .onAppear {
                     DispatchQueue.main.async {
-                        self.isFocused = true // Définir le focus sur le premier champ à l'apparition de la vue
+                        self.isFocused = true
                     }
                 }
 
                 if viewModel.currentGame.isToggledDoubleOut {
                     Text("Double Out")
-                    .foregroundColor(.blue)                }
+                        .foregroundColor(.blue)
+                }
                 
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//                .padding()
-//        }
+        Button(action: {
+
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DEBUG")
+            print("--------------------------------------------")
+            print("--------------------------------------------")
+            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+            print(" ")
+            print(" ")
+            
+        }) {
+            Image(systemName: "ladybug.circle")
+                .accessibilityLabel("Undo")
+                .font(.system(size: 25))
+                .padding()
+        }
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
@@ -98,10 +99,14 @@ struct EnterThrowScoreView: View {
     }
     
     private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
+        print("--------------------------------------------")
+        print("isResultOfDoublingOrTripling FUNCTION")
         return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
     }
 
     func submitScores() {
+        print("--------------------------------------------")
+        print("submitScores FUNCTION")
         if allScoresEntered {
             // Créer un tableau de tuples pour chaque lancer avec son score et s'il était un double
             let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
@@ -135,12 +140,12 @@ struct ScoreInputRow: View {
             
             ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
                 .onChange(of: isDouble) {
-                     textFieldFocus = false // Enlever le focus lorsque l'état du bouton double change
+                     textFieldFocus = false
                  }
             
             ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
                 .onChange(of: isTriple) {
-                    textFieldFocus = false // Enlever le focus lorsque l'état du bouton triple change
+                    textFieldFocus = false
                 }
             
             TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
@@ -205,24 +210,21 @@ struct ToggleScoreButton: View {
         }
 
     private func toggleState() {
+        print("--------------------------------------------")
+        print("toggleState FUNCTION")
         guard let currentScore = scoreEntry.score else { return }
 
-        // Si le bouton est actuellement activé, il sera désactivé et vice-versa.
-        // Mettre à jour le score selon l'état activé/désactivé du bouton.
+        
         if isActivated {
-            // Si le bouton est actuellement activé, divisez le score pour "annuler" l'effet du doublement ou triplement.
             scoreEntry.score = currentScore / factor
-            scoreEntry.isModified = false  // Marquer comme non modifié car on "annule" l'effet
+            scoreEntry.isModified = false
         } else {
-            // Si le bouton n'est pas activé, multipliez le score pour appliquer l'effet du doublement ou triplement.
             scoreEntry.score = currentScore * factor
-            scoreEntry.isModified = true   // Marquer comme modifié car on applique l'effet
+            scoreEntry.isModified = true
         }
 
-        // Basculez l'état d'activation du bouton.
         isActivated.toggle()
 
-        // Assurer que seulement un des boutons peut être activé à la fois.
         if isActivated {
             if isDoubleButton {
                 scoreEntry.isDoubleButtonActivated = true
@@ -241,6 +243,8 @@ struct ToggleScoreButton: View {
     }
 
     private func shouldDisableButton() -> Bool {
+        print("--------------------------------------------")
+        print("shouldDisableButton FUNCTION")
         guard let score = scoreEntry.score else { return true }
 
         if scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated {
@@ -264,6 +268,8 @@ struct ToggleScoreButton: View {
     }
 
     private func iconForButton() -> String {
+        print("--------------------------------------------")
+        print("iconForButton FUNCTION")
           if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
               return systemImageName
           } else {
@@ -272,6 +278,8 @@ struct ToggleScoreButton: View {
       }
     
     private func colorForButton() -> Color {
+        print("--------------------------------------------")
+        print("colorForButton FUNCTION")
         if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
             return .gray
         } else {
@@ -286,15 +294,13 @@ struct ToggleScoreButton: View {
 
 struct EnterThrowScoreView_Previews: PreviewProvider {
     static var previews: some View {
-        let gameType = 180  // Définir le type de jeu
-        let viewModel = GameViewModel(gameType: gameType)  // Initialiser le viewModel avec le type de jeu
+        let gameType = 180
+        let viewModel = GameViewModel(gameType: gameType)
 
-        // S'assurer qu'il y a exactement 4 joueurs pour la prévisualisation
         while viewModel.currentGame.players.count < 4 {
             viewModel.addPlayer()
         }
 
-        // Attribuer des noms aux joueurs pour la prévisualisation
         viewModel.currentGame.players[0].name = "Alice"
         viewModel.currentGame.players[1].name = "Bob"
         viewModel.currentGame.players[2].name = "Charlie"
