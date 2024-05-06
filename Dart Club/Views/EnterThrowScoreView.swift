@@ -149,7 +149,7 @@ struct ScoreInputRow: View {
                     textFieldFocus = false
                 }
             
-            TextField("\(ordinal(for: index+1)) throw", value: $scoreEntry.score, format: .number)
+            TextField("\(Locale.current.language.languageCode?.identifier == "en" ? ordinal(for: index+1) : "\(index+1)") throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
                 .padding()
