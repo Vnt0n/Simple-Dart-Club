@@ -77,6 +77,7 @@ struct EnterThrowScoreView: View {
                 .accessibilityLabel("Undo")
                 .font(.system(size: 25))
                 .padding()
+                .buttonStyle(PlainButtonStyle())
         }
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
