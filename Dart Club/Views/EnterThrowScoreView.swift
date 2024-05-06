@@ -253,15 +253,10 @@ struct ToggleScoreButton: View {
         }
 
         if score == 25 && isDoubleButton {
-            // Activer le bouton double
             return false
         }
         
-        if score == 0 {
-            return true
-        }
-        
-        if score < 0 || score > 20 {
+        if score <= 0 || score > 20 {
             return true
         }
 
