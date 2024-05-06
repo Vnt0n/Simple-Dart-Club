@@ -52,39 +52,43 @@ struct GameView: View {
                         
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                        Button(action: {
-                            print("--------------------------------------------")
-                            print("BUTTON InformationsViewV2")
-                            showInformationsView = true
-                        }) {
-                            Image(systemName: "info.circle")
-                                .accessibilityLabel("Undo")
-                                .font(.system(size: 25))
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        .sheet(isPresented: $showInformationsView) {
-                            InformationsView(viewModel: viewModel)
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            
+                            Button(action: {
+                                print("--------------------------------------------")
+                                print("BUTTON InformationsViewV2")
+                                showInformationsView = true
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .accessibilityLabel("Undo")
+                                    .font(.system(size: 25))
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .sheet(isPresented: $showInformationsView) {
+                                InformationsView(viewModel: viewModel)
+                            }
+                            
                         }
                         
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
-        .buttonStyle(PlainButtonStyle())
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
+//        .buttonStyle(PlainButtonStyle())
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         
@@ -122,174 +126,184 @@ struct GameView: View {
                 .foregroundColor(.white)
                 .frame(height: 55)
 
-                ZStack {
-
-                    Color(viewModel.currentPlayerIndex == 0 ? .yellow : .gray)
+                HStack {
+                    
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        InformationsView(viewModel: viewModel)
+                            .frame(width: 400)
+                    }
                     
                     VStack {
-
-                        Spacer()
-
-                        HStack {
-                            Text("\(players[0].name)")
-                                .fontWeight(.bold)
-                            Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 0))")
-                                .font(
-                                    .system(size: 14))
-                            if viewModel.currentGame.players[0].isBusted {
-                                Text("🥊 BUST")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.red)
-                                    .shadow(color: .black, radius: 0, x: 1, y: 1)
+                        ZStack {
+                            
+                            Color(viewModel.currentPlayerIndex == 0 ? .yellow : .gray)
+                            
+                            VStack {
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    Text("\(players[0].name)")
+                                        .fontWeight(.bold)
+                                    Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 0))")
+                                        .font(
+                                            .system(size: 14))
+                                    if viewModel.currentGame.players[0].isBusted {
+                                        Text("🥊 BUST")
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.red)
+                                            .shadow(color: .black, radius: 0, x: 1, y: 1)
+                                    }
+                                }
+                                
+                                Button(action: {
+                                    print("--------------------------------------------")
+                                    print("BUTTON enterThrowScore PLAYER 1")
+                                    enterThrowScore = true
+                                }) {
+                                    Text("\(viewModel.currentGame.players[0].remainingScore)")
+                                        .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                        .foregroundColor(viewModel.currentGame.players[0].isBusted ? .red : .black)
+                                        .shadow(color: viewModel.currentGame.players[0].isBusted ? .black : .clear, radius: viewModel.currentGame.players[0].isBusted ? 2 : 0, x: 1, y: 1)
+                                }
+                                .disabled(viewModel.currentPlayerIndex != 0)
+                                .buttonStyle(PlainButtonStyle())
+                                
+                                Spacer()
+                                Divider()
+                                
                             }
                         }
-
-                        Button(action: {
-                            print("--------------------------------------------")
-                            print("BUTTON enterThrowScore PLAYER 1")
-                            enterThrowScore = true
-                        }) {
-                            Text("\(viewModel.currentGame.players[0].remainingScore)")
-                                .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
-                                .foregroundColor(viewModel.currentGame.players[0].isBusted ? .red : .black)
-                                .shadow(color: viewModel.currentGame.players[0].isBusted ? .black : .clear, radius: viewModel.currentGame.players[0].isBusted ? 2 : 0, x: 1, y: 1)
-                        }
-                        .disabled(viewModel.currentPlayerIndex != 0)
-                        .buttonStyle(PlainButtonStyle())
-
-                        Spacer()
-                        Divider()
                         
-                    }
-                }
-                
-                if players.count > 1 {
-
-                    ZStack {
+                        if players.count > 1 {
+                            
+                            ZStack {
+                                
+                                Color(viewModel.currentPlayerIndex == 1 ? .yellow : .gray)
+                                
+                                VStack {
+                                    
+                                    Spacer()
+                                    
+                                    HStack {
+                                        Text("\(players[1].name)")
+                                            .fontWeight(.bold)
+                                        Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 1))")
+                                            .font(
+                                                .system(size: 14))
+                                        if viewModel.currentGame.players[1].isBusted {
+                                            Text("- BUST")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.red)
+                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                        }
+                                    }
+                                    
+                                    Button(action: {
+                                        print("--------------------------------------------")
+                                        print("BUTTON enterThrowScore PLAYER 2")
+                                        enterThrowScore = true
+                                    }) {
+                                        Text("\(viewModel.currentGame.players[1].remainingScore)")
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .foregroundColor(viewModel.currentGame.players[1].isBusted ? .red : .black)
+                                            .shadow(color: viewModel.currentGame.players[1].isBusted ? .black : .clear, radius: viewModel.currentGame.players[1].isBusted ? 2 : 0, x: 1, y: 1)
+                                    }
+                                    .disabled(viewModel.currentPlayerIndex != 1)
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
+                                }
+                            }
+                        }
                         
-                        Color(viewModel.currentPlayerIndex == 1 ? .yellow : .gray)
-
-                        VStack {
-
-                            Spacer()
-
-                            HStack {
-                                Text("\(players[1].name)")
-                                    .fontWeight(.bold)
-                                Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 1))")
-                                    .font(
-                                        .system(size: 14))
-                                if viewModel.currentGame.players[1].isBusted {
-                                    Text("- BUST")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.red)
-                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                        if players.count > 2 {
+                            
+                            ZStack {
+                                
+                                Color(viewModel.currentPlayerIndex == 2 ? .yellow : .gray)
+                                
+                                VStack {
+                                    
+                                    Spacer()
+                                    
+                                    HStack {
+                                        Text("\(players[2].name)")
+                                            .fontWeight(.bold)
+                                        Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 2))")
+                                            .font(
+                                                .system(size: 14))
+                                        if viewModel.currentGame.players[2].isBusted {
+                                            Text("- BUST")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.red)
+                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                        }
+                                    }
+                                    
+                                    Button(action: {
+                                        print("--------------------------------------------")
+                                        print("BUTTON enterThrowScore PLAYER 3")
+                                        enterThrowScore = true
+                                    }) {
+                                        Text("\(viewModel.currentGame.players[2].remainingScore)")
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .foregroundColor(viewModel.currentGame.players[2].isBusted ? .red : .black)
+                                            .shadow(color: viewModel.currentGame.players[2].isBusted ? .black : .clear, radius: viewModel.currentGame.players[2].isBusted ? 2 : 0, x: 1, y: 1)
+                                    }
+                                    .disabled(viewModel.currentPlayerIndex != 2)
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    Spacer()
+                                    Divider()
+                                    
                                 }
                             }
-
-                            Button(action: {
-                                print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 2")
-                         enterThrowScore = true
-                            }) {
-                                Text("\(viewModel.currentGame.players[1].remainingScore)")
-                                    .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
-                                    .foregroundColor(viewModel.currentGame.players[1].isBusted ? .red : .black)
-                                    .shadow(color: viewModel.currentGame.players[1].isBusted ? .black : .clear, radius: viewModel.currentGame.players[1].isBusted ? 2 : 0, x: 1, y: 1)
-                            }
-                            .disabled(viewModel.currentPlayerIndex != 1)
-                            .buttonStyle(PlainButtonStyle())
-
-                            Spacer()
-                            Divider()
-
                         }
-                    }
-                }
-
-                if players.count > 2 {
-
-                    ZStack {
-
-                        Color(viewModel.currentPlayerIndex == 2 ? .yellow : .gray)
-
-                        VStack {
-
-                            Spacer()
-
-                            HStack {
-                                Text("\(players[2].name)")
-                                    .fontWeight(.bold)
-                                Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 2))")
-                                    .font(
-                                        .system(size: 14))
-                                if viewModel.currentGame.players[2].isBusted {
-                                    Text("- BUST")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.red)
-                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                        
+                        if players.count > 3 {
+                            
+                            ZStack {
+                                
+                                Color(viewModel.currentPlayerIndex == 3 ? .yellow : .gray)
+                                
+                                VStack {
+                                    
+                                    Spacer()
+                                    
+                                    HStack {
+                                        Text("\(players[3].name)")
+                                            .fontWeight(.bold)
+                                        Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 3))")
+                                            .font(
+                                                .system(size: 14))
+                                        if viewModel.currentGame.players[3].isBusted {
+                                            Text("- BUST")
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.red)
+                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                        }
+                                    }
+                                    
+                                    Button(action: {
+                                        print("--------------------------------------------")
+                                        print("BUTTON enterThrowScore PLAYER 4")
+                                        enterThrowScore = true
+                                    }) {
+                                        Text("\(viewModel.currentGame.players[3].remainingScore)")
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .foregroundColor(viewModel.currentGame.players[3].isBusted ? .red : .black)
+                                            .shadow(color: viewModel.currentGame.players[3].isBusted ? .black : .clear, radius: viewModel.currentGame.players[3].isBusted ? 2 : 0, x: 1, y: 1)
+                                    }
+                                    .disabled(viewModel.currentPlayerIndex != 3)
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    Spacer()
+                                    
                                 }
                             }
-
-                            Button(action: {
-                                print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 3")
-                         enterThrowScore = true
-                            }) {
-                                Text("\(viewModel.currentGame.players[2].remainingScore)")
-                                    .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
-                                    .foregroundColor(viewModel.currentGame.players[2].isBusted ? .red : .black)
-                                    .shadow(color: viewModel.currentGame.players[2].isBusted ? .black : .clear, radius: viewModel.currentGame.players[2].isBusted ? 2 : 0, x: 1, y: 1)
-                            }
-                            .disabled(viewModel.currentPlayerIndex != 2)
-                            .buttonStyle(PlainButtonStyle())
-
-                            Spacer()
-                            Divider()
-
-                        }
-                    }
-                }
-
-                if players.count > 3 {
-
-                    ZStack {
-
-                        Color(viewModel.currentPlayerIndex == 3 ? .yellow : .gray)
-
-                        VStack {
-
-                            Spacer()
-
-                            HStack {
-                                Text("\(players[3].name)")
-                                    .fontWeight(.bold)
-                                Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 3))")
-                                    .font(
-                                        .system(size: 14))
-                                if viewModel.currentGame.players[3].isBusted {
-                                    Text("- BUST")
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.red)
-                                        .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
-                                }
-                            }
-
-                            Button(action: {
-                                print("--------------------------------------------")
-                                print("BUTTON enterThrowScore PLAYER 4")
-                         enterThrowScore = true
-                            }) {
-                                Text("\(viewModel.currentGame.players[3].remainingScore)")
-                                    .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
-                                    .foregroundColor(viewModel.currentGame.players[3].isBusted ? .red : .black)
-                                    .shadow(color: viewModel.currentGame.players[3].isBusted ? .black : .clear, radius: viewModel.currentGame.players[3].isBusted ? 2 : 0, x: 1, y: 1)
-                            }
-                            .disabled(viewModel.currentPlayerIndex != 3)
-                            .buttonStyle(PlainButtonStyle())
-
-                            Spacer()
-
                         }
                     }
                 }
@@ -323,7 +337,7 @@ struct GameView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .preferredColorScheme(.dark)
     }
 
     

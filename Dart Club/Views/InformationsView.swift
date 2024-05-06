@@ -50,6 +50,7 @@ struct InformationsView: View {
                     
                 }
                 .padding()
+                .frame(maxWidth: 700)
             }
             .navigationBarBackButtonHidden(true)
             .interactiveDismissDisabled(isDismissForbidden)
@@ -66,7 +67,7 @@ struct InformationsView: View {
                 }
             }
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .preferredColorScheme(.dark)
     }
     
     private var winningView: some View {
@@ -116,23 +117,23 @@ struct InformationsView: View {
             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
-        .buttonStyle(PlainButtonStyle())
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
+//        .buttonStyle(PlainButtonStyle())
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 

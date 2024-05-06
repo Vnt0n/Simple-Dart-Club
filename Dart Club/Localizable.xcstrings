@@ -354,6 +354,7 @@
       }
     },
     "Dark Mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {

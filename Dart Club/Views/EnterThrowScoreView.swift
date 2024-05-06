@@ -40,6 +40,8 @@ struct EnterThrowScoreView: View {
                     ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
                         .focused($isFocused, equals: index == 0)
                 }
+                .padding(UIDevice.current.userInterfaceIdiom == .pad ? 10 : 0)
+                .offset(x: UIDevice.current.userInterfaceIdiom == .pad ? 80 : 0)
 
                 Button("OK          ") {
                     submitScores()
@@ -61,24 +63,24 @@ struct EnterThrowScoreView: View {
                 
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-                .padding()
-        }
-        .buttonStyle(PlainButtonStyle())
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//                .padding()
+//        }
+//        .buttonStyle(PlainButtonStyle())
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
@@ -86,7 +88,7 @@ struct EnterThrowScoreView: View {
                 
             }
         }
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+        .preferredColorScheme(.dark)
 
     }
 

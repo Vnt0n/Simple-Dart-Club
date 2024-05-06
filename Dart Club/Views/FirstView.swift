@@ -7,7 +7,31 @@
 
 import SwiftUI
 
+class DeviceOrientationManager: ObservableObject {
+    static let shared = DeviceOrientationManager()
+    @Published var isLandscape: Bool = false
+
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+        
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+    }
+
+    @objc func orientationChanged() {
+        DispatchQueue.main.async {
+            self.isLandscape = UIDevice.current.orientation.isLandscape
+        }
+    }
+}
+
 struct FirstView: View {
+    
+    @ObservedObject private var orientationDetected = DeviceOrientationManager.shared
 
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
 
@@ -29,12 +53,13 @@ struct FirstView: View {
                     
                     Spacer()
                     
-                    if !isTyping {
+                    if !isTyping || UIDevice.current.userInterfaceIdiom == .pad && !orientationDetected.isLandscape && !UIDevice.current.orientation.isLandscape {
                         
                         VStack {
                             
                             Text("Dart   ")
-                                .font(Font.custom("FightThis", size: 84))
+                                .font(Font
+                                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
                                 .shadow(color: Color.red, radius: 15)
                                 .foregroundColor(.red)
                                 .multilineTextAlignment(.center)
@@ -43,7 +68,8 @@ struct FirstView: View {
                                 .padding([.trailing], 40)
                             
                             Text("Club   ")
-                                .font(Font.custom("FightThis", size: 84))
+                                .font(Font
+                                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
                                 .shadow(color: Color.red, radius: 15)
                                 .foregroundColor(.red)
                                 .multilineTextAlignment(.center)
@@ -141,23 +167,23 @@ struct FirstView: View {
                             
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
-        Button(action: {
-
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DEBUG")
-            print("--------------------------------------------")
-            print("--------------------------------------------")
-            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-            print(" ")
-            print(" ")
-            
-        }) {
-            Image(systemName: "ladybug.circle")
-                .accessibilityLabel("Undo")
-                .font(.system(size: 25))
-        }
-        .buttonStyle(PlainButtonStyle())
+//        Button(action: {
+//
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DEBUG")
+//            print("--------------------------------------------")
+//            print("--------------------------------------------")
+//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
+//            print(" ")
+//            print(" ")
+//            
+//        }) {
+//            Image(systemName: "ladybug.circle")
+//                .accessibilityLabel("Undo")
+//                .font(.system(size: 25))
+//        }
+//        .buttonStyle(PlainButtonStyle())
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             
@@ -191,7 +217,7 @@ struct FirstView: View {
                 .navigationBarBackButtonHidden(true)
                 .interactiveDismissDisabled()
             }
-            .preferredColorScheme(isDarkMode ? .dark : .light)
+        .preferredColorScheme(.dark)
         }
     
         var canStartGame: Bool {
