@@ -36,10 +36,12 @@ struct CreditView: View {
                     .padding([.trailing], 40)
                 
                 Spacer()
-                
+
                 ScrollView {
                             VStack(alignment: .leading, spacing: 10) {
                                 
+                                Divider()
+
                                 Text("Dart Game Rules")
                                     .font(.title2)
                                     .frame(maxWidth: .infinity, alignment: .center)
@@ -49,6 +51,7 @@ struct CreditView: View {
                                 Group {
                                     Text("1. Required Equipment:")
                                         .font(.headline)
+                                        .padding()
                                     
                                     Text("-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors.")
                                     Text("-     The dartboard is divided into numbered segments with double and triple zones that allow for higher scoring.")
@@ -59,9 +62,10 @@ struct CreditView: View {
                                 Group {
                                     Text("2. How to Play:")
                                         .font(.headline)
-                                    
+                                        .padding()
+
                                     Text("-     Darts must be thrown one at a time, deliberately and towards the target. Each round consists of three dart throws.")
-                                    Text("-     Each leg starts without any special conditions for scoring (straight in), and ends by doubling, meaning the final throw must land in a double zone or the bullseye.")
+                                    Text("-     Each leg starts without any special conditions for scoring (straight in).")
                                     Text("-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the bullseye.")
                                     Text("-    The center of the dartboard (Bullseye) counts for 50 points and is also considered a double 25.")
                                 }
@@ -69,7 +73,8 @@ struct CreditView: View {
                                 Group {
                                     Text("3. Scoring:")
                                         .font(.headline)
-                                    
+                                        .padding()
+
                                     Text("-     Points are subtracted from an initial total (301 or 501) until exactly zero is reached. Scores are recorded based on the section of the dartboard where the dart lands (single, double, or triple).")
                                     Text("-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double.")
                                     Text("-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score that does not allow for a double finish or a score higher than needed is an error that cancels the throw.")
@@ -80,14 +85,15 @@ struct CreditView: View {
                                 Group {
                                     Text("4. Additional Rules:")
                                         .font(.headline)
-                                    
+                                        .padding()
+
                                     Text("-     Touching or manipulating darts in the dartboard before completing the turn is prohibited.")
                                     Text("-     Scoring errors must be corrected before the next player's throw.")
                                     Text("-     Having fun is mandatory, failure to comply will result in exclusion in the kitchen with a bowl on your head.")
                                 }
                                 
                                 Group {
-                                    Text("These are exact official rules from the World Darts Federation (if Double Out enabled and 501 scoring)")
+                                    Text("These are exact official rules from the World Darts Federation (if 501 and Double Out enabled)")
                                         .italic()
                                         .multilineTextAlignment(.center)
                                         .font(.system(size: 15))
@@ -98,7 +104,7 @@ struct CreditView: View {
                         }
                 
                 Spacer()
-
+                Divider()
                 
                 Text("An app provided by")
                     .font(
@@ -121,14 +127,15 @@ struct CreditView: View {
                         .font(.system(size: 18))
                 }
                 .padding()
-                .frame(maxWidth: 200)
+                .frame(maxWidth: 210)
                 
                 Spacer()
                 Spacer()
                 Spacer()
 
             }
-            .frame(maxWidth: 300)
+            .frame(maxWidth: 560)
+            .padding()
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }

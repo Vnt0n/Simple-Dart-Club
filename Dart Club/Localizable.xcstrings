@@ -9,7 +9,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Une fléchette se compose d'une pointe métallique, d'un barillet et peut comprendre jusqu'à cinq parties telles que des ailettes et des protections."
+            "value" : "-     Une fléchette se compose d'une pointe métallique, d'un barillet et peut comprendre jusqu'à cinq parties telles que des ailettes et des protections."
           }
         }
       }
@@ -19,17 +19,17 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Les fléchettes doivent être lancées une par une, délibérément et vers la cible. Chaque tour se compose de trois lancers de fléchettes."
+            "value" : "-     Les fléchettes doivent être lancées une par une, délibérément et vers la cible. Chaque tour se compose de trois lancers de fléchettes."
           }
         }
       }
     },
-    "-     Each leg starts without any special conditions for scoring (straight in), and ends by doubling, meaning the final throw must land in a double zone or the bullseye." : {
+    "-     Each leg starts without any special conditions for scoring (straight in)." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Chaque manche commence sans conditions particulières pour marquer des points (straight in) et se termine par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
+            "value" : "-     Chaque manche commence sans conditions particulières (straight in)."
           }
         }
       }
@@ -39,7 +39,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Il est obligatoire de s'amuser, sous peine d'être exclu dans la cuisine avec un bol sur la tête."
+            "value" : "-     Il est obligatoire de s'amuser, sous peine d'être exclu dans la cuisine avec un bol sur la tête."
           }
         }
       }
@@ -49,7 +49,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas."
+            "value" : "-     Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas."
           }
         }
       }
@@ -59,7 +59,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+            "value" : "-     Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
           }
         }
       }
@@ -69,7 +69,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche doit se terminer par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche doit se terminer par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
           }
         }
       }
@@ -79,7 +79,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- UNIQUEMENT SI L'OPTION DOUBLE OUT EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+            "value" : "-     UNIQUEMENT SI L'OPTION DOUBLE OUT EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
           }
         }
       }
@@ -89,7 +89,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro et en réussissant un double."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro et en réussissant un double."
           }
         }
       }
@@ -99,7 +99,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Les points sont soustraits du total initial (301 ou 501) jusqu'à ce que l'on atteigne exactement zéro. Les scores sont enregistrés en fonction de la section de la cible où la fléchette a atterri (simple, double ou triple)."
+            "value" : "-     Les points sont soustraits du total initial (301 ou 501) jusqu'à ce que l'on atteigne exactement zéro. Les scores sont enregistrés en fonction de la section de la cible où la fléchette a atterri (simple, double ou triple)."
           }
         }
       }
@@ -109,7 +109,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
+            "value" : "-     Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
           }
         }
       }
@@ -119,7 +119,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (bullseye) et le sol."
+            "value" : "-     La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (bullseye) et le sol."
           }
         }
       }
@@ -129,7 +129,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Le jeu de fléchettes est divisé en segments numérotés avec des zones doubles et triples qui permettent d'obtenir des scores plus élevés."
+            "value" : "-     La cible est divisée en segments numérotés avec des zones doubles et triples qui permettent d'obtenir des scores plus élevés."
           }
         }
       }
@@ -139,7 +139,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- La distance entre la ligne de lancer et la cible est de 237 cm."
+            "value" : "-     La distance entre la ligne de lancer et la cible est de 237 cm."
           }
         }
       }
@@ -149,7 +149,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Il est interdit de toucher ou de manipuler les fléchettes avant d'avoir terminé le tour."
+            "value" : "-     Il est interdit de toucher ou de manipuler les fléchettes avant d'avoir terminé le tour."
           }
         }
       }
@@ -159,7 +159,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Le centre de la cible (Bullseye) compte pour 50 points et est également considéré comme un double 25."
+            "value" : "-     Le centre de la cible (Bullseye) compte pour 50 points et est également considéré comme un double 25."
           }
         }
       }
@@ -475,15 +475,8 @@
         }
       }
     },
-    "These are exact official rules from the World Darts Federation (if Double Out enabled and 501 scoring)" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ce sont ici les règles exactes de la Fédération Internationale de fléchettes (si le Double Out est activé et le score 501)"
-          }
-        }
-      }
+    "These are exact official rules from the World Darts Federation (if 501 and Double Out enabled)" : {
+
     },
     "Turn %lld" : {
       "localizations" : {
