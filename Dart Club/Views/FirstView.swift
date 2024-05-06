@@ -118,36 +118,37 @@ struct FirstView: View {
                     }
                     
                     Spacer()
-                        HStack {
-                            Button("301") {
-                                print("--------------------------------------------")
-                                print("BUTTON 301")
-                                viewModel.currentGame.gameType = 301
-                                viewModel.gameStarted = true
-                                navigateToGame = true
-                            }
-                            .disabled(!canStartGame)
-                            .buttonStyle(.borderedProminent)
-                            .controlSize(.large)
-                            
-                            Text("or")
-                                .font(.system(size: 20))
-                            
+                    
+                    HStack {
+                        Button("301") {
+                            print("--------------------------------------------")
+                            print("BUTTON 301")
+                            viewModel.currentGame.gameType = 301
+                            viewModel.gameStarted = true
+                            navigateToGame = true
+                        }
+                        .disabled(!canStartGame)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                        
+                        Text("or")
+                            .font(.system(size: 20))
+                        
 //                            .padding(.bottom, 55)
-                            
-                            Button("501") {
-                                print("--------------------------------------------")
-                                print("BUTTON 501")
-                                viewModel.currentGame.gameType = 501
-                                viewModel.gameStarted = true
-                                navigateToGame = true
-                            }
-                            .disabled(!canStartGame)
-                            .buttonStyle(.borderedProminent)
-                            .controlSize(.large)
-                            
+                        
+                        Button("501") {
+                            print("--------------------------------------------")
+                            print("BUTTON 501")
+                            viewModel.currentGame.gameType = 501
+                            viewModel.gameStarted = true
+                            navigateToGame = true
+                        }
+                        .disabled(!canStartGame)
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                        
 //////////////////////////////////////////////////////////////////// SETTINGSVIEW /////////////////////////////////////////////////////////////////
-                            
+                        
 //                        .padding(.bottom, 55)
 
 //                    Button(action: {
@@ -163,8 +164,8 @@ struct FirstView: View {
 //                            SettingsView()
 //                        }
 //                        .padding(.bottom, 55)
-                            
-                            
+                        
+                        
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
 
 //        Button(action: {
@@ -177,7 +178,7 @@ struct FirstView: View {
 //            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
 //            print(" ")
 //            print(" ")
-//            
+//
 //        }) {
 //            Image(systemName: "ladybug.circle")
 //                .accessibilityLabel("Undo")
@@ -186,8 +187,8 @@ struct FirstView: View {
 //        .buttonStyle(PlainButtonStyle())
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            
-                        }
+                        
+                    }
                     
                     HStack {
 
@@ -212,17 +213,17 @@ struct FirstView: View {
             .navigationDestination(isPresented: $navigateToGame) {
                 GameView(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
             }
-                .foregroundColor(.white)
-                .font(.system(size: 20, weight: .bold, design: .default))
-                .navigationBarBackButtonHidden(true)
-                .interactiveDismissDisabled()
-            }
+            .foregroundColor(.white)
+            .font(.system(size: 20, weight: .bold, design: .default))
+            .navigationBarBackButtonHidden(true)
+            .interactiveDismissDisabled()
+        }
         .preferredColorScheme(.dark)
         }
     
-        var canStartGame: Bool {
-            !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
-        }
+    var canStartGame: Bool {
+        !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
+    }
 
 }
 
