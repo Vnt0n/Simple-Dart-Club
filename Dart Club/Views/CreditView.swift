@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CreditView: View {
-    
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
-    
+        
     var body: some View {
 
         ZStack {

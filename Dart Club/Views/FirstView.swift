@@ -7,37 +7,35 @@
 
 import SwiftUI
 
-class DeviceOrientationManager: ObservableObject {
-    static let shared = DeviceOrientationManager()
-    @Published var isLandscape: Bool = false
-    @Published var isFlat: Bool = false
-
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
-    }
-
-    @objc func orientationChanged() {
-        DispatchQueue.main.async {
-            self.isLandscape = UIDevice.current.orientation.isLandscape
-            self.isFlat = UIDevice.current.orientation.isFlat
-        }
-    }
-}
+//class DeviceOrientationManager: ObservableObject {
+//    static let shared = DeviceOrientationManager()
+//    @Published var isLandscape: Bool = false
+//    @Published var isFlat: Bool = false
+//
+//    init() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+//        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+//    }
+//
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//        UIDevice.current.endGeneratingDeviceOrientationNotifications()
+//    }
+//
+//    @objc func orientationChanged() {
+//        DispatchQueue.main.async {
+//            self.isLandscape = UIDevice.current.orientation.isLandscape
+//            self.isFlat = UIDevice.current.orientation.isFlat
+//        }
+//    }
+//}
 
 struct FirstView: View {
-    @ObservedObject private var orientationDetected = DeviceOrientationManager.shared
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+//    @ObservedObject private var orientationDetected = DeviceOrientationManager.shared
     @State private var navigateToGame = false
     @StateObject var viewModel = GameViewModel(gameType: 0)
     @FocusState private var focusedPlayerIndex: Int?
-    @State private var showSettingsView = false
-    @State private var isDartClubVisible = true
+//    @State private var showSettingsView = false
 
     var body: some View {
         GeometryReader { geometry in

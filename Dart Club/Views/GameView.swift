@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct GameView: View {
-    
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
-    
+        
     var selectedGame: Int?
     var players: [Player]
     
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
-    @State private var showSettingsView = false
+//    @State private var showSettingsView = false
     @State private var isUndoDisabled = true
     
     @ObservedObject var viewModel: GameViewModel

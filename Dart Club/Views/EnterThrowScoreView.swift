@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct EnterThrowScoreView: View {
-    
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
-    
+        
     @ObservedObject var viewModel: GameViewModel
     
     @Binding var currentPlayerIndex: Int
@@ -33,8 +31,10 @@ struct EnterThrowScoreView: View {
                     .font(.system(size: 40, weight: .bold, design: .default))
                     .padding(.bottom, 1)
 
-                Text("Enter your score")
-                    .font(.system(size: 20, design: .default))
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    Text("Enter your score")
+                        .font(.system(size: 20, design: .default))
+                }
 
                 ForEach(0..<3) { index in
                     ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
@@ -54,11 +54,6 @@ struct EnterThrowScoreView: View {
                     DispatchQueue.main.async {
                         self.isFocused = true
                     }
-                }
-
-                if viewModel.currentGame.isToggledDoubleOut {
-                    Text("Double Out")
-                        .foregroundColor(.blue)
                 }
                 
 //////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
@@ -154,7 +149,7 @@ struct ScoreInputRow: View {
             TextField("\(Locale.current.language.languageCode?.identifier == "en" ? ordinal(for: index+1) : "\(index+1)") throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
-                .padding()
+                .padding(UIDevice.current.userInterfaceIdiom == .pad ? 0 : 15)
                 .keyboardType(.decimalPad)
                 .frame(width: 130)
                 .focused($textFieldFocus)
@@ -282,6 +277,20 @@ struct ToggleScoreButton: View {
             return .gray
         } else {
             return .blue
+        }
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func conditionalStack<Content: View>(
+        isHorizontal: Bool,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        if isHorizontal {
+            HStack { content() }
+        } else {
+            VStack { content() }
         }
     }
 }

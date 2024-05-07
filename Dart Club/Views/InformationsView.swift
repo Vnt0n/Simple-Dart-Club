@@ -9,9 +9,7 @@ import SwiftUI
 import ConfettiSwiftUI
 
 struct InformationsView: View {
-    
-    @AppStorage("isDarkMode") var isDarkMode: Bool = false
-    
+       
     @ObservedObject var viewModel: GameViewModel
     @State private var counter = 0
     @State private var isGameStarted = false

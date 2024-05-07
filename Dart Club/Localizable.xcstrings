@@ -353,17 +353,6 @@
         }
       }
     },
-    "Dark Mode" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode sombre"
-          }
-        }
-      }
-    },
     "Dart   " : {
 
     },
