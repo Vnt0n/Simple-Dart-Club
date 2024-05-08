@@ -80,6 +80,7 @@ struct FirstView: View {
                 }
             }
             .preferredColorScheme(.dark)
+            .statusBar(hidden: true)
         }
     }
 
@@ -116,7 +117,7 @@ struct FirstView: View {
             } else {
                 playerFieldsOneRow
             }
-            if viewModel.currentGame.players.count < 4 {
+            if viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .phone || viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .pad && viewModel.currentGame.players.count != 3 {
                 addButton
             }
             Spacer()
@@ -126,16 +127,8 @@ struct FirstView: View {
         }
     }
 
-    var playerFieldsOneRow: some View {
-        ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
-            playerTextField(index: index)
-
-        }
-    }
-
     var playerFieldsTwoRows: some View {
         VStack {
-
             HStack {
                 if viewModel.currentGame.players.count > 0 {
                     playerTextField(index: 0)
@@ -149,10 +142,21 @@ struct FirstView: View {
                 if viewModel.currentGame.players.count > 2 {
                     playerTextField(index: 2)
                 }
-                if viewModel.currentGame.players.count > 3 {
+                if viewModel.currentGame.players.count == 3 && UIDevice.current.userInterfaceIdiom == .pad {
+                    addButton
+                        .frame(width: 250)
+                        .padding(.bottom, 15)
+                } else if viewModel.currentGame.players.count > 3 {
                     playerTextField(index: 3)
                 }
             }
+        }
+    }
+        
+    var playerFieldsOneRow: some View {
+        ForEach(0..<viewModel.currentGame.players.count, id: \.self) { index in
+            playerTextField(index: index)
+
         }
     }
 
@@ -209,6 +213,7 @@ struct FirstView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
         }
+        .padding(.top, -10)
     }
 
     var settingsToggle: some View {

@@ -41,6 +41,7 @@ struct HomeView: View {
                     .font(.system(size: 20, design: .default))
             }
         }
+        .statusBar(hidden: true)
     }
 }
 
