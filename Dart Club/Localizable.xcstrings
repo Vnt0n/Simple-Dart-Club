@@ -292,7 +292,14 @@
 
     },
     "Add" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouter"
+          }
+        }
+      }
     },
     "Add a player" : {
       "localizations" : {
