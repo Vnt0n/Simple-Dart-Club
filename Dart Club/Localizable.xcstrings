@@ -291,6 +291,9 @@
     "Activer la fonctionnalité" : {
 
     },
+    "Add" : {
+
+    },
     "Add a player" : {
       "localizations" : {
         "fr" : {
@@ -454,6 +457,9 @@
           }
         }
       }
+    },
+    "Remove last player" : {
+
     },
     "ScoreBoard" : {
       "localizations" : {

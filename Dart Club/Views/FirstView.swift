@@ -118,7 +118,12 @@ struct FirstView: View {
                 playerFieldsOneRow
             }
             if viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .phone || viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .pad && viewModel.currentGame.players.count != 3 {
-                addButton
+                HStack {
+                    addButton
+                    playerDeleteButton
+                        .padding(.top, 15)
+                        .padding(.leading, 15)
+                }
             }
             Spacer()
             gameControls
@@ -143,9 +148,15 @@ struct FirstView: View {
                     playerTextField(index: 2)
                 }
                 if viewModel.currentGame.players.count == 3 && UIDevice.current.userInterfaceIdiom == .pad {
-                    addButton
-                        .frame(width: 250)
-                        .padding(.bottom, 15)
+                    HStack {
+                        addButton
+                        playerDeleteButton
+                            .padding(.top, 15)
+                            .padding(.leading, 15)
+                    }
+                    .frame(width: 250)
+                    .padding(.bottom, 15)
+
                 } else if viewModel.currentGame.players.count > 3 {
                     playerTextField(index: 3)
                 }
@@ -179,12 +190,13 @@ struct FirstView: View {
                 focusedPlayerIndex = viewModel.currentGame.players.count - 1
             }
         }) {
-            Label("Add a player", systemImage: "person.fill.badge.plus")
+            Label("Add", systemImage: "person.fill.badge.plus")
                 .accessibilityLabel("Add a player")
                 .font(.system(size: 20))
                 .padding(.top, 20)
         }
         .buttonStyle(PlainButtonStyle())
+        
     }
 
     var gameControls: some View {
@@ -228,8 +240,27 @@ struct FirstView: View {
         !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
     }
     
+    var playerDeleteButton: some View {
+        ZStack {
+            if viewModel.currentGame.players.count > 1 {
+                Button(action: {
+                    withAnimation {
+                        viewModel.removeLastPlayer()
+//                        if let focusedIndex = focusedPlayerIndex, focusedIndex >= viewModel.currentGame.players.count {
+//                            focusedPlayerIndex = viewModel.currentGame.players.count - 1
+//                        }
+                    }
+                }) {
+                    Image(systemName: "minus.circle.fill")
+                        .font(.system(size: 20))
+                        .foregroundColor(.red)
+                        .accessibilityLabel("Remove last player")
+                }
+            }
+        }
+    }
+   
 }
-
 
 
 // ///////////////////////////

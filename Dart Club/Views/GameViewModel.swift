@@ -51,6 +51,14 @@ class GameViewModel: ObservableObject {
             currentGame.players.append(Player(name: "", scores: [], remainingScore: currentGame.gameType))
         }
     }
+    
+    func removeLastPlayer() {
+        print("--------------------------------------------")
+        print("removeLastPlayer FUNCTION")
+        if currentGame.players.count > 1 {
+            currentGame.players.removeLast()
+        }
+    }
         
     func addScore(forPlayer index: Int, throwDetails: [(score: Int, isDouble: Bool)]) {
         print("--------------------------------------------")
