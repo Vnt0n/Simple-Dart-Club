@@ -22,6 +22,7 @@ struct HomeView: View {
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
+                    .padding(.bottom, -80)
                 Text("Club   ")
                     .font(Font.custom("FightThis", size: 150))
                     .shadow(color: Color.red, radius: 15)

@@ -93,6 +93,7 @@ struct FirstView: View {
             .multilineTextAlignment(.center)
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
+            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -80 : 0)
         
         Text("Club   ")
                 .font(Font
