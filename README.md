@@ -42,10 +42,10 @@ Official World Darts Federation rules.
 ## Looks great on iPad / Super sur iPad
 
 <div>
-<img src="/Demo/iPad-01.png" height="400">
 <img src="/Demo/iPad-02.png" height="400">
+<img src="/Demo/iPad-01.png" height="400">
 <img src="/Demo/iPad-03.png" height="400">
 <img src="/Demo/iPad-04.png" height="400">
-<img src="/Demo/iPad-05.png" height="400">
 <img src="/Demo/iPad-06.png" height="400">
+<img src="/Demo/iPad-05.png" height="400">
 </div>
