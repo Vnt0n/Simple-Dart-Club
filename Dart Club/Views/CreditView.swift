@@ -64,7 +64,7 @@ struct CreditView: View {
 
                                     Text("-     Darts must be thrown one at a time, deliberately and towards the target. Each round consists of three dart throws.")
                                     Text("-     Each leg starts without any special conditions for scoring (straight in).")
-                                    Text("-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the bullseye.")
+                                    Text("-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the bullseye.")
                                     Text("-    The center of the dartboard (Bullseye) counts for 50 points and is also considered a double 25.")
                                 }
 
@@ -74,10 +74,10 @@ struct CreditView: View {
                                         .padding()
 
                                     Text("-     Points are subtracted from an initial total (301 or 501) until exactly zero is reached. Scores are recorded based on the section of the dartboard where the dart lands (single, double, or triple).")
-                                    Text("-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double.")
+                                    Text("-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double.")
                                     Text("-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score that does not allow for a double finish or a score higher than needed is an error that cancels the throw.")
                                     Text("-     If a player exceeds the needed score, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn.")
-                                    Text("-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn.")
+                                    Text("-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn.")
                                 }
 
                                 Group {
@@ -91,7 +91,7 @@ struct CreditView: View {
                                 }
                                 
                                 Group {
-                                    Text("These are exact official rules from the World Darts Federation (if 501 and Double Out enabled)")
+                                    Text("These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)")
                                         .italic()
                                         .multilineTextAlignment(.center)
                                         .font(.system(size: 15))
