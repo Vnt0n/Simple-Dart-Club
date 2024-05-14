@@ -38,6 +38,7 @@
 		71082C4C2BE3DC140088C1D8 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		7197F6992BF3A3AC00794C17 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		71F6C35E2BE3CD0300EE60EE /* Dart Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dart Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dart_ClubApp.swift; sourceTree = "<group>"; };
 		71F6C3652BE3CD0400EE60EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +109,7 @@
 				71F6C3652BE3CD0400EE60EE /* Assets.xcassets */,
 				71F6C3672BE3CD0400EE60EE /* Preview Content */,
 				717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */,
+				7197F6992BF3A3AC00794C17 /* README.md */,
 			);
 			path = "Dart Club";
 			sourceTree = "<group>";
