@@ -220,7 +220,7 @@ struct InformationsView: View {
                                 
                                 Divider()
                                 
-                                Text("Average Throws Score: \(viewModel.averageThrowScore(forPlayer: playerIndex))")
+                                Text("Average Throw Score: \(viewModel.averageThrowScore(forPlayer: playerIndex))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
@@ -327,7 +327,7 @@ struct InformationsView: View {
                                 
                                 Divider()
                                 
-                                Text("Average Throws Score \(viewModel.averageThrowScoreInGame(forPlayer: player, gameRecord: record))")
+                                Text("Average Throw Score: \(viewModel.averageThrowScoreInGame(forPlayer: player, gameRecord: record))")
                                     .frame(maxWidth: .infinity)
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)

@@ -44,12 +44,12 @@
         }
       }
     },
-    "-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score that does not allow for a double finish or a score higher than needed is an error that cancels the throw." : {
+    "-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score higher than needed is an error that cancels the throw." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas."
+            "value" : "-     Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas. De plus, terminer avec un score plus élevé que nécessaire est une erreur qui annule le lancer."
           }
         }
       }
@@ -64,32 +64,32 @@
         }
       }
     },
-    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the bullseye." : {
+    "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the Bullseye." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche doit se terminer par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone de doublement ou dans le bullseye."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche se termine par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone double ou dans le Bullseye."
           }
         }
       }
     },
-    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
+    "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     UNIQUEMENT SI L'OPTION DOUBLE OUT EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
           }
         }
       }
     },
-    "-     ONLY IF THE DOUBLE OUT OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double." : {
+    "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro et en réussissant un double."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro en réussissant un double."
           }
         }
       }
@@ -114,12 +114,12 @@
         }
       }
     },
-    "-     The correct dartboard height is 5 feet 8 inches (173 cm) from the bullseye to the floor." : {
+    "-     The correct dartboard height is 5 feet 8 inches (173 cm) from the Bullseye to the floor." : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (bullseye) et le sol."
+            "value" : "-     La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (Bullseye) et le sol."
           }
         }
       }
@@ -169,7 +169,17 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-  Moyenne des lancés %lld"
+            "value" : "-  Moyenne des lancés : %lld"
+          }
+        }
+      }
+    },
+    "-  Average Throw Score: %lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Moyenne des lancés : %lld"
           }
         }
       }
@@ -185,7 +195,14 @@
       }
     },
     "- BUST" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- BUST"
+          }
+        }
+      }
     },
     "- Turn %lld" : {
       "localizations" : {
@@ -240,7 +257,14 @@
 
     },
     "🥊 BUST" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥊 BUST"
+          }
+        }
+      }
     },
     "1. Required Equipment:" : {
       "localizations" : {
@@ -267,7 +291,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3. Les scores"
+            "value" : "3. Les scores :"
           }
         }
       }
@@ -283,13 +307,34 @@
       }
     },
     "301" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "301"
+          }
+        }
+      }
     },
     "501" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "501"
+          }
+        }
+      }
     },
     "Activer la fonctionnalité" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer la fonctionnalité"
+          }
+        }
+      }
     },
     "Add" : {
       "localizations" : {
@@ -321,22 +366,12 @@
         }
       }
     },
-    "Average Throws Score %lld" : {
+    "Average Throw Score: %lld" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Moyenne des lancés %lld"
-          }
-        }
-      }
-    },
-    "Average Throws Score: %lld" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Moyenne des lancés: %lld"
+            "value" : "Moyenne des lancés : %lld"
           }
         }
       }
@@ -348,7 +383,14 @@
 
     },
     "BUST" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUST"
+          }
+        }
+      }
     },
     "Club   " : {
 
@@ -377,7 +419,14 @@
       }
     },
     "Double Out" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double Out"
+          }
+        }
+      }
     },
     "Enter your score" : {
       "localizations" : {
@@ -433,7 +482,14 @@
       }
     },
     "OK          " : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
     },
     "or" : {
       "localizations" : {
@@ -466,7 +522,14 @@
       }
     },
     "Remove last player" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer le joueur"
+          }
+        }
+      }
     },
     "ScoreBoard" : {
       "localizations" : {
@@ -478,8 +541,15 @@
         }
       }
     },
-    "These are exact official rules from the World Darts Federation (if 501 and Double Out enabled)" : {
-
+    "These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Règles officielles de la World Darts Federation (si 501 et \"Double Out\")"
+          }
+        }
+      }
     },
     "Turn %lld" : {
       "localizations" : {

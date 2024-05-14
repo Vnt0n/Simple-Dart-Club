@@ -143,7 +143,7 @@ struct GameView: View {
                                 HStack {
                                     Text("\(players[0].name)")
                                         .fontWeight(.bold)
-                                    Text("-  Average Score: \(viewModel.averageThrowScore(forPlayer: 0))")
+                                    Text("-  Average Throw Score: \(viewModel.averageThrowScore(forPlayer: 0))")
                                         .font(
                                             .system(size: 14))
                                     if viewModel.currentGame.players[0].isBusted {
