@@ -23,9 +23,9 @@ Et voici quelques captures d'écran de l'application sur iPad :
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
 <img src="/Demo/iPad-01.png" height="400">
-<img src="/Demo/iPad-02.png" height="300">
+<img src="/Demo/iPad-02.png" height="400">
 <img src="/Demo/iPad-03.png" height="400">
-<img src="/Demo/iPad-04.png" height="300">
+<img src="/Demo/iPad-04.png" height="400">
 <img src="/Demo/iPad-05.png" height="400">
-<img src="/Demo/iPad-06.png" height="300">
+<img src="/Demo/iPad-06.png" height="400">
 </div>
