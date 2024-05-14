@@ -86,6 +86,7 @@
 		71F6C3552BE3CD0300EE60EE = {
 			isa = PBXGroup;
 			children = (
+				7197F6992BF3A3AC00794C17 /* README.md */,
 				71F6C3602BE3CD0300EE60EE /* Dart Club */,
 				71F6C35F2BE3CD0300EE60EE /* Products */,
 			);
@@ -109,7 +110,6 @@
 				71F6C3652BE3CD0400EE60EE /* Assets.xcassets */,
 				71F6C3672BE3CD0400EE60EE /* Preview Content */,
 				717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */,
-				7197F6992BF3A3AC00794C17 /* README.md */,
 			);
 			path = "Dart Club";
 			sourceTree = "<group>";
