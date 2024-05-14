@@ -8,7 +8,10 @@ Compte les scores au fléchettes.
 Prise en charge de la règle Double Out (facultative pour les joueurs moins expérimentés).  
 Moyenne des lancés, gestion du Bust.
 
+Mode portrait ET paysage sur iPad !
+
 Règles officielles de la World Darts Federation.
+
 
 ## **My first iPhone and iPad app!**
 
@@ -17,7 +20,10 @@ Keep score with darts.
 Double Out rule support (optional for less experienced players).  
 Average throw, Bust management.
 
+Portrait AND landscape mode on iPad!
+
 Official World Darts Federation rules.
+
 
 ## Looks good on iPhone / Chouette sur iPhone
 
@@ -31,6 +37,7 @@ Official World Darts Federation rules.
 <img src="/Screenshots/iPhone-08.png" height="400">
 <img src="/Screenshots/iPhone-09.png" height="400">
 </div>
+
 
 ## Multilangues / Multilanguages
 <div>
