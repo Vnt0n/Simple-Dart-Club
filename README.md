@@ -5,7 +5,7 @@
 
 Compte les scores au fléchettes.
 
-Prise en charge de la règle Double Out (facultative pour les joueurs moins expérimentés).
+Prise en charge de la règle Double Out (facultative pour les joueurs moins expérimentés).  
 Moyenne des lancés, gestion du Bust.
 
 Règles officielles de la World Darts Federation.
@@ -14,8 +14,8 @@ Règles officielles de la World Darts Federation.
 
 Keep score with darts.
 
-Double Out rule support (optional for less experienced players).
-Average throw, Bust management
+Double Out rule support (optional for less experienced players).  
+Average throw, Bust management.
 
 Official World Darts Federation rules.
 
