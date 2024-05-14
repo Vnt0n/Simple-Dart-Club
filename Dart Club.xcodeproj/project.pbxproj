@@ -24,7 +24,6 @@
 		7197F6CC2BF3A97300794C17 /* iPad-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6BC2BF3A97200794C17 /* iPad-04.png */; };
 		7197F6CD2BF3A97300794C17 /* iPad-06.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6BD2BF3A97200794C17 /* iPad-06.png */; };
 		7197F6CE2BF3A97300794C17 /* iPhone-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6BE2BF3A97200794C17 /* iPhone-04.png */; };
-		7197F6CF2BF3A97300794C17 /* iPad-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6BF2BF3A97200794C17 /* iPad-05.png */; };
 		7197F6D02BF3A97300794C17 /* iPhone-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6C02BF3A97200794C17 /* iPhone-01.png */; };
 		7197F6D12BF3A97300794C17 /* iPhone-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6C12BF3A97200794C17 /* iPhone-02.png */; };
 		7197F6D22BF3A97300794C17 /* iPhone-08.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6C22BF3A97200794C17 /* iPhone-08.png */; };
@@ -36,6 +35,7 @@
 		7197F6D82BF3A97300794C17 /* iPhone-09.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6C82BF3A97200794C17 /* iPhone-09.png */; };
 		7197F6D92BF3A97300794C17 /* iPad-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6C92BF3A97200794C17 /* iPad-03.png */; };
 		7197F6DA2BF3A97300794C17 /* iPhone-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6CA2BF3A97200794C17 /* iPhone-10.png */; };
+		7197F6DC2BF3B40800794C17 /* iPad-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 7197F6DB2BF3B40800794C17 /* iPad-05.png */; };
 		71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */; };
 		71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3652BE3CD0400EE60EE /* Assets.xcassets */; };
 		71F6C3692BE3CD0400EE60EE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71F6C3682BE3CD0400EE60EE /* Preview Assets.xcassets */; };
@@ -59,7 +59,6 @@
 		7197F6BC2BF3A97200794C17 /* iPad-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-04.png"; sourceTree = "<group>"; };
 		7197F6BD2BF3A97200794C17 /* iPad-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-06.png"; sourceTree = "<group>"; };
 		7197F6BE2BF3A97200794C17 /* iPhone-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-04.png"; sourceTree = "<group>"; };
-		7197F6BF2BF3A97200794C17 /* iPad-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-05.png"; path = "Demo/iPad-05.png"; sourceTree = SOURCE_ROOT; };
 		7197F6C02BF3A97200794C17 /* iPhone-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-01.png"; sourceTree = "<group>"; };
 		7197F6C12BF3A97200794C17 /* iPhone-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-02.png"; sourceTree = "<group>"; };
 		7197F6C22BF3A97200794C17 /* iPhone-08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-08.png"; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		7197F6C82BF3A97200794C17 /* iPhone-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-09.png"; sourceTree = "<group>"; };
 		7197F6C92BF3A97200794C17 /* iPad-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-03.png"; sourceTree = "<group>"; };
 		7197F6CA2BF3A97200794C17 /* iPhone-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-10.png"; sourceTree = "<group>"; };
+		7197F6DB2BF3B40800794C17 /* iPad-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad-05.png"; sourceTree = "<group>"; };
 		71F6C35E2BE3CD0300EE60EE /* Dart Club.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dart Club.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F6C3612BE3CD0300EE60EE /* Dart_ClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dart_ClubApp.swift; sourceTree = "<group>"; };
 		71F6C3652BE3CD0400EE60EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,14 +115,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7197F69A2BF3A91300794C17 /* Demo */ = {
+		7197F69A2BF3A91300794C17 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
 				7197F6C42BF3A97200794C17 /* iPad-01.png */,
 				7197F6C52BF3A97200794C17 /* iPad-02.png */,
 				7197F6C92BF3A97200794C17 /* iPad-03.png */,
 				7197F6BC2BF3A97200794C17 /* iPad-04.png */,
-				7197F6BF2BF3A97200794C17 /* iPad-05.png */,
+				7197F6DB2BF3B40800794C17 /* iPad-05.png */,
 				7197F6BD2BF3A97200794C17 /* iPad-06.png */,
 				7197F6C02BF3A97200794C17 /* iPhone-01.png */,
 				7197F6C12BF3A97200794C17 /* iPhone-02.png */,
@@ -135,13 +135,13 @@
 				7197F6C82BF3A97200794C17 /* iPhone-09.png */,
 				7197F6CA2BF3A97200794C17 /* iPhone-10.png */,
 			);
-			path = Demo;
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		71F6C3552BE3CD0300EE60EE = {
 			isa = PBXGroup;
 			children = (
-				7197F69A2BF3A91300794C17 /* Demo */,
+				7197F69A2BF3A91300794C17 /* Screenshots */,
 				7197F6992BF3A3AC00794C17 /* README.md */,
 				71F6C3602BE3CD0300EE60EE /* Dart Club */,
 				71F6C35F2BE3CD0300EE60EE /* Products */,
@@ -261,8 +261,8 @@
 				7197F6D22BF3A97300794C17 /* iPhone-08.png in Resources */,
 				7197F6D52BF3A97300794C17 /* iPad-02.png in Resources */,
 				7197F6D02BF3A97300794C17 /* iPhone-01.png in Resources */,
+				7197F6DC2BF3B40800794C17 /* iPad-05.png in Resources */,
 				7197F6CC2BF3A97300794C17 /* iPad-04.png in Resources */,
-				7197F6CF2BF3A97300794C17 /* iPad-05.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

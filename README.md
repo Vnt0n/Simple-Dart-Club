@@ -22,30 +22,30 @@ Official World Darts Federation rules.
 ## Looks good on iPhone / Chouette sur iPhone
 
 <div>
-<img src="/Demo/iPhone-01.png" height="400">
-<img src="/Demo/iPhone-02.png" height="400">
-<img src="/Demo/iPhone-03.png" height="400">
-<img src="/Demo/iPhone-04.png" height="400">
-<img src="/Demo/iPhone-05.png" height="400">
-<img src="/Demo/iPhone-06.png" height="400">
-<img src="/Demo/iPhone-08.png" height="400">
-<img src="/Demo/iPhone-09.png" height="400">
+<img src="/Screenshots/iPhone-01.png" height="400">
+<img src="/Screenshots/iPhone-02.png" height="400">
+<img src="/Screenshots/iPhone-03.png" height="400">
+<img src="/Screenshots/iPhone-04.png" height="400">
+<img src="/Screenshots/iPhone-05.png" height="400">
+<img src="/Screenshots/iPhone-06.png" height="400">
+<img src="/Screenshots/iPhone-08.png" height="400">
+<img src="/Screenshots/iPhone-09.png" height="400">
 </div>
 
 ## Multilangues / Multilanguages
 <div>
-<img src="/Demo/iPhone-07.png" height="400">
-<img src="/Demo/iPhone-10.png" height="400">
+<img src="/Screenshots/iPhone-07.png" height="400">
+<img src="/Screenshots/iPhone-10.png" height="400">
 </div>
 
 
 ## Looks great on iPad / Super sur iPad
 
 <div>
-<img src="/Demo/iPad-02.png" height="400">
-<img src="/Demo/iPad-01.png" height="400">
-<img src="/Demo/iPad-03.png" height="400">
-<img src="/Demo/iPad-04.png" height="400">
-<img src="/Demo/iPad-06.png" height="400">
-<img src="/Demo/iPad-05.png" height="400">
+<img src="/Screenshots/iPad-02.png" height="400">
+<img src="/Screenshots/iPad-01.png" height="400">
+<img src="/Screenshots/iPad-03.png" height="400">
+<img src="/Screenshots/iPad-04.png" height="400">
+<img src="/Screenshots/iPad-06.png" height="400">
+<img src="/Screenshots/iPad-05.png" height="400">
 </div>
