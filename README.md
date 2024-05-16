@@ -1,9 +1,9 @@
 
-# Dart Club
+# Dart Club (iPhone / iPad)
 
-## **Ma première app iPhone et iPad !**
+## **Tableau de scores aux fléchettes !**
 
-Compte les scores au fléchettes.
+Calcule et enregistre les scores.
 
 Prise en charge de la règle Double Out (facultative pour les joueurs moins expérimentés).  
 Moyenne des lancés, gestion du Bust.
@@ -13,9 +13,9 @@ Mode portrait ET paysage sur iPad !
 Règles officielles de la World Darts Federation.
 
 
-## **My first iPhone and iPad app!**
+## **Darts scoreboard!**
 
-Keep score with darts.
+Count and keep score.
 
 Double Out rule support (optional for less experienced players).  
 Average throw, Bust management.
