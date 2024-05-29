@@ -164,16 +164,6 @@
         }
       }
     },
-    "-  Average Score: %lld" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  Moyenne des lancés : %lld"
-          }
-        }
-      }
-    },
     "-  Average Throw Score: %lld" : {
       "localizations" : {
         "fr" : {
@@ -322,16 +312,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "501"
-          }
-        }
-      }
-    },
-    "Activer la fonctionnalité" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Activer la fonctionnalité"
           }
         }
       }

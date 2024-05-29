@@ -14,7 +14,6 @@ struct GameView: View {
     
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
-//    @State private var showSettingsView = false
     @State private var isUndoDisabled = true
     
     @ObservedObject var viewModel: GameViewModel
@@ -33,23 +32,6 @@ struct GameView: View {
 
                         Spacer()
 
-//////////////////////////////////////////////////////////////////// SETTINGS /////////////////////////////////////////////////////////////////
-
-//                        Button(action: {
-//                            print("--------------------------------------------")
-//                            print("BUTTON SettingsView")
-//                            showSettingsView = true
-//                        }) {
-//                            Image(systemName: "gearshape")
-//                                .accessibilityLabel("Undo")
-//                                .font(.system(size: 25))
-//                        }
-//                        .sheet(isPresented: $showSettingsView) {
-//                            SettingsView()
-//                        }
-                        
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                         if UIDevice.current.userInterfaceIdiom != .pad {
                             
                             Button(action: {
@@ -67,28 +49,6 @@ struct GameView: View {
                             }
                             
                         }
-                        
-//////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
-
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//        }
-//        .buttonStyle(PlainButtonStyle())
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         
                         Spacer()
 

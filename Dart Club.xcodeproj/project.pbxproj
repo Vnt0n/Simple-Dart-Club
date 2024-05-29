@@ -16,7 +16,6 @@
 		71082C492BE3DBD90088C1D8 /* EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */; };
 		71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */; };
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
-		71082C4F2BE3DC3E0088C1D8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */; };
 		717F57AD2BE7EC7B009A303E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */; };
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
 		718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71082C3A2BE3DA800088C1D8 /* FightThis.ttf */; };
@@ -52,7 +51,6 @@
 		71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		71082C4C2BE3DC140088C1D8 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
-		71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7197F6992BF3A3AC00794C17 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7197F6BB2BF3A97200794C17 /* iPhone-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-03.png"; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */,
 				71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */,
 				71082C4C2BE3DC140088C1D8 /* CreditView.swift */,
-				71082C4E2BE3DC3E0088C1D8 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,7 +278,6 @@
 				71082C452BE3DB8D0088C1D8 /* FirstView.swift in Sources */,
 				71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */,
 				71082C412BE3DB290088C1D8 /* HomeView.swift in Sources */,
-				71082C4F2BE3DC3E0088C1D8 /* SettingsView.swift in Sources */,
 				71F6C3622BE3CD0300EE60EE /* Dart_ClubApp.swift in Sources */,
 				71082C432BE3DB6C0088C1D8 /* LaunchView.swift in Sources */,
 			);

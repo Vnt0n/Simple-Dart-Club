@@ -56,29 +56,6 @@ struct EnterThrowScoreView: View {
                     }
                 }
                 
-//////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
-
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//                .padding()
-//        }
-//        .buttonStyle(PlainButtonStyle())
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                
                 Spacer()
                 
             }
@@ -106,7 +83,6 @@ struct EnterThrowScoreView: View {
         print("--------------------------------------------")
         print("submitScores FUNCTION")
         if allScoresEntered {
-            // Créer un tableau de tuples pour chaque lancer avec son score et s'il était un double
             let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
             viewModel.addScore(forPlayer: currentPlayerIndex, throwDetails: throwDetails)
             currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
