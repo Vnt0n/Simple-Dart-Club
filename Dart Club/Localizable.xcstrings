@@ -763,7 +763,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lanzamiento %@ "
+            "value" : "Tiro %@ "
           }
         },
         "fr" : {
