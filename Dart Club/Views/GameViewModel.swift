@@ -27,7 +27,7 @@ struct Game {
     var gameType: Int
     var currentTurn: Int = 1
     var scoresThisTurn: Int = 0
-    var isToggledDoubleOut: Bool = true
+    var isToggledDoubleOut: Bool = false
 }
 
 class GameViewModel: ObservableObject {

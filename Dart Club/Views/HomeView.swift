@@ -33,12 +33,6 @@ struct HomeView: View {
                     .padding([.trailing], 40)
                 Text(" ")
                     .font(Font.custom("FightThis", size: 40))
-                Text("Beta V3")
-                    .shadow(color: Color.red, radius: 15)
-                    .foregroundColor(.red)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .font(.system(size: 20, design: .default))
             }
         }
         .statusBar(hidden: true)

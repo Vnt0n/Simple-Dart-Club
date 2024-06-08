@@ -91,12 +91,34 @@ struct CreditView: View {
                                 }
                                 
                                 Group {
-                                    Text("These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)")
-                                        .italic()
-                                        .multilineTextAlignment(.center)
-                                        .font(.system(size: 15))
+                                    HStack {
+                                        Spacer()
+                                        Text("These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)")
+                                            .italic()
+                                            .font(.system(size: 15))
+                                        Spacer()
+                                    }
                                 }
                                 .padding()
+                                
+                                Group {
+                                    HStack {
+                                        Spacer()
+                                        Text("This app use ConfettiSwiftUI")
+                                            .font(
+                                                .system(size: 10)
+                                            )
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Spacer()
+                                        Text("Copyright (c) 2020 Simon Bachmann")
+                                            .font(
+                                                .system(size: 10)
+                                            )
+                                        Spacer()
+                                    }
+                                }
                             }
                             .padding()
                         }
@@ -104,23 +126,23 @@ struct CreditView: View {
                 Spacer()
                 Divider()
                 
-                Text("An app provided by")
+                Text("An app by")
                     .font(
                         .system(size: 15)
                         .weight(.bold))
                     .padding(.top, 10)
                 Spacer()
-                Link("github.com/Vnt0n", destination: URL(string: "https://github.com/Vnt0n")!)
+                Link("vnton.xyz", destination: URL(string: "https://vnton.xyz")!)
                     .font(.system(size: 15))
                     .bold()
                 
                 Spacer()
 
-                Text("Beta V.3.0")
+                Text("V 1.0 | © 2024 Antoine Chosson")
                     .font(
                         .system(size: 10)
                     )
-                                              
+                
                 Spacer()
                 Spacer()
                 Spacer()

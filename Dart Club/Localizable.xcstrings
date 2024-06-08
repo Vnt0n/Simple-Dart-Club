@@ -11,6 +11,12 @@
             "state" : "translated",
             "value" : "-     Une fléchette se compose d'une pointe métallique, d'un barillet et peut comprendre jusqu'à cinq parties telles que des ailettes et des protections."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     飞镖由金属尖端、飞镖杆组成，可以包括最多五个部分，如飞镖翼和保护器。"
+          }
         }
       }
     },
@@ -20,6 +26,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Les fléchettes doivent être lancées une par une, délibérément et vers la cible. Chaque tour se compose de trois lancers de fléchettes."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     飞镖必须一次一个地投掷，且瞄准目标。每轮包括三次投掷。"
           }
         }
       }
@@ -31,6 +43,12 @@
             "state" : "translated",
             "value" : "-     Chaque manche commence sans conditions particulières (straight in)."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     每局开始时没有任何特殊得分条件（straight in）。"
+          }
         }
       }
     },
@@ -40,6 +58,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Il est obligatoire de s'amuser, sous peine d'être exclu dans la cuisine avec un bol sur la tête."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     玩得开心是强制性的，不遵守将被罚在厨房里头戴碗受罚。"
           }
         }
       }
@@ -51,6 +75,12 @@
             "state" : "translated",
             "value" : "-     Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas. De plus, terminer avec un score plus élevé que nécessaire est une erreur qui annule le lancer."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     如果飞镖掉落或弹出飞镖靶，则不计分。此外，以超过所需分数结束是一个错误，会取消该次投掷。"
+          }
         }
       }
     },
@@ -60,6 +90,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     如果玩家超过所需分数，他们的回合无效（BUST），并且他们必须在下一个回合从之前的分数重新开始。"
           }
         }
       }
@@ -71,6 +107,12 @@
             "state" : "translated",
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche se termine par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone double ou dans le Bullseye."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     仅当启用“双倍结束（Double Out）”选项时：每局以双倍结束，即最后一投必须落在双倍区域或靶心。"
+          }
         }
       }
     },
@@ -80,6 +122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     仅当启用“双倍结束（Double Out）”选项时：如果玩家达到1分，或未以双倍结束，他们的回合无效（BUST），并且他们必须在下一个回合从之前的分数重新开始。"
           }
         }
       }
@@ -91,6 +139,12 @@
             "state" : "translated",
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro en réussissant un double."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     仅当启用“双倍结束（Double Out）”选项时：要赢得一局，玩家必须通过击中双倍将分数减少到正好为零。"
+          }
         }
       }
     },
@@ -100,6 +154,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Les points sont soustraits du total initial (301 ou 501) jusqu'à ce que l'on atteigne exactement zéro. Les scores sont enregistrés en fonction de la section de la cible où la fléchette a atterri (simple, double ou triple)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     分数从初始总分（301或501）中减去，直到正好为零。分数根据飞镖落在飞镖靶上的区域（单倍、双倍或三倍）记录。"
           }
         }
       }
@@ -111,6 +171,12 @@
             "state" : "translated",
             "value" : "-     Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     记分错误必须在下一个玩家投掷前纠正。"
+          }
         }
       }
     },
@@ -120,6 +186,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (Bullseye) et le sol."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     正确的飞镖靶高度是从靶心到地面5英尺8英寸（173厘米）。"
           }
         }
       }
@@ -131,6 +203,12 @@
             "state" : "translated",
             "value" : "-     La cible est divisée en segments numérotés avec des zones doubles et triples qui permettent d'obtenir des scores plus élevés."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     飞镖靶分为编号的区域，带有双倍和三倍区域，以实现更高的得分。"
+          }
         }
       }
     },
@@ -140,6 +218,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     La distance entre la ligne de lancer et la cible est de 237 cm."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     从投掷线到飞镖靶的距离是8英尺（237厘米）。"
           }
         }
       }
@@ -151,6 +235,12 @@
             "state" : "translated",
             "value" : "-     Il est interdit de toucher ou de manipuler les fléchettes avant d'avoir terminé le tour."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     在完成回合之前，触摸或操纵飞镖靶中的飞镖是禁止的。"
+          }
         }
       }
     },
@@ -160,6 +250,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Le centre de la cible (Bullseye) compte pour 50 points et est également considéré comme un double 25."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     飞镖靶中心（靶心）计50分，也被认为是双倍25分。"
           }
         }
       }
@@ -171,6 +267,12 @@
             "state" : "translated",
             "value" : "- Moyenne des lancés : %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 平均投掷得分：%lld"
+          }
         }
       }
     },
@@ -181,12 +283,24 @@
             "state" : "translated",
             "value" : "Points restants : %lld  -"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 剩余得分：%lld -"
+          }
         }
       }
     },
     "- BUST" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- BUST"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "- BUST"
@@ -201,14 +315,46 @@
             "state" : "translated",
             "value" : "- Tour %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 回合 %lld"
+          }
         }
       }
     },
     "(%lld)" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%lld)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%lld)"
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "%@ throw" : {
       "localizations" : {
@@ -217,11 +363,30 @@
             "state" : "translated",
             "value" : "Lancé %@"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 投掷"
+          }
         }
       }
     },
     "%lld" : {
-
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "🎉 %@ won! 🥇" : {
       "localizations" : {
@@ -229,6 +394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "🎉 %@ a gagné! 🥇"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🎉 %@ 赢了! 🥇"
           }
         }
       }
@@ -239,6 +410,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "🏆 VICTOIRES 🏆"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🏆 胜利 🏆"
           }
         }
       }
@@ -253,6 +430,12 @@
             "state" : "translated",
             "value" : "🥊 BUST"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥊 BUST"
+          }
         }
       }
     },
@@ -262,6 +445,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1. Équipement requis :"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. 所需设备:"
           }
         }
       }
@@ -273,6 +462,12 @@
             "state" : "translated",
             "value" : "2. Comment jouer :"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. 如何玩:"
+          }
         }
       }
     },
@@ -282,6 +477,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "3. Les scores :"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. 记分:"
           }
         }
       }
@@ -293,12 +494,24 @@
             "state" : "translated",
             "value" : "4. Règles additionelles :"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. 其他规则:"
+          }
         }
       }
     },
     "301" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "301"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "301"
@@ -313,6 +526,12 @@
             "state" : "translated",
             "value" : "501"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "501"
+          }
         }
       }
     },
@@ -322,6 +541,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ajouter"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加"
           }
         }
       }
@@ -333,15 +558,27 @@
             "state" : "translated",
             "value" : "Ajouter un joueur"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加玩家"
+          }
         }
       }
     },
-    "An app provided by" : {
+    "An app by" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Une app crée par"
+            "value" : "Une app de"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一个来自…的应用程序"
           }
         }
       }
@@ -353,18 +590,24 @@
             "state" : "translated",
             "value" : "Moyenne des lancés : %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均投掷得分：%lld"
+          }
         }
       }
-    },
-    "Beta V.3.0" : {
-
-    },
-    "Beta V3" : {
-
     },
     "BUST" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUST"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "BUST"
@@ -375,12 +618,34 @@
     "Club   " : {
 
     },
+    "Copyright (c) 2020 Simon Bachmann" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copyright (c) 2020 Simon Bachmann"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版权所有 (c) 2020 Simon Bachmann"
+          }
+        }
+      }
+    },
     "CURRENT GAME" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "JEU EN COURS"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当前游戏"
           }
         }
       }
@@ -395,12 +660,24 @@
             "state" : "translated",
             "value" : "Règles des fléchettes"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "飞镖游戏规则"
+          }
         }
       }
     },
     "Double Out" : {
       "localizations" : {
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double Out"
+          }
+        },
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Double Out"
@@ -415,6 +692,12 @@
             "state" : "translated",
             "value" : "Entrez votre score"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入你的得分"
+          }
         }
       }
     },
@@ -425,11 +708,14 @@
             "state" : "translated",
             "value" : "Partie %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "游戏 %lld"
+          }
         }
       }
-    },
-    "github.com/Vnt0n" : {
-
     },
     "HISTORY" : {
       "localizations" : {
@@ -437,6 +723,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "HISTORIQUE"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "历史记录"
           }
         }
       }
@@ -448,6 +740,12 @@
             "state" : "translated",
             "value" : "Nouvelle partie"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新游戏"
+          }
         }
       }
     },
@@ -457,6 +755,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rien pour le moment"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚无得分"
           }
         }
       }
@@ -468,6 +772,12 @@
             "state" : "translated",
             "value" : "OK"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确定"
+          }
         }
       }
     },
@@ -477,6 +787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ou"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "或"
           }
         }
       }
@@ -488,6 +804,12 @@
             "state" : "translated",
             "value" : "Joueur %lld"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "玩家 %lld"
+          }
         }
       }
     },
@@ -496,7 +818,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Points restants %lld"
+            "value" : "Points restants : %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "剩余得分：%lld"
           }
         }
       }
@@ -508,6 +836,12 @@
             "state" : "translated",
             "value" : "Supprimer le joueur"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "移除最后一个玩家"
+          }
         }
       }
     },
@@ -517,6 +851,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tableau des scores"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记分板"
           }
         }
       }
@@ -528,6 +868,28 @@
             "state" : "translated",
             "value" : "Règles officielles de la World Darts Federation (si 501 et \"Double Out\")"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这些是世界飞镖联合会的官方规则（如果启用501和“双倍结束（Double Out）”选项）"
+          }
+        }
+      }
+    },
+    "This app use ConfettiSwiftUI" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette app utilise ConfettiSwiftUI"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个应用程序使用ConfettiSwiftUI"
+          }
         }
       }
     },
@@ -537,6 +899,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tour %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回合 %lld"
           }
         }
       }
@@ -548,6 +916,44 @@
             "state" : "translated",
             "value" : "Annuler"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "撤销"
+          }
+        }
+      }
+    },
+    "V 1.0 | © 2024 Antoine Chosson" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 1.0 | © 2024 Antoine Chosson"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 1.0 | © 2024 Antoine Chosson"
+          }
+        }
+      }
+    },
+    "vnton.xyz" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vnton.xyz"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vnton.xyz"
+          }
         }
       }
     },
@@ -557,6 +963,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous avez gagné !"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你赢了!"
           }
         }
       }
