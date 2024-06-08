@@ -673,7 +673,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "タワー"
+            "value" : "- タワー %lld"
           }
         },
         "zh-Hans" : {
@@ -757,13 +757,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Wurf"
+            "value" : "Wurf %@ "
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ lanzamiento"
+            "value" : "Lanzamiento %@ "
           }
         },
         "fr" : {
@@ -775,13 +775,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 投げ"
+            "value" : " 投げ %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ 投掷"
+            "value" : "投掷 %@"
           }
         }
       }
@@ -979,7 +979,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1.     必要な機材:"
+            "value" : "1. 必要な機材:"
           }
         },
         "zh-Hans" : {
@@ -1749,7 +1749,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verbleibende Punktzahl: %lld -"
+            "value" : "Verbleibende Punktzahl: %lld"
           }
         },
         "es" : {
@@ -1767,7 +1767,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "残りのスコア：%lld -"
+            "value" : "残りのスコア：%lld"
           }
         },
         "zh-Hans" : {

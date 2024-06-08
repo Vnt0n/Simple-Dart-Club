@@ -297,8 +297,24 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
                 .environment(\.locale, Locale(identifier: "en"))
 
             EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
-                .previewDisplayName("Français")
+                .previewDisplayName("French")
                 .environment(\.locale, Locale(identifier: "fr"))
+            
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
+                .previewDisplayName("Spanish")
+                .environment(\.locale, Locale(identifier: "es"))
+
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
+                .previewDisplayName("German")
+                .environment(\.locale, Locale(identifier: "de"))
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
+            
+                .previewDisplayName("Chinese")
+                .environment(\.locale, Locale(identifier: "zh-Hans"))
+
+            EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
+                .previewDisplayName("Japanese")
+                .environment(\.locale, Locale(identifier: "ja"))
         }
     }
 }

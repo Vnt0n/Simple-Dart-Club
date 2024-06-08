@@ -243,7 +243,27 @@ struct FirstView: View {
         .environment(\.locale, Locale(identifier: "en"))
 }
 
-#Preview("Français") {
+#Preview("French") {
     FirstView()
         .environment(\.locale, Locale(identifier: "fr"))
+}
+
+#Preview("Spanish") {
+    FirstView()
+        .environment(\.locale, Locale(identifier: "es"))
+}
+
+#Preview("German") {
+    FirstView()
+        .environment(\.locale, Locale(identifier: "de"))
+}
+
+#Preview("Chinese") {
+    FirstView()
+        .environment(\.locale, Locale(identifier: "zh-Hans"))
+}
+
+#Preview("Japanese") {
+    FirstView()
+        .environment(\.locale, Locale(identifier: "ja"))
 }
