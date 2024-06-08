@@ -6,6 +6,12 @@
     },
     "-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Ein Dart besteht aus einer metallischen Spitze, einem Barrel und kann bis zu fünf Teile wie Flights und Protectoren enthalten."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -18,6 +24,12 @@
             "value" : "-     Une fléchette se compose d'une pointe métallique, d'un barillet et peut comprendre jusqu'à cinq parties telles que des ailettes et des protections."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ダーツは金属製の先端、バレルで構成され、フライトやプロテクターなど最大5つの部品が含まれます。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -28,6 +40,12 @@
     },
     "-     Darts must be thrown one at a time, deliberately and towards the target. Each round consists of three dart throws." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Darts müssen einzeln, gezielt und auf das Ziel geworfen werden. Jede Runde besteht aus drei Dartwürfen."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40,6 +58,12 @@
             "value" : "-     Les fléchettes doivent être lancées une par une, délibérément et vers la cible. Chaque tour se compose de trois lancers de fléchettes."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ダーツは一度に1本ずつ、ターゲットに向かって投げる必要があります。各ラウンドは3回のダーツ投げで構成されます。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -50,6 +74,12 @@
     },
     "-     Each leg starts without any special conditions for scoring (straight in)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Jedes Leg beginnt ohne besondere Bedingungen für die Punktewertung (straight in)."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -62,6 +92,12 @@
             "value" : "-     Chaque manche commence sans conditions particulières (straight in)."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     各レッグは特別な得点条件なしで始まります（straight in）。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -72,6 +108,12 @@
     },
     "-     Having fun is mandatory, failure to comply will result in exclusion in the kitchen with a bowl on your head." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Spaß haben ist obligatorisch, bei Nichteinhaltung erfolgt der Ausschluss in die Küche mit einer Schüssel auf dem Kopf."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -100,6 +142,12 @@
     },
     "-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score higher than needed is an error that cancels the throw." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Wenn ein Dart fällt oder aus dem Dartboard herausspringt, zählt er nicht. Darüber hinaus ist es ein Fehler, mit einer höheren als der benötigten Punktzahl zu enden, was den Wurf ungültig macht."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -112,6 +160,12 @@
             "value" : "-     Si une fléchette tombe ou rebondit hors de la cible, elle ne compte pas. De plus, terminer avec un score plus élevé que nécessaire est une erreur qui annule le lancer."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ダーツがダーツボードから落ちたり跳ね返ったりした場合、それはカウントされません。さらに、必要なスコアを超えて終了することは、スローをキャンセルするエラーです。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,6 +176,12 @@
     },
     "-     If a player exceeds the needed score, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Wenn ein Spieler die benötigte Punktzahl überschreitet, ist sein Zug ungültig (Bust), und er muss in seinem nächsten Zug von der Punktzahl vor diesem Wurf neu starten."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,6 +194,12 @@
             "value" : "-     Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     プレイヤーが必要なスコアを超えた場合、そのターンは無効（BUST）であり、次のターンでその投げの前のスコアから再スタートしなければなりません。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -144,6 +210,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the Bullseye." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     NUR WENN DIE “DOUBLE OUT”-OPTION AKTIVIERT IST: Jedes Leg endet mit einem Doppel, was bedeutet, dass der letzte Wurf in einer Doppelzone oder im Bullseye landen muss."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -156,6 +228,12 @@
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Chaque manche se termine par un double, ce qui signifie que le dernier lancer doit atterrir dans une zone double ou dans le Bullseye."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     「DOUBLE OUT」オプションが有効な場合に限り：各レッグはダブルで終了します。つまり、最後の投げはダブルゾーンまたはBullseyeに入らなければなりません。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -166,6 +244,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     NUR WENN DIE “DOUBLE OUT”-OPTION AKTIVIERT IST: Wenn ein Spieler eine Punktzahl von 1 erreicht oder nicht mit einem Doppel endet, ist sein Zug ungültig (Bust), und er muss in seinem nächsten Zug von der Punktzahl vor diesem Wurf neu starten."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -178,6 +262,12 @@
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     「DOUBLE OUT」オプションが有効な場合に限り：プレイヤーがスコア1に達した場合、またはダブルで終了しなかった場合、そのターンは無効（BUST）であり、次のターンでその投げの前のスコアから再スタートしなければなりません。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -188,6 +278,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     NUR WENN DIE “DOUBLE OUT”-OPTION AKTIVIERT IST: Um ein Leg zu gewinnen, muss der Spieler seine Punktzahl durch Treffen eines Doppels auf genau null reduzieren."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -200,6 +296,12 @@
             "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro en réussissant un double."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     「DOUBLE OUT」オプションが有効な場合に限り：レッグに勝つには、プレイヤーはダブルをヒットしてスコアを正確にゼロに減らして終了する必要があります。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -210,6 +312,12 @@
     },
     "-     Points are subtracted from an initial total (301 or 501) until exactly zero is reached. Scores are recorded based on the section of the dartboard where the dart lands (single, double, or triple)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Punkte werden von einer Anfangssumme (301 oder 501) subtrahiert, bis genau null erreicht ist. Die Punkte werden entsprechend dem Bereich des Dartboards, in dem der Dart landet (einfach, doppelt oder dreifach), aufgezeichnet."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -222,6 +330,12 @@
             "value" : "-     Les points sont soustraits du total initial (301 ou 501) jusqu'à ce que l'on atteigne exactement zéro. Les scores sont enregistrés en fonction de la section de la cible où la fléchette a atterri (simple, double ou triple)."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ポイントは初期合計（301または501）から差し引かれ、正確にゼロに達するまで続きます。スコアは、ダーツが着地するダーツボードのセクション（シングル、ダブル、またはトリプル）に基づいて記録されます。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -232,6 +346,12 @@
     },
     "-     Scoring errors must be corrected before the next player's throw." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Punktfehler müssen vor dem Wurf des nächsten Spielers korrigiert werden."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -244,6 +364,12 @@
             "value" : "-     Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     スコアリングエラーは次のプレイヤーの投げ前に修正する必要があります。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -254,6 +380,12 @@
     },
     "-     The correct dartboard height is 5 feet 8 inches (173 cm) from the Bullseye to the floor." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Die korrekte Höhe des Dartboards beträgt 5 Fuß 8 Zoll (173 cm) vom Bullseye bis zum Boden."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -266,6 +398,12 @@
             "value" : "-     La hauteur correcte d'une cible de fléchettes est de 173 cm entre le centre de la cible (Bullseye) et le sol."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     正しいダーツボードの高さは、Bullseyeから床まで5フィート8インチ（173 cm）です。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -276,6 +414,12 @@
     },
     "-     The dartboard is divided into numbered segments with double and triple zones that allow for higher scoring." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Das Dartboard ist in nummerierte Segmente mit Doppel- und Triple-Zonen unterteilt, die höhere Punktzahlen ermöglichen."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -288,6 +432,12 @@
             "value" : "-     La cible est divisée en segments numérotés avec des zones doubles et triples qui permettent d'obtenir des scores plus élevés."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ダーツボードは番号が付いたセグメントに分かれており、ダブルゾーンとトリプルゾーンがあり、高得点を可能にします。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -298,6 +448,12 @@
     },
     "-     The distance from the throw line to the dartboard is 8 feet (237 cm)." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Der Abstand von der Wurflinie zum Dartboard beträgt 8 Fuß (237 cm)."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -310,6 +466,12 @@
             "value" : "-     La distance entre la ligne de lancer et la cible est de 237 cm."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     スローラインからダーツボードまでの距離は8フィート（237 cm）です。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -320,6 +482,12 @@
     },
     "-     Touching or manipulating darts in the dartboard before completing the turn is prohibited." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Das Berühren oder Manipulieren der Darts im Dartboard vor Abschluss des Zuges ist verboten."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -332,6 +500,12 @@
             "value" : "-     Il est interdit de toucher ou de manipuler les fléchettes avant d'avoir terminé le tour."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ターンを完了する前に、ダーツボードのダーツに触れたり操作したりすることは禁止されています。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -342,6 +516,12 @@
     },
     "-    The center of the dartboard (Bullseye) counts for 50 points and is also considered a double 25." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Das Zentrum des Dartboards (Bullseye) zählt 50 Punkte und wird auch als Doppel-25 gewertet."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -354,6 +534,12 @@
             "value" : "-     Le centre de la cible (Bullseye) compte pour 50 points et est également considéré comme un double 25."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     ダーツボードの中心（Bullseye）は50ポイントとカウントされ、ダブル25と見なされます。"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -364,6 +550,12 @@
     },
     "-  Average Throw Score: %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Durchschnittliche Wurfpunktzahl: %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -376,6 +568,12 @@
             "value" : "- Moyenne des lancés : %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 平均投げスコア：%lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -386,6 +584,12 @@
     },
     "-  Remaining Score: %lld  -" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Verbleibende Punktzahl: %lld -"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -398,6 +602,12 @@
             "value" : "Points restants : %lld  -"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- 残りのスコア：%lld -"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -408,6 +618,12 @@
     },
     "- BUST" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- BUST"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -436,6 +652,12 @@
     },
     "- Turn %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Runde %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -448,6 +670,12 @@
             "value" : "- Tour %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タワー"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -458,6 +686,12 @@
     },
     "(%lld)" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%lld)"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -465,6 +699,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%lld)"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "(%lld)"
@@ -480,6 +720,12 @@
     },
     "%@" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -487,6 +733,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -502,6 +754,12 @@
     },
     "%@ throw" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ Wurf"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -514,6 +772,12 @@
             "value" : "Lancé %@"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 投げ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -524,6 +788,12 @@
     },
     "%lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -531,6 +801,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld"
@@ -546,6 +822,12 @@
     },
     "🎉 %@ won! 🥇" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🎉 %@ hat gewonnen! 🥇"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -558,6 +840,12 @@
             "value" : "🎉 %@ a gagné! 🥇"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🎉  %@ が勝ちました! 🥇"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -568,6 +856,12 @@
     },
     "🏆 VICTORIES 🏆" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🏆 SIEGE 🏆"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -580,6 +874,12 @@
             "value" : "🏆 VICTOIRES 🏆"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🏆 勝利 🏆"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -590,6 +890,12 @@
     },
     "🥇" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥇"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -618,6 +924,12 @@
     },
     "🥊 BUST" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥊 BUST"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -646,6 +958,12 @@
     },
     "1. Required Equipment:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Erforderliche Ausrüstung:"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -658,6 +976,12 @@
             "value" : "1. Équipement requis :"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1.     必要な機材:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -668,6 +992,12 @@
     },
     "2. How to Play:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. So wird gespielt:"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -680,6 +1010,12 @@
             "value" : "2. Comment jouer :"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. プレイ方法:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -690,6 +1026,12 @@
     },
     "3. Scoring:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Punktwertung:"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -702,6 +1044,12 @@
             "value" : "3. Les scores :"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. スコアリング:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -712,6 +1060,12 @@
     },
     "4. Additional Rules:" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Zusätzliche Regeln:"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -724,6 +1078,12 @@
             "value" : "4. Règles additionelles :"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. 追加ルール:"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -734,6 +1094,12 @@
     },
     "301" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "301"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -741,6 +1107,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "301"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "301"
@@ -756,6 +1128,12 @@
     },
     "501" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "501"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -763,6 +1141,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "501"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "501"
@@ -778,6 +1162,12 @@
     },
     "Add" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -790,6 +1180,12 @@
             "value" : "Ajouter"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "追加"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -800,6 +1196,12 @@
     },
     "Add a player" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einen Spieler hinzufügen"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -812,6 +1214,12 @@
             "value" : "Ajouter un joueur"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選手を追加する"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -822,6 +1230,12 @@
     },
     "An app by" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine App von"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -834,6 +1248,12 @@
             "value" : "Une app de"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "が作成したアプリ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -844,6 +1264,12 @@
     },
     "Average Throw Score: %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchschnittliche Wurfpunktzahl: %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -856,6 +1282,12 @@
             "value" : "Moyenne des lancés : %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平均投げスコア：%lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -866,6 +1298,12 @@
     },
     "BUST" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUST"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -873,6 +1311,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUST"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "BUST"
@@ -891,6 +1335,12 @@
     },
     "Copyright (c) 2020 Simon Bachmann" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urheberrecht (c) 2020 Simon Bachmann"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -903,6 +1353,12 @@
             "value" : "Copyright (c) 2020 Simon Bachmann"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "著作権 (c) 2020 Simon Bachmann"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -913,6 +1369,12 @@
     },
     "CURRENT GAME" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AKTUELLES SPIEL"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -923,6 +1385,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "JEU EN COURS"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゲーム進行中"
           }
         },
         "zh-Hans" : {
@@ -938,6 +1406,12 @@
     },
     "Dart Game Rules" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dartspielregeln"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -950,6 +1424,12 @@
             "value" : "Règles des fléchettes"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダーツゲームのルール"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -960,6 +1440,12 @@
     },
     "Double Out" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double Out"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -967,6 +1453,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double Out"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Double Out"
@@ -982,6 +1474,12 @@
     },
     "Enter your score" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie Ihre Punktzahl ein"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -994,6 +1492,12 @@
             "value" : "Entrez votre score"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スコアを入力してください"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1004,6 +1508,12 @@
     },
     "Game %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1016,6 +1526,12 @@
             "value" : "Partie %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゲーム %lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1026,6 +1542,12 @@
     },
     "HISTORY" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "VERLAUF"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1038,6 +1560,12 @@
             "value" : "HISTORIQUE"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "得点履歴"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1048,6 +1576,12 @@
     },
     "New game" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Spiel"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1060,6 +1594,12 @@
             "value" : "Nouvelle partie"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいゲーム"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1070,6 +1610,12 @@
     },
     "No score yet" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Punktzahl"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1082,6 +1628,12 @@
             "value" : "Rien pour le moment"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まだスコアはありません"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1092,6 +1644,12 @@
     },
     "OK          " : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1099,6 +1657,12 @@
           }
         },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -1114,6 +1678,12 @@
     },
     "or" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "oder"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1126,6 +1696,12 @@
             "value" : "ou"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "または"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1136,6 +1712,12 @@
     },
     "Player %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spieler %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1148,6 +1730,12 @@
             "value" : "Joueur %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイヤー %lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1158,6 +1746,12 @@
     },
     "Remaining Score: %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbleibende Punktzahl: %lld -"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1170,6 +1764,12 @@
             "value" : "Points restants : %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "残りのスコア：%lld -"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1180,6 +1780,12 @@
     },
     "Remove last player" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzten Spieler entfernen"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1192,6 +1798,12 @@
             "value" : "Supprimer le joueur"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最後のプレイヤーを削除"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1202,6 +1814,12 @@
     },
     "ScoreBoard" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Punktestand"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1214,6 +1832,12 @@
             "value" : "Tableau des scores"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スコアボード"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1224,6 +1848,12 @@
     },
     "These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies sind die genauen offiziellen Regeln der World Darts Federation (wenn 501 und “Double Out” aktiviert sind)"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1236,6 +1866,12 @@
             "value" : "Règles officielles de la World Darts Federation (si 501 et \"Double Out\")"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これらは世界ダーツ連盟の公式ルールです（501および「DOUBLE OUT」オプションが有効な場合)"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1246,6 +1882,12 @@
     },
     "This app use ConfettiSwiftUI" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese App verwendet ConfettiSwiftUI"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1258,6 +1900,12 @@
             "value" : "Cette app utilise ConfettiSwiftUI"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリはConfettiSwiftUIを使用しています"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1268,6 +1916,12 @@
     },
     "Turn %lld" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runde %lld"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1280,6 +1934,12 @@
             "value" : "Tour %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タワー%lld"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1290,6 +1950,12 @@
     },
     "Undo" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rückgängig machen"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1302,6 +1968,12 @@
             "value" : "Annuler"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "元に戻す"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1312,6 +1984,12 @@
     },
     "V 1.0 | © 2024 Antoine Chosson" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 1.0 | © 2024 Antoine Chosson"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1340,6 +2018,12 @@
     },
     "vnton.xyz" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vnton.xyz"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1368,6 +2052,12 @@
     },
     "You won!" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast gewonnen!"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1378,6 +2068,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous avez gagné !"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたの勝ちです！"
           }
         },
         "zh-Hans" : {
