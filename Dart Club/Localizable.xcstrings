@@ -6,6 +6,12 @@
     },
     "-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Un dardo consiste en una punta metálica, un barril, y puede incluir hasta cinco partes como aletas y protectores.\n"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -22,6 +28,12 @@
     },
     "-     Darts must be thrown one at a time, deliberately and towards the target. Each round consists of three dart throws." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Los dardos deben lanzarse uno a la vez, deliberadamente y hacia el objetivo. Cada ronda consiste en tres lanzamientos de dardos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38,6 +50,12 @@
     },
     "-     Each leg starts without any special conditions for scoring (straight in)." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Cada partida comienza sin condiciones especiales para la puntuación (straight in)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -54,10 +72,22 @@
     },
     "-     Having fun is mandatory, failure to comply will result in exclusion in the kitchen with a bowl on your head." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Divertirse es obligatorio, el incumplimiento resultará en exclusión en la cocina con un tazón en la cabeza."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "-     Il est obligatoire de s'amuser, sous peine d'être exclu dans la cuisine avec un bol sur la tête."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     \tこの経験を楽しむには、これが不可欠だ。もしこのルールを破れば、頭の上にボウルが置かれ、厨房に追い出される。"
           }
         },
         "zh-Hans" : {
@@ -70,6 +100,12 @@
     },
     "-     If a dart falls or bounces out of the dartboard, it does not count. Furthermore, finishing with a score higher than needed is an error that cancels the throw." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Si un dardo cae o rebota fuera del tablero, no cuenta. Además, terminar con una puntuación más alta de la necesaria es un error que anula el lanzamiento."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -86,6 +122,12 @@
     },
     "-     If a player exceeds the needed score, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Si un jugador excede la puntuación necesaria, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -102,6 +144,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: Each leg ends by doubling, meaning the final throw must land in a double zone or the Bullseye." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Cada partida termina con un doble, lo que significa que el lanzamiento final debe caer en una zona doble o en el centro."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -118,6 +166,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: If a player reaches a score of 1, or doesn't finish on a double, their turn is invalid (bust), and they must restart from the score they had before that throw on their next turn." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Si un jugador alcanza una puntuación de 1, o no termina con un doble, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,6 +188,12 @@
     },
     "-     ONLY IF THE \"DOUBLE OUT\" OPTION IS ENABLED: To win a leg, the player must finish by reducing their score to exactly zero by hitting a double." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Para ganar una partida, el jugador debe terminar reduciendo su puntuación a exactamente cero al acertar un doble."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -150,6 +210,12 @@
     },
     "-     Points are subtracted from an initial total (301 or 501) until exactly zero is reached. Scores are recorded based on the section of the dartboard where the dart lands (single, double, or triple)." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Los puntos se restan de un total inicial (301 o 501) hasta que se alcance exactamente cero. Las puntuaciones se registran según la sección del tablero de dardos donde cae el dardo (simple, doble o triple)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -166,6 +232,12 @@
     },
     "-     Scoring errors must be corrected before the next player's throw." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Los errores de puntuación deben corregirse antes del lanzamiento del siguiente jugador."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -182,6 +254,12 @@
     },
     "-     The correct dartboard height is 5 feet 8 inches (173 cm) from the Bullseye to the floor." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     La altura correcta del tablero de dardos es de 5 pies 8 pulgadas (173 cm) desde el centro hasta el suelo."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -198,6 +276,12 @@
     },
     "-     The dartboard is divided into numbered segments with double and triple zones that allow for higher scoring." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     El tablero de dardos está dividido en segmentos numerados con zonas dobles y triples que permiten obtener más puntos."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -214,6 +298,12 @@
     },
     "-     The distance from the throw line to the dartboard is 8 feet (237 cm)." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     La distancia desde la línea de lanzamiento hasta el tablero de dardos es de 8 pies (237 cm)."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -230,6 +320,12 @@
     },
     "-     Touching or manipulating darts in the dartboard before completing the turn is prohibited." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     Tocar o manipular los dardos en el tablero antes de completar el turno está prohibido."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -246,6 +342,12 @@
     },
     "-    The center of the dartboard (Bullseye) counts for 50 points and is also considered a double 25." : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "-     El centro del tablero de dardos (Bullseye) cuenta 50 puntos y también se considera un doble 25."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -262,6 +364,12 @@
     },
     "-  Average Throw Score: %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Puntuación Promedio de Lanzamiento: %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -278,6 +386,12 @@
     },
     "-  Remaining Score: %lld  -" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Puntuación Restante: %lld -"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -294,7 +408,19 @@
     },
     "- BUST" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- BUST"
+          }
+        },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- BUST"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "- BUST"
@@ -310,6 +436,12 @@
     },
     "- Turn %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Turno %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -326,6 +458,12 @@
     },
     "(%lld)" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "(%lld)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -342,6 +480,12 @@
     },
     "%@" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -358,6 +502,12 @@
     },
     "%@ throw" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ lanzamiento"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -374,6 +524,12 @@
     },
     "%lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -390,6 +546,12 @@
     },
     "🎉 %@ won! 🥇" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🎉 ¡%@ ganó! 🥇"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -406,6 +568,12 @@
     },
     "🏆 VICTORIES 🏆" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🏆 VICTORIAS 🏆"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -421,11 +589,48 @@
       }
     },
     "🥇" : {
-
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥇"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥇"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥇"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥇"
+          }
+        }
+      }
     },
     "🥊 BUST" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥊 BUST"
+          }
+        },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥊 BUST"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "🥊 BUST"
@@ -441,6 +646,12 @@
     },
     "1. Required Equipment:" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Equipamiento Requerido:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -457,6 +668,12 @@
     },
     "2. How to Play:" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2. Cómo Jugar:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -473,6 +690,12 @@
     },
     "3. Scoring:" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3. Puntuación:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -489,6 +712,12 @@
     },
     "4. Additional Rules:" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4. Reglas Adicionales:"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -505,6 +734,12 @@
     },
     "301" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "301"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -521,6 +756,12 @@
     },
     "501" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "501"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -537,6 +778,12 @@
     },
     "Add" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -553,6 +800,12 @@
     },
     "Add a player" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agregar un jugador"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -569,6 +822,12 @@
     },
     "An app by" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una aplicación de"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -585,6 +844,12 @@
     },
     "Average Throw Score: %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuación Promedio de Lanzamiento: %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -601,6 +866,12 @@
     },
     "BUST" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUST"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -620,6 +891,12 @@
     },
     "Copyright (c) 2020 Simon Bachmann" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Derechos de autor (c) 2020 Simon Bachmann"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -636,6 +913,12 @@
     },
     "CURRENT GAME" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JUEGO ACTUAL"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -655,6 +938,12 @@
     },
     "Dart Game Rules" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reglas del Juego de Dardos"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -671,6 +960,12 @@
     },
     "Double Out" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Double Out"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +982,12 @@
     },
     "Enter your score" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa tu puntuación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -703,6 +1004,12 @@
     },
     "Game %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juego %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -719,6 +1026,12 @@
     },
     "HISTORY" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HISTORIAL"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -735,6 +1048,12 @@
     },
     "New game" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuevo juego"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -751,6 +1070,12 @@
     },
     "No score yet" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aún no hay puntuación"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -767,6 +1092,12 @@
     },
     "OK          " : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -783,6 +1114,12 @@
     },
     "or" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "o"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -799,6 +1136,12 @@
     },
     "Player %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugador %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -815,6 +1158,12 @@
     },
     "Remaining Score: %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuación Restante: %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -831,6 +1180,12 @@
     },
     "Remove last player" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar último jugador"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -847,6 +1202,12 @@
     },
     "ScoreBoard" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marcador"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -863,6 +1224,12 @@
     },
     "These are exact official rules from the World Darts Federation (if 501 and \"Double Out\" enabled)" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estas son las reglas oficiales exactas de la Federación Mundial de Dardos (si 501 y “Double Out” están habilitados)"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -879,6 +1246,12 @@
     },
     "This app use ConfettiSwiftUI" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta aplicación usa ConfettiSwiftUI"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -895,6 +1268,12 @@
     },
     "Turn %lld" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turno %lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -911,6 +1290,12 @@
     },
     "Undo" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deshacer"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -927,7 +1312,19 @@
     },
     "V 1.0 | © 2024 Antoine Chosson" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 1.0 | © 2024 Antoine Chosson"
+          }
+        },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V 1.0 | © 2024 Antoine Chosson"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "V 1.0 | © 2024 Antoine Chosson"
@@ -943,7 +1340,19 @@
     },
     "vnton.xyz" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vnton.xyz"
+          }
+        },
         "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vnton.xyz"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "vnton.xyz"
@@ -959,6 +1368,12 @@
     },
     "You won!" : {
       "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Ganaste!"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
