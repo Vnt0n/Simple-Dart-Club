@@ -18,6 +18,10 @@ struct InformationsView: View {
     @State private var isToggled: Bool = false
 
     @Environment(\.dismiss) var dismiss
+    
+    private var winningPlayer: Player? {
+            viewModel.currentGame.players.first(where: { $0.remainingScore == 0 })
+        }
 
     var body: some View {
         NavigationStack {
@@ -55,13 +59,16 @@ struct InformationsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .foregroundColor(.primary)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("ScoreBoard")
-                        .font(.largeTitle.bold())
-                        .accessibilityAddTraits(.isHeader)
-                        .padding(.top, 15)
-                        .padding(.bottom, 5)
-                        .foregroundColor(.primary)
+                if winningPlayer == nil {
+                    
+                    ToolbarItem(placement: .principal) {
+                        Text("ScoreBoard")
+                            .font(.largeTitle.bold())
+                            .accessibilityAddTraits(.isHeader)
+                            .padding(.top, 15)
+                            .padding(.bottom, 5)
+                            .foregroundColor(.primary)
+                    }
                 }
             }
         }
@@ -70,7 +77,7 @@ struct InformationsView: View {
     
     private var winningView: some View {
         Group {
-            if let winningPlayer = viewModel.currentGame.players.first(where: { $0.remainingScore == 0 }) {
+            if let winningPlayer = winningPlayer {
                 VStack {
                     Text("🥇")
                         .padding([.bottom], 10)
@@ -112,28 +119,6 @@ struct InformationsView: View {
     private var currentGameView: some View {
         
         VStack(alignment: .center, spacing: 20) {
-            
-//////////////////////////////////////////////////////////////////// DEBUG BUTTON /////////////////////////////////////////////////////////////////
-
-//        Button(action: {
-//
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DEBUG")
-//            print("--------------------------------------------")
-//            print("--------------------------------------------")
-//            print("DOUBLE OUT: \(viewModel.currentGame.isToggledDoubleOut)")
-//            print(" ")
-//            print(" ")
-//            
-//        }) {
-//            Image(systemName: "ladybug.circle")
-//                .accessibilityLabel("Undo")
-//                .font(.system(size: 25))
-//        }
-//        .buttonStyle(PlainButtonStyle())
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 
             Text("CURRENT GAME")
                 .font(.title2)
