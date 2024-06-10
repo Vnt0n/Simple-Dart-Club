@@ -1982,36 +1982,36 @@
         }
       }
     },
-    "V 1.0 | © 2024 Antoine Chosson" : {
+    "V 1.0.0 | © 2024 Antoine Chosson" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
           }
         }
       }
