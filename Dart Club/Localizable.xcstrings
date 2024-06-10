@@ -9,7 +9,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Ein Dart besteht aus einer metallischen Spitze, einem Barrel und kann bis zu fünf Teile wie Flights und Protectoren enthalten."
+            "value" : "-     Ein Dart besteht aus einer metallischen Spitze, einem Barrel und kann bis zu fünf Teile wie Flights und Protektoren enthalten."
           }
         },
         "es" : {
@@ -231,13 +231,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     「DOUBLE OUT」オプションが有効な場合に限り：各レッグはダブルで終了します。つまり、最後の投げはダブルゾーンまたはBullseyeに入らなければなりません。"
+            "value" : "-    「DOUBLE OUT」オプションが有効な場合に限り：各レッグはダブルで終了します。つまり、最後の投げはダブルゾーンまたはBullseyeに入らなければなりません。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     仅当启用“双倍结束（Double Out）”选项时：每局以双倍结束，即最后一投必须落在双倍区域或靶心。"
+            "value" : "-     仅当启用“双倍结束（Double Out）”选项时：每局以双倍结束，即最后一投必须落在双倍区域或 Bullseye。"
           }
         }
       }
@@ -373,7 +373,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     记分错误必须在下一个玩家投掷前纠正。"
+            "value" : "-    记分错误必须在下一个投掷前纠正。"
           }
         }
       }
@@ -407,7 +407,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     正确的飞镖靶高度是从靶心到地面5英尺8英寸（173厘米）。"
+            "value" : "-     正确的飞镖靶高度是从 Bullseye 到地面5英尺8英寸（173厘米）。"
           }
         }
       }
@@ -543,7 +543,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     飞镖靶中心（靶心）计50分，也被认为是双倍25分。"
+            "value" : "-     飞镖靶中心（Bullseye）计50分，也被认为是双倍25分。"
           }
         }
       }
