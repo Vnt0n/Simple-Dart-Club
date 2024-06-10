@@ -101,7 +101,7 @@ struct CreditView: View {
                                 }
                                 .padding()
                                 
-                                Group {
+                                VStack {
                                     HStack {
                                         Spacer()
                                         Text("This app use ConfettiSwiftUI")
@@ -131,13 +131,13 @@ struct CreditView: View {
                         .system(size: 15)
                         .weight(.bold))
                     .padding(.top, 10)
-                Spacer()
+                               
                 Link("vnton.xyz", destination: URL(string: "https://vnton.xyz")!)
-                    .font(.system(size: 15))
+                    .font(.system(size: 20))
                     .bold()
+                    .foregroundColor(.blue)
+                    .padding(.bottom, 1)
                 
-                Spacer()
-
                 Text("V 1.0 | © 2024 Antoine Chosson")
                     .font(
                         .system(size: 10)
