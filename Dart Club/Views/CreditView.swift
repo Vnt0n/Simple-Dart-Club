@@ -137,7 +137,7 @@ struct CreditView: View {
                     .foregroundColor(.blue)
                     .padding(.bottom, 1)
                 
-                Text("V 1.0 | © 2024 Antoine Chosson")
+                Text("V 1.0 | © 2024 A. Chosson")
                     .font(
                         .system(size: 10)
                     )
