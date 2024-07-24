@@ -16,6 +16,7 @@
 		71082C492BE3DBD90088C1D8 /* EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */; };
 		71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */; };
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
+		71624D252C5150EA00509D26 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 71624D242C5150EA00509D26 /* PrivacyInfo.xcprivacy */; };
 		717F57AD2BE7EC7B009A303E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */; };
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
 		718F2CFF2BE3EB69001C025F /* FightThis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71082C3A2BE3DA800088C1D8 /* FightThis.ttf */; };
@@ -51,6 +52,7 @@
 		71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		71082C4C2BE3DC140088C1D8 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		71624D242C5150EA00509D26 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7197F6992BF3A3AC00794C17 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7197F6BB2BF3A97200794C17 /* iPhone-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone-03.png"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		71F6C3552BE3CD0300EE60EE = {
 			isa = PBXGroup;
 			children = (
+				71624D242C5150EA00509D26 /* PrivacyInfo.xcprivacy */,
 				7197F69A2BF3A91300794C17 /* Screenshots */,
 				7197F6992BF3A3AC00794C17 /* README.md */,
 				71F6C3602BE3CD0300EE60EE /* Dart Club */,
@@ -259,6 +262,7 @@
 				7197F6D42BF3A97300794C17 /* iPad-01.png in Resources */,
 				71F6C3662BE3CD0400EE60EE /* Assets.xcassets in Resources */,
 				7197F6D72BF3A97300794C17 /* iPhone-05.png in Resources */,
+				71624D252C5150EA00509D26 /* PrivacyInfo.xcprivacy in Resources */,
 				7197F6D22BF3A97300794C17 /* iPhone-08.png in Resources */,
 				7197F6D52BF3A97300794C17 /* iPad-02.png in Resources */,
 				7197F6D02BF3A97300794C17 /* iPhone-01.png in Resources */,

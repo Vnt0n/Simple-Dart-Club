@@ -1880,36 +1880,36 @@
         }
       }
     },
-    "This app use ConfettiSwiftUI" : {
+    "This app use ConfettiSwiftUI:" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diese App verwendet ConfettiSwiftUI"
+            "value" : "Diese App verwendet ConfettiSwiftUI:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esta aplicación usa ConfettiSwiftUI"
+            "value" : "Esta aplicación utiliza ConfettiSwiftUI:"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cette app utilise ConfettiSwiftUI"
+            "value" : "Cett app utilise ConfettiSwiftUI :"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "このアプリはConfettiSwiftUIを使用しています"
+            "value" : "このアプリはConfettiSwiftUIを使用しています："
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这个应用程序使用ConfettiSwiftUI"
+            "value" : "此应用程序使用 ConfettiSwiftUI:"
           }
         }
       }
@@ -1982,36 +1982,36 @@
         }
       }
     },
-    "V 1.0.0 | © 2024 Antoine Chosson" : {
+    "V 1.0 | © 2024 A. Chosson" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0 | © 2024 A. Chosson"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0 | © 2024 A. Chosson"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0 | © 2024 A. Chosson"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0 | © 2024 A. Chosson"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V 1.0.0 | © 2024 Antoine Chosson"
+            "value" : "V 1.0 | © 2024 A. Chosson"
           }
         }
       }

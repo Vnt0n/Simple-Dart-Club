@@ -105,7 +105,7 @@ struct CreditView: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                Text("This app use ConfettiSwiftUI")
+                                Text("This app use ConfettiSwiftUI:")
                                     .font(
                                         .system(size: 10)
                                     )
