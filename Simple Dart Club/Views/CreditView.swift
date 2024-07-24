@@ -1,6 +1,6 @@
 //
 //  CreditView.swift
-//  Dart Club
+//  Simple Dart Club
 //
 //  Created by Antoine on 02/05/2024.
 //
@@ -15,7 +15,7 @@ struct CreditView: View {
             VStack {
 
                 ScrollView {
-                    
+                                       
                     Text("Dart   ")
                         .font(Font.custom("FightThis", size: 40))
                         .shadow(color: Color.red, radius: 15)
@@ -24,7 +24,16 @@ struct CreditView: View {
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
                         .padding([.trailing], 40)
-                        .padding(.top, 30)
+                        .padding(.bottom, -10)
+                    
+                    Text("Simple   ")
+                        .font(Font.custom("FightThis", size: 12))
+                        .shadow(color: Color.red, radius: 15)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.center)
+                        .rotationEffect(Angle(degrees: 347))
+                        .frame(maxWidth: .infinity)
+                        .padding([.trailing], 40)
                     
                     Text("Club   ")
                         .font(Font.custom("FightThis", size: 40))
@@ -34,6 +43,7 @@ struct CreditView: View {
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
                         .padding([.trailing], 40)
+                        .padding(.top, -20)
                     
                     Spacer()
                     
@@ -158,6 +168,7 @@ struct CreditView: View {
     CreditView()
         .environment(\.locale, Locale(identifier: "en"))
 }
+
 #Preview("French") {
     CreditView()
         .environment(\.locale, Locale(identifier: "fr"))

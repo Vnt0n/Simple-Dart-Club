@@ -1,5 +1,5 @@
 
-# Dart Club (iPhone / iPad)
+# Simple Dart Club (iPhone / iPad)
 
 ## **Tableau de scores aux fléchettes !**
 

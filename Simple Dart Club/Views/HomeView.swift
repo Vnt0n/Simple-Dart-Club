@@ -1,6 +1,6 @@
 //
 //  HomeView.swift
-//  Dart Club
+//  Simple Dart Club
 //
 //  Created by Antoine on 02/05/2024.
 //
@@ -22,7 +22,18 @@ struct HomeView: View {
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
-                    .padding(.bottom, -80)
+                    .padding(.bottom, -40)
+                    .padding(.top, -40)
+                
+                Text("Simple  ")
+                    .font(Font.custom("FightThis", size: 30))
+                    .shadow(color: Color.red, radius: 10)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .rotationEffect(Angle(degrees: 347))
+                    .frame(maxWidth: .infinity)
+                    .padding([.trailing], 30)
+                
                 Text("Club   ")
                     .font(Font.custom("FightThis", size: 150))
                     .shadow(color: Color.red, radius: 15)
@@ -31,6 +42,8 @@ struct HomeView: View {
                     .rotationEffect(Angle(degrees: 347))
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
+                    .padding(.top, -60)
+                
                 Text(" ")
                     .font(Font.custom("FightThis", size: 40))
             }

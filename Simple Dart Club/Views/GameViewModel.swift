@@ -1,6 +1,6 @@
 //
 //  GameViewModel.swift
-//  Dart Club
+//  Simple Dart Club
 //
 //  Created by Antoine on 02/05/2024.
 //

@@ -1,6 +1,6 @@
 //
 //  FirstView.swift
-//  Dart Club
+//  Simple Dart Club
 //
 //  Created by Antoine on 02/05/2024.
 //
@@ -61,6 +61,7 @@ struct FirstView: View {
 
     var dartClubText: some View {
         VStack {
+            
             Text("Dart   ")
                 .font(Font
                     .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
@@ -69,9 +70,18 @@ struct FirstView: View {
             .multilineTextAlignment(.center)
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
-            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -80 : 0)
+            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -40 : -20)
         
-        Text("Club   ")
+            Text("Simple   ")
+                .font(Font
+                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20))
+            .shadow(color: Color.red, radius: 15)
+            .foregroundColor(.red)
+            .multilineTextAlignment(.center)
+            .rotationEffect(Angle(degrees: 347))
+            .padding([.trailing], 30)
+            
+            Text("Club   ")
                 .font(Font
                     .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
             .shadow(color: Color.red, radius: 15)
@@ -79,7 +89,8 @@ struct FirstView: View {
             .multilineTextAlignment(.center)
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
-            .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? 0 : -80)
+            .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? -60 : -33)
+            
         }
         .transition(.opacity)
     }
