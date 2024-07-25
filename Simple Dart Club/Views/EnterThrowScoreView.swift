@@ -18,6 +18,8 @@ struct EnterThrowScoreView: View {
 
     @FocusState private var isFocused: Bool
     @Environment(\.dismiss) var dismiss
+    
+    @State private var displayedPlayerName: String = ""
 
     var body: some View {
         
@@ -27,7 +29,7 @@ struct EnterThrowScoreView: View {
                 
                 Spacer()
                 
-                Text("\(viewModel.currentGame.players[currentPlayerIndex].name)")
+                Text("\(displayedPlayerName)")
                     .font(.system(size: 40, weight: .bold, design: .default))
                     .padding(.bottom, 1)
 
@@ -53,6 +55,7 @@ struct EnterThrowScoreView: View {
                 .onAppear {
                     DispatchQueue.main.async {
                         self.isFocused = true
+                        displayedPlayerName = viewModel.currentGame.players[viewModel.currentPlayerIndex].name
                     }
                 }
                 
