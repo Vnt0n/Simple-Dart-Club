@@ -70,7 +70,7 @@ struct FirstView: View {
             .multilineTextAlignment(.center)
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
-            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -40 : -20)
+            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -50 : -20)
         
             Text("Simple   ")
                 .font(Font
@@ -89,7 +89,7 @@ struct FirstView: View {
             .multilineTextAlignment(.center)
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
-            .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? -60 : -33)
+            .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? -70 : -33)
             
         }
         .transition(.opacity)
@@ -211,7 +211,7 @@ struct FirstView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
         }
-        .padding(.top, -10)
+        .padding(.bottom, -10)
     }
 
     var settingsToggle: some View {
