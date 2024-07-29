@@ -5,7 +5,7 @@
 //  Created by Antoine on 02/05/2024.
 //
 
-import SwiftUI
+import Foundation
 
 struct GameRecord {
     var gameNumber: Int
@@ -30,20 +30,30 @@ struct Game {
     var isToggledDoubleOut: Bool = false
 }
 
+struct ScoreEntry {
+    var score: Int?
+    var isModified: Bool
+    var isDoubleButtonActivated: Bool = false
+    var isTripleButtonActivated: Bool = false
+}
+
 class GameViewModel: ObservableObject {
     @Published var currentGame: Game
     @Published var gameStarted: Bool = false
     @Published var gameCount: Int = 1
     @Published var gameHistory: [GameRecord] = []
     @Published var currentPlayerIndex: Int = 0
-    
+    @Published var throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
+    @Published var isDouble = [false, false, false]
+    @Published var isTriple = [false, false, false]
+
     init(gameType: Int) {
         print("--------------------------------------------")
-        print("INIT GAME")
+        print("Init Game")
         let initialPlayer = Player(name: "", scores: [], remainingScore: gameType)
         self.currentGame = Game(players: [initialPlayer], gameType: gameType)
     }
-    
+
     func addPlayer() {
         print("--------------------------------------------")
         print("addPlayer FUNCTION")
@@ -51,7 +61,7 @@ class GameViewModel: ObservableObject {
             currentGame.players.append(Player(name: "", scores: [], remainingScore: currentGame.gameType))
         }
     }
-    
+
     func removeLastPlayer() {
         print("--------------------------------------------")
         print("removeLastPlayer FUNCTION")
@@ -59,7 +69,7 @@ class GameViewModel: ObservableObject {
             currentGame.players.removeLast()
         }
     }
-        
+
     func addScore(forPlayer index: Int, throwDetails: [(score: Int, isDouble: Bool)]) {
         print("--------------------------------------------")
         print("addScore FUNCTION")
@@ -95,35 +105,34 @@ class GameViewModel: ObservableObject {
         }
 
         currentGame.players[index] = player
-            
-            currentGame.scoresThisTurn += 1
-            if currentGame.scoresThisTurn == currentGame.players.count {
-                currentGame.currentTurn += 1
-                currentGame.scoresThisTurn = 0
-            }
+
+        currentGame.scoresThisTurn += 1
+        if currentGame.scoresThisTurn == currentGame.players.count {
+            currentGame.currentTurn += 1
+            currentGame.scoresThisTurn = 0
+        }
     }
-    
+
     func checkDoubleOut(throwDetails: [(score: Int, isDouble: Bool)], newRemainingScore: Int) -> Bool {
         print("--------------------------------------------")
-        print("CheckDoubleOut FUNCTION")
-            if newRemainingScore != 0 || !currentGame.isToggledDoubleOut {
-                return false
-            }
-            for (index, detail) in throwDetails.enumerated() {
-                if detail.isDouble {
-                    let subsequentScoresAreZero = throwDetails.dropFirst(index + 1).allSatisfy { $0.score == 0 }
-                    if subsequentScoresAreZero {
-                        return true
-                    }
-                }
-            }
+        print("checkDoubleOut FUNCTION")
+        if newRemainingScore != 0 || !currentGame.isToggledDoubleOut {
             return false
         }
+        for (index, detail) in throwDetails.enumerated() {
+            if detail.isDouble {
+                let subsequentScoresAreZero = throwDetails.dropFirst(index + 1).allSatisfy { $0.score == 0 }
+                if subsequentScoresAreZero {
+                    return true
+                }
+            }
+        }
+        return false
+    }
 
     func handleBustForPlayer(_ player: inout Player, _ lastValidScore: Int) {
         print("--------------------------------------------")
         print("handleBustForPlayer FUNCTION")
-        print("Bust! Score remains the same at \(lastValidScore), recording \(lastValidScore) for this turn.")
         player.remainingScoresPerTurn.append(lastValidScore)
         player.isBusted = true
     }
@@ -141,7 +150,7 @@ class GameViewModel: ObservableObject {
             return 0
         }
     }
-    
+
     func averageThrowScoreInGame(forPlayer player: Player, gameRecord: GameRecord) -> Int {
         print("--------------------------------------------")
         print("averageThrowScoreInGame FUNCTION")
@@ -150,7 +159,7 @@ class GameViewModel: ObservableObject {
         let totalScore = scores.reduce(0, +)
         return totalThrows > 0 ? Int(floor(Double(totalScore) / Double(totalThrows))) : 0
     }
-    
+
     func isPlayerBusted(playerIndex: Int) -> Bool {
         print("--------------------------------------------")
         print("isPlayerBusted FUNCTION")
@@ -175,21 +184,20 @@ class GameViewModel: ObservableObject {
     func countVictories() -> [String: Int] {
         print("--------------------------------------------")
         print("countVictories FUNCTION")
-            var victories = [String: Int]()
+        var victories = [String: Int]()
 
-            for record in gameHistory {
-                for winner in record.winners {
-                    victories[winner.name, default: 0] += 1
-                }
+        for record in gameHistory {
+            for winner in record.winners {
+                victories[winner.name, default: 0] += 1
             }
-            
-            return victories
         }
+
+        return victories
+    }
 
     func resetForNextGame() {
         print("--------------------------------------------")
         print("resetForNextGame FUNCTION")
-        print(" ")
         gameCount += 1
         for i in 0..<currentGame.players.count {
             currentGame.players[i].remainingScore = currentGame.gameType
@@ -202,4 +210,40 @@ class GameViewModel: ObservableObject {
         currentGame.scoresThisTurn = 0
     }
 
+    func resetThrowScores() {
+        print("--------------------------------------------")
+        print("resetThrowScores FUNCTION")
+            throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
+            isDouble = [false, false, false]
+            isTriple = [false, false, false]
+        }
+
+    func submitScores() {
+        print("--------------------------------------------")
+        print("submitScores FUNCTION")
+        if allScoresEntered() {
+            let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
+            addScore(forPlayer: currentPlayerIndex, throwDetails: throwDetails)
+            currentPlayerIndex = (currentPlayerIndex + 1) % currentGame.players.count
+            resetThrowScores()
+        }
+    }
+
+    func allScoresEntered() -> Bool {
+        print("--------------------------------------------")
+        print("allScoresEntered FUNCTION")
+        let allFilled = throwScores.allSatisfy { $0.score != nil }
+        let allValid = throwScores.allSatisfy { entry in
+            guard let score = entry.score else { return false }
+            return (0...20).contains(score) || score == 25 || isResultOfDoublingOrTripling(entry)
+        }
+        return allFilled && allValid
+    }
+
+    private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
+        print("--------------------------------------------")
+        print("isResultOfDoublingOrTripling (PRIVATE) FUNCTION (GameViewModel)")
+        return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
+    }
 }
+

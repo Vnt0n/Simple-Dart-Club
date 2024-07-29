@@ -1,105 +1,50 @@
-//
-//  EnterThrowScoreView.swift
-//  Simple Dart Club
-//
-//  Created by Antoine on 02/05/2024.
-//
-
 import SwiftUI
 
 struct EnterThrowScoreView: View {
-        
     @ObservedObject var viewModel: GameViewModel
-    
     @Binding var currentPlayerIndex: Int
-    @State private var throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
-    @State private var isDouble = [false, false, false]
-    @State private var isTriple = [false, false, false]
-
     @FocusState private var isFocused: Bool
     @Environment(\.dismiss) var dismiss
-    
     @State private var displayedPlayerName: String = ""
 
     var body: some View {
-        
         NavigationStack {
-            
             VStack {
-                
                 Spacer()
-                
                 Text("\(displayedPlayerName)")
                     .font(.system(size: 40, weight: .bold, design: .default))
                     .padding(.bottom, 1)
-
                 if UIDevice.current.userInterfaceIdiom == .phone {
                     Text("Enter your score")
                         .font(.system(size: 20, design: .default))
                 }
-
                 ForEach(0..<3) { index in
-                    ScoreInputRow(index: index, scoreEntry: $throwScores[index], isDouble: $isDouble[index], isTriple: $isTriple[index])
+                    ScoreInputRow(index: index, scoreEntry: $viewModel.throwScores[index], isDouble: $viewModel.isDouble[index], isTriple: $viewModel.isTriple[index])
                         .focused($isFocused, equals: index == 0)
                 }
                 .padding(UIDevice.current.userInterfaceIdiom == .pad ? 10 : 0)
                 .offset(x: UIDevice.current.userInterfaceIdiom == .pad ? 80 : 0)
 
-                Button("OK          ") {
-                    submitScores()
+                Button("OK") {
+                    viewModel.submitScores()
+                    dismiss()
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .padding()
-                .disabled(!allScoresEntered)
+                .disabled(!viewModel.allScoresEntered())
                 .onAppear {
                     DispatchQueue.main.async {
                         self.isFocused = true
                         displayedPlayerName = viewModel.currentGame.players[viewModel.currentPlayerIndex].name
+                        viewModel.resetThrowScores() // Réinitialise les scores de lancer et les états
                     }
                 }
-                
                 Spacer()
-                
             }
         }
         .preferredColorScheme(.dark)
-
     }
-
-    var allScoresEntered: Bool {
-        let allFilled = throwScores.allSatisfy { $0.score != nil }
-        let allValid = throwScores.allSatisfy { entry in
-            guard let score = entry.score else { return false }
-            return (0...20).contains(score) || score == 25 || isResultOfDoublingOrTripling(entry)
-        }
-        return allFilled && allValid
-    }
-    
-    private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
-        print("--------------------------------------------")
-        print("isResultOfDoublingOrTripling FUNCTION")
-        return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
-    }
-
-    func submitScores() {
-        print("--------------------------------------------")
-        print("submitScores FUNCTION")
-        if allScoresEntered {
-            let throwDetails = zip(throwScores.compactMap { $0.score }, isDouble).map { (score: $0, isDouble: $1) }
-            viewModel.addScore(forPlayer: currentPlayerIndex, throwDetails: throwDetails)
-            currentPlayerIndex = (currentPlayerIndex + 1) % viewModel.currentGame.players.count
-            dismiss()
-        }
-    }
-
-}
-
-struct ScoreEntry {
-    var score: Int?
-    var isModified: Bool
-    var isDoubleButtonActivated: Bool = false
-    var isTripleButtonActivated: Bool = false
 }
 
 struct ScoreInputRow: View {
@@ -110,21 +55,18 @@ struct ScoreInputRow: View {
     @FocusState private var textFieldFocus: Bool
 
     var body: some View {
-        
         HStack {
-            
             Spacer()
-            
             ToggleScoreButton(systemImageName: "2.square", isDoubleButton: true, isActivated: $isDouble, otherIsActivated: $isTriple, scoreEntry: $scoreEntry, factor: 2)
                 .onChange(of: isDouble) {
-                     textFieldFocus = false
-                 }
-            
+                    textFieldFocus = false
+                }
+
             ToggleScoreButton(systemImageName: "3.square", isDoubleButton: false, isActivated: $isTriple, otherIsActivated: $isDouble, scoreEntry: $scoreEntry, factor: 3)
                 .onChange(of: isTriple) {
                     textFieldFocus = false
                 }
-            
+
             TextField("\(Locale.current.language.languageCode?.identifier == "en" ? ordinal(for: index+1) : "\(index+1)") throw", value: $scoreEntry.score, format: .number)
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
@@ -149,14 +91,15 @@ struct ScoreInputRow: View {
                         scoreEntry.isTripleButtonActivated = false
                     }
                 }
-            
+
             Spacer()
             Spacer()
-            
         }
     }
 
     private func ordinal(for number: Int) -> String {
+        print("--------------------------------------------")
+        print("ordinal (PRIVATE) FUNCTION (EnterThrowScoreView)")
         let suffix: [String] = ["th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"]
         let ones = number % 10
         let tens = (number % 100) / 10
@@ -170,28 +113,27 @@ struct ScoreInputRow: View {
 
 struct ToggleScoreButton: View {
     let systemImageName: String
-        let isDoubleButton: Bool
-        @Binding var isActivated: Bool
-        @Binding var otherIsActivated: Bool
-        @Binding var scoreEntry: ScoreEntry
-        let factor: Int
+    let isDoubleButton: Bool
+    @Binding var isActivated: Bool
+    @Binding var otherIsActivated: Bool
+    @Binding var scoreEntry: ScoreEntry
+    let factor: Int
 
-        var body: some View {
-            Button(action: toggleState) {
-                Image(systemName: iconForButton())
-                    .font(.system(size: 35))
-            }
-            .buttonStyle(PlainButtonStyle())
-            .foregroundColor(colorForButton())
-            .disabled(shouldDisableButton() || otherIsActivated || scoreEntry.score == nil)
+    var body: some View {
+        Button(action: toggleState) {
+            Image(systemName: iconForButton())
+                .font(.system(size: 35))
         }
+        .buttonStyle(PlainButtonStyle())
+        .foregroundColor(colorForButton())
+        .disabled(shouldDisableButton() || otherIsActivated || scoreEntry.score == nil)
+    }
 
     private func toggleState() {
         print("--------------------------------------------")
-        print("toggleState FUNCTION")
+        print("toggleState (PRIVATE) FUNCTION (EnterThrowScoreView)")
         guard let currentScore = scoreEntry.score else { return }
 
-        
         if isActivated {
             scoreEntry.score = currentScore / factor
             scoreEntry.isModified = false
@@ -221,7 +163,7 @@ struct ToggleScoreButton: View {
 
     private func shouldDisableButton() -> Bool {
         print("--------------------------------------------")
-        print("shouldDisableButton FUNCTION")
+        print("shouldDisableButton (PRIVATE) FUNCTION (EnterThrowScoreView)")
         guard let score = scoreEntry.score else { return true }
 
         if scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated {
@@ -231,7 +173,7 @@ struct ToggleScoreButton: View {
         if score == 25 && isDoubleButton {
             return false
         }
-        
+
         if score <= 0 || score > 20 {
             return true
         }
@@ -241,17 +183,17 @@ struct ToggleScoreButton: View {
 
     private func iconForButton() -> String {
         print("--------------------------------------------")
-        print("iconForButton FUNCTION")
-          if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
-              return systemImageName
-          } else {
-              return isActivated ? "\(systemImageName).fill" : systemImageName
-          }
-      }
-    
+        print("iconForButton (PRIVATE) FUNCTION (EnterThrowScoreView)")
+        if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
+            return systemImageName
+        } else {
+            return isActivated ? "\(systemImageName).fill" : systemImageName
+        }
+    }
+
     private func colorForButton() -> Color {
         print("--------------------------------------------")
-        print("colorForButton FUNCTION")
+        print("colorForButton (PRIVATE) FUNCTION (EnterThrowScoreView)")
         if shouldDisableButton() || otherIsActivated || scoreEntry.score == nil {
             return .gray
         } else {
@@ -291,7 +233,7 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
         viewModel.currentGame.players[1].name = "Bob"
         viewModel.currentGame.players[2].name = "Charlie"
         viewModel.currentGame.players[3].name = "Dana"
-        
+
         viewModel.currentGame.isToggledDoubleOut = true
 
         return Group {
@@ -302,7 +244,7 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
             EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
                 .previewDisplayName("French")
                 .environment(\.locale, Locale(identifier: "fr"))
-            
+
             EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
                 .previewDisplayName("Spanish")
                 .environment(\.locale, Locale(identifier: "es"))
@@ -310,8 +252,8 @@ struct EnterThrowScoreView_Previews: PreviewProvider {
             EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(1))
                 .previewDisplayName("German")
                 .environment(\.locale, Locale(identifier: "de"))
+
             EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: .constant(0))
-            
                 .previewDisplayName("Chinese")
                 .environment(\.locale, Locale(identifier: "zh-Hans"))
 

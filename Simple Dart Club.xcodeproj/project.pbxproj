@@ -16,6 +16,7 @@
 		71082C492BE3DBD90088C1D8 /* EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */; };
 		71082C4B2BE3DBF00088C1D8 /* InformationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */; };
 		71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71082C4C2BE3DC140088C1D8 /* CreditView.swift */; };
+		71539B652C579B4300CC72F9 /* NEW_EnterThrowScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71539B642C579B4300CC72F9 /* NEW_EnterThrowScoreView.swift */; };
 		71624D252C5150EA00509D26 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 71624D242C5150EA00509D26 /* PrivacyInfo.xcprivacy */; };
 		717F57AD2BE7EC7B009A303E /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */; };
 		718F2CFE2BE3E31E001C025F /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 718F2CFD2BE3E31E001C025F /* ConfettiSwiftUI */; };
@@ -36,6 +37,7 @@
 		71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsView.swift; sourceTree = "<group>"; };
 		71082C4C2BE3DC140088C1D8 /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		71539B642C579B4300CC72F9 /* NEW_EnterThrowScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NEW_EnterThrowScoreView.swift; sourceTree = "<group>"; };
 		71624D242C5150EA00509D26 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		717F57AC2BE7EC7B009A303E /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7197F6992BF3A3AC00794C17 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				71082C442BE3DB8D0088C1D8 /* FirstView.swift */,
 				71082C462BE3DBBA0088C1D8 /* GameView.swift */,
 				71082C482BE3DBD90088C1D8 /* EnterThrowScoreView.swift */,
+				71539B642C579B4300CC72F9 /* NEW_EnterThrowScoreView.swift */,
 				71082C4A2BE3DBF00088C1D8 /* InformationsView.swift */,
 				71082C4C2BE3DC140088C1D8 /* CreditView.swift */,
 			);
@@ -214,6 +217,7 @@
 				71082C452BE3DB8D0088C1D8 /* FirstView.swift in Sources */,
 				71082C4D2BE3DC140088C1D8 /* CreditView.swift in Sources */,
 				71082C412BE3DB290088C1D8 /* HomeView.swift in Sources */,
+				71539B652C579B4300CC72F9 /* NEW_EnterThrowScoreView.swift in Sources */,
 				71F6C3622BE3CD0300EE60EE /* Simple_Dart_ClubApp.swift in Sources */,
 				71082C432BE3DB6C0088C1D8 /* LaunchView.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ struct GameView: View {
                             
                             Button(action: {
                                 print("--------------------------------------------")
-                                print("BUTTON InformationsViewV2")
+                                print("BUTTON InformationsView")
                                 showInformationsView = true
                             }) {
                                 Image(systemName: "info.circle")
@@ -303,7 +303,7 @@ struct GameView: View {
     
     private func checkScores() {
         print("--------------------------------------------")
-        print("checkScores FUNCTION")
+        print("checkScores (PRIVATE) FUNCTION (GameView)")
         for (_, player) in viewModel.currentGame.players.enumerated() {
             if player.remainingScore == 0 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -316,7 +316,7 @@ struct GameView: View {
     
     private func undoLastScore() {
         print("--------------------------------------------")
-        print("undoLastScore FUNCTION")
+        print("undoLastScore (PRIVATE) FUNCTION (GameView)")
 
         var previousPlayerIndex = viewModel.currentPlayerIndex - 1
         if previousPlayerIndex < 0 {
@@ -350,7 +350,7 @@ struct GameView: View {
     
     private func updateUndoButtonState() {
         print("--------------------------------------------")
-        print("updateUndoButtonState FUNCTION")
+        print("updateUndoButtonState (PRIVATE) FUNCTION (GameView)")
         let playerIndex = viewModel.currentPlayerIndex
         let previousIndex = playerIndex == 0 ? viewModel.currentGame.players.count - 1 : playerIndex - 1
         isUndoDisabled = viewModel.currentGame.players[previousIndex].scores.isEmpty
