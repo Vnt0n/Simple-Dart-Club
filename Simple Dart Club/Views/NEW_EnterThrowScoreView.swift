@@ -24,36 +24,56 @@ struct EnterThrowScoreView_V2: View {
         9, 10, 11, 12,
         13, 14, 15, 16,
         17, 18, 19, 20,
-        0, 25
+        21, 0, 25
     ]
     
     @State private var currentThrowIndex = 0
+    @State private var isMultiplierEnabled = false
+    @State private var isTripleEnabled = true
+    @State private var selectedNumber: Int? = nil
+    @State private var growScale: CGFloat = 1.0
 
     var body: some View {
         VStack {
             Text("\(viewModel.currentGame.players[viewModel.currentPlayerIndex].name)")
+                .font(.title2)
+            Text("Throw \(currentThrowIndex + 1)")
                 .font(.largeTitle)
-                .padding(.bottom, 10)
-            Text("Enter your score for throw \(currentThrowIndex + 1)")
-                .font(.title)
+                .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.bottom, 20)
+                .scaleEffect(growScale)
+                .animation(.easeInOut(duration: 0.2), value: growScale)
 
             // Grid of buttons
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 15) {
                 ForEach(buttonNumbers, id: \.self) { number in
                     Button(action: {
-                        viewModel.throwScores[currentThrowIndex].score = number
+                        withAnimation(.none) {
+                            if number != 21 { // Ignore the action for button 21
+                                viewModel.throwScores[currentThrowIndex].score = number
+                                isMultiplierEnabled = true
+                                isTripleEnabled = number != 25
+                                selectedNumber = number
+                                if number == 0 {
+                                    nextThrow()
+                                }
+                            }
+                        }
                     }) {
-                        Text("\(number)")
+                        Text("\(number == 21 ? "" : "\(number)")")
                             .font(.title)
                             .frame(width: 50, height: 50)
-                            .foregroundColor(.blue)
+                            .background(selectedNumber == number ? Color.blue : Color.clear)
+                            .foregroundColor(selectedNumber == number ? .white : .blue)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.blue, lineWidth: 2)
                             )
+                            .cornerRadius(8)
+                            .opacity(number == 21 ? 0 : 1) // Make button 21 invisible
                     }
+                    .disabled(number == 21) // Disable button 21
                 }
             }
             .padding(.horizontal, 40)
@@ -68,37 +88,47 @@ struct EnterThrowScoreView_V2: View {
                     Text("x1")
                         .font(.title)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
+                        .foregroundColor(isMultiplierEnabled ? .white : .gray)
+                        .background(isMultiplierEnabled ? Color.blue : Color.clear)
+                        .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white, lineWidth: 2)
+                                .stroke(isMultiplierEnabled ? Color.white : Color.gray, lineWidth: 2)
                         )
                 }
+                .disabled(!isMultiplierEnabled)
+                
                 Button(action: {
                     applyMultiplier(2)
                 }) {
                     Text("x2")
                         .font(.title)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
+                        .foregroundColor(isMultiplierEnabled ? .white : .gray)
+                        .background(isMultiplierEnabled ? Color.blue : Color.clear)
+                        .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white, lineWidth: 2)
+                                .stroke(isMultiplierEnabled ? Color.white : Color.gray, lineWidth: 2)
                         )
                 }
+                .disabled(!isMultiplierEnabled)
+
                 Button(action: {
                     applyMultiplier(3)
                 }) {
                     Text("x3")
                         .font(.title)
                         .frame(width: 50, height: 50)
-                        .foregroundColor(.white)
+                        .foregroundColor((isMultiplierEnabled && isTripleEnabled) ? .white : .gray)
+                        .background((isMultiplierEnabled && isTripleEnabled) ? Color.blue : Color.clear)
+                        .cornerRadius(8)
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.white, lineWidth: 2)
+                                .stroke((isMultiplierEnabled && isTripleEnabled) ? Color.white : Color.gray, lineWidth: 2)
                         )
                 }
-                
+                .disabled(!isMultiplierEnabled || !isTripleEnabled)
             }
             .padding(.bottom, 20)
         }
@@ -111,23 +141,41 @@ struct EnterThrowScoreView_V2: View {
             viewModel.throwScores[currentThrowIndex].score = score * multiplier
             if multiplier == 2 {
                 viewModel.throwScores[currentThrowIndex].isDoubleButtonActivated = true
+                viewModel.throwScores[currentThrowIndex].isModified = true // Add this line
             } else if multiplier == 3 {
                 viewModel.throwScores[currentThrowIndex].isTripleButtonActivated = true
+                viewModel.throwScores[currentThrowIndex].isModified = true // Add this line
             }
             nextThrow()
         }
     }
 
     private func nextThrow() {
-        if currentThrowIndex < 2 {
-            currentThrowIndex += 1
-        } else {
-            viewModel.submitScores()
-            dismiss()
+        withAnimation(.none) {
+            isMultiplierEnabled = false
+            isTripleEnabled = true
+            selectedNumber = nil
+            if currentThrowIndex < 2 {
+                currentThrowIndex += 1
+                growEffect()
+            } else {
+                viewModel.submitScores()
+                dismiss()
+            }
+        }
+    }
+
+    private func growEffect() {
+        withAnimation(.easeInOut(duration: 0.2)) {
+            growScale = 1.5
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                growScale = 1.0
+            }
         }
     }
 }
-
 
 
 // ///////////////////////////
