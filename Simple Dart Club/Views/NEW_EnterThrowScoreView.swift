@@ -17,7 +17,7 @@ import SwiftUI
 struct EnterThrowScoreView_V2: View {
     @ObservedObject var viewModel: GameViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     let buttonNumbers = [
         1, 2, 3, 4,
         5, 6, 7, 8,
@@ -26,22 +26,24 @@ struct EnterThrowScoreView_V2: View {
         17, 18, 19, 20,
         0, 25
     ]
+    
+    @State private var currentThrowIndex = 0
 
     var body: some View {
         VStack {
             Text("\(viewModel.currentGame.players[viewModel.currentPlayerIndex].name)")
                 .font(.largeTitle)
                 .padding(.bottom, 10)
-            Text("Enter your score")
+            Text("Enter your score for throw \(currentThrowIndex + 1)")
                 .font(.title)
                 .foregroundColor(.white)
                 .padding(.bottom, 20)
-            
+
             // Grid of buttons
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 15) {
                 ForEach(buttonNumbers, id: \.self) { number in
                     Button(action: {
-                        // Action for button press
+                        viewModel.throwScores[currentThrowIndex].score = number
                     }) {
                         Text("\(number)")
                             .font(.title)
@@ -55,30 +57,74 @@ struct EnterThrowScoreView_V2: View {
                 }
             }
             .padding(.horizontal, 40)
-            
+
             Spacer().frame(height: 40)
-            
+
             // Multiplier buttons
             HStack(spacing: 20) {
-                ForEach(1...3, id: \.self) { multiplier in
-                    Button(action: {
-                        // Action for multiplier button press
-                    }) {
-                        Text("x\(multiplier)")
-                            .font(.title)
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color.white, lineWidth: 2)
-                            )
-                    }
+                Button(action: {
+                    nextThrow()
+                }) {
+                    Text("x1")
+                        .font(.title)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
                 }
+                Button(action: {
+                    applyMultiplier(2)
+                }) {
+                    Text("x2")
+                        .font(.title)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
+                }
+                Button(action: {
+                    applyMultiplier(3)
+                }) {
+                    Text("x3")
+                        .font(.title)
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
+                }
+                
             }
             .padding(.bottom, 20)
         }
         .preferredColorScheme(.dark)
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    private func applyMultiplier(_ multiplier: Int) {
+        if let score = viewModel.throwScores[currentThrowIndex].score {
+            viewModel.throwScores[currentThrowIndex].score = score * multiplier
+            if multiplier == 2 {
+                viewModel.throwScores[currentThrowIndex].isDoubleButtonActivated = true
+            } else if multiplier == 3 {
+                viewModel.throwScores[currentThrowIndex].isTripleButtonActivated = true
+            }
+            nextThrow()
+        }
+    }
+
+    private func nextThrow() {
+        if currentThrowIndex < 2 {
+            currentThrowIndex += 1
+        } else {
+            viewModel.submitScores()
+            dismiss()
+        }
     }
 }
 

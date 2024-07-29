@@ -269,7 +269,8 @@ struct GameView: View {
             .foregroundColor(.black)
             .edgesIgnoringSafeArea(.bottom)
             .sheet(isPresented: $enterThrowScore) {
-                EnterThrowScoreView(viewModel: viewModel, currentPlayerIndex: $viewModel.currentPlayerIndex)
+//                EnterThrowScoreView_V2(viewModel: viewModel, currentPlayerIndex: $viewModel.currentPlayerIndex)
+                EnterThrowScoreView_V2(viewModel: viewModel)
             }
             .onAppear {
                 print("------------------------------")
