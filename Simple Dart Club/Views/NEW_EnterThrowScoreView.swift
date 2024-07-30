@@ -82,6 +82,20 @@ struct EnterThrowScoreView_V2: View {
 
             // Multiplier buttons
             HStack(spacing: 20) {
+                
+                Button(action: {
+                    print("--------------------------------------------")
+                    print("BUTTON undoLastThrow")
+                    undoLastThrow()
+                }) {
+                    Image(systemName: "arrow.uturn.backward.circle")
+                        .accessibilityLabel("Undo")
+                        .font(.system(size: 25))
+                }
+                .disabled(currentThrowIndex == 0)
+                .foregroundColor(currentThrowIndex == 0 ? .gray : .white)
+                .buttonStyle(PlainButtonStyle())
+                
                 Button(action: {
                     nextThrow()
                 }) {
@@ -129,6 +143,7 @@ struct EnterThrowScoreView_V2: View {
                         )
                 }
                 .disabled(!isMultiplierEnabled || !isTripleEnabled)
+                
             }
             .padding(.bottom, 20)
         }
@@ -164,6 +179,19 @@ struct EnterThrowScoreView_V2: View {
             }
         }
     }
+    
+    private func undoLastThrow() {
+        withAnimation(.none) {
+            if currentThrowIndex > 0 {
+                currentThrowIndex -= 1
+                viewModel.throwScores[currentThrowIndex] = ScoreEntry(score: nil, isModified: false)
+                isMultiplierEnabled = false
+                isTripleEnabled = true
+                selectedNumber = nil
+                growEffect()  // Ajouter l'effet grow lors du retour au lancé précédent
+            }
+        }
+    }
 
     private func growEffect() {
         withAnimation(.easeInOut(duration: 0.2)) {
@@ -176,7 +204,6 @@ struct EnterThrowScoreView_V2: View {
         }
     }
 }
-
 
 // ///////////////////////////
 // PREVIEW //////////////////
