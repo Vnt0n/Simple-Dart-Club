@@ -43,7 +43,7 @@
 		71F6C3612BE3CD0300EE60EE /* Simple_Dart_ClubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Dart_ClubApp.swift; sourceTree = "<group>"; };
 		71F6C3652BE3CD0400EE60EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71F6C3682BE3CD0400EE60EE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		71F6C3752BE3D14500EE60EE /* Dart-Club-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Dart-Club-Info.plist"; sourceTree = SOURCE_ROOT; };
+		71F6C3752BE3D14500EE60EE /* Dart-Club-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Dart-Club-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
