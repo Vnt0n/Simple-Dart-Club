@@ -27,26 +27,32 @@ Official World Darts Federation rules.
 
 ## Looks good on iPhone / Chouette sur iPhone
 
-<div>
-<img src="/Screenshots/iPhone/6-7-inches/en/en_01.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/en/en_02.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/en/en_03.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/en/en_04.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/en/en_05.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/en/en_06.PNG" height="400">
-
-</div>
+<table>
+  <tr>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_01.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_02.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_03.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_04.PNG" height="400"></td>
+  </tr>
+  <tr>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_05.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/en/en_06.PNG" height="400"></td>
+  </tr>
+</table>
 
 
 ## Multilingues / Multilanguages
-<div>
-<img src="/Screenshots/iPhone/6-7-inches/fr/fr_03.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/jp/jp_03.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/de/de_03.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/es/es_03.PNG" height="400">
-<img src="/Screenshots/iPhone/6-7-inches/zh-Hans/zh-Hans_03.PNG" height="400">
-
-</div>
+<table>
+  <tr>
+    <td><img src="/Screenshots/iPhone/6-7-inches/fr/fr_03.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/jp/jp_03.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/de/de_03.PNG" height="400"></td>
+  </tr>
+  <tr>
+    <td><img src="/Screenshots/iPhone/6-7-inches/es/es_03.PNG" height="400"></td>
+    <td><img src="/Screenshots/iPhone/6-7-inches/zh-Hans/zh-Hans_03.PNG" height="400"></td>
+  </tr>
+</table>
 
 
 ## Looks great on iPad / Super sur iPad
@@ -54,7 +60,7 @@ Official World Darts Federation rules.
 <div>
 <img src="/Screenshots/iPad/13-inches/en/en_01.PNG" height="400">
 <img src="/Screenshots/iPad/13-inches/en/en_02.PNG" height="400">
-<img src="/Screenshots/iPad/13-inches/en/en_04.PNG" height="400">
 <img src="/Screenshots/iPad/13-inches/en/en_03.PNG" height="400">
+<img src="/Screenshots/iPad/13-inches/en/en_04.PNG" height="400">
 <img src="/Screenshots/iPad/13-inches/en/en_05.PNG" height="400">
 </div>
