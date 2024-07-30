@@ -238,21 +238,5 @@ class GameViewModel: ObservableObject {
         resetThrowScores()
     }
 
-//    func allScoresEntered() -> Bool {
-//        print("--------------------------------------------")
-//        print("allScoresEntered FUNCTION")
-//        let allFilled = throwScores.allSatisfy { $0.score != nil }
-//        let allValid = throwScores.allSatisfy { entry in
-//            guard let score = entry.score else { return false }
-//            return (0...20).contains(score) || score == 25 || isResultOfDoublingOrTripling(entry)
-//        }
-//        return allFilled && allValid
-//    }
-
-//    private func isResultOfDoublingOrTripling(_ scoreEntry: ScoreEntry) -> Bool {
-//        print("--------------------------------------------")
-//        print("isResultOfDoublingOrTripling (PRIVATE) FUNCTION (GameViewModel)")
-//        return scoreEntry.isDoubleButtonActivated || scoreEntry.isTripleButtonActivated
-//    }
 }
 

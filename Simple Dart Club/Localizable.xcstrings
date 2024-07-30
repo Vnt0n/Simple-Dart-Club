@@ -752,9 +752,6 @@
         }
       }
     },
-    "%@ throw" : {
-
-    },
     "%lld" : {
       "localizations" : {
         "de" : {
@@ -1441,9 +1438,6 @@
         }
       }
     },
-    "Enter your score" : {
-
-    },
     "Game %lld" : {
       "localizations" : {
         "de" : {
@@ -1579,9 +1573,6 @@
           }
         }
       }
-    },
-    "OK" : {
-
     },
     "or" : {
       "localizations" : {
