@@ -27,6 +27,8 @@ struct EnterThrowScoreView: View {
     @State private var growScale: CGFloat = 1.0
 
     var body: some View {
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+
         VStack {
             Text("\(viewModel.currentGame.players[viewModel.currentPlayerIndex].name)")
                 .font(.title2)
@@ -69,7 +71,7 @@ struct EnterThrowScoreView: View {
                     .disabled(number == 21) // Disable button 21
                 }
             }
-            .padding(.horizontal, 40)
+            .padding(.horizontal, isPad ? 200 : 40)
 
             Spacer().frame(height: 40)
 
