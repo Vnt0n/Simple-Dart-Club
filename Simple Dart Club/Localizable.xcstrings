@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    " " : {
-
-    },
     "-     A dart consists of a metallic tip, a barrel, and can include up to five parts such as flights and protectors." : {
       "localizations" : {
         "de" : {
@@ -612,40 +609,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "- 剩余得分：%lld -"
-          }
-        }
-      }
-    },
-    "- BUST" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "- BUST"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "- BUST"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "- BUST"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "- BUST"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "- BUST"
           }
         }
       }

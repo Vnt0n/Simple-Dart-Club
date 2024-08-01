@@ -150,7 +150,7 @@ struct GameView: View {
                                             .font(
                                                 .system(size: 14))
                                         if viewModel.currentGame.players[1].isBusted {
-                                            Text("- BUST")
+                                            Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
                                                 .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
@@ -194,7 +194,7 @@ struct GameView: View {
                                             .font(
                                                 .system(size: 14))
                                         if viewModel.currentGame.players[2].isBusted {
-                                            Text("- BUST")
+                                            Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
                                                 .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
@@ -238,7 +238,7 @@ struct GameView: View {
                                             .font(
                                                 .system(size: 14))
                                         if viewModel.currentGame.players[3].isBusted {
-                                            Text("- BUST")
+                                            Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
                                                 .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)

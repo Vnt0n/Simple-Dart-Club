@@ -43,9 +43,8 @@ struct HomeView: View {
                     .frame(maxWidth: .infinity)
                     .padding([.trailing], 40)
                     .padding(.top, -60)
-                
-                Text(" ")
-                    .font(Font.custom("FightThis", size: 40))
+                    .padding(.bottom, 40)
+
             }
         }
         .statusBar(hidden: true)
