@@ -239,4 +239,3 @@ class GameViewModel: ObservableObject {
     }
 
 }
-

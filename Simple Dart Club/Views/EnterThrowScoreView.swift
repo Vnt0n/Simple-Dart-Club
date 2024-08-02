@@ -45,7 +45,7 @@ struct EnterThrowScoreView: View {
                 ForEach(buttonNumbers, id: \.self) { number in
                     Button(action: {
                         withAnimation(.none) {
-                            if number != 21 { // Ignore the action for button 21
+                            if number != 21 {
                                 viewModel.throwScores[currentThrowIndex].score = number
                                 isMultiplierEnabled = true
                                 isTripleEnabled = number != 25
@@ -66,9 +66,9 @@ struct EnterThrowScoreView: View {
                                     .stroke(Color.blue, lineWidth: 2)
                             )
                             .cornerRadius(8)
-                            .opacity(number == 21 ? 0 : 1) // Make button 21 invisible
+                            .opacity(number == 21 ? 0 : 1)
                     }
-                    .disabled(number == 21) // Disable button 21
+                    .disabled(number == 21)
                     .buttonStyle(PlainButtonStyle())
                 }
             }
@@ -156,10 +156,10 @@ struct EnterThrowScoreView: View {
             viewModel.throwScores[currentThrowIndex].score = score * multiplier
             if multiplier == 2 {
                 viewModel.throwScores[currentThrowIndex].isDoubleButtonActivated = true
-                viewModel.throwScores[currentThrowIndex].isModified = true // Add this line
+                viewModel.throwScores[currentThrowIndex].isModified = true
             } else if multiplier == 3 {
                 viewModel.throwScores[currentThrowIndex].isTripleButtonActivated = true
-                viewModel.throwScores[currentThrowIndex].isModified = true // Add this line
+                viewModel.throwScores[currentThrowIndex].isModified = true
             }
             nextThrow()
         }
@@ -188,7 +188,7 @@ struct EnterThrowScoreView: View {
                 isMultiplierEnabled = false
                 isTripleEnabled = true
                 selectedNumber = nil
-                growEffect()  // Ajouter l'effet grow lors du retour au lancé précédent
+                growEffect()
             }
         }
     }
