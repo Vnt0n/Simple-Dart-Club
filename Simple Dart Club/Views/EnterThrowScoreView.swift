@@ -69,6 +69,7 @@ struct EnterThrowScoreView: View {
                             .opacity(number == 21 ? 0 : 1) // Make button 21 invisible
                     }
                     .disabled(number == 21) // Disable button 21
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
             .padding(.horizontal, isPad ? 200 : 40)
@@ -76,7 +77,7 @@ struct EnterThrowScoreView: View {
             Spacer().frame(height: 40)
 
             // Multiplier buttons
-            HStack(spacing: 20) {
+            HStack(spacing: isPad ? 35 : 20) {
                 
                 Button(action: {
                     print("--------------------------------------------")
@@ -106,6 +107,7 @@ struct EnterThrowScoreView: View {
                         )
                 }
                 .disabled(!isMultiplierEnabled)
+                .buttonStyle(PlainButtonStyle())
                 
                 Button(action: {
                     applyMultiplier(2)
@@ -122,7 +124,8 @@ struct EnterThrowScoreView: View {
                         )
                 }
                 .disabled(!isMultiplierEnabled)
-
+                .buttonStyle(PlainButtonStyle())
+                
                 Button(action: {
                     applyMultiplier(3)
                 }) {
@@ -138,9 +141,11 @@ struct EnterThrowScoreView: View {
                         )
                 }
                 .disabled(!isMultiplierEnabled || !isTripleEnabled)
+                .buttonStyle(PlainButtonStyle())
                 
             }
             .padding(.bottom, 20)
+            .padding(.trailing, isPad ? 60 : 45)
         }
         .preferredColorScheme(.dark)
         .edgesIgnoringSafeArea(.all)
