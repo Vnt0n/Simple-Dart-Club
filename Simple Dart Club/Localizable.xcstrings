@@ -550,31 +550,31 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Durchschnittliche Wurfpunktzahl: %lld"
+            "value" : "-  Durchschnittliche Wurfpunktzahl: %lld"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Puntuación Promedio de Lanzamiento: %lld"
+            "value" : "-  Puntuación Promedio de Lanzamiento: %lld"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Moyenne des lancés : %lld"
+            "value" : "-  Moyenne des lancés : %lld"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- 平均投げスコア：%lld"
+            "value" : "-  平均投げスコア：%lld"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- 平均投掷得分：%lld"
+            "value" : "-  平均投掷得分：%lld"
           }
         }
       }
@@ -584,31 +584,31 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Verbleibende Punktzahl: %lld -"
+            "value" : "-  Verbleibende Punktzahl: %lld  -"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- Puntuación Restante: %lld -"
+            "value" : "-  Puntuación Restante: %lld  -"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Points restants : %lld  -"
+            "value" : "-  Points restants : %lld  -"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- 残りのスコア：%lld -"
+            "value" : "-  残りのスコア：%lld  -"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "- 剩余得分：%lld -"
+            "value" : "-  剩余得分：%lld  -"
           }
         }
       }
