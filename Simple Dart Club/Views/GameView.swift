@@ -120,7 +120,7 @@ struct GameView: View {
                                     enterThrowScore = true
                                 }) {
                                     Text("\(viewModel.currentGame.players[0].remainingScore)")
-                                        .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                        .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
                                         .foregroundColor(viewModel.currentGame.players[0].isBusted ? .red : .black)
                                         .shadow(color: viewModel.currentGame.players[0].isBusted ? .black : .clear, radius: viewModel.currentGame.players[0].isBusted ? 2 : 0, x: 1, y: 1)
                                 }
@@ -163,7 +163,7 @@ struct GameView: View {
                                         enterThrowScore = true
                                     }) {
                                         Text("\(viewModel.currentGame.players[1].remainingScore)")
-                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
                                             .foregroundColor(viewModel.currentGame.players[1].isBusted ? .red : .black)
                                             .shadow(color: viewModel.currentGame.players[1].isBusted ? .black : .clear, radius: viewModel.currentGame.players[1].isBusted ? 2 : 0, x: 1, y: 1)
                                     }
@@ -207,7 +207,7 @@ struct GameView: View {
                                         enterThrowScore = true
                                     }) {
                                         Text("\(viewModel.currentGame.players[2].remainingScore)")
-                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
                                             .foregroundColor(viewModel.currentGame.players[2].isBusted ? .red : .black)
                                             .shadow(color: viewModel.currentGame.players[2].isBusted ? .black : .clear, radius: viewModel.currentGame.players[2].isBusted ? 2 : 0, x: 1, y: 1)
                                     }
@@ -251,7 +251,7 @@ struct GameView: View {
                                         enterThrowScore = true
                                     }) {
                                         Text("\(viewModel.currentGame.players[3].remainingScore)")
-                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 130, weight: .bold, design: .default))
+                                            .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
                                             .foregroundColor(viewModel.currentGame.players[3].isBusted ? .red : .black)
                                             .shadow(color: viewModel.currentGame.players[3].isBusted ? .black : .clear, radius: viewModel.currentGame.players[3].isBusted ? 2 : 0, x: 1, y: 1)
                                     }
