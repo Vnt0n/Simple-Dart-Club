@@ -326,7 +326,6 @@ struct InformationsView: View {
                         }
                         
                     }
-                    .padding()
                 }
             }
         }
