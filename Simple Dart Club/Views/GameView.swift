@@ -154,7 +154,7 @@ struct GameView: View {
                                             Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
-                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                                .shadow(color: .black, radius: 0, x: 1, y: 1)
                                         }
                                     }
                                     
@@ -199,7 +199,7 @@ struct GameView: View {
                                             Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
-                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                                .shadow(color: .black, radius: 0, x: 1, y: 1)
                                         }
                                     }
                                     
@@ -244,7 +244,7 @@ struct GameView: View {
                                             Text("🥊 BUST")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.red)
-                                                .shadow(color: .black.opacity(1), radius: 5, x: 1, y: 1)
+                                                .shadow(color: .black, radius: 0, x: 1, y: 1)
                                         }
                                     }
                                     
