@@ -38,18 +38,22 @@ struct InformationsView: View {
                         victoriesView
                     }
                     
-                    Image(systemName: "info.bubble")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .onTapGesture {
-                            showCreditView = true
+                    Button(action: {
+                        showCreditView = true
+                    }) {
+                        Label {
+                            Text("Game Rules")
+                        } icon: {
+                            Image(systemName: "info.bubble")
+                                .font(.system(size: 22))  // Agrandir uniquement l'image
                         }
-                        .padding(.bottom, 25)
-                        .padding(.top, 25)
-                        .sheet(isPresented: $showCreditView) {
-                                   CreditView()
-                        }
-                    
+                    }
+                    .sheet(isPresented: $showCreditView) {
+                        CreditView()
+                    }
+                    .padding(.bottom, 35)
+                    .padding(.top, 15)
+                    .accessibilityLabel("Game Rules")
                 }
                 .padding()
                 .frame(maxWidth: 700)
