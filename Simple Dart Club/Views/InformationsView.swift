@@ -234,11 +234,12 @@ struct InformationsView: View {
                         .foregroundColor(Color.green.opacity(0.2))
                         .padding(.horizontal)
                         
-                    VStack(alignment: .center) {
+                    VStack(alignment: .center, spacing: 8) {
                         
                         Text("Game \(record.gameNumber)")
                             .font(.title2)
                             .fontWeight(.bold)
+                            .padding(.top, 15)
                         
                         Spacer()
                         
@@ -317,7 +318,6 @@ struct InformationsView: View {
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
                                 
-                                Divider()
                                 Divider()
 
                             }
