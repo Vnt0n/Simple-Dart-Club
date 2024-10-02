@@ -149,6 +149,11 @@ struct EnterThrowScoreView: View {
         }
         .preferredColorScheme(.dark)
         .edgesIgnoringSafeArea(.all)
+        .onChange(of: viewModel.dismissEnterThrowScoreView) {
+                    if viewModel.dismissEnterThrowScoreView {
+                        dismiss()  // Dismiss la vue si le jeu est terminé
+                    }
+                }
     }
     
     private func applyMultiplier(_ multiplier: Int) {
@@ -170,9 +175,12 @@ struct EnterThrowScoreView: View {
             isMultiplierEnabled = false
             isTripleEnabled = true
             selectedNumber = nil
+                       
             if currentThrowIndex < 2 {
                 currentThrowIndex += 1
                 growEffect()
+                // Vérifier si le joueur a gagné après ce lancer
+                viewModel.checkScoreAfterThrow()
             } else {
                 viewModel.submitScores()
                 dismiss()

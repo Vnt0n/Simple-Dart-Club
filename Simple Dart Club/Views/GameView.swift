@@ -118,6 +118,7 @@ struct GameView: View {
                                     print("--------------------------------------------")
                                     print("BUTTON enterThrowScore PLAYER 1")
                                     enterThrowScore = true
+                                    viewModel.dismissEnterThrowScoreView = false
                                 }) {
                                     Text("\(viewModel.currentGame.players[0].remainingScore)")
                                         .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
@@ -161,6 +162,7 @@ struct GameView: View {
                                         print("--------------------------------------------")
                                         print("BUTTON enterThrowScore PLAYER 2")
                                         enterThrowScore = true
+                                        viewModel.dismissEnterThrowScoreView = false
                                     }) {
                                         Text("\(viewModel.currentGame.players[1].remainingScore)")
                                             .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
@@ -205,6 +207,7 @@ struct GameView: View {
                                         print("--------------------------------------------")
                                         print("BUTTON enterThrowScore PLAYER 3")
                                         enterThrowScore = true
+                                        viewModel.dismissEnterThrowScoreView = false
                                     }) {
                                         Text("\(viewModel.currentGame.players[2].remainingScore)")
                                             .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
@@ -249,6 +252,7 @@ struct GameView: View {
                                         print("--------------------------------------------")
                                         print("BUTTON enterThrowScore PLAYER 4")
                                         enterThrowScore = true
+                                        viewModel.dismissEnterThrowScoreView = false
                                     }) {
                                         Text("\(viewModel.currentGame.players[3].remainingScore)")
                                             .font(players.count > 3 ? .system(size: 80, weight: .bold, design: .default) : .system(size: 123, weight: .bold, design: .default))
