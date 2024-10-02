@@ -89,16 +89,16 @@ struct InformationsView: View {
                         .foregroundColor(.primary)
                     
                     Text("You won!")
+                        .multilineTextAlignment(.center)
                         .font(.system(size: 50, weight: .bold, design: .rounded))
                         .foregroundColor(.blue)
                         .padding(.bottom, 25)
                         .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {
                                 self.counter = 1
                             }
                             isDismissForbidden = true
                         }
-                        .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     
                     Button("New game") {
                         viewModel.endGame()
@@ -110,9 +110,9 @@ struct InformationsView: View {
                     .controlSize(.large)
                     .padding(.bottom, 25)
                     .foregroundColor(.white)
+                    .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                 }
             }
-            
         }
     }
     
@@ -125,7 +125,7 @@ struct InformationsView: View {
                 .padding(.top, 15)
             
             if viewModel.currentGame.isToggledDoubleOut {
-                Text("Double Out")
+                Text("-- Double Out--")
                     .foregroundColor(.blue)
             }
             

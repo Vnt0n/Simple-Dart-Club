@@ -647,6 +647,9 @@
         }
       }
     },
+    "-- Double Out--" : {
+
+    },
     "(%lld)" : {
       "localizations" : {
         "de" : {
@@ -766,7 +769,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "🎉 %@ a gagné! 🥇"
+            "value" : "🎉 %@ a gagné ! 🥇"
           }
         },
         "ja" : {
