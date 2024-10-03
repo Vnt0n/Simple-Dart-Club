@@ -471,56 +471,10 @@ class MockGameViewModel: GameViewModel {
     }
 }
 
-struct English: PreviewProvider {
+struct Preview: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "en"))
-        }
-    }
-}
-
-struct French: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "fr"))
-        }
-    }
-}
-
-struct Spanish: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "es"))
-        }
-    }
-}
-
-struct German: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "de"))
-        }
-    }
-}
-
-struct Chinese: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "zh-Hans"))
-        }
-    }
-}
-
-struct Japanese: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
-                .environment(\.locale, Locale(identifier: "ja"))
         }
     }
 }

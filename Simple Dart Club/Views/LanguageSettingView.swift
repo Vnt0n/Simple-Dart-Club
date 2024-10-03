@@ -82,8 +82,6 @@ struct LanguageSettingView: View {
     }
 }
 
-struct LanguageSetting_Previews: PreviewProvider {
-    static var previews: some View {
-        LanguageSettingView()
-    }
+#Preview {
+    LanguageSettingView()
 }

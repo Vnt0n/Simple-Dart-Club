@@ -422,26 +422,6 @@ struct GameViewV2_Previews: PreviewProvider {
             GameView(selectedGame: 501, players: fourPlayerVM.currentGame.players, viewModel: fourPlayerVM)
                 .previewDisplayName("4 Players")
                 .environment(\.locale, Locale(identifier: "en"))
-            
-            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
-                .previewDisplayName("French")
-                .environment(\.locale, Locale(identifier: "fr"))
-
-            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
-                .previewDisplayName("Spanish")
-                .environment(\.locale, Locale(identifier: "es"))
-            
-            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
-                .previewDisplayName("German")
-                .environment(\.locale, Locale(identifier: "de"))
-            
-            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
-                .previewDisplayName("Chinese")
-                .environment(\.locale, Locale(identifier: "zh-Hans"))
-            
-            GameView(selectedGame: 501, players: threePlayerVM.currentGame.players, viewModel: threePlayerVM)
-                .previewDisplayName("Japanese")
-                .environment(\.locale, Locale(identifier: "ja"))
         }
     }
 }
