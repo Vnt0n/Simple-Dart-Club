@@ -275,6 +275,13 @@ class GameViewModel: ObservableObject {
             }
         }
         
+        // Si le score restant est 1, dismiss la vue
+        if tempRemainingScore == 1 && currentGame.isToggledDoubleOut {
+            print("Score is 1, dismissing the view.")
+            submitScores()
+            dismissEnterThrowScoreView = true
+        }
+        
         // Vérifier si le score temporaire est négatif
         if tempRemainingScore < 0 {
             print("Player Busted!")

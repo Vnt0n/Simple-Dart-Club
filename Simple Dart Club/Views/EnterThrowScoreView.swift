@@ -198,6 +198,7 @@ struct EnterThrowScoreView: View {
             if currentThrowIndex > 0 {
                 currentThrowIndex -= 1
                 viewModel.throwScores[currentThrowIndex] = ScoreEntry(score: nil, isModified: false)
+                viewModel.checkScoreAfterThrow()
                 isMultiplierEnabled = false
                 isTripleEnabled = true
                 selectedNumber = nil
