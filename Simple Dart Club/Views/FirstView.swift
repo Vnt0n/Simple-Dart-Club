@@ -143,6 +143,7 @@ struct FirstView: View {
             .padding(.bottom, 20) // Placer en bas de la vue
             .frame(maxWidth: .infinity, alignment: .center) // Centrer le bouton
         }
+        .buttonStyle(PlainButtonStyle())
     }
 
     var playerFieldsTwoRows: some View {

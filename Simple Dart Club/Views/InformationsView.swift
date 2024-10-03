@@ -57,7 +57,8 @@ struct InformationsView: View {
                     }
                     .padding(.top, 15)
                     .accessibilityLabel("Game rules")
-                    
+                    .buttonStyle(PlainButtonStyle())
+
                     Button(action: {
                         isShowingLanguageSetting.toggle()
                     })  {
@@ -73,6 +74,7 @@ struct InformationsView: View {
                     .sheet(isPresented: $isShowingLanguageSetting) {
                         LanguageSettingView()
                     }
+                    .buttonStyle(PlainButtonStyle())
                     
                     Button(action: {
                         dismiss()
@@ -89,6 +91,7 @@ struct InformationsView: View {
                     }
                     .accessibilityLabel("Return to Home screen")
                     .padding(.bottom, 30)
+                    .buttonStyle(PlainButtonStyle())
                 }
                 .padding()
                 .frame(maxWidth: 700)

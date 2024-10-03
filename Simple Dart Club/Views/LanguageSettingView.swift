@@ -44,7 +44,8 @@ struct LanguageSettingView: View {
                 ForEach(AppLanguage.allCases) { language in
                     HStack {
                         Text(language.displayName)
-                        
+                            .font(.title2)
+
                         Spacer()
                         
                         if appLanguage == language {
@@ -67,10 +68,10 @@ struct LanguageSettingView: View {
                 dismiss()
             }) {
                 Text("OK")
-                    .font(.title2)
+                    .font(.title3)
                     .bold()
                     .padding()
-                    .frame(width: 150)
+                    .frame(width: 120)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
