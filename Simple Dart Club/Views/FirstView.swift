@@ -60,7 +60,7 @@ struct FirstView: View {
             .preferredColorScheme(.dark)
             .statusBar(hidden: true)
             .sheet(isPresented: $isShowingLanguageSetting) {
-                LanguageSetting()
+                LanguageSettingView()
             }
         }
         .environment(\.locale, Locale(identifier: appLanguage))

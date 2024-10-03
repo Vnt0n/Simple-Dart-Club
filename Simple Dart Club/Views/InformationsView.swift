@@ -71,7 +71,7 @@ struct InformationsView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                     }
                     .sheet(isPresented: $isShowingLanguageSetting) {
-                        LanguageSetting()
+                        LanguageSettingView()
                     }
                     
                     Button(action: {

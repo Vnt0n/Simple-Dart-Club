@@ -29,7 +29,7 @@ enum AppLanguage: String, CaseIterable, Identifiable {
     }
 }
 
-struct LanguageSetting: View {
+struct LanguageSettingView: View {
     @AppStorage("appLanguage") private var appLanguageCode: String = Locale.preferredLanguages.first?.prefix(2).description ?? "en"
     @Environment(\.dismiss) var dismiss
     
@@ -83,6 +83,6 @@ struct LanguageSetting: View {
 
 struct LanguageSetting_Previews: PreviewProvider {
     static var previews: some View {
-        LanguageSetting()
+        LanguageSettingView()
     }
 }
