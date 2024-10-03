@@ -1710,6 +1710,9 @@
         }
       }
     },
+    "Score restant : %lld" : {
+
+    },
     "ScoreBoard" : {
       "localizations" : {
         "de" : {

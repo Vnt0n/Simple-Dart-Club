@@ -36,9 +36,11 @@ struct EnterThrowScoreView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-                .padding(.bottom, 20)
                 .scaleEffect(growScale)
                 .animation(.easeInOut(duration: 0.2), value: growScale)
+            
+            Text("Score restant : \(viewModel.tempRemainingScore)")
+                .padding(.bottom, 20)
 
             // Grid of buttons
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 15) {
@@ -149,6 +151,9 @@ struct EnterThrowScoreView: View {
         }
         .preferredColorScheme(.dark)
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            viewModel.checkScoreAfterThrow()  // Appel de la fonction lorsque la vue apparaît
+        }
         .onChange(of: viewModel.dismissEnterThrowScoreView) {
                     if viewModel.dismissEnterThrowScoreView {
                         dismiss()  // Dismiss la vue si le jeu est terminé

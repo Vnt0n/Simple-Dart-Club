@@ -47,7 +47,8 @@ class GameViewModel: ObservableObject {
     @Published var isDouble = [false, false, false]
     @Published var isTriple = [false, false, false]
     @Published var dismissEnterThrowScoreView: Bool = false
-
+    @Published var tempRemainingScore: Int = 0
+    
     init(gameType: Int) {
         print("--------------------------------------------")
         print("Init Game")
@@ -249,7 +250,7 @@ class GameViewModel: ObservableObject {
         // Calculer le score temporaire restant après les lancés valides
         let validScores = throwScores.compactMap { $0.score }
         let scoresSoFar = validScores.reduce(0, +)
-        let tempRemainingScore = player.remainingScore - scoresSoFar
+        self.tempRemainingScore = player.remainingScore - scoresSoFar
         
         print("tempRemainingScore = \(tempRemainingScore)")
 
