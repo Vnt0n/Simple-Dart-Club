@@ -39,7 +39,7 @@ struct EnterThrowScoreView: View {
                 .scaleEffect(growScale)
                 .animation(.easeInOut(duration: 0.2), value: growScale)
             
-            Text("Score restant : \(viewModel.tempRemainingScore)")
+            Text("Remaining Score: \(viewModel.tempRemainingScore)")
                 .padding(.bottom, 20)
 
             // Grid of buttons
