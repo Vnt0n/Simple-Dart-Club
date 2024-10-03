@@ -545,41 +545,6 @@
         }
       }
     },
-    "-  Average Throw Score: %lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  Durchschnittliche Wurfpunktzahl: %lld"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  Puntuación Promedio de Lanzamiento: %lld"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  Moyenne des lancers : %lld"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  平均投げスコア：%lld"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "-  平均投掷得分：%lld"
-          }
-        }
-      }
-    },
     "-  Remaining Score: %lld  -" : {
       "localizations" : {
         "de" : {
@@ -1439,7 +1404,8 @@
         }
       }
     },
-    "Game Rules" : {
+    "Game rules" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1472,6 +1438,9 @@
           }
         }
       }
+    },
+    "Game Rules" : {
+
     },
     "HISTORY" : {
       "localizations" : {
@@ -1802,7 +1771,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cett app utilise ConfettiSwiftUI :"
+            "value" : "Cette app utilise ConfettiSwiftUI :"
           }
         },
         "ja" : {

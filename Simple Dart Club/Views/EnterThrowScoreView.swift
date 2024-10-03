@@ -43,7 +43,7 @@ struct EnterThrowScoreView: View {
                 .padding(.bottom, 20)
 
             // Grid of buttons
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 15) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: isPad ? 70 : 0), count: 4), spacing: 15) {
                 ForEach(buttonNumbers, id: \.self) { number in
                     Button(action: {
                         withAnimation(.none) {
