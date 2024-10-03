@@ -17,7 +17,10 @@ struct InformationsView: View {
     @State private var showCreditView = false
     @State private var isToggled: Bool = false
     @Binding var navigateToFirstView: Bool
-
+    
+    @AppStorage("appLanguage") var appLanguage: String = Locale.preferredLanguages.first ?? "en"
+    @State private var isShowingLanguageSetting = false
+    
     @Environment(\.dismiss) var dismiss
     
     private var winningPlayer: Player? {
@@ -46,7 +49,7 @@ struct InformationsView: View {
                             Text("Game rules")
                         } icon: {
                             Image(systemName: "info.bubble")
-                                .font(.system(size: 22))  // Agrandir uniquement l'image
+                                .font(.system(size: 22))
                         }
                     }
                     .sheet(isPresented: $showCreditView) {
@@ -54,6 +57,22 @@ struct InformationsView: View {
                     }
                     .padding(.top, 15)
                     .accessibilityLabel("Game rules")
+                    
+                    Button(action: {
+                        isShowingLanguageSetting.toggle()
+                    })  {
+                        Label {
+                            Text("Change language")
+
+                        } icon: {
+                            Image(systemName: "globe")
+                                .font(.system(size: 22))
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    }
+                    .sheet(isPresented: $isShowingLanguageSetting) {
+                        LanguageSetting()
+                    }
                     
                     Button(action: {
                         dismiss()
@@ -65,12 +84,11 @@ struct InformationsView: View {
                             Text("Return to Home screen")
                         } icon: {
                             Image(systemName: "arrowshape.turn.up.backward")
-                                .font(.system(size: 22))  // Agrandir uniquement l'image
+                                .font(.system(size: 22))
                         }
                     }
-                    .padding(.bottom, 35)
                     .accessibilityLabel("Return to Home screen")
-                    
+                    .padding(.bottom, 30)
                 }
                 .padding()
                 .frame(maxWidth: 700)
@@ -94,6 +112,7 @@ struct InformationsView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .environment(\.locale, Locale(identifier: appLanguage))
     }
     
     private var winningView: some View {

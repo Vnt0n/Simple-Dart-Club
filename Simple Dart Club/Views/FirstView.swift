@@ -11,6 +11,9 @@ struct FirstView: View {
     @State private var navigateToGame = false
     @StateObject var viewModel = GameViewModel(gameType: 0)
     @FocusState private var focusedPlayerIndex: Int?
+    
+    @AppStorage("appLanguage") var appLanguage: String = Locale.preferredLanguages.first ?? "en"
+    @State private var isShowingLanguageSetting = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -56,7 +59,11 @@ struct FirstView: View {
             }
             .preferredColorScheme(.dark)
             .statusBar(hidden: true)
+            .sheet(isPresented: $isShowingLanguageSetting) {
+                LanguageSetting()
+            }
         }
+        .environment(\.locale, Locale(identifier: appLanguage))
     }
 
     var dartClubText: some View {
@@ -114,7 +121,26 @@ struct FirstView: View {
             Spacer()
             gameControls
             settingsToggle
+            languageSettingsButton
             Spacer()
+        }
+    }
+    
+    var languageSettingsButton: some View {
+        Button(action: {
+            isShowingLanguageSetting.toggle() // Basculer l'état pour afficher la feuille
+        })  {
+            Label {
+                Text("Change language")
+                    .font(.system(size: 15))
+
+            } icon: {
+                Image(systemName: "globe")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+            }
+            .padding(.bottom, 20) // Placer en bas de la vue
+            .frame(maxWidth: .infinity, alignment: .center) // Centrer le bouton
         }
     }
 
