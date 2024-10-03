@@ -1405,7 +1405,6 @@
       }
     },
     "Game rules" : {
-      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1438,9 +1437,6 @@
           }
         }
       }
-    },
-    "Game Rules" : {
-
     },
     "HISTORY" : {
       "localizations" : {
@@ -1676,6 +1672,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除最后一个玩家"
+          }
+        }
+      }
+    },
+    "Return to Home screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück zum Startbildschirm"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver a la pantalla de inicio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour à l’écran d’accueil"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム画面に戻る"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返回主屏幕"
           }
         }
       }

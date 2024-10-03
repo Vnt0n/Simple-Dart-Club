@@ -16,6 +16,7 @@ struct InformationsView: View {
     @State private var isDismissForbidden = false
     @State private var showCreditView = false
     @State private var isToggled: Bool = false
+    @Binding var navigateToFirstView: Bool
 
     @Environment(\.dismiss) var dismiss
     
@@ -42,7 +43,7 @@ struct InformationsView: View {
                         showCreditView = true
                     }) {
                         Label {
-                            Text("Game Rules")
+                            Text("Game rules")
                         } icon: {
                             Image(systemName: "info.bubble")
                                 .font(.system(size: 22))  // Agrandir uniquement l'image
@@ -51,9 +52,25 @@ struct InformationsView: View {
                     .sheet(isPresented: $showCreditView) {
                         CreditView()
                     }
-                    .padding(.bottom, 35)
                     .padding(.top, 15)
-                    .accessibilityLabel("Game Rules")
+                    .accessibilityLabel("Game rules")
+                    
+                    Button(action: {
+                        dismiss()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                            navigateToFirstView = true
+                        }
+                    }) {
+                        Label {
+                            Text("Return to Home screen")
+                        } icon: {
+                            Image(systemName: "arrowshape.turn.up.backward")
+                                .font(.system(size: 22))  // Agrandir uniquement l'image
+                        }
+                    }
+                    .padding(.bottom, 35)
+                    .accessibilityLabel("Return to Home screen")
+                    
                 }
                 .padding()
                 .frame(maxWidth: 700)
@@ -435,7 +452,7 @@ class MockGameViewModel: GameViewModel {
 struct English: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "en"))
         }
     }
@@ -444,7 +461,7 @@ struct English: PreviewProvider {
 struct French: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "fr"))
         }
     }
@@ -453,7 +470,7 @@ struct French: PreviewProvider {
 struct Spanish: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "es"))
         }
     }
@@ -462,7 +479,7 @@ struct Spanish: PreviewProvider {
 struct German: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "de"))
         }
     }
@@ -471,7 +488,7 @@ struct German: PreviewProvider {
 struct Chinese: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "zh-Hans"))
         }
     }
@@ -480,7 +497,7 @@ struct Chinese: PreviewProvider {
 struct Japanese: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            InformationsView(viewModel: MockGameViewModel(gameType: 301))
+            InformationsView(viewModel: MockGameViewModel(gameType: 301), navigateToFirstView: .constant(false))
                 .environment(\.locale, Locale(identifier: "ja"))
         }
     }

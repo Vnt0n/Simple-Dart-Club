@@ -15,7 +15,8 @@ struct GameView: View {
     @State private var enterThrowScore: Bool = false
     @State private var showInformationsView = false
     @State private var isUndoDisabled = true
-    
+    @State private var navigateToFirstView = false
+
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
@@ -45,7 +46,7 @@ struct GameView: View {
                             }
                             .buttonStyle(PlainButtonStyle())
                             .sheet(isPresented: $showInformationsView) {
-                                InformationsView(viewModel: viewModel)
+                                InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
                             }
                             
                         }
@@ -87,7 +88,7 @@ struct GameView: View {
                 HStack {
                     
                     if UIDevice.current.userInterfaceIdiom == .pad {
-                        InformationsView(viewModel: viewModel)
+                        InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
                             .frame(width: 400)
                     }
                     
@@ -309,7 +310,10 @@ struct GameView: View {
                 updateUndoButtonState()
             }
             .sheet(isPresented: $showInformationsView) {
-                InformationsView(viewModel: viewModel)
+                InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
+            }
+            .navigationDestination(isPresented: $navigateToFirstView) {
+                FirstView() // Navigates to FirstView when `navigateToFirstView` is true
             }
         }
         .navigationBarBackButtonHidden(true)
