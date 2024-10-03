@@ -27,6 +27,7 @@ struct FirstView: View {
                             HStack {
                                 Spacer()
                                 dartClubText
+                                    .padding(.leading, 155)
                                 Spacer()
                                 mainContentVStack
                                 Spacer()
