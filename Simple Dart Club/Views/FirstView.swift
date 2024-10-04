@@ -216,11 +216,9 @@ struct FirstView: View {
     var gameControls: some View {
         HStack {
             Button("301") {
-                withAnimation {
                     viewModel.currentGame.gameType = 301
                     viewModel.gameStarted = true
                     navigateToGame = true
-                }
             }
             .disabled(!canStartGame)
             .buttonStyle(.borderedProminent)
@@ -229,11 +227,9 @@ struct FirstView: View {
             Text("or").font(.system(size: 20))
 
             Button("501") {
-                withAnimation {
                     viewModel.currentGame.gameType = 501
                     viewModel.gameStarted = true
                     navigateToGame = true
-                }
             }
             .disabled(!canStartGame)
             .buttonStyle(.borderedProminent)
