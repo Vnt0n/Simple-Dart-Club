@@ -47,7 +47,7 @@ struct HomeView: View {
 
             }
         }
-        .statusBar(hidden: true)
+        .statusBarHidden(true)
     }
 }
 

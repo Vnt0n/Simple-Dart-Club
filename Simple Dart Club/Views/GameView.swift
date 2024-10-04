@@ -317,11 +317,12 @@ struct GameView: View {
                 InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
             }
             .navigationDestination(isPresented: $navigateToFirstView) {
-                FirstView() // Navigates to FirstView when `navigateToFirstView` is true
+                FirstView()
             }
         }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
+        .statusBarHidden(false)
     }
 
     

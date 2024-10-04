@@ -59,7 +59,7 @@ struct FirstView: View {
                 }
             }
             .preferredColorScheme(.dark)
-            .statusBar(hidden: true)
+            .statusBarHidden(true)
             .sheet(isPresented: $isShowingLanguageSetting) {
                 LanguageSettingView()
             }
@@ -203,7 +203,7 @@ struct FirstView: View {
         }) {
             Label("Add", systemImage: "person.fill.badge.plus")
                 .accessibilityLabel("Add a player")
-                .font(.system(size: 15))
+                .font(.system(size: 18))
                 .padding(.top, 20)
         }
         .buttonStyle(PlainButtonStyle())
@@ -258,7 +258,7 @@ struct FirstView: View {
                     HStack {
                         if viewModel.currentGame.players.count == 4 {
                             Text("Remove a player")
-                                .font(.system(size: 15))
+                                .font(.system(size: 18))
                                 .foregroundColor(.red) // Affiche "Delete" en rouge pour 4 joueurs sur tous les appareils
                         }
                         Image(systemName: "minus.circle.fill")
