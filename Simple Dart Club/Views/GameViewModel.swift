@@ -284,5 +284,24 @@ class GameViewModel: ObservableObject {
             dismissEnterThrowScoreView = true
         }
     }
+    
+    func resetGame() {
+        print("--------------------------------------------")
+        print("resetGame FUNCTION")
+        
+        for i in currentGame.players.indices {
+            currentGame.players[i].scores.removeAll()
+            currentGame.players[i].remainingScore = currentGame.gameType
+            currentGame.players[i].remainingScoresPerTurn.removeAll()
+            currentGame.players[i].isBusted = false
+            currentGame.players[i].lastThrowWasDouble = false
+        }
+
+        currentGame.currentTurn = 1
+        currentPlayerIndex = 0
+        currentGame.scoresThisTurn = 0
+        throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
+        dismissEnterThrowScoreView = false
+    }
 
 }

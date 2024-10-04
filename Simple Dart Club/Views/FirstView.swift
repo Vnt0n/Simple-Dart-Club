@@ -106,19 +106,30 @@ struct FirstView: View {
     var mainContentVStack: some View {
         VStack {
             Spacer()
+            
             if UIDevice.current.userInterfaceIdiom == .pad {
                 playerFieldsTwoRows
             } else {
                 playerFieldsOneRow
             }
-            if viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .phone || viewModel.currentGame.players.count < 4 && UIDevice.current.userInterfaceIdiom == .pad && viewModel.currentGame.players.count != 3 {
+            
+            if viewModel.currentGame.players.count < 4 {
                 HStack {
-                    addButton
-                    playerDeleteButton
+                    playerAddButton
+                    if viewModel.currentGame.players.count > 1 {
+                        playerRemoveButton
+                            .padding(.top, 15)
+                            .padding(.leading, 15)
+                    }
+                }
+            } else if viewModel.currentGame.players.count == 4 {
+                HStack {
+                    playerRemoveButton
                         .padding(.top, 15)
                         .padding(.leading, 15)
                 }
             }
+            
             Spacer()
             gameControls
             settingsToggle
@@ -129,7 +140,7 @@ struct FirstView: View {
     
     var languageSettingsButton: some View {
         Button(action: {
-            isShowingLanguageSetting.toggle() // Basculer l'état pour afficher la feuille
+            isShowingLanguageSetting.toggle()
         })  {
             Label {
                 Text("Change language")
@@ -140,8 +151,8 @@ struct FirstView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
             }
-            .padding(.bottom, 20) // Placer en bas de la vue
-            .frame(maxWidth: .infinity, alignment: .center) // Centrer le bouton
+            .padding(.bottom, 20)
+            .frame(maxWidth: .infinity, alignment: .center)
         }
         .buttonStyle(PlainButtonStyle())
     }
@@ -149,29 +160,16 @@ struct FirstView: View {
     var playerFieldsTwoRows: some View {
         VStack {
             HStack {
-                if viewModel.currentGame.players.count > 0 {
-                    playerTextField(index: 0)
-                }
+                playerTextField(index: 0)
                 if viewModel.currentGame.players.count > 1 {
                     playerTextField(index: 1)
                 }
             }
-
             HStack {
                 if viewModel.currentGame.players.count > 2 {
                     playerTextField(index: 2)
                 }
-                if viewModel.currentGame.players.count == 3 && UIDevice.current.userInterfaceIdiom == .pad {
-                    HStack {
-                        addButton
-                        playerDeleteButton
-                            .padding(.top, 15)
-                            .padding(.leading, 15)
-                    }
-                    .frame(width: 250)
-                    .padding(.bottom, 15)
-
-                } else if viewModel.currentGame.players.count > 3 {
+                if viewModel.currentGame.players.count > 3 {
                     playerTextField(index: 3)
                 }
             }
@@ -194,10 +192,9 @@ struct FirstView: View {
             .disableAutocorrection(true)
             .foregroundColor(.primary)
             .focused($focusedPlayerIndex, equals: index)
-            .font(.title)
     }
 
-    var addButton: some View {
+    var playerAddButton: some View {
         Button(action: {
             withAnimation {
                 viewModel.addPlayer()
@@ -206,7 +203,7 @@ struct FirstView: View {
         }) {
             Label("Add", systemImage: "person.fill.badge.plus")
                 .accessibilityLabel("Add a player")
-                .font(.system(size: 20))
+                .font(.system(size: 15))
                 .padding(.top, 20)
         }
         .buttonStyle(PlainButtonStyle())
@@ -250,7 +247,7 @@ struct FirstView: View {
         !viewModel.currentGame.players.isEmpty && viewModel.currentGame.players.allSatisfy { !$0.name.isEmpty }
     }
     
-    var playerDeleteButton: some View {
+    var playerRemoveButton: some View {
         ZStack {
             if viewModel.currentGame.players.count > 1 {
                 Button(action: {
@@ -258,10 +255,17 @@ struct FirstView: View {
                         viewModel.removeLastPlayer()
                     }
                 }) {
-                    Image(systemName: "minus.circle.fill")
-                        .font(.system(size: 20))
-                        .foregroundColor(.red)
-                        .accessibilityLabel("Remove last player")
+                    HStack {
+                        if viewModel.currentGame.players.count == 4 {
+                            Text("Remove a player")
+                                .font(.system(size: 15))
+                                .foregroundColor(.red) // Affiche "Delete" en rouge pour 4 joueurs sur tous les appareils
+                        }
+                        Image(systemName: "minus.circle.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.red)
+                    }
+                    .accessibilityLabel("Remove last player")
                 }
             }
         }

@@ -77,6 +77,7 @@ struct InformationsView: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     Button(action: {
+                        viewModel.resetGame()
                         dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                             navigateToFirstView = true

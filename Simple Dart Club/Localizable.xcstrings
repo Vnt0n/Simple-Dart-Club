@@ -176,19 +176,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Wenn ein Spieler die benötigte Punktzahl überschreitet, ist sein Zug ungültig (Bust), und er muss in seinem nächsten Zug von der Punktzahl vor diesem Wurf neu starten."
+            "value" : "-     Wenn ein Spieler oder eine Spielerin die erforderliche Punktzahl überschreitet, ist sein/ihr Schlag ungültig (bust) und er/sie muss bei seinem/ihrem nächsten Schlag mit der Punktzahl vor diesem Wurf neu beginnen."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Si un jugador excede la puntuación necesaria, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
+            "value" : "-     Si el jugador o la jugadora excede la puntuación necesaria, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Si un joueur dépasse le score nécessaire, son tour est invalidé (bust) et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+            "value" : "-     Si le joueur ou la joueuse dépasse le score nécessaire, son tour est invalidé (bust) et il ou elle doit recommencer à partir du score qu'il ou elle avait avant ce lancer lors de son prochain tour."
           }
         },
         "ja" : {
@@ -244,19 +244,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     NUR WENN DIE “DOUBLE OUT”-OPTION AKTIVIERT IST: Wenn ein Spieler eine Punktzahl von 1 erreicht oder nicht mit einem Doppel endet, ist sein Zug ungültig (Bust), und er muss in seinem nächsten Zug von der Punktzahl vor diesem Wurf neu starten."
+            "value" : "-     NUR WENN DIE “DOUBLE OUT”-OPTION AKTIVIERT IST: Wenn ein Spieler oder eine Spielerin eine 1 erzielt oder nicht mit einem Doppel endet, ist sein Spielzug ungültig (Bust) und er oder sie muss in seinem oder ihrem nächsten Spielzug mit dem Spielstand vor diesem Wurf neu beginnen."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Si un jugador alcanza una puntuación de 1, o no termina con un doble, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
+            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Si el jugador o la jugadora alcanza una puntuación de 1, o no termina con un doble, su turno es inválido (bust), y debe reiniciar desde la puntuación que tenía antes de ese lanzamiento en su próximo turno."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Si un joueur atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il doit recommencer à partir du score qu'il avait avant ce lancer lors de son prochain tour."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Si le joueur ou la joueuse atteint un score de 1, ou ne termine pas sur un double, son tour est invalide (bust), et il ou elle doit recommencer à partir du score qu'il ou elle avait avant ce lancer lors de son prochain tour."
           }
         },
         "ja" : {
@@ -284,13 +284,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Para ganar una partida, el jugador debe terminar reduciendo su puntuación a exactamente cero al acertar un doble."
+            "value" : "-     SOLO SI LA OPCIÓN “DOUBLE OUT” ESTÁ HABILITADA: Para ganar una partida, el jugador o la jugadora debe terminar reduciendo su puntuación a exactamente cero al acertar un doble."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, le joueur doit terminer en réduisant son score à exactement zéro en réussissant un double."
+            "value" : "-     UNIQUEMENT SI L'OPTION « DOUBLE OUT » EST ACTIVÉE : Pour gagner une manche, il faut terminer en réduisant son score à exactement zéro en réussissant un double."
           }
         },
         "ja" : {
@@ -352,13 +352,13 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Los errores de puntuación deben corregirse antes del lanzamiento del siguiente jugador."
+            "value" : "-     Los errores de puntuación deben corregirse antes del lanzamiento del siguiente jugador o jugadora."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "-     Les erreurs de marquage doivent être corrigées avant le lancer du joueur suivant."
+            "value" : "-     Les erreurs de marquage doivent être corrigées avant le lancer du joueur ou de la joueuse suivant·e."
           }
         },
         "ja" : {
@@ -1097,13 +1097,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einen Spieler hinzufügen"
+            "value" : "Hinzufügen"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Agregar un jugador"
+            "value" : "Agregar"
           }
         },
         "fr" : {
@@ -1616,19 +1616,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spieler %lld"
+            "value" : "Spieler / Spielerin %lld"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jugador %lld"
+            "value" : "Jugador / Jugadora %lld"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Joueur %lld"
+            "value" : "Joueur / Joueuse %lld"
           }
         },
         "ja" : {
@@ -1679,12 +1679,46 @@
         }
       }
     },
+    "Remove a player" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイヤーを削除"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 移除玩家"
+          }
+        }
+      }
+    },
     "Remove last player" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Letzten Spieler entfernen"
+            "value" : "Letzten Spieler oder Spielerin entfernen"
           }
         },
         "es" : {
@@ -1696,7 +1730,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Supprimer le joueur"
+            "value" : "Supprimer le joueur ou la joueuse"
           }
         },
         "ja" : {
