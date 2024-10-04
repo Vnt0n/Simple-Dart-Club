@@ -246,22 +246,19 @@ class GameViewModel: ObservableObject {
         print("checkScoreAfterThrow FUNCTION")
         
         let player = currentGame.players[currentPlayerIndex]
-        
-        // Calculer le score temporaire restant après les lancés valides
         let validScores = throwScores.compactMap { $0.score }
         let scoresSoFar = validScores.reduce(0, +)
         self.tempRemainingScore = player.remainingScore - scoresSoFar
         
         print("tempRemainingScore = \(tempRemainingScore)")
 
-        // Vérifier si le score temporaire est à zéro
         if tempRemainingScore == 0 {
             if currentGame.isToggledDoubleOut {
-                // Vérifier si le lancé en cours est un double
+
                 let currentThrowIsDouble = throwScores.first { $0.isDoubleButtonActivated } != nil
                 if currentThrowIsDouble {
                     print("Player wins with Double Out!")
-                    submitScores()  // Soumettre les scores si Double Out est valide
+                    submitScores()
                     dismissEnterThrowScoreView = true
                 } else {
                     print("Double Out condition not met, continue the game.")
@@ -270,22 +267,20 @@ class GameViewModel: ObservableObject {
                 }
             } else {
                 print("Player wins without Double Out!")
-                submitScores()  // Soumettre les scores si le score est zéro et pas de Double Out
+                submitScores()
                 dismissEnterThrowScoreView = true
             }
         }
         
-        // Si le score restant est 1, dismiss la vue
         if tempRemainingScore == 1 && currentGame.isToggledDoubleOut {
             print("Score is 1, dismissing the view.")
             submitScores()
             dismissEnterThrowScoreView = true
         }
         
-        // Vérifier si le score temporaire est négatif
         if tempRemainingScore < 0 {
             print("Player Busted!")
-            submitScores()  // Soumettre les scores si le joueur a bust
+            submitScores()
             dismissEnterThrowScoreView = true
         }
     }

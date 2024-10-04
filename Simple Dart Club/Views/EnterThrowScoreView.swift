@@ -151,12 +151,9 @@ struct EnterThrowScoreView: View {
         }
         .preferredColorScheme(.dark)
         .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            viewModel.checkScoreAfterThrow()  // Appel de la fonction lorsque la vue apparaît
-        }
         .onChange(of: viewModel.dismissEnterThrowScoreView) {
                     if viewModel.dismissEnterThrowScoreView {
-                        dismiss()  // Dismiss la vue si le jeu est terminé
+                        dismiss()
                     }
                 }
     }
