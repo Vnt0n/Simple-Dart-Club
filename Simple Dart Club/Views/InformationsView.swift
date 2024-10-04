@@ -53,7 +53,7 @@ struct InformationsView: View {
                         }
                     }
                     .sheet(isPresented: $showCreditView) {
-                        CreditView()
+                        RulesView()
                     }
                     .padding(.top, 15)
                     .accessibilityLabel("Game rules")
@@ -92,6 +92,10 @@ struct InformationsView: View {
                     .accessibilityLabel("Return to Home screen")
                     .padding(.bottom, 30)
                     .buttonStyle(PlainButtonStyle())
+                    
+                    Divider()
+                    
+                    CreditsView
                 }
                 .padding()
                 .frame(maxWidth: 700)
@@ -420,6 +424,27 @@ struct InformationsView: View {
                 
             }
             
+        }
+
+    }
+
+    private var CreditsView: some View {
+        
+        VStack(alignment: .center, spacing: 5) {
+            
+            Text("An app by")
+                .font(.system(size: 12).weight(.bold))
+                           
+            Link("vnton.xyz", destination: URL(string: "https://vnton.xyz")!)
+                .font(.system(size: 15))
+                .bold()
+                .foregroundColor(.blue)
+                .padding(.bottom, 1)
+            
+            Text("V 1.0 | © 2024 A. Chosson")
+                .font(
+                    .system(size: 10)
+                )
         }
 
     }

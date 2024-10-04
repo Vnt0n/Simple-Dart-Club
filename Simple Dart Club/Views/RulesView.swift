@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreditView: View {
+struct RulesView: View {
         
     var body: some View {
 
@@ -134,28 +134,6 @@ struct CreditView: View {
                     .padding()
                 }
                 
-                Spacer()
-                Divider()
-                
-                Text("An app by")
-                    .font(.system(size: 15).weight(.bold))
-                    .padding(.top, 10)
-                               
-                Link("vnton.xyz", destination: URL(string: "https://vnton.xyz")!)
-                    .font(.system(size: 20))
-                    .bold()
-                    .foregroundColor(.blue)
-                    .padding(.bottom, 1)
-                
-                Text("V 1.0 | © 2024 A. Chosson")
-                    .font(
-                        .system(size: 10)
-                    )
-                
-                Spacer()
-                Spacer()
-                Spacer()
-
             }
             .frame(maxWidth: 560)
             .padding()
@@ -165,31 +143,31 @@ struct CreditView: View {
 }
 
 #Preview("English") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "en"))
 }
 
 #Preview("French") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "fr"))
 }
 
 #Preview("Spanish") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "es"))
 }
 
 #Preview("German") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "de"))
 }
 
 #Preview("Chinese") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "zh-Hans"))
 }
 
 #Preview("Japanese") {
-    CreditView()
+    RulesView()
         .environment(\.locale, Locale(identifier: "ja"))
 }
