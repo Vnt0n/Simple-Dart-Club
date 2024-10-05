@@ -57,9 +57,9 @@ struct FirstView: View {
                 .navigationDestination(isPresented: $navigateToGame) {
                     GameView(selectedGame: viewModel.currentGame.gameType, players: viewModel.currentGame.players, viewModel: viewModel)
                 }
+                .statusBarHidden(true)
             }
             .preferredColorScheme(.dark)
-            .statusBarHidden(true)
             .sheet(isPresented: $isShowingLanguageSetting) {
                 LanguageSettingView()
             }
