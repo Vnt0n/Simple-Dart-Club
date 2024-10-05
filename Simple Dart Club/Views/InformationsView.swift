@@ -107,7 +107,6 @@ struct InformationsView: View {
             .foregroundColor(.primary)
             .toolbar {
                 if winningPlayer == nil {
-                    
                     ToolbarItem(placement: .principal) {
                         Text("ScoreBoard")
                             .font(.largeTitle.bold())
