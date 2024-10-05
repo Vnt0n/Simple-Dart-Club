@@ -79,9 +79,7 @@ struct InformationsView: View {
                     Button(action: {
                         viewModel.resetGame()
                         dismiss()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                            navigateToFirstView = true
-                        }
+                        navigateToFirstView = true
                     }) {
                         Label {
                             Text("Return to Home screen")
