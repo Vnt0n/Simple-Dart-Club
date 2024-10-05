@@ -106,7 +106,7 @@ struct InformationsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .foregroundColor(.primary)
             .toolbar {
-                if winningPlayer == nil {
+                if winningPlayer == nil && UIDevice.current.userInterfaceIdiom != .pad {
                     ToolbarItem(placement: .principal) {
                         Text("ScoreBoard")
                             .font(.largeTitle.bold())
