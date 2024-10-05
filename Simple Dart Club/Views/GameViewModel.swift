@@ -300,8 +300,9 @@ class GameViewModel: ObservableObject {
         currentGame.currentTurn = 1
         currentPlayerIndex = 0
         currentGame.scoresThisTurn = 0
-        throwScores = Array(repeating: ScoreEntry(score: nil, isModified: false), count: 3)
+        gameCount = 1
         dismissEnterThrowScoreView = false
+        gameHistory.removeAll()
     }
 
 }
