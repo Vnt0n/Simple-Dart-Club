@@ -83,8 +83,8 @@ struct GameView: View {
                 }
                 .background(Color.blue)
                 .foregroundColor(.white)
-                .frame(height: 40)
-
+                .frame(height: UIDevice.current.userInterfaceIdiom == .pad ? 70 : 40)
+                
                 HStack {
                     
                     if UIDevice.current.userInterfaceIdiom == .pad {
