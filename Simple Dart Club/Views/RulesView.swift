@@ -33,7 +33,7 @@ struct RulesView: View {
                         .multilineTextAlignment(.center)
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
-                        .padding([.trailing], 40)
+                        .padding([.trailing], 30)
                     
                     Text("Club   ")
                         .font(Font.custom("FightThis", size: 40))
@@ -43,7 +43,7 @@ struct RulesView: View {
                         .rotationEffect(Angle(degrees: 347))
                         .frame(maxWidth: .infinity)
                         .padding([.trailing], 40)
-                        .padding(.top, -20)
+                        .padding(.top, -15)
                     
                     Spacer()
                     

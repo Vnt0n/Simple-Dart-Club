@@ -95,8 +95,10 @@ struct InformationsView: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     Divider()
-                    
+                    LogoView
+                        .padding([.leading], 35)
                     CreditsView
+                        .padding(.bottom, 20)
                 }
                 .padding()
                 .frame(maxWidth: 700)
@@ -445,6 +447,43 @@ struct InformationsView: View {
                 .font(
                     .system(size: 10)
                 )
+        }
+
+    }
+    
+    private var LogoView: some View {
+        
+        VStack {
+            
+            Text("Dart   ")
+                .font(Font.custom("FightThis", size: 40))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .frame(maxWidth: .infinity)
+                .padding([.trailing], 40)
+                .padding(.bottom, -10)
+            
+            Text("Simple   ")
+                .font(Font.custom("FightThis", size: 12))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .frame(maxWidth: .infinity)
+                .padding([.trailing], 30)
+            
+            Text("Club   ")
+                .font(Font.custom("FightThis", size: 40))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .frame(maxWidth: .infinity)
+                .padding([.trailing], 40)
+                .padding(.top, -15)
+            
         }
 
     }
