@@ -46,4 +46,5 @@ Official World Darts Federation rules.
 <img src="/Screenshots/iPad/13_inches/03.jpg" height="400">
 <img src="/Screenshots/iPad/13_inches/04.jpg" height="400">
 <img src="/Screenshots/iPad/13_inches/05.jpg" height="400">
+<img src="/Screenshots/iPad/13_inches/06.jpg" height="400">
 </div>
