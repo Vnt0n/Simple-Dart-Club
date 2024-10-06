@@ -155,6 +155,7 @@ struct FirstView: View {
             .frame(maxWidth: .infinity, alignment: .center)
         }
         .buttonStyle(PlainButtonStyle())
+        .accessibilityLabel("Change language")
     }
 
     var playerFieldsTwoRows: some View {
@@ -192,6 +193,7 @@ struct FirstView: View {
             .disableAutocorrection(true)
             .foregroundColor(.primary)
             .focused($focusedPlayerIndex, equals: index)
+            .accessibilityLabel("Enter player \(index + 1) name")
     }
 
     var playerAddButton: some View {
@@ -202,35 +204,38 @@ struct FirstView: View {
             }
         }) {
             Label("Add", systemImage: "person.fill.badge.plus")
-                .accessibilityLabel("Add a player")
                 .font(.system(size: 18))
                 .padding(.top, 20)
         }
         .buttonStyle(PlainButtonStyle())
+        .accessibilityLabel("Add a player")
         
     }
 
     var gameControls: some View {
         HStack {
             Button("301") {
-                    viewModel.currentGame.gameType = 301
-                    viewModel.gameStarted = true
-                    navigateToGame = true
+                viewModel.currentGame.gameType = 301
+                viewModel.gameStarted = true
+                navigateToGame = true
             }
             .disabled(!canStartGame)
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
+            .accessibilityLabel("301 mode")
 
             Text("or").font(.system(size: 20))
 
             Button("501") {
-                    viewModel.currentGame.gameType = 501
-                    viewModel.gameStarted = true
-                    navigateToGame = true
+                viewModel.currentGame.gameType = 501
+                viewModel.gameStarted = true
+                navigateToGame = true
             }
             .disabled(!canStartGame)
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
+            .accessibilityLabel("501 mode")
+
         }
         .padding(.bottom, -10)
     }
@@ -241,6 +246,7 @@ struct FirstView: View {
         }
         .padding()
         .frame(width: 200)
+        .accessibilityLabel("Double Out option")
     }
     
     var canStartGame: Bool {

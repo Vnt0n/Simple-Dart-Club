@@ -45,6 +45,7 @@ struct GameView: View {
                                     .font(.system(size: 25))
                             }
                             .buttonStyle(PlainButtonStyle())
+                            .accessibilityLabel("ScoreBoard")
                             .sheet(isPresented: $showInformationsView) {
                                 InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
                             }
@@ -67,15 +68,15 @@ struct GameView: View {
                         Button(action: {
                             print("--------------------------------------------")
                             print("BUTTON undoLastScore")
-                        undoLastScore()
+                            undoLastScore()
                         }) {
                             Image(systemName: "arrow.uturn.backward.circle")
-                                .accessibilityLabel("Undo")
                                 .font(.system(size: 25))
                         }
                         .disabled(isUndoDisabled)
                         .foregroundColor(isUndoDisabled ? .gray : .white)
                         .buttonStyle(PlainButtonStyle())
+                        .accessibilityLabel("Undo last score")
 
                         Spacer()
 
@@ -134,7 +135,8 @@ struct GameView: View {
                                 }
                                 .disabled(viewModel.currentPlayerIndex != 0)
                                 .buttonStyle(PlainButtonStyle())
-                                
+                                .accessibilityLabel("Score: \(viewModel.currentGame.players[0].remainingScore)")
+
                                 Spacer()
                                 Divider()
                                 
@@ -182,7 +184,8 @@ struct GameView: View {
                                     }
                                     .disabled(viewModel.currentPlayerIndex != 1)
                                     .buttonStyle(PlainButtonStyle())
-                                    
+                                    .accessibilityLabel("Score: \(viewModel.currentGame.players[1].remainingScore)")
+
                                     Spacer()
                                     Divider()
                                     
@@ -231,7 +234,8 @@ struct GameView: View {
                                     }
                                     .disabled(viewModel.currentPlayerIndex != 2)
                                     .buttonStyle(PlainButtonStyle())
-                                    
+                                    .accessibilityLabel("Score: \(viewModel.currentGame.players[2].remainingScore)")
+
                                     Spacer()
                                     Divider()
                                     
@@ -280,7 +284,8 @@ struct GameView: View {
                                     }
                                     .disabled(viewModel.currentPlayerIndex != 3)
                                     .buttonStyle(PlainButtonStyle())
-                                    
+                                    .accessibilityLabel("Score: \(viewModel.currentGame.players[3].remainingScore)")
+
                                     Spacer()
                                     
                                 }

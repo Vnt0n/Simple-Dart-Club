@@ -17,6 +17,7 @@ struct InformationsView: View {
     @State private var showCreditView = false
     @State private var isToggled: Bool = false
     @Binding var navigateToFirstView: Bool
+    @State private var preventSleepMode: Bool = false
     
     @AppStorage("appLanguage") var appLanguage: String = Locale.preferredLanguages.first ?? "en"
     @State private var isShowingLanguageSetting = false
@@ -58,8 +59,8 @@ struct InformationsView: View {
                         RulesView()
                     }
                     .padding(.top, 15)
-                    .accessibilityLabel("Game rules")
                     .buttonStyle(PlainButtonStyle())
+                    .accessibilityLabel("Game rules")
 
                     Button(action: {
                         isShowingLanguageSetting.toggle()
@@ -77,7 +78,8 @@ struct InformationsView: View {
                         LanguageSettingView()
                     }
                     .buttonStyle(PlainButtonStyle())
-                    
+                    .accessibilityLabel("Change language")
+
                     Button(action: {
                         viewModel.resetGame()
                         dismiss()
@@ -90,10 +92,19 @@ struct InformationsView: View {
                                 .font(.system(size: 22))
                         }
                     }
-                    .accessibilityLabel("Return to Home screen")
-                    .padding(.bottom, 30)
                     .buttonStyle(PlainButtonStyle())
-                    
+                    .accessibilityLabel("Return to Home screen")
+
+                    Toggle("Prevent Sleep Mode", isOn: $preventSleepMode)
+                        .onChange(of: preventSleepMode) { oldValue, newValue in
+                            UIApplication.shared.isIdleTimerDisabled = newValue
+                        }
+                        .padding()
+                        .frame(width: 200)
+                        .padding(.bottom, 10)
+                        .font(.system(size: 15))
+                        .accessibilityLabel("Prevent Sleep Mode")
+
                     Divider()
                     LogoView
                         .padding([.leading], 35)
@@ -160,6 +171,7 @@ struct InformationsView: View {
                     .controlSize(.large)
                     .padding(.bottom, 25)
                     .foregroundColor(.white)
+                    .accessibilityLabel("Start a new game")
                     .confettiCannon(counter: $counter, num: 150, radius: 500.0)
                     
                     victoriesView
