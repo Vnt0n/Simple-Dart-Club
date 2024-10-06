@@ -399,22 +399,22 @@ struct InformationsView: View {
 
                     VStack(alignment: .center, spacing: 8) {
                         
-                        ForEach(Array(viewModel.countVictories().keys), id: \.self) { playerName in
-                            
+                        ForEach(viewModel.currentGame.players, id: \.name) { player in
+
                             Divider()
                             
                             HStack {
                                 
                                 Spacer()
                                 
-                                Text(playerName)
+                                Text(player.name)
                                     .fontWeight(.bold)
                                 
                                 Spacer()
                                 Divider()
                                 Spacer()
                                 
-                                Text("\(viewModel.countVictories()[playerName, default: 0])")
+                                Text("\(viewModel.countVictories()[player.name, default: 0])")
                                 
                                 Spacer()
                                 
