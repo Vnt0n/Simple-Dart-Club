@@ -190,6 +190,14 @@ class GameViewModel: ObservableObject {
                 return $0.remainingScore == 0
             }
         }
+        
+        // Si une victoire a été comptée précédemment, on la retire
+        if let winner = winners.first {
+            if let index = gameHistory.firstIndex(where: { $0.winners.contains(where: { $0.name == winner.name }) }) {
+                gameHistory.remove(at: index) // Supprime la victoire de l'historique
+            }
+        }
+        
         let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
         gameHistory.append(record)
         resetForNextGame()
@@ -308,6 +316,25 @@ class GameViewModel: ObservableObject {
         gameCount = 1
         dismissEnterThrowScoreView = false
         gameHistory.removeAll()
+    }
+    
+    func updateVictories() {
+        print("--------------------------------------------")
+        print("updateVictories FUNCTION")
+
+        // Identifier les joueurs gagnants
+        let winners = currentGame.players.filter {
+            if currentGame.isToggledDoubleOut {
+                return $0.remainingScore == 0 && $0.lastThrowWasDouble
+            } else {
+                return $0.remainingScore == 0
+            }
+        }
+        
+        // Mettre à jour les victoires dans l'historique
+        for _ in winners {
+            gameHistory.append(GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners))
+        }
     }
 
 }

@@ -145,6 +145,7 @@ struct InformationsView: View {
                                 self.counter = 1
                             }
                             isDismissForbidden = true
+                            viewModel.updateVictories()
                         }
                     
                     Button("New game") {
