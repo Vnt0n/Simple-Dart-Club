@@ -39,7 +39,9 @@ struct InformationsView: View {
                         Divider()
                         gameHistoryView
                         Divider()
-                        victoriesView
+                        if winningPlayer == nil {
+                            victoriesView
+                        }
                     }
                     
                     Button(action: {
