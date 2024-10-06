@@ -158,6 +158,8 @@ struct InformationsView: View {
                     .padding(.bottom, 25)
                     .foregroundColor(.white)
                     .confettiCannon(counter: $counter, num: 150, radius: 500.0)
+                    
+                    victoriesView
                 }
             }
         }

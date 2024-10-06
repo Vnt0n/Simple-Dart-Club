@@ -199,6 +199,11 @@ class GameViewModel: ObservableObject {
         print("--------------------------------------------")
         print("countVictories FUNCTION")
         var victories = [String: Int]()
+        
+        // Ajout de tous les joueurs actuels avec une victoire par défaut à 0
+        for player in currentGame.players {
+            victories[player.name] = 0
+        }
 
         for record in gameHistory {
             for winner in record.winners {
