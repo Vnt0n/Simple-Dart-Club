@@ -339,7 +339,7 @@ struct InformationsView: View {
 
                                     }
                                     HStack {
-                                        if turnIndex > 0 && player.remainingScoresPerTurn[turnIndex] == player.remainingScoresPerTurn[turnIndex - 1] {
+                                        if turnIndex > 0 && player.remainingScoresPerTurn[turnIndex] == player.remainingScoresPerTurn[turnIndex - 1]  && turnSum > 0 {
                                             Text("BUST")
                                                 .fontWeight(.semibold)
                                                 .font(.system(size: 14))
