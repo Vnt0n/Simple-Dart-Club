@@ -317,24 +317,5 @@ class GameViewModel: ObservableObject {
         dismissEnterThrowScoreView = false
         gameHistory.removeAll()
     }
-    
-    func updateVictories() {
-        print("--------------------------------------------")
-        print("updateVictories FUNCTION")
-
-        // Identifier les joueurs gagnants
-        let winners = currentGame.players.filter {
-            if currentGame.isToggledDoubleOut {
-                return $0.remainingScore == 0 && $0.lastThrowWasDouble
-            } else {
-                return $0.remainingScore == 0
-            }
-        }
-        
-        // Mettre à jour les victoires dans l'historique
-        for _ in winners {
-            gameHistory.append(GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners))
-        }
-    }
 
 }
