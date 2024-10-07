@@ -158,7 +158,13 @@ struct InformationsView: View {
                                 self.counter = 1
                             }
                             isDismissForbidden = true
-                        }
+                            let _ = GameRecord(gameNumber: viewModel.gameCount, finalScores: viewModel.currentGame.players, winners: [winningPlayer])
+                            if !viewModel.victoryRecorded {
+                                 let record = GameRecord(gameNumber: viewModel.gameCount, finalScores: viewModel.currentGame.players, winners: [winningPlayer])
+                                 viewModel.gameHistory.append(record)
+                                 viewModel.victoryRecorded = true  // Met à jour le drapeau
+                             }
+                         }
                     
                     Button("New game") {
                         viewModel.endGame()

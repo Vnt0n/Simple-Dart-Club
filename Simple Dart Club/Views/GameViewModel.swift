@@ -48,6 +48,8 @@ class GameViewModel: ObservableObject {
     @Published var isTriple = [false, false, false]
     @Published var dismissEnterThrowScoreView: Bool = false
     @Published var tempRemainingScore: Int = 0
+    @Published var victoryRecorded: Bool = false  // Nouveau drapeau
+
     
     init(gameType: Int) {
         print("--------------------------------------------")
@@ -183,23 +185,22 @@ class GameViewModel: ObservableObject {
     func endGame() {
         print("--------------------------------------------")
         print("endGame FUNCTION")
-        let winners = currentGame.players.filter {
-            if currentGame.isToggledDoubleOut {
-                return $0.remainingScore == 0 && $0.lastThrowWasDouble
-            } else {
-                return $0.remainingScore == 0
+        
+        if !victoryRecorded {  // Vérifie si la victoire a déjà été enregistrée
+            let winners = currentGame.players.filter {
+                if currentGame.isToggledDoubleOut {
+                    return $0.remainingScore == 0 && $0.lastThrowWasDouble
+                } else {
+                    return $0.remainingScore == 0
+                }
             }
+
+            let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
+            gameHistory.append(record)
+            
+            victoryRecorded = true  // Met à jour le drapeau après enregistrement
         }
         
-        // Si une victoire a été comptée précédemment, on la retire
-        if let winner = winners.first {
-            if let index = gameHistory.firstIndex(where: { $0.winners.contains(where: { $0.name == winner.name }) }) {
-                gameHistory.remove(at: index) // Supprime la victoire de l'historique
-            }
-        }
-        
-        let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
-        gameHistory.append(record)
         resetForNextGame()
     }
 
@@ -235,6 +236,7 @@ class GameViewModel: ObservableObject {
         currentGame.currentTurn = 1
         currentPlayerIndex = (gameCount - 1) % currentGame.players.count
         currentGame.scoresThisTurn = 0
+        victoryRecorded = false
     }
 
     func resetThrowScores() {
