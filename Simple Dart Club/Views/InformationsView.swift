@@ -118,6 +118,7 @@ struct InformationsView: View {
                         Toggle("Prevent Sleep Mode", isOn: $preventSleepMode)
                             .onChange(of: preventSleepMode) { oldValue, newValue in
                                 UIApplication.shared.isIdleTimerDisabled = newValue
+                                UserDefaults.standard.set(newValue, forKey: "preventSleepMode")
                             }
                             .padding()
                             .frame(width: 200)
@@ -154,6 +155,10 @@ struct InformationsView: View {
         }
         .preferredColorScheme(.dark)
         .environment(\.locale, Locale(identifier: appLanguage))
+        .onAppear {
+            self.preventSleepMode = UserDefaults.standard.bool(forKey: "preventSleepMode")
+            UIApplication.shared.isIdleTimerDisabled = self.preventSleepMode
+        }
     }
     
     private var winningView: some View {
