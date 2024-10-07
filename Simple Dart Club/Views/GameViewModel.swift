@@ -317,5 +317,9 @@ class GameViewModel: ObservableObject {
         dismissEnterThrowScoreView = false
         gameHistory.removeAll()
     }
+    
+    func hasWinningPlayer() -> Bool {
+        return currentGame.players.contains { $0.remainingScore == 0 }
+    }
 
 }

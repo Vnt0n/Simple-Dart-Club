@@ -88,7 +88,7 @@ struct GameView: View {
                 
                 HStack {
                     
-                    if UIDevice.current.userInterfaceIdiom == .pad {
+                    if UIDevice.current.userInterfaceIdiom == .pad && !viewModel.hasWinningPlayer() {
                         InformationsView(viewModel: viewModel, navigateToFirstView: $navigateToFirstView)
                             .frame(width: 400)
                     }
