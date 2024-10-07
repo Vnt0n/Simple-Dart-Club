@@ -114,15 +114,17 @@ struct InformationsView: View {
                     .buttonStyle(PlainButtonStyle())
                     .accessibilityLabel("Return to Home screen")
 
-                    Toggle("Prevent Sleep Mode", isOn: $preventSleepMode)
-                        .onChange(of: preventSleepMode) { oldValue, newValue in
-                            UIApplication.shared.isIdleTimerDisabled = newValue
-                        }
-                        .padding()
-                        .frame(width: 200)
-                        .padding(.bottom, 10)
-                        .font(.system(size: 15))
-                        .accessibilityLabel("Prevent Sleep Mode")
+                    if winningPlayer == nil {
+                        Toggle("Prevent Sleep Mode", isOn: $preventSleepMode)
+                            .onChange(of: preventSleepMode) { oldValue, newValue in
+                                UIApplication.shared.isIdleTimerDisabled = newValue
+                            }
+                            .padding()
+                            .frame(width: 200)
+                            .padding(.bottom, 10)
+                            .font(.system(size: 15))
+                            .accessibilityLabel("Prevent Sleep Mode")
+                    }
 
                     Divider()
                     LogoView
@@ -173,9 +175,7 @@ struct InformationsView: View {
                         .foregroundColor(.blue)
                         .padding(.bottom, 25)
                         .onAppear {
-                            DispatchQueue.main.asyncAfter(deadline: .now()) {
-                                self.counter = 1
-                            }
+                            self.counter = 1
                             isDismissForbidden = true
                             let _ = GameRecord(gameNumber: viewModel.gameCount, finalScores: viewModel.currentGame.players, winners: [winningPlayer])
                             if !viewModel.victoryRecorded {
