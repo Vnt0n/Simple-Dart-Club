@@ -181,7 +181,6 @@ struct EnterThrowScoreView: View {
             if currentThrowIndex < 2 {
                 currentThrowIndex += 1
                 growEffect()
-                // Vérifier si le joueur a gagné après ce lancer
                 viewModel.checkScoreAfterThrow()
             } else {
                 viewModel.submitScores()

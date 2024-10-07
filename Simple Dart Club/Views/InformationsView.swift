@@ -81,9 +81,28 @@ struct InformationsView: View {
                     .accessibilityLabel("Change language")
 
                     Button(action: {
-                        viewModel.resetGame()
-                        dismiss()
-                        navigateToFirstView = true
+                        if winningPlayer != nil {
+                            if UIDevice.current.userInterfaceIdiom == .pad {
+                                dismiss()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    viewModel.resetGame()
+                                    navigateToFirstView = true
+                                }
+                            } else {
+                                viewModel.resetGame()
+                                navigateToFirstView = true
+                                dismiss()
+                            }
+                        } else {
+                            if UIDevice.current.userInterfaceIdiom == .pad {
+                                viewModel.resetGame()
+                                navigateToFirstView = true
+                            } else {
+                                viewModel.resetGame()
+                                navigateToFirstView = true
+                                dismiss()
+                            }
+                        }
                     }) {
                         Label {
                             Text("Return to Home screen")
@@ -162,7 +181,7 @@ struct InformationsView: View {
                             if !viewModel.victoryRecorded {
                                  let record = GameRecord(gameNumber: viewModel.gameCount, finalScores: viewModel.currentGame.players, winners: [winningPlayer])
                                  viewModel.gameHistory.append(record)
-                                 viewModel.victoryRecorded = true  // Met à jour le drapeau
+                                 viewModel.victoryRecorded = true
                              }
                          }
                     

@@ -48,7 +48,7 @@ class GameViewModel: ObservableObject {
     @Published var isTriple = [false, false, false]
     @Published var dismissEnterThrowScoreView: Bool = false
     @Published var tempRemainingScore: Int = 0
-    @Published var victoryRecorded: Bool = false  // Nouveau drapeau
+    @Published var victoryRecorded: Bool = false
 
     
     init(gameType: Int) {
@@ -186,7 +186,7 @@ class GameViewModel: ObservableObject {
         print("--------------------------------------------")
         print("endGame FUNCTION")
         
-        if !victoryRecorded {  // Vérifie si la victoire a déjà été enregistrée
+        if !victoryRecorded {
             let winners = currentGame.players.filter {
                 if currentGame.isToggledDoubleOut {
                     return $0.remainingScore == 0 && $0.lastThrowWasDouble
@@ -198,7 +198,7 @@ class GameViewModel: ObservableObject {
             let record = GameRecord(gameNumber: gameCount, finalScores: currentGame.players, winners: winners)
             gameHistory.append(record)
             
-            victoryRecorded = true  // Met à jour le drapeau après enregistrement
+            victoryRecorded = true
         }
         
         resetForNextGame()
@@ -209,7 +209,6 @@ class GameViewModel: ObservableObject {
         print("countVictories FUNCTION")
         var victories = [String: Int]()
         
-        // Ajout de tous les joueurs actuels avec une victoire par défaut à 0
         for player in currentGame.players {
             victories[player.name] = 0
         }
