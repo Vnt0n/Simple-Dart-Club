@@ -15,6 +15,8 @@ struct FirstView: View {
     @AppStorage("appLanguage") var appLanguage: String = Locale.preferredLanguages.first ?? "en"
     @State private var isShowingLanguageSetting = false
 
+    @State private var isLandscape = UIDevice.current.orientation.isLandscape
+
     var body: some View {
         GeometryReader { geometry in
             NavigationStack {
@@ -63,43 +65,46 @@ struct FirstView: View {
             .sheet(isPresented: $isShowingLanguageSetting) {
                 LanguageSettingView()
             }
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                    self.isLandscape = UIDevice.current.orientation.isLandscape
+                }
+            }
         }
         .environment(\.locale, Locale(identifier: appLanguage))
     }
 
     var dartClubText: some View {
         VStack {
-            
+            // Ajustement dynamique des tailles de police en fonction de l'orientation (uniquement iPad)
             Text("Dart   ")
                 .font(Font
-                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
-            .shadow(color: Color.red, radius: 15)
-            .foregroundColor(.red)
-            .multilineTextAlignment(.center)
-            .rotationEffect(Angle(degrees: 347))
-            .padding([.trailing], 40)
-            .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -50 : -20)
-            .padding(.top, focusedPlayerIndex != nil ? -40 : 0)
-            
+                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .padding([.trailing], 40)
+                .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -50 : -20)
+
             Text("Simple   ")
                 .font(Font
-                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20))
-            .shadow(color: Color.red, radius: 15)
-            .foregroundColor(.red)
-            .multilineTextAlignment(.center)
-            .rotationEffect(Angle(degrees: 347))
-            .padding([.trailing], 30)
-            
+                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 38 : (UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20)))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .padding([.trailing], 30)
+
             Text("Club   ")
                 .font(Font
-                    .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84))
-            .shadow(color: Color.red, radius: 15)
-            .foregroundColor(.red)
-            .multilineTextAlignment(.center)
-            .rotationEffect(Angle(degrees: 347))
-            .padding([.trailing], 40)
-            .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? -70 : -33)
-            
+                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
+                .shadow(color: Color.red, radius: 15)
+                .foregroundColor(.red)
+                .multilineTextAlignment(.center)
+                .rotationEffect(Angle(degrees: 347))
+                .padding([.trailing], 40)
+                .padding(.top, UIDevice.current.userInterfaceIdiom == .pad ? -70 : -33)
         }
         .transition(.opacity)
         .animation(.easeInOut(duration: 0.3), value: focusedPlayerIndex)
