@@ -2276,7 +2276,11 @@
         }
       }
     },
+    "V %@ | © 2024 A. Chosson" : {
+
+    },
     "V 1.0 | © 2024 A. Chosson" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

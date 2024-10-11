@@ -24,6 +24,10 @@ struct InformationsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    var appVersion: String {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+    }
+    
     private var winningPlayer: Player? {
             viewModel.currentGame.players.first(where: { $0.remainingScore == 0 })
         }
@@ -487,7 +491,7 @@ struct InformationsView: View {
                 .foregroundColor(.blue)
                 .padding(.bottom, 1)
             
-            Text("V 1.0 | © 2024 A. Chosson")
+            Text("V \(appVersion) | © 2024 A. Chosson")
                 .font(
                     .system(size: 10)
                 )
