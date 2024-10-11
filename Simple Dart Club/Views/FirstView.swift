@@ -271,6 +271,7 @@ struct FirstView: View {
                             .foregroundColor(.red)
                     }
                     .accessibilityLabel("Remove last player")
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
