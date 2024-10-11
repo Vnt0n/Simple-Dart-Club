@@ -490,7 +490,8 @@ struct InformationsView: View {
                 .bold()
                 .foregroundColor(.blue)
                 .padding(.bottom, 1)
-            
+                .buttonStyle(PlainButtonStyle())
+
             Text("V \(appVersion) | © 2024 A. Chosson")
                 .font(
                     .system(size: 10)
