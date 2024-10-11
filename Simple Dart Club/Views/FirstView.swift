@@ -79,7 +79,8 @@ struct FirstView: View {
             .rotationEffect(Angle(degrees: 347))
             .padding([.trailing], 40)
             .padding(.bottom, UIDevice.current.userInterfaceIdiom == .pad ? -50 : -20)
-        
+            .padding(.top, focusedPlayerIndex != nil ? -40 : 0)
+            
             Text("Simple   ")
                 .font(Font
                     .custom("FightThis", size: UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20))
@@ -101,6 +102,8 @@ struct FirstView: View {
             
         }
         .transition(.opacity)
+        .animation(.easeInOut(duration: 0.3), value: focusedPlayerIndex)
+
     }
 
     var mainContentVStack: some View {
