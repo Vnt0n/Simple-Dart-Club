@@ -15,8 +15,6 @@ struct FirstView: View {
     @AppStorage("appLanguage") var appLanguage: String = Locale.preferredLanguages.first ?? "en"
     @State private var isShowingLanguageSetting = false
 
-    @State private var isLandscape = UIDevice.current.orientation.isLandscape
-
     var body: some View {
         GeometryReader { geometry in
             NavigationStack {
@@ -65,21 +63,16 @@ struct FirstView: View {
             .sheet(isPresented: $isShowingLanguageSetting) {
                 LanguageSettingView()
             }
-            .onAppear {
-                NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
-                    self.isLandscape = UIDevice.current.orientation.isLandscape
-                }
-            }
         }
         .environment(\.locale, Locale(identifier: appLanguage))
     }
 
     var dartClubText: some View {
         VStack {
-            // Ajustement dynamique des tailles de police en fonction de l'orientation (uniquement iPad)
+            // Utilisation de focusedPlayerIndex pour ajuster la taille de la police
             Text("Dart   ")
                 .font(Font
-                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
+                    .custom("FightThis", size: focusedPlayerIndex != nil && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
                 .shadow(color: Color.red, radius: 15)
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
@@ -89,7 +82,7 @@ struct FirstView: View {
 
             Text("Simple   ")
                 .font(Font
-                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 38 : (UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20)))
+                    .custom("FightThis", size: focusedPlayerIndex != nil && UIDevice.current.userInterfaceIdiom == .pad ? 36 : (UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20)))
                 .shadow(color: Color.red, radius: 15)
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
@@ -98,7 +91,7 @@ struct FirstView: View {
 
             Text("Club   ")
                 .font(Font
-                    .custom("FightThis", size: isLandscape && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
+                    .custom("FightThis", size: focusedPlayerIndex != nil && UIDevice.current.userInterfaceIdiom == .pad ? 130 : (UIDevice.current.userInterfaceIdiom == .pad ? 145 : 84)))
                 .shadow(color: Color.red, radius: 15)
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
@@ -108,7 +101,6 @@ struct FirstView: View {
         }
         .transition(.opacity)
         .animation(.easeInOut(duration: 0.3), value: focusedPlayerIndex)
-
     }
 
     var mainContentVStack: some View {
