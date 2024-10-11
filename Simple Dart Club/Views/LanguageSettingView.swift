@@ -77,6 +77,7 @@ struct LanguageSettingView: View {
                     .cornerRadius(10)
             }
             .frame(maxWidth: .infinity, alignment: .center)
+            .buttonStyle(PlainButtonStyle())
         }
         .padding()
     }
