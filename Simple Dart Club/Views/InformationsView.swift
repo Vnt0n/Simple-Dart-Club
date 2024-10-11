@@ -485,7 +485,7 @@ struct InformationsView: View {
             Text("An app by")
                 .font(.system(size: 12).weight(.bold))
                            
-            Link("vnton.xyz", destination: URL(string: "https://vnton.xyz")!)
+            Link("vnton.xyz", destination: URL(string: "https://vnton.xyz/apps")!)
                 .font(.system(size: 15))
                 .bold()
                 .foregroundColor(.blue)
