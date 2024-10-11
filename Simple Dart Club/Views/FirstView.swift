@@ -126,7 +126,6 @@ struct FirstView: View {
                 HStack {
                     playerRemoveButton
                         .padding(.top, 15)
-                        .padding(.leading, 15)
                 }
             }
             
@@ -265,7 +264,7 @@ struct FirstView: View {
                         if viewModel.currentGame.players.count == 4 {
                             Text("Remove a player")
                                 .font(.system(size: 18))
-                                .foregroundColor(.red) // Affiche "Delete" en rouge pour 4 joueurs sur tous les appareils
+                                .foregroundColor(.red)
                         }
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 20))
