@@ -2,12 +2,12 @@
 <h1 align="center">Simple Dart Club (iPhone / iPad)</h1>
 
 <p align="center">
-  <a href="https://apps.apple.com/us/app/simple-dart-club/id6572311881">
+  <a href="https://apps.apple.com/us/app/simple-dart-club/id6572311881" target="blank">
     <img src="/Screenshots/Simple-Dart-Club_Icon.png" height="100">
   </a>
   <br>
   <br>
-  <a href="https://apps.apple.com/us/app/simple-dart-club/id6572311881">
+  <a href="https://apps.apple.com/us/app/simple-dart-club/id6572311881" target="blank">
     <img src="/Screenshots/Download_on_the_App_Store_Badge_US.png" width="150">
   </a>
 </p>
