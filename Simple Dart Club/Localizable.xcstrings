@@ -2055,7 +2055,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faire une ouvelle partie"
+            "value" : "Faire une nouvelle partie"
           }
         },
         "ja" : {
@@ -2278,41 +2278,6 @@
     },
     "V %@ | © 2024 A. Chosson" : {
 
-    },
-    "V 1.0 | © 2024 A. Chosson" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V 1.0 | © 2024 A. Chosson"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V 1.0 | © 2024 A. Chosson"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V 1.0 | © 2024 A. Chosson"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V 1.0 | © 2024 A. Chosson"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V 1.0 | © 2024 A. Chosson"
-          }
-        }
-      }
     },
     "vnton.xyz" : {
       "localizations" : {
